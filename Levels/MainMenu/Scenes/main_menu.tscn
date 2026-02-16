@@ -4,6 +4,7 @@
 [ext_resource type="FontFile" uid="uid://22nm7d6brli" path="res://Models/Fonts/Bitrimus.ttf" id="2_n7ggc"]
 [ext_resource type="Texture2D" uid="uid://dfqlnl7ts8qgc" path="res://Levels/MainMenu/PaginaLevel.png" id="3_d1bml"]
 [ext_resource type="Texture2D" uid="uid://cbn1ckle2s0o5" path="res://Levels/MainMenu/LevelCarimbo.png" id="4_6fwcj"]
+[ext_resource type="PackedScene" uid="uid://b5m061l6wav04" path="res://Levels/MainMenu/Scenes/b_level_1.tscn" id="4_n7ggc"]
 [ext_resource type="FontFile" uid="uid://cxkgi55cpw22q" path="res://Models/Fonts/DummyText.ttf" id="5_4frkg"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jy27m"]
@@ -22,13 +23,12 @@ font_size = 32
 font = ExtResource("2_n7ggc")
 font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_5qvx8"]
+[sub_resource type="LabelSettings" id="LabelSettings_n7ggc"]
 font = ExtResource("2_n7ggc")
-font_color = Color(18.892157, 18.892157, 18.892157, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_hllw6"]
-font = ExtResource("2_n7ggc")
-font_color = Color(3.080368e-06, 0.9180727, 0.29239914, 1)
+font_color = Color(1, 1, 1, 0)
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 0
+shadow_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_qor8d"]
 line_spacing = 0.0
@@ -172,110 +172,21 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 alignment = 1
 
-[node name="BLevel1" type="TextureButton" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1"]
+[node name="BLevel1" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1" instance=ExtResource("4_n7ggc")]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-texture_normal = ExtResource("4_6fwcj")
 
-[node name="Label" type="Label" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1/BLevel1"]
-layout_mode = 0
-offset_left = 1.0
-offset_top = 1.0
-offset_right = 63.0
-offset_bottom = 16.0
-text = "Level 1"
-label_settings = SubResource("LabelSettings_5qvx8")
-
-[node name="ColorRect" type="ColorRect" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1/BLevel1"]
-layout_mode = 0
-offset_left = 1.0
-offset_top = 15.0
-offset_right = 63.0
-offset_bottom = 16.0
-color = Color(0.13333334, 0.1254902, 0.20392157, 1)
-
-[node name="Carimbado" type="Label" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1/BLevel1"]
-visible = false
-layout_mode = 0
-offset_left = 1.0
-offset_top = 16.0
-offset_right = 63.0
-offset_bottom = 31.0
-text = "OK!"
-label_settings = SubResource("LabelSettings_hllw6")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="BLevel2" type="TextureButton" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1"]
+[node name="BLevel2" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1" instance=ExtResource("4_n7ggc")]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-texture_normal = ExtResource("4_6fwcj")
 
-[node name="Label" type="Label" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1/BLevel2"]
-layout_mode = 0
-offset_left = 1.0
-offset_top = 1.0
-offset_right = 63.0
-offset_bottom = 16.0
+[node name="Carimbado" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1/BLevel2" index="0"]
 text = "Level 2"
-label_settings = SubResource("LabelSettings_5qvx8")
+label_settings = SubResource("LabelSettings_n7ggc")
 
-[node name="ColorRect" type="ColorRect" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1/BLevel2"]
-layout_mode = 0
-offset_left = 1.0
-offset_top = 15.0
-offset_right = 63.0
-offset_bottom = 16.0
-color = Color(0.13333334, 0.1254902, 0.20392157, 1)
-
-[node name="Carimbado" type="Label" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1/BLevel2"]
-visible = false
-layout_mode = 0
-offset_left = 1.0
-offset_top = 16.0
-offset_right = 63.0
-offset_bottom = 31.0
-text = "OK!"
-label_settings = SubResource("LabelSettings_hllw6")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="BLevel3" type="TextureButton" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1"]
+[node name="BLevel3" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1" instance=ExtResource("4_n7ggc")]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-texture_normal = ExtResource("4_6fwcj")
 
-[node name="Label" type="Label" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1/BLevel3"]
-layout_mode = 0
-offset_left = 1.0
-offset_top = 1.0
-offset_right = 63.0
-offset_bottom = 16.0
-text = "Level 3"
-label_settings = SubResource("LabelSettings_5qvx8")
-
-[node name="ColorRect" type="ColorRect" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1/BLevel3"]
-layout_mode = 0
-offset_left = 1.0
-offset_top = 15.0
-offset_right = 63.0
-offset_bottom = 16.0
-color = Color(0.13333334, 0.1254902, 0.20392157, 1)
-
-[node name="Carimbado" type="Label" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1/BLevel3"]
-visible = false
-layout_mode = 0
-offset_left = 1.0
-offset_top = 16.0
-offset_right = 63.0
-offset_bottom = 31.0
-text = "OK!"
-label_settings = SubResource("LabelSettings_hllw6")
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="Carimbado" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1/BLevel3" index="0"]
+label_settings = SubResource("LabelSettings_n7ggc")
 
 [node name="Row2" type="HBoxContainer" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer"]
 layout_mode = 2
@@ -283,113 +194,23 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 alignment = 1
 
-[node name="BLevel4" type="TextureButton" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2"]
+[node name="BLevel4" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2" instance=ExtResource("4_n7ggc")]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-texture_normal = ExtResource("4_6fwcj")
 
-[node name="Label" type="Label" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2/BLevel4"]
-layout_mode = 0
-offset_left = 1.0
-offset_top = 1.0
-offset_right = 63.0
-offset_bottom = 16.0
-text = "Level 4
-"
-label_settings = SubResource("LabelSettings_5qvx8")
+[node name="Carimbado" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2/BLevel4" index="0"]
+label_settings = SubResource("LabelSettings_n7ggc")
 
-[node name="ColorRect" type="ColorRect" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2/BLevel4"]
-layout_mode = 0
-offset_left = 1.0
-offset_top = 15.0
-offset_right = 63.0
-offset_bottom = 16.0
-color = Color(0.13333334, 0.1254902, 0.20392157, 1)
-
-[node name="Carimbado" type="Label" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2/BLevel4"]
-visible = false
-layout_mode = 0
-offset_left = 1.0
-offset_top = 16.0
-offset_right = 63.0
-offset_bottom = 31.0
-text = "OK!"
-label_settings = SubResource("LabelSettings_hllw6")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="BLevel5" type="TextureButton" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2"]
+[node name="BLevel5" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2" instance=ExtResource("4_n7ggc")]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-texture_normal = ExtResource("4_6fwcj")
 
-[node name="Label" type="Label" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2/BLevel5"]
-layout_mode = 0
-offset_left = 1.0
-offset_top = 1.0
-offset_right = 63.0
-offset_bottom = 16.0
-text = "Level 5
-"
-label_settings = SubResource("LabelSettings_5qvx8")
+[node name="Carimbado" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2/BLevel5" index="0"]
+label_settings = SubResource("LabelSettings_n7ggc")
 
-[node name="ColorRect" type="ColorRect" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2/BLevel5"]
-layout_mode = 0
-offset_left = 1.0
-offset_top = 15.0
-offset_right = 63.0
-offset_bottom = 16.0
-color = Color(0.13333334, 0.1254902, 0.20392157, 1)
-
-[node name="Carimbado" type="Label" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2/BLevel5"]
-visible = false
-layout_mode = 0
-offset_left = 1.0
-offset_top = 16.0
-offset_right = 63.0
-offset_bottom = 31.0
-text = "OK!"
-label_settings = SubResource("LabelSettings_hllw6")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="BLevel6" type="TextureButton" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2"]
+[node name="BLevel6" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2" instance=ExtResource("4_n7ggc")]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-texture_normal = ExtResource("4_6fwcj")
 
-[node name="Label" type="Label" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2/BLevel6"]
-layout_mode = 0
-offset_left = 1.0
-offset_top = 1.0
-offset_right = 63.0
-offset_bottom = 16.0
-text = "Level 6
-"
-label_settings = SubResource("LabelSettings_5qvx8")
-
-[node name="ColorRect" type="ColorRect" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2/BLevel6"]
-layout_mode = 0
-offset_left = 1.0
-offset_top = 15.0
-offset_right = 63.0
-offset_bottom = 16.0
-color = Color(0.13333334, 0.1254902, 0.20392157, 1)
-
-[node name="Carimbado" type="Label" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2/BLevel6"]
-visible = false
-layout_mode = 0
-offset_left = 1.0
-offset_top = 16.0
-offset_right = 63.0
-offset_bottom = 31.0
-text = "OK!"
-label_settings = SubResource("LabelSettings_hllw6")
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="Carimbado" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2/BLevel6" index="0"]
+label_settings = SubResource("LabelSettings_n7ggc")
 
 [node name="Confirmation" type="VBoxContainer" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer"]
 layout_mode = 2
@@ -430,5 +251,13 @@ horizontal_alignment = 2
 [node name="Control" type="Control" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Confirmation"]
 layout_mode = 2
 
-[connection signal="button_up" from="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1/BLevel1" to="Screen" method="ButtomUp_LevelWasSelected" binds= [1]]
+[connection signal="button_up" from="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1/BLevel1/BLevel" to="Screen" method="ButtomUp_LevelWasSelected" binds= [1, NodePath("HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1/BLevel1")]]
+[connection signal="button_up" from="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1/BLevel2/BLevel" to="Screen" method="ButtomUp_LevelWasSelected" binds= [2, NodePath("..")]]
 [connection signal="button_up" from="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Confirmation/HBoxContainer/BConfirm" to="Screen" method="ButtomUp_LevelConfirm"]
+
+[editable path="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1/BLevel1"]
+[editable path="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1/BLevel2"]
+[editable path="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1/BLevel3"]
+[editable path="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2/BLevel4"]
+[editable path="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2/BLevel5"]
+[editable path="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2/BLevel6"]
