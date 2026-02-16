@@ -431,3 +431,4 @@ horizontal_alignment = 2
 layout_mode = 2
 
 [connection signal="button_up" from="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1/BLevel1" to="Screen" method="ButtomUp_LevelWasSelected" binds= [1]]
+[connection signal="button_up" from="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Confirmation/HBoxContainer/BConfirm" to="Screen" method="ButtomUp_LevelConfirm"]

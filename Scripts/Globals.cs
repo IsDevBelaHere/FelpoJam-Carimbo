@@ -12,9 +12,9 @@ public enum Levels
     level_5,
     level_6
 }
-class Globals
+public class Globals
 {
-    Dictionary<Levels, string> LevelsToScene = new Dictionary<Levels, string>{
-        {Levels.level_1,"a"},
+    public static Dictionary<Levels, string> LevelsToScene = new Dictionary<Levels, string>{
+        {Levels.level_1,"res://Levels/Level_debug/Scenes/main.tscn"},
     };
 }

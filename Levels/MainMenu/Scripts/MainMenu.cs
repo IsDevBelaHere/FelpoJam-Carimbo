@@ -16,6 +16,6 @@ public partial class MainMenu : MarginContainer
 			return;
 		}
 
-		
+		GetTree().ChangeSceneToFile(Globals.LevelsToScene[levelSelected]);
 	}
 }
