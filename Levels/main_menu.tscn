@@ -1,0 +1,429 @@
+[gd_scene load_steps=11 format=3 uid="uid://deluxceh5ahtu"]
+
+[ext_resource type="FontFile" uid="uid://22nm7d6brli" path="res://Models/Fonts/Bitrimus.ttf" id="1_6ucrw"]
+[ext_resource type="Texture2D" uid="uid://dfqlnl7ts8qgc" path="res://Models/Menu/PaginaLevel.png" id="2_3es34"]
+[ext_resource type="Texture2D" uid="uid://cbn1ckle2s0o5" path="res://Models/Menu/LevelCarimbo.png" id="3_8md67"]
+[ext_resource type="FontFile" uid="uid://cxkgi55cpw22q" path="res://Models/Fonts/DummyText.ttf" id="4_8md67"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jy27m"]
+font = ExtResource("1_6ucrw")
+font_size = 96
+font_color = Color(0, 0, 0, 1)
+shadow_size = 4
+shadow_color = Color(18.892157, 18.892157, 18.892157, 1)
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3es34"]
+font = ExtResource("1_6ucrw")
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_15p6s"]
+font = ExtResource("1_6ucrw")
+font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5qvx8"]
+font = ExtResource("1_6ucrw")
+font_color = Color(18.892157, 18.892157, 18.892157, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hllw6"]
+font = ExtResource("1_6ucrw")
+font_color = Color(3.080368e-06, 0.9180727, 0.29239914, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qor8d"]
+line_spacing = 0.0
+font = ExtResource("4_8md67")
+font_size = 5
+font_color = Color(0, 0, 0, 1)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Screen" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Screen"]
+layout_mode = 2
+
+[node name="LeftBottom" type="MarginContainer" parent="Screen/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Menu" type="MarginContainer" parent="Screen/HBoxContainer/LeftBottom"]
+custom_minimum_size = Vector2(256, 320)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Screen/HBoxContainer/LeftBottom/Menu"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Screen/HBoxContainer/LeftBottom/Menu/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Control" type="Control" parent="Screen/HBoxContainer/LeftBottom/Menu/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="GameTitle" type="Label" parent="Screen/HBoxContainer/LeftBottom/Menu/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Karimbo"
+label_settings = SubResource("LabelSettings_jy27m")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MenuButtons" type="HBoxContainer" parent="Screen/HBoxContainer/LeftBottom/Menu/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="Control" type="Control" parent="Screen/HBoxContainer/LeftBottom/Menu/VBoxContainer/MenuButtons"]
+layout_mode = 2
+
+[node name="Buttons" type="VBoxContainer" parent="Screen/HBoxContainer/LeftBottom/Menu/VBoxContainer/MenuButtons"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="PlayButton" type="Button" parent="Screen/HBoxContainer/LeftBottom/Menu/VBoxContainer/MenuButtons/Buttons"]
+custom_minimum_size = Vector2(128, 32)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+text = "
+"
+
+[node name="Label" type="Label" parent="Screen/HBoxContainer/LeftBottom/Menu/VBoxContainer/MenuButtons/Buttons/PlayButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Jogar"
+label_settings = SubResource("LabelSettings_3es34")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Right Middle" type="MarginContainer" parent="Screen/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="Menu" type="MarginContainer" parent="Screen/HBoxContainer/Right Middle"]
+custom_minimum_size = Vector2(256, 320)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="Screen/HBoxContainer/Right Middle/Menu"]
+layout_mode = 2
+texture = ExtResource("2_3es34")
+
+[node name="MarginContainer" type="MarginContainer" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer"]
+custom_minimum_size = Vector2(242, 306)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Selection" type="VBoxContainer" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection"]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+size_flags_vertical = 1
+text = "    Por meio deste contrato você devera carimbar o level desejado para seleciona-lo.
+    Após selecionar o nivel desajado, porfavor assine com seu carimbo o campo em branco do documento para confirmar sua seleção."
+label_settings = SubResource("LabelSettings_15p6s")
+autowrap_mode = 3
+
+[node name="Control" type="Control" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection"]
+layout_mode = 2
+
+[node name="Row1" type="HBoxContainer" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="BLevel1" type="TextureButton" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture_normal = ExtResource("3_8md67")
+
+[node name="Label" type="Label" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1/BLevel1"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 63.0
+offset_bottom = 16.0
+text = "Level 1"
+label_settings = SubResource("LabelSettings_5qvx8")
+
+[node name="ColorRect" type="ColorRect" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1/BLevel1"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 15.0
+offset_right = 63.0
+offset_bottom = 16.0
+color = Color(0.13333334, 0.1254902, 0.20392157, 1)
+
+[node name="Carimbado" type="Label" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1/BLevel1"]
+visible = false
+layout_mode = 0
+offset_left = 1.0
+offset_top = 16.0
+offset_right = 63.0
+offset_bottom = 31.0
+text = "OK!"
+label_settings = SubResource("LabelSettings_hllw6")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BLevel2" type="TextureButton" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture_normal = ExtResource("3_8md67")
+
+[node name="Label" type="Label" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1/BLevel2"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 63.0
+offset_bottom = 16.0
+text = "Level 2"
+label_settings = SubResource("LabelSettings_5qvx8")
+
+[node name="ColorRect" type="ColorRect" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1/BLevel2"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 15.0
+offset_right = 63.0
+offset_bottom = 16.0
+color = Color(0.13333334, 0.1254902, 0.20392157, 1)
+
+[node name="Carimbado" type="Label" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1/BLevel2"]
+visible = false
+layout_mode = 0
+offset_left = 1.0
+offset_top = 16.0
+offset_right = 63.0
+offset_bottom = 31.0
+text = "OK!"
+label_settings = SubResource("LabelSettings_hllw6")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BLevel3" type="TextureButton" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture_normal = ExtResource("3_8md67")
+
+[node name="Label" type="Label" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1/BLevel3"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 63.0
+offset_bottom = 16.0
+text = "Level 3"
+label_settings = SubResource("LabelSettings_5qvx8")
+
+[node name="ColorRect" type="ColorRect" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1/BLevel3"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 15.0
+offset_right = 63.0
+offset_bottom = 16.0
+color = Color(0.13333334, 0.1254902, 0.20392157, 1)
+
+[node name="Carimbado" type="Label" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1/BLevel3"]
+visible = false
+layout_mode = 0
+offset_left = 1.0
+offset_top = 16.0
+offset_right = 63.0
+offset_bottom = 31.0
+text = "OK!"
+label_settings = SubResource("LabelSettings_hllw6")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Row2" type="HBoxContainer" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="BLevel4" type="TextureButton" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture_normal = ExtResource("3_8md67")
+
+[node name="Label" type="Label" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2/BLevel4"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 63.0
+offset_bottom = 16.0
+text = "Level 4
+"
+label_settings = SubResource("LabelSettings_5qvx8")
+
+[node name="ColorRect" type="ColorRect" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2/BLevel4"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 15.0
+offset_right = 63.0
+offset_bottom = 16.0
+color = Color(0.13333334, 0.1254902, 0.20392157, 1)
+
+[node name="Carimbado" type="Label" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2/BLevel4"]
+visible = false
+layout_mode = 0
+offset_left = 1.0
+offset_top = 16.0
+offset_right = 63.0
+offset_bottom = 31.0
+text = "OK!"
+label_settings = SubResource("LabelSettings_hllw6")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BLevel5" type="TextureButton" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture_normal = ExtResource("3_8md67")
+
+[node name="Label" type="Label" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2/BLevel5"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 63.0
+offset_bottom = 16.0
+text = "Level 5
+"
+label_settings = SubResource("LabelSettings_5qvx8")
+
+[node name="ColorRect" type="ColorRect" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2/BLevel5"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 15.0
+offset_right = 63.0
+offset_bottom = 16.0
+color = Color(0.13333334, 0.1254902, 0.20392157, 1)
+
+[node name="Carimbado" type="Label" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2/BLevel5"]
+visible = false
+layout_mode = 0
+offset_left = 1.0
+offset_top = 16.0
+offset_right = 63.0
+offset_bottom = 31.0
+text = "OK!"
+label_settings = SubResource("LabelSettings_hllw6")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BLevel6" type="TextureButton" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture_normal = ExtResource("3_8md67")
+
+[node name="Label" type="Label" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2/BLevel6"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 63.0
+offset_bottom = 16.0
+text = "Level 6
+"
+label_settings = SubResource("LabelSettings_5qvx8")
+
+[node name="ColorRect" type="ColorRect" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2/BLevel6"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 15.0
+offset_right = 63.0
+offset_bottom = 16.0
+color = Color(0.13333334, 0.1254902, 0.20392157, 1)
+
+[node name="Carimbado" type="Label" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2/BLevel6"]
+visible = false
+layout_mode = 0
+offset_left = 1.0
+offset_top = 16.0
+offset_right = 63.0
+offset_bottom = 31.0
+text = "OK!"
+label_settings = SubResource("LabelSettings_hllw6")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Confirmation" type="VBoxContainer" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Confirmation"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Confirmation/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "aaaaaaaaaaaaa aaa aaaaa aaaaaa
+aaaaaa aaa aaaaa aaaaaaaa a
+vugnaes sreo asdas aaasd aaaa 
+asdadssa asdddasdasd asdsss 
+asdaddd ddddddda asd asddds"
+label_settings = SubResource("LabelSettings_qor8d")
+
+[node name="BConfirm" type="TextureButton" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Confirmation/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("3_8md67")
+
+[node name="Label2" type="Label" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Confirmation/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "aaaaaaaaaaaaa aaa aaaaa aaaaaa
+aaaaaa aaa aaaaa aaaaaaaa a
+vugnaes sreo asdas aaasd aaaa 
+asdadssa asdddasdasd asdsss 
+asdaddd ddddddda asd asddds"
+label_settings = SubResource("LabelSettings_qor8d")
+horizontal_alignment = 2
+
+[node name="Control" type="Control" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Confirmation"]
+layout_mode = 2
