@@ -1,14 +1,14 @@
 [gd_scene load_steps=7 format=3 uid="uid://bjgx0mn6fma2v"]
 
-[ext_resource type="Script" uid="uid://bhcl2dccio6bv" path="res://Scripts/Player.cs" id="1_cko2x"]
-[ext_resource type="Texture2D" uid="uid://duaeih28r35hw" path="res://Entities/Player/PlayerPlaceholder.png" id="1_vyvq2"]
+[ext_resource type="Script" uid="uid://bhcl2dccio6bv" path="res://Entities/Player/Scripts/Player.cs" id="1_psage"]
+[ext_resource type="Texture2D" uid="uid://duaeih28r35hw" path="res://Entities/Player/PlayerPlaceholder.png" id="2_k7g64"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_onrkg"]
-atlas = ExtResource("1_vyvq2")
+atlas = ExtResource("2_k7g64")
 region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i3pqv"]
-atlas = ExtResource("1_vyvq2")
+atlas = ExtResource("2_k7g64")
 region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hqtel"]
@@ -35,7 +35,7 @@ size = Vector2(16, 16)
 
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(3, 3)
-script = ExtResource("1_cko2x")
+script = ExtResource("1_psage")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

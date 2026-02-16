@@ -1,0 +1,6 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://ddps8kvbkf12t"]
+
+[ext_resource type="Script" uid="uid://t55khncqybe5" path="res://Entities/Karimbos/Scripts/CarimboSwap.cs" id="1_lhw0o"]
+
+[resource]
+script = ExtResource("1_lhw0o")
