@@ -40,6 +40,7 @@ mouse_1={
 [physics]
 
 2d/default_gravity=420.0
+2d/default_gravity_vector=Vector2(0, 3)
 
 [rendering]
 

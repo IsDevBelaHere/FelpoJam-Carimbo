@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cv0pwckytk6b6"]
+[gd_scene load_steps=8 format=3 uid="uid://cv0pwckytk6b6"]
 
 [ext_resource type="Texture2D" uid="uid://tmnv5ol7xqqv" path="res://Levels/LevelBackground.png" id="1_emgdg"]
 [ext_resource type="FontFile" uid="uid://cxkgi55cpw22q" path="res://Models/Fonts/DummyText.ttf" id="2_2tg0b"]
+[ext_resource type="PackedScene" uid="uid://bjgx0mn6fma2v" path="res://Entities/Player/Scenes/player.tscn" id="3_2tg0b"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jppi2"]
 font = ExtResource("2_2tg0b")
@@ -19,14 +20,16 @@ size = Vector2(114, 32)
 
 [node name="Level1" type="Node2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(259, 197)
+[node name="World" type="Node2D" parent="."]
+position = Vector2(269, 179)
+
+[node name="Map" type="Sprite2D" parent="World"]
 texture = ExtResource("1_emgdg")
 
-[node name="Plataform" type="StaticBody2D" parent="."]
-position = Vector2(8, 234)
+[node name="Plataform" type="StaticBody2D" parent="World"]
+position = Vector2(-252, 46)
 
-[node name="Label" type="Label" parent="Plataform"]
+[node name="Label" type="Label" parent="World/Plataform"]
 offset_right = 171.0
 offset_bottom = 41.0
 size_flags_horizontal = 4
@@ -34,14 +37,14 @@ text = "vugnaes sreo asd aa aa
 asdasdd asddd"
 label_settings = SubResource("LabelSettings_jppi2")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataform"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Plataform"]
 position = Vector2(43, 11)
 shape = SubResource("RectangleShape2D_tlak8")
 
-[node name="Plataform3" type="StaticBody2D" parent="."]
-position = Vector2(197, 269)
+[node name="Plataform3" type="StaticBody2D" parent="World"]
+position = Vector2(-63, 81)
 
-[node name="Label" type="Label" parent="Plataform3"]
+[node name="Label" type="Label" parent="World/Plataform3"]
 offset_left = -42.0
 offset_top = -2.0
 offset_right = 129.0
@@ -52,14 +55,14 @@ asdasdd asddd"
 label_settings = SubResource("LabelSettings_jppi2")
 horizontal_alignment = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataform3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Plataform3"]
 position = Vector2(43, 9.5)
 shape = SubResource("RectangleShape2D_rscqj")
 
-[node name="Plataform2" type="StaticBody2D" parent="."]
-position = Vector2(412, 311)
+[node name="Plataform2" type="StaticBody2D" parent="World"]
+position = Vector2(152, 123)
 
-[node name="Label" type="Label" parent="Plataform2"]
+[node name="Label" type="Label" parent="World/Plataform2"]
 offset_left = -42.0
 offset_top = -2.0
 offset_right = 129.0
@@ -71,6 +74,10 @@ aaaaa aaaaa aaaa aaaaaa"
 label_settings = SubResource("LabelSettings_jppi2")
 horizontal_alignment = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataform2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Plataform2"]
 position = Vector2(43, 16)
 shape = SubResource("RectangleShape2D_ppnqt")
+
+[node name="Player" parent="World" instance=ExtResource("3_2tg0b")]
+position = Vector2(-224, 38)
+scale = Vector2(1, 1)
