@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cbn1ckle2s0o5"
-path="res://.godot/imported/LevelCarimbo.png-d9a3aec4662a51b298a3b083c0cef6e0.ctex"
+uid="uid://duaeih28r35hw"
+path="res://.godot/imported/PlayerPlaceholder.png-fcbd61f7aaa6a58c8d4b66b5bafc9894.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Models/Menu/LevelCarimbo.png"
-dest_files=["res://.godot/imported/LevelCarimbo.png-d9a3aec4662a51b298a3b083c0cef6e0.ctex"]
+source_file="res://Entities/Player/PlayerPlaceholder.png"
+dest_files=["res://.godot/imported/PlayerPlaceholder.png-fcbd61f7aaa6a58c8d4b66b5bafc9894.ctex"]
 
 [params]
 

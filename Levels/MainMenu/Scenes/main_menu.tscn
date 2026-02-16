@@ -1,12 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://deluxceh5ahtu"]
+[gd_scene load_steps=12 format=3 uid="uid://deluxceh5ahtu"]
 
-[ext_resource type="FontFile" uid="uid://22nm7d6brli" path="res://Models/Fonts/Bitrimus.ttf" id="1_6ucrw"]
-[ext_resource type="Texture2D" uid="uid://dfqlnl7ts8qgc" path="res://Models/Menu/PaginaLevel.png" id="2_3es34"]
-[ext_resource type="Texture2D" uid="uid://cbn1ckle2s0o5" path="res://Models/Menu/LevelCarimbo.png" id="3_8md67"]
-[ext_resource type="FontFile" uid="uid://cxkgi55cpw22q" path="res://Models/Fonts/DummyText.ttf" id="4_8md67"]
+[ext_resource type="Script" uid="uid://c6nbucx3nstcr" path="res://Levels/MainMenu/Scripts/MainMenu.cs" id="1_i7ovf"]
+[ext_resource type="FontFile" uid="uid://22nm7d6brli" path="res://Models/Fonts/Bitrimus.ttf" id="2_n7ggc"]
+[ext_resource type="Texture2D" uid="uid://dfqlnl7ts8qgc" path="res://Levels/MainMenu/PaginaLevel.png" id="3_d1bml"]
+[ext_resource type="Texture2D" uid="uid://cbn1ckle2s0o5" path="res://Levels/MainMenu/LevelCarimbo.png" id="4_6fwcj"]
+[ext_resource type="FontFile" uid="uid://cxkgi55cpw22q" path="res://Models/Fonts/DummyText.ttf" id="5_4frkg"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jy27m"]
-font = ExtResource("1_6ucrw")
+font = ExtResource("2_n7ggc")
 font_size = 96
 font_color = Color(0, 0, 0, 1)
 shadow_size = 4
@@ -14,24 +15,24 @@ shadow_color = Color(18.892157, 18.892157, 18.892157, 1)
 shadow_offset = Vector2(0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_3es34"]
-font = ExtResource("1_6ucrw")
+font = ExtResource("2_n7ggc")
 font_size = 32
 
 [sub_resource type="LabelSettings" id="LabelSettings_15p6s"]
-font = ExtResource("1_6ucrw")
+font = ExtResource("2_n7ggc")
 font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_5qvx8"]
-font = ExtResource("1_6ucrw")
+font = ExtResource("2_n7ggc")
 font_color = Color(18.892157, 18.892157, 18.892157, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_hllw6"]
-font = ExtResource("1_6ucrw")
+font = ExtResource("2_n7ggc")
 font_color = Color(3.080368e-06, 0.9180727, 0.29239914, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_qor8d"]
 line_spacing = 0.0
-font = ExtResource("4_8md67")
+font = ExtResource("5_4frkg")
 font_size = 5
 font_color = Color(0, 0, 0, 1)
 
@@ -50,6 +51,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_i7ovf")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Screen"]
 layout_mode = 2
@@ -129,7 +131,7 @@ size_flags_vertical = 4
 
 [node name="TextureRect" type="TextureRect" parent="Screen/HBoxContainer/Right Middle/Menu"]
 layout_mode = 2
-texture = ExtResource("2_3es34")
+texture = ExtResource("3_d1bml")
 
 [node name="MarginContainer" type="MarginContainer" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect"]
 layout_mode = 1
@@ -174,7 +176,7 @@ alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
-texture_normal = ExtResource("3_8md67")
+texture_normal = ExtResource("4_6fwcj")
 
 [node name="Label" type="Label" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1/BLevel1"]
 layout_mode = 0
@@ -209,7 +211,7 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
-texture_normal = ExtResource("3_8md67")
+texture_normal = ExtResource("4_6fwcj")
 
 [node name="Label" type="Label" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1/BLevel2"]
 layout_mode = 0
@@ -244,7 +246,7 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
-texture_normal = ExtResource("3_8md67")
+texture_normal = ExtResource("4_6fwcj")
 
 [node name="Label" type="Label" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1/BLevel3"]
 layout_mode = 0
@@ -285,7 +287,7 @@ alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
-texture_normal = ExtResource("3_8md67")
+texture_normal = ExtResource("4_6fwcj")
 
 [node name="Label" type="Label" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2/BLevel4"]
 layout_mode = 0
@@ -321,7 +323,7 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
-texture_normal = ExtResource("3_8md67")
+texture_normal = ExtResource("4_6fwcj")
 
 [node name="Label" type="Label" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2/BLevel5"]
 layout_mode = 0
@@ -357,7 +359,7 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
-texture_normal = ExtResource("3_8md67")
+texture_normal = ExtResource("4_6fwcj")
 
 [node name="Label" type="Label" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2/BLevel6"]
 layout_mode = 0
@@ -412,7 +414,7 @@ label_settings = SubResource("LabelSettings_qor8d")
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture_normal = ExtResource("3_8md67")
+texture_normal = ExtResource("4_6fwcj")
 
 [node name="Label2" type="Label" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Confirmation/HBoxContainer"]
 layout_mode = 2
@@ -427,3 +429,5 @@ horizontal_alignment = 2
 
 [node name="Control" type="Control" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Confirmation"]
 layout_mode = 2
+
+[connection signal="button_up" from="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1/BLevel1" to="Screen" method="ButtomUp_LevelWasSelected" binds= [1]]
