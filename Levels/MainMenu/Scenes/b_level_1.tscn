@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://b5m061l6wav04"]
+
+[ext_resource type="Texture2D" uid="uid://cbn1ckle2s0o5" path="res://Levels/MainMenu/LevelCarimbo.png" id="1_rprqy"]
+[ext_resource type="Script" uid="uid://c0li4p6qsjsce" path="res://Levels/MainMenu/Scripts/BLevelBehaviour.cs" id="2_vs7qb"]
+[ext_resource type="FontFile" uid="uid://22nm7d6brli" path="res://Models/Fonts/Bitrimus.ttf" id="3_gjys4"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5qvx8"]
+font = ExtResource("3_gjys4")
+font_color = Color(1, 1, 1, 0)
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 0
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="BLevel1" type="TextureRect"]
+texture = ExtResource("1_rprqy")
+script = ExtResource("2_vs7qb")
+
+[node name="Carimbado" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.0
+offset_top = -15.0
+offset_right = 31.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Level 1"
+label_settings = SubResource("LabelSettings_5qvx8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BLevel" type="TextureButton" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("1_rprqy")
