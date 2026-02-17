@@ -1,10 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://cv0pwckytk6b6"]
+[gd_scene load_steps=14 format=3 uid="uid://cv0pwckytk6b6"]
 
 [ext_resource type="Texture2D" uid="uid://tmnv5ol7xqqv" path="res://Levels/LevelBackground.png" id="1_emgdg"]
 [ext_resource type="FontFile" uid="uid://cxkgi55cpw22q" path="res://Models/Fonts/DummyText.ttf" id="2_2tg0b"]
 [ext_resource type="PackedScene" uid="uid://bjgx0mn6fma2v" path="res://Entities/Player/Scenes/player.tscn" id="3_2tg0b"]
 [ext_resource type="Texture2D" uid="uid://cbn1ckle2s0o5" path="res://Levels/MainMenu/LevelCarimbo.png" id="4_tlak8"]
 [ext_resource type="FontFile" uid="uid://22nm7d6brli" path="res://Models/Fonts/Bitrimus.ttf" id="5_rscqj"]
+[ext_resource type="PackedScene" uid="uid://cb63wd1ak7qlj" path="res://Entities/Player/Scenes/carimbos_slot_bar.tscn" id="6_ppnqt"]
+[ext_resource type="Resource" uid="uid://cy2rjw2igf28x" path="res://Entities/Karimbos/Resources/CarimboBoost.tres" id="7_ppnqt"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jppi2"]
 font = ExtResource("2_2tg0b")
@@ -115,172 +117,5 @@ scale = Vector2(1, 1)
 [node name="Carimbos" type="Node2D" parent="."]
 position = Vector2(269, 179)
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 640.0
-offset_bottom = 360.0
-
-[node name="Screen" type="MarginContainer" parent="Control"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Right" type="MarginContainer" parent="Control/Screen"]
-layout_mode = 2
-size_flags_horizontal = 8
-
-[node name="KarimboSelector" type="MarginContainer" parent="Control/Screen/Right"]
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/Screen/Right/KarimboSelector"]
-layout_mode = 2
-theme_override_constants/separation = 14
-
-[node name="SelectorContainer" type="MarginContainer" parent="Control/Screen/Right/KarimboSelector/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 4
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer"]
-layout_mode = 2
-theme_override_constants/separation = 16
-
-[node name="Platform" type="Label" parent="Control/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer"]
-custom_minimum_size = Vector2(104, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-text = "Plataforma"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
-
-[node name="Button" type="Button" parent="Control/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer/Platform"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="Boost" type="Label" parent="Control/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer"]
-custom_minimum_size = Vector2(104, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-text = "Boost"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
-
-[node name="Button" type="Button" parent="Control/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer/Boost"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="Jump" type="Label" parent="Control/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer"]
-custom_minimum_size = Vector2(104, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-text = "Pular"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
-
-[node name="Button" type="Button" parent="Control/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer/Jump"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="Stop" type="Label" parent="Control/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer"]
-custom_minimum_size = Vector2(104, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-text = "Parar"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
-
-[node name="Button" type="Button" parent="Control/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer/Stop"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="Swap" type="Label" parent="Control/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer"]
-custom_minimum_size = Vector2(104, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-text = "Virar"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
-
-[node name="Button" type="Button" parent="Control/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer/Swap"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="Slime" type="Label" parent="Control/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer"]
-custom_minimum_size = Vector2(104, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-text = "Slime"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
-
-[node name="Button" type="Button" parent="Control/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer/Slime"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="Delete" type="Label" parent="Control/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer"]
-custom_minimum_size = Vector2(104, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-text = "Deletar"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
-
-[node name="Button" type="Button" parent="Control/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer/Delete"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="Control" type="Control" parent="Control/Screen/Right/KarimboSelector/HBoxContainer"]
-layout_mode = 2
+[node name="CarimbosSlotBar" parent="." instance=ExtResource("6_ppnqt")]
+carimboRes = ExtResource("7_ppnqt")
