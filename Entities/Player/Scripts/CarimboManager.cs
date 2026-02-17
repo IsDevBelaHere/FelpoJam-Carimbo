@@ -3,9 +3,6 @@ using System;
 
 public partial class CarimboManager : Node
 {
-	[Export]
-	public Carimbo carimboRes;
-
 	[Export] public PackedScene carimbo;
     public override void _Process(double delta)
     {

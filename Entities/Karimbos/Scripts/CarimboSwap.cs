@@ -5,7 +5,7 @@ public partial class CarimboSwap : Carimbo
 {
     public override void CarimboFunction()
     {
-        throw new NotImplementedException();
+        Player.instance.direction *= -1;
     }
 
 }

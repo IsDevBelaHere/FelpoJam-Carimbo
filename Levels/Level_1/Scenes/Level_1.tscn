@@ -1,12 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://cv0pwckytk6b6"]
+[gd_scene load_steps=15 format=3 uid="uid://cv0pwckytk6b6"]
 
 [ext_resource type="Texture2D" uid="uid://tmnv5ol7xqqv" path="res://Levels/LevelBackground.png" id="1_emgdg"]
 [ext_resource type="FontFile" uid="uid://cxkgi55cpw22q" path="res://Models/Fonts/DummyText.ttf" id="2_2tg0b"]
 [ext_resource type="PackedScene" uid="uid://bjgx0mn6fma2v" path="res://Entities/Player/Scenes/player.tscn" id="3_2tg0b"]
 [ext_resource type="Texture2D" uid="uid://cbn1ckle2s0o5" path="res://Levels/MainMenu/LevelCarimbo.png" id="4_tlak8"]
 [ext_resource type="FontFile" uid="uid://22nm7d6brli" path="res://Models/Fonts/Bitrimus.ttf" id="5_rscqj"]
-[ext_resource type="PackedScene" uid="uid://cb63wd1ak7qlj" path="res://Entities/Player/Scenes/carimbos_slot_bar.tscn" id="6_ppnqt"]
-[ext_resource type="Resource" uid="uid://cy2rjw2igf28x" path="res://Entities/Karimbos/Resources/CarimboBoost.tres" id="7_ppnqt"]
+[ext_resource type="PackedScene" path="res://Entities/Player/Scenes/carimbos_slot_bar.tscn" id="6_ppnqt"]
+[ext_resource type="Resource" uid="uid://bfvgtm5vu8n3c" path="res://Entities/Karimbos/Resources/CarimboDelete.tres" id="7_ly1y1"]
+[ext_resource type="PackedScene" uid="uid://dvx3wclkbuddl" path="res://Entities/Karimbos/Scenes/carimbo.tscn" id="8_ly1y1"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jppi2"]
 font = ExtResource("2_2tg0b")
@@ -112,10 +113,10 @@ label_settings = SubResource("LabelSettings_ukopx")
 
 [node name="Player" parent="OverWorld" instance=ExtResource("3_2tg0b")]
 position = Vector2(57, 218)
-scale = Vector2(1, 1)
 
 [node name="Carimbos" type="Node2D" parent="."]
 position = Vector2(269, 179)
 
 [node name="CarimbosSlotBar" parent="." instance=ExtResource("6_ppnqt")]
-carimboRes = ExtResource("7_ppnqt")
+carimboRes = ExtResource("7_ly1y1")
+carimbo = ExtResource("8_ly1y1")

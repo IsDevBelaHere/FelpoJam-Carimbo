@@ -1,32 +1,64 @@
-[gd_scene load_steps=5 format=3 uid="uid://dvx3wclkbuddl"]
+[gd_scene load_steps=7 format=3 uid="uid://dvx3wclkbuddl"]
 
 [ext_resource type="Texture2D" uid="uid://fygsamqmlghs" path="res://Entities/Karimbos/PlataformCarimbo.png" id="1_nxkef"]
+[ext_resource type="Script" uid="uid://cyrwsdyodefu5" path="res://Entities/Karimbos/Scenes/KarimboTrigger.cs" id="1_pfidf"]
+[ext_resource type="Resource" uid="uid://ddps8kvbkf12t" path="res://Entities/Karimbos/Resources/CarimboSwap.tres" id="2_7tkmc"]
 [ext_resource type="FontFile" uid="uid://bypy357spaisb" path="res://Models/Fonts/Undead Pixel 8.ttf" id="2_nxkef"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_7tkmc"]
+[sub_resource type="LabelSettings" id="LabelSettings_nxkef"]
 font = ExtResource("2_nxkef")
 font_size = 8
 font_color = Color(0.13333334, 0.1254902, 0.20392157, 1)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5no20"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pfidf"]
 size = Vector2(64, 32)
 
-[node name="carimbo" type="StaticBody2D"]
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_pfidf")
+carimboRes = ExtResource("2_7tkmc")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="KarimboGeneric" type="Area2D" parent="."]
+input_pickable = false
+
+[node name="Sprite2D" type="Sprite2D" parent="KarimboGeneric"]
 texture = ExtResource("1_nxkef")
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="KarimboGeneric"]
 offset_left = -31.0
 offset_top = -14.0
 offset_right = 31.0
 offset_bottom = 14.0
 text = "Plataforma
 Karimbada!"
-label_settings = SubResource("LabelSettings_7tkmc")
+label_settings = SubResource("LabelSettings_nxkef")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_5no20")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KarimboGeneric"]
+shape = SubResource("RectangleShape2D_pfidf")
+
+[node name="KarimboPlatform" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="KarimboPlatform"]
+texture = ExtResource("1_nxkef")
+
+[node name="Label" type="Label" parent="KarimboPlatform"]
+offset_left = -31.0
+offset_top = -14.0
+offset_right = 31.0
+offset_bottom = 14.0
+text = "Plataforma
+Karimbada!"
+label_settings = SubResource("LabelSettings_nxkef")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KarimboPlatform"]
+shape = SubResource("RectangleShape2D_pfidf")
+disabled = true
+
+[connection signal="body_entered" from="KarimboGeneric" to="." method="AreaCollide"]
