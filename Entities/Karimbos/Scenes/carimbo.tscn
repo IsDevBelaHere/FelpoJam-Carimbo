@@ -1,10 +1,10 @@
 [gd_scene load_steps=5 format=3 uid="uid://dvx3wclkbuddl"]
 
 [ext_resource type="Texture2D" uid="uid://fygsamqmlghs" path="res://Entities/Karimbos/PlataformCarimbo.png" id="1_nxkef"]
-[ext_resource type="FontFile" uid="uid://cxkgi55cpw22q" path="res://Models/Fonts/DummyText.ttf" id="2_pfidf"]
+[ext_resource type="FontFile" uid="uid://bypy357spaisb" path="res://Models/Fonts/Undead Pixel 8.ttf" id="2_nxkef"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7tkmc"]
-font = ExtResource("2_pfidf")
+font = ExtResource("2_nxkef")
 font_size = 8
 font_color = Color(0.13333334, 0.1254902, 0.20392157, 1)
 
@@ -17,15 +17,16 @@ size = Vector2(64, 32)
 texture = ExtResource("1_nxkef")
 
 [node name="Label" type="Label" parent="."]
-offset_left = -32.0
-offset_top = -16.0
-offset_right = 32.0
-offset_bottom = 16.0
-text = "vugnaes sreo aa
-aa aaaa"
+offset_left = -31.0
+offset_top = -14.0
+offset_right = 31.0
+offset_bottom = 14.0
+text = "Plataforma
+Karimbada!"
 label_settings = SubResource("LabelSettings_7tkmc")
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_5no20")
