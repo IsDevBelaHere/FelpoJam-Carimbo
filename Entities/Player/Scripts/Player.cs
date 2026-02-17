@@ -61,7 +61,7 @@ public partial class Player : CharacterBody2D
 				velocity.Y += JumpVelocity;
 			}
 		}
-
+		
 		// Makes the character move right constantly, later this will be changed based on if its inverted or not (1 is right, -1 is left)
 		
 		velocity.X = direction * Speed * speedMultiplier;
