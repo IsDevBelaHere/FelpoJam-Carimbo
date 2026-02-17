@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://deluxceh5ahtu"]
+[gd_scene load_steps=17 format=3 uid="uid://deluxceh5ahtu"]
 
 [ext_resource type="Script" uid="uid://c6nbucx3nstcr" path="res://Levels/MainMenu/Scripts/MainMenu.cs" id="1_i7ovf"]
+[ext_resource type="PackedScene" uid="uid://etuakkqb231b" path="res://Models/Scenes/OKCarimbo.tscn" id="2_d1bml"]
 [ext_resource type="FontFile" uid="uid://22nm7d6brli" path="res://Models/Fonts/Bitrimus.ttf" id="2_n7ggc"]
 [ext_resource type="Texture2D" uid="uid://dfqlnl7ts8qgc" path="res://Levels/MainMenu/PaginaLevel.png" id="3_d1bml"]
 [ext_resource type="Texture2D" uid="uid://cbn1ckle2s0o5" path="res://Levels/MainMenu/LevelCarimbo.png" id="4_6fwcj"]
@@ -30,6 +31,34 @@ outline_color = Color(0, 0, 0, 1)
 shadow_size = 0
 shadow_color = Color(0, 0, 0, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_d1bml"]
+font = ExtResource("2_n7ggc")
+font_color = Color(1, 1, 1, 0)
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 0
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_6fwcj"]
+font = ExtResource("2_n7ggc")
+font_color = Color(1, 1, 1, 0)
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 0
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_4frkg"]
+font = ExtResource("2_n7ggc")
+font_color = Color(1, 1, 1, 0)
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 0
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_d2l5n"]
+font = ExtResource("2_n7ggc")
+font_color = Color(1, 1, 1, 0)
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 0
+shadow_color = Color(0, 0, 0, 1)
+
 [sub_resource type="LabelSettings" id="LabelSettings_qor8d"]
 line_spacing = 0.0
 font = ExtResource("5_4frkg")
@@ -52,6 +81,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_i7ovf")
+okCarimbo = ExtResource("2_d1bml")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Screen"]
 layout_mode = 2
@@ -186,7 +216,8 @@ label_settings = SubResource("LabelSettings_n7ggc")
 layout_mode = 2
 
 [node name="Carimbado" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1/BLevel3" index="0"]
-label_settings = SubResource("LabelSettings_n7ggc")
+text = "Level 3"
+label_settings = SubResource("LabelSettings_d1bml")
 
 [node name="Row2" type="HBoxContainer" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer"]
 layout_mode = 2
@@ -198,19 +229,22 @@ alignment = 1
 layout_mode = 2
 
 [node name="Carimbado" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2/BLevel4" index="0"]
-label_settings = SubResource("LabelSettings_n7ggc")
+text = "Level 4"
+label_settings = SubResource("LabelSettings_6fwcj")
 
 [node name="BLevel5" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2" instance=ExtResource("4_n7ggc")]
 layout_mode = 2
 
 [node name="Carimbado" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2/BLevel5" index="0"]
-label_settings = SubResource("LabelSettings_n7ggc")
+text = "Level 5"
+label_settings = SubResource("LabelSettings_4frkg")
 
 [node name="BLevel6" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2" instance=ExtResource("4_n7ggc")]
 layout_mode = 2
 
 [node name="Carimbado" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2/BLevel6" index="0"]
-label_settings = SubResource("LabelSettings_n7ggc")
+text = "Level 6"
+label_settings = SubResource("LabelSettings_d2l5n")
 
 [node name="Confirmation" type="VBoxContainer" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer"]
 layout_mode = 2
@@ -252,7 +286,11 @@ horizontal_alignment = 2
 layout_mode = 2
 
 [connection signal="button_up" from="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1/BLevel1/BLevel" to="Screen" method="ButtomUp_LevelWasSelected" binds= [1, NodePath("HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1/BLevel1")]]
-[connection signal="button_up" from="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1/BLevel2/BLevel" to="Screen" method="ButtomUp_LevelWasSelected" binds= [2, NodePath("..")]]
+[connection signal="button_up" from="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1/BLevel2/BLevel" to="Screen" method="ButtomUp_LevelWasSelected" binds= [2, NodePath("HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1/BLevel2")]]
+[connection signal="button_up" from="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1/BLevel3/BLevel" to="Screen" method="ButtomUp_LevelWasSelected" binds= [3, NodePath("HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1/BLevel3")]]
+[connection signal="button_up" from="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2/BLevel4/BLevel" to="Screen" method="ButtomUp_LevelWasSelected" binds= [4, NodePath("HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2/BLevel4")]]
+[connection signal="button_up" from="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2/BLevel5/BLevel" to="Screen" method="ButtomUp_LevelWasSelected" binds= [5, NodePath("HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2/BLevel5")]]
+[connection signal="button_up" from="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2/BLevel6/BLevel" to="Screen" method="ButtomUp_LevelWasSelected" binds= [6, NodePath("HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2/BLevel6")]]
 [connection signal="button_up" from="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Confirmation/HBoxContainer/BConfirm" to="Screen" method="ButtomUp_LevelConfirm"]
 
 [editable path="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1/BLevel1"]

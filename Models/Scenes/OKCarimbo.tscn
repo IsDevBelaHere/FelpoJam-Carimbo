@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://etuakkqb231b"]
+
+[ext_resource type="Texture2D" uid="uid://r4kn87ylv3pn" path="res://Models/OKCarimbo.png" id="1_mo6wb"]
+[ext_resource type="FontFile" uid="uid://22nm7d6brli" path="res://Models/Fonts/Bitrimus.ttf" id="2_6t3q1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_05k3x"]
+font = ExtResource("2_6t3q1")
+font_size = 32
+font_color = Color(0.20784314, 0.6117647, 0.27058825, 1)
+
+[node name="OkCarimbo" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = -0.189163
+texture = ExtResource("1_mo6wb")
+
+[node name="Label" type="Label" parent="Sprite2D"]
+offset_left = -31.0
+offset_top = -15.0
+offset_right = 31.0
+offset_bottom = 15.0
+text = "OK!"
+label_settings = SubResource("LabelSettings_05k3x")
+horizontal_alignment = 1
+vertical_alignment = 1

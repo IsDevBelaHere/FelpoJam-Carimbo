@@ -14,6 +14,5 @@ public partial class BLevelBehaviour : TextureRect
 	public void SetActive(bool value)
 	{
 		Activated = value;
-		StampedLabel.LabelSettings.FontColor = value ? new Color(1f,1f,1f,1f) : new Color(0f,0f,0f,0f);
 	}
 }
