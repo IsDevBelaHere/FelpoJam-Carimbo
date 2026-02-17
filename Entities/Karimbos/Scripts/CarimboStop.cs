@@ -3,9 +3,12 @@ using System;
 
 public partial class CarimboStop : Carimbo
 {
-    public override void CarimboFunction()
+    public override void CarimboFunction(bool entering)
     {
-        throw new NotImplementedException();
+        if (entering)
+        {
+            Player.instance.isEnteringStopKarimbo = true;
+        }
     }
 
 }

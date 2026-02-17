@@ -6,11 +6,19 @@ public partial class KarimboTrigger : Node2D
 	[Export]
 	public Carimbo carimboRes;
 
-	public void AreaCollide(Node2D collider)
+	public void AreaEnter(Node2D collider)
 	{
 		if (collider is Player)
 		{
-			carimboRes.CarimboFunction();
+			carimboRes.CarimboFunction(true);
+		}
+	}
+
+	public void AreaEXit(Node2D collider)
+	{
+		if (collider is Player)
+		{
+			carimboRes.CarimboFunction(false);
 		}
 	}
 
