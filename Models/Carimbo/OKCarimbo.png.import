@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://r4kn87ylv3pn"
-path="res://.godot/imported/OKCarimbo.png-4d557275c75ec6ead8baa2f1f064eb99.ctex"
+path="res://.godot/imported/OKCarimbo.png-6cedcb809ebcdcfdb540d1d950770e0c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Models/OKCarimbo.png"
-dest_files=["res://.godot/imported/OKCarimbo.png-4d557275c75ec6ead8baa2f1f064eb99.ctex"]
+source_file="res://Models/Carimbo/OKCarimbo.png"
+dest_files=["res://.godot/imported/OKCarimbo.png-6cedcb809ebcdcfdb540d1d950770e0c.ctex"]
 
 [params]
 
