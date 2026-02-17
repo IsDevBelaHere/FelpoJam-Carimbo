@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://fygsamqmlghs" path="res://Entities/Karimbos/PlataformCarimbo.png" id="1_nxkef"]
 [ext_resource type="Script" uid="uid://cyrwsdyodefu5" path="res://Entities/Karimbos/Scenes/KarimboTrigger.cs" id="1_pfidf"]
-[ext_resource type="Resource" uid="uid://lm7ux80egf6l" path="res://Entities/Karimbos/Resources/CarimboStop.tres" id="2_7tkmc"]
+[ext_resource type="Resource" uid="uid://2ovfxx5ykpcs" path="res://Entities/Karimbos/Resources/CarimboJump.tres" id="2_7tkmc"]
 [ext_resource type="FontFile" uid="uid://bypy357spaisb" path="res://Models/Fonts/Undead Pixel 8.ttf" id="2_nxkef"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_nxkef"]
