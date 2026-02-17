@@ -3,12 +3,23 @@ using Godot;
 
 public partial class MainMenu : MarginContainer
 {
+	[Export] public MarginContainer levelMenu;
 	[Export] public PackedScene okCarimbo;
+	[Export] public TextureRect tableRect;
 	[Export] public TextureRect carimbo3DTexture;
 	[Export] public AnimationPlayer carimboAnimationPlayer;
+	[Export] public Texture2D[] tableTextures;
 	public Node2D instantiated_okCarimbo;
 	Levels levelSelected;
 	TextureRect rectSelected;
+
+	public void ButtomUp_PlayButton()
+	{
+		levelMenu.Visible =! levelMenu.Visible;
+
+		tableRect.Texture = levelMenu.Visible ? tableTextures[1] : tableTextures[0];
+
+	}
 
 	public void ButtomUp_LevelWasSelected(int level, string rectNodePath)
 	{
@@ -51,12 +62,18 @@ public partial class MainMenu : MarginContainer
 		instantiated_okCarimbo.GlobalPosition = placePosition;
 		instantiated_okCarimbo.Visible = true;
 	}
-	public void ButtomUp_LevelConfirm()
+	public async void ButtomUp_LevelConfirm()
 	{
 		if ((int)levelSelected < 1)
 		{
 			return;
 		}
+		Tween tween = GetTree().CreateTween();
+
+		tween.TweenProperty(GetParent<Control>(), "modulate", new Color(0,0,0),5.0f);
+		tween.Play();
+		
+		await ToSignal(tween,"finished");
 
 		GetTree().ChangeSceneToFile(Globals.LevelsToScene[levelSelected]);
 	}
