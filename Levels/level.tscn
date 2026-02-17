@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://duaeih28r35hw" path="res://Entities/Player/PlayerPlaceholder.png" id="1_gtnvv"]
 [ext_resource type="PackedScene" uid="uid://bjgx0mn6fma2v" path="res://Entities/Player/Scenes/player.tscn" id="2_gtnvv"]
 [ext_resource type="Script" uid="uid://chjxdln2m17r0" path="res://Entities/Player/Scripts/CarimboManager.cs" id="3_xto7t"]
-[ext_resource type="Resource" uid="uid://bp58ax2bedq3r" path="res://Entities/Karimbos/Resources/CarimboSlime.tres" id="4_xto7t"]
+[ext_resource type="Resource" uid="uid://cy2rjw2igf28x" path="res://Entities/Karimbos/Resources/CarimboBoost.tres" id="5_t80w2"]
 [ext_resource type="PackedScene" uid="uid://dvx3wclkbuddl" path="res://Entities/Karimbos/Scenes/carimbo.tscn" id="5_uhyyw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wav5q"]
@@ -28,5 +28,5 @@ position = Vector2(69, 157)
 
 [node name="Node2D" type="Node2D" parent="."]
 script = ExtResource("3_xto7t")
-carimboRes = ExtResource("4_xto7t")
 carimbo = ExtResource("5_uhyyw")
+carimboBoost = ExtResource("5_t80w2")

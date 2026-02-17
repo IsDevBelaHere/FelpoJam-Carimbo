@@ -53,9 +53,15 @@ public partial class Player : CharacterBody2D
 		// Handle Jump.
 		if (isInJumpKarimbo)
 		{
-			velocity.Y += JumpVelocity;
+			if (velocity.Y > 0)
+			{
+				velocity.Y += JumpVelocity * 2;
+			} else
+			{
+				velocity.Y += JumpVelocity;
+			}
 		}
-
+		
 		// Makes the character move right constantly, later this will be changed based on if its inverted or not (1 is right, -1 is left)
 		
 		velocity.X = direction * Speed * speedMultiplier;

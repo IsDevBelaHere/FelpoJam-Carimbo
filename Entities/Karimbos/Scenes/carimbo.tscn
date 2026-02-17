@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://dvx3wclkbuddl"]
+[gd_scene load_steps=6 format=3 uid="uid://dvx3wclkbuddl"]
 
 [ext_resource type="Texture2D" uid="uid://fygsamqmlghs" path="res://Entities/Karimbos/PlataformCarimbo.png" id="1_nxkef"]
 [ext_resource type="Script" uid="uid://cyrwsdyodefu5" path="res://Entities/Karimbos/Scenes/KarimboTrigger.cs" id="1_pfidf"]
-[ext_resource type="Resource" uid="uid://lm7ux80egf6l" path="res://Entities/Karimbos/Resources/CarimboStop.tres" id="2_7tkmc"]
 [ext_resource type="FontFile" uid="uid://bypy357spaisb" path="res://Models/Fonts/Undead Pixel 8.ttf" id="2_nxkef"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_nxkef"]
@@ -15,7 +14,6 @@ size = Vector2(64, 32)
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_pfidf")
-carimboRes = ExtResource("2_7tkmc")
 
 [node name="KarimboGeneric" type="Area2D" parent="."]
 input_pickable = false

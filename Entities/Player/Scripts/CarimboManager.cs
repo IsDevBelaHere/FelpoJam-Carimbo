@@ -4,6 +4,7 @@ using System;
 public partial class CarimboManager : Node
 {
 	[Export] public PackedScene carimbo;
+	
     public override void _Process(double delta)
     {
 		if (Input.IsActionJustPressed("mouse_1"))
@@ -13,5 +14,4 @@ public partial class CarimboManager : Node
 			new_carimbo.Position = GetViewport().GetMousePosition();
 		}
     }
-
 }
