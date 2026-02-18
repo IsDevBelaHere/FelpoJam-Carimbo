@@ -258,6 +258,7 @@ size_flags_horizontal = 6
 size_flags_vertical = 4
 
 [node name="Menu" type="MarginContainer" parent="Screen/HBoxContainer/Right Middle"]
+visible = false
 custom_minimum_size = Vector2(256, 320)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -419,6 +420,7 @@ script = null
 
 [node name="AnimatedSprite2D" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Confirmation/HBoxContainer/Player" index="0"]
 animation = &"Idle"
+frame_progress = 0.0
 
 [node name="Control" type="Control" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Confirmation"]
 layout_mode = 2
