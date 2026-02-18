@@ -30,8 +30,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cko2x"]
-size = Vector2(16, 16)
+[sub_resource type="CircleShape2D" id="CircleShape2D_psage"]
+radius = 8.0
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_psage")
@@ -43,4 +43,4 @@ animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_cko2x")
+shape = SubResource("CircleShape2D_psage")
