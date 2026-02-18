@@ -11,6 +11,7 @@ public partial class MainMenu : MarginContainer
 	[Export] public Texture2D[] tableTextures;
 	[Export] public CharacterBody2D player;
 	[Export] public TextureRect overlay;
+	[Export] public AudioStreamPlayer2D monhado;
 	public Node2D instantiated_okCarimbo;
 	Levels levelSelected;
 	TextureRect rectSelected;
@@ -69,6 +70,7 @@ public partial class MainMenu : MarginContainer
 	}
 	public void PutAStamp()
 	{
+		monhado.Play();
 		if (confirmating)
 		{
 			player.Visible = false;
@@ -93,13 +95,19 @@ public partial class MainMenu : MarginContainer
 		confirmating = true;
 		carimbo3DTexture.GlobalPosition = new(placePosition.X - carimbo3DTexture.Size.X/2, placePosition.Y - carimbo3DTexture.Size.Y/2);
 		carimboAnimationPlayer.Play("Stamping");
+
 		tween.TweenProperty(GetParent<Control>(), "modulate", new Color(0,0,0),4.0f);
+
 		await ToSignal(carimboAnimationPlayer, "animation_finished");
+
 		tween.Play();
 		
 		await ToSignal(tween,"finished");
+
 		SceneTreeTimer timer = GetTree().CreateTimer(1.0f);
+
 		await ToSignal(timer, "timeout");
+		
 		GetTree().ChangeSceneToFile(Globals.LevelsToScene[levelSelected]);
 	}
 }
