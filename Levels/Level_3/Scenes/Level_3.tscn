@@ -1,0 +1,160 @@
+[gd_scene load_steps=13 format=3 uid="uid://4mcocffph8s0"]
+
+[ext_resource type="Texture2D" uid="uid://tmnv5ol7xqqv" path="res://Levels/LevelBackground.png" id="1_bfgkj"]
+[ext_resource type="FontFile" uid="uid://cxkgi55cpw22q" path="res://Models/Fonts/DummyText.ttf" id="2_kxp0b"]
+[ext_resource type="PackedScene" uid="uid://bted0exekw6dl" path="res://Levels/levelGoal.tscn" id="3_k01qo"]
+[ext_resource type="PackedScene" uid="uid://bjgx0mn6fma2v" path="res://Entities/Player/Scenes/player.tscn" id="4_nls4x"]
+[ext_resource type="PackedScene" uid="uid://cb63wd1ak7qlj" path="res://Entities/Player/Scenes/carimbos_slot_bar.tscn" id="5_uckf1"]
+[ext_resource type="PackedScene" uid="uid://dvx3wclkbuddl" path="res://Entities/Karimbos/Scenes/carimbo.tscn" id="6_w2ewy"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fi6ic"]
+font = ExtResource("2_kxp0b")
+font_size = 8
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4v7u7"]
+size = Vector2(172, 45)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_53roq"]
+size = Vector2(172, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ul0ft"]
+size = Vector2(67, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2m7ef"]
+size = Vector2(69, 110)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6i3a0"]
+size = Vector2(68, 18.5)
+
+[node name="Level_3" type="Node2D"]
+
+[node name="World" type="Node2D" parent="."]
+position = Vector2(269, 179)
+
+[node name="Map" type="Sprite2D" parent="World"]
+texture = ExtResource("1_bfgkj")
+
+[node name="Plataform3" type="StaticBody2D" parent="World"]
+position = Vector2(-239, 109)
+
+[node name="Label" type="Label" parent="World/Plataform3"]
+offset_right = 171.0
+offset_bottom = 41.0
+size_flags_horizontal = 4
+text = "vugnaes sreo asd aa aaaaaaaa aaa aaaa aaaaa 
+asdasdd asddda poppaaaaaa aaaaaaa aaaa a
+sd aa aa asddd aaas aaaaaa
+asdasddaa aaa aaaaaa asdddaaaaaaaa aaaaa"
+label_settings = SubResource("LabelSettings_fi6ic")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Plataform3"]
+position = Vector2(86, 24.5)
+shape = SubResource("RectangleShape2D_4v7u7")
+
+[node name="Plataform4" type="StaticBody2D" parent="World"]
+position = Vector2(52, 118)
+
+[node name="Label" type="Label" parent="World/Plataform4"]
+offset_right = 171.0
+offset_bottom = 41.0
+size_flags_horizontal = 4
+text = "askdadja asdasd a aaaa aaaaaaa
+sd aa aa asddd aaas aaaaaa
+asdasddaa aaa aaaaaa asdddaaaaaaaa aaaaa"
+label_settings = SubResource("LabelSettings_fi6ic")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Plataform4"]
+position = Vector2(86, 18)
+shape = SubResource("RectangleShape2D_53roq")
+
+[node name="Plataform7" type="StaticBody2D" parent="World"]
+position = Vector2(78, 61)
+
+[node name="Label" type="Label" parent="World/Plataform7"]
+offset_right = 171.0
+offset_bottom = 41.0
+size_flags_horizontal = 4
+text = "askdadja asdasd a"
+label_settings = SubResource("LabelSettings_fi6ic")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Plataform7"]
+position = Vector2(33.5, 5)
+shape = SubResource("RectangleShape2D_ul0ft")
+
+[node name="Plataform5" type="StaticBody2D" parent="World"]
+position = Vector2(-197, -85)
+
+[node name="Label" type="Label" parent="World/Plataform5"]
+offset_right = 171.0
+offset_bottom = 41.0
+size_flags_horizontal = 4
+text = "aaaaaa aaa aaaaaa
+aaa aaaa aaaa aaa
+aaaaaaaa a aaaaaa
+aaaaa aaaa aaa aa
+aaaaaa aaaaaa aaa
+vugnaes sreo as a
+aaa aaaa aaaaaa a
+aaaaaaaa a aaaaaa
+aaaaa aaaa aaa aa"
+label_settings = SubResource("LabelSettings_fi6ic")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Plataform5"]
+position = Vector2(34.5, 57)
+shape = SubResource("RectangleShape2D_2m7ef")
+
+[node name="Plataform6" type="StaticBody2D" parent="World"]
+position = Vector2(3, -85)
+
+[node name="Label" type="Label" parent="World/Plataform6"]
+offset_right = 171.0
+offset_bottom = 41.0
+size_flags_horizontal = 4
+text = "aaaaaa aaa aaaaaa
+aaa aaaa aaaa aaa
+aaaaaaaa a aaaaaa
+aaaaa aaaa aaa aa
+aaaaaa aaaaaa aaa
+vugnaes sreo as a
+aaa aaaa aaaaaa a
+aaaaaaaa a aaaaaa
+aaaaa aaaa aaa aa"
+label_settings = SubResource("LabelSettings_fi6ic")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Plataform6"]
+position = Vector2(34.5, 57)
+shape = SubResource("RectangleShape2D_2m7ef")
+
+[node name="Plataform2" type="StaticBody2D" parent="World"]
+position = Vector2(109, 8)
+
+[node name="Label" type="Label" parent="World/Plataform2"]
+offset_left = -85.0
+offset_top = -12.0
+offset_right = 86.0
+offset_bottom = 29.0
+size_flags_horizontal = 4
+text = "asd aa aaa aaaaaa
+vugnasda asreoddd"
+label_settings = SubResource("LabelSettings_fi6ic")
+horizontal_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Plataform2"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_6i3a0")
+
+[node name="Goal" parent="World" instance=ExtResource("3_k01qo")]
+position = Vector2(109, -22)
+
+[node name="OverWorld" type="Node2D" parent="."]
+
+[node name="Player" parent="OverWorld" instance=ExtResource("4_nls4x")]
+position = Vector2(57, 277)
+
+[node name="Carimbos" type="Node2D" parent="."]
+position = Vector2(269, 179)
+
+[node name="CarimbosSlotBar" parent="." instance=ExtResource("5_uckf1")]
+carimbo = ExtResource("6_w2ewy")
+metadata/_edit_lock_ = true

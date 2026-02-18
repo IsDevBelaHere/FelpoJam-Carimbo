@@ -1,11 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://cv0pwckytk6b6"]
+[gd_scene load_steps=14 format=3 uid="uid://cv0pwckytk6b6"]
 
 [ext_resource type="Texture2D" uid="uid://tmnv5ol7xqqv" path="res://Levels/LevelBackground.png" id="1_emgdg"]
+[ext_resource type="Texture2D" uid="uid://dhoixuvj47c8c" path="res://Levels/Table_OnLevel.png" id="1_ukopx"]
 [ext_resource type="FontFile" uid="uid://cxkgi55cpw22q" path="res://Models/Fonts/DummyText.ttf" id="2_2tg0b"]
 [ext_resource type="PackedScene" uid="uid://bjgx0mn6fma2v" path="res://Entities/Player/Scenes/player.tscn" id="3_2tg0b"]
 [ext_resource type="PackedScene" uid="uid://bted0exekw6dl" path="res://Levels/levelGoal.tscn" id="3_rscqj"]
+[ext_resource type="Script" uid="uid://chjxdln2m17r0" path="res://Entities/Player/Scripts/CarimboManager.cs" id="5_ppnqt"]
 [ext_resource type="PackedScene" uid="uid://cb63wd1ak7qlj" path="res://Entities/Player/Scenes/carimbos_slot_bar.tscn" id="6_ppnqt"]
 [ext_resource type="PackedScene" uid="uid://dvx3wclkbuddl" path="res://Entities/Karimbos/Scenes/carimbo.tscn" id="8_ly1y1"]
+[ext_resource type="PackedScene" uid="uid://dokvesmocnlac" path="res://Levels/boundaries.tscn" id="9_05a1t"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jppi2"]
 font = ExtResource("2_2tg0b")
@@ -21,7 +24,11 @@ size = Vector2(86, 19)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ppnqt"]
 size = Vector2(102, 32)
 
-[node name="Level1" type="Node2D"]
+[node name="Level_1" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(320, 180)
+texture = ExtResource("1_ukopx")
 
 [node name="World" type="Node2D" parent="."]
 position = Vector2(269, 179)
@@ -45,7 +52,7 @@ position = Vector2(43, 11)
 shape = SubResource("RectangleShape2D_tlak8")
 
 [node name="Plataform3" type="StaticBody2D" parent="World"]
-position = Vector2(-63, 81)
+position = Vector2(-60, 72)
 
 [node name="Label" type="Label" parent="World/Plataform3"]
 offset_left = -42.0
@@ -63,7 +70,7 @@ position = Vector2(43, 9.5)
 shape = SubResource("RectangleShape2D_rscqj")
 
 [node name="Plataform2" type="StaticBody2D" parent="World"]
-position = Vector2(152, 123)
+position = Vector2(45, 101)
 
 [node name="Label" type="Label" parent="World/Plataform2"]
 offset_left = -42.0
@@ -82,7 +89,7 @@ position = Vector2(44, 16)
 shape = SubResource("RectangleShape2D_ppnqt")
 
 [node name="Goal" parent="World" instance=ExtResource("3_rscqj")]
-position = Vector2(196, 105)
+position = Vector2(86, 81)
 
 [node name="OverWorld" type="Node2D" parent="."]
 
@@ -92,5 +99,11 @@ position = Vector2(57, 218)
 [node name="Carimbos" type="Node2D" parent="."]
 position = Vector2(269, 179)
 
+[node name="CarimboManager" type="Node2D" parent="Carimbos"]
+script = ExtResource("5_ppnqt")
+
 [node name="CarimbosSlotBar" parent="." instance=ExtResource("6_ppnqt")]
 carimbo = ExtResource("8_ly1y1")
+metadata/_edit_lock_ = true
+
+[node name="Boundaries" parent="." instance=ExtResource("9_05a1t")]

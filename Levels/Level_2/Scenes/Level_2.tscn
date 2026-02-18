@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://dgqvaj4bgi0t0"]
+[gd_scene load_steps=12 format=3 uid="uid://dgqvaj4bgi0t0"]
 
 [ext_resource type="Texture2D" uid="uid://tmnv5ol7xqqv" path="res://Levels/LevelBackground.png" id="1_gt4pi"]
 [ext_resource type="FontFile" uid="uid://cxkgi55cpw22q" path="res://Models/Fonts/DummyText.ttf" id="2_4qbo8"]
+[ext_resource type="PackedScene" uid="uid://bted0exekw6dl" path="res://Levels/levelGoal.tscn" id="3_31igp"]
 [ext_resource type="PackedScene" uid="uid://bjgx0mn6fma2v" path="res://Entities/Player/Scenes/player.tscn" id="5_bjm8d"]
 [ext_resource type="PackedScene" uid="uid://cb63wd1ak7qlj" path="res://Entities/Player/Scenes/carimbos_slot_bar.tscn" id="6_bv6fl"]
 [ext_resource type="PackedScene" uid="uid://dvx3wclkbuddl" path="res://Entities/Karimbos/Scenes/carimbo.tscn" id="7_ksmtb"]
@@ -47,7 +48,7 @@ position = Vector2(43.5, 11.25)
 shape = SubResource("RectangleShape2D_vm2ui")
 
 [node name="Plataform3" type="StaticBody2D" parent="World"]
-position = Vector2(-219, -120)
+position = Vector2(-225, -113)
 
 [node name="Label" type="Label" parent="World/Plataform3"]
 offset_right = 171.0
@@ -80,11 +81,13 @@ position = Vector2(86, 18)
 shape = SubResource("RectangleShape2D_uc7gl")
 
 [node name="Plataform2" type="StaticBody2D" parent="World"]
-position = Vector2(110, 121)
+position = Vector2(-25, 3)
 
 [node name="Label" type="Label" parent="World/Plataform2"]
-offset_right = 171.0
-offset_bottom = 41.0
+offset_left = -85.0
+offset_top = -12.0
+offset_right = 86.0
+offset_bottom = 29.0
 size_flags_horizontal = 4
 text = "asd aa aaa aaaaaa
 vugnasda asreoddd"
@@ -92,8 +95,11 @@ label_settings = SubResource("LabelSettings_gaplr")
 horizontal_alignment = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Plataform2"]
-position = Vector2(85, 11)
+position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_1iel8")
+
+[node name="Goal" parent="World" instance=ExtResource("3_31igp")]
+position = Vector2(-25, -24)
 
 [node name="OverWorld" type="Node2D" parent="."]
 
