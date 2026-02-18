@@ -16,7 +16,7 @@ font = ExtResource("2_n7ggc")
 font_size = 96
 font_color = Color(0, 0, 0, 1)
 shadow_size = 4
-shadow_color = Color(18.892157, 18.892157, 18.892157, 1)
+shadow_color = Color(1, 1, 1, 1)
 shadow_offset = Vector2(0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_3es34"]
@@ -398,7 +398,6 @@ grow_vertical = 2
 pivot_offset = Vector2(960, 540)
 mouse_filter = 2
 texture = SubResource("ViewportTexture_6fwcj")
-metadata/_edit_lock_ = true
 
 [node name="SubViewport" type="SubViewport" parent="."]
 transparent_bg = true
@@ -436,7 +435,7 @@ sky_mode = 1
 [connection signal="button_up" from="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2/BLevel4/BLevel" to="Screen" method="ButtomUp_LevelWasSelected" binds= [4, NodePath("HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2/BLevel4")]]
 [connection signal="button_up" from="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2/BLevel5/BLevel" to="Screen" method="ButtomUp_LevelWasSelected" binds= [5, NodePath("HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2/BLevel5")]]
 [connection signal="button_up" from="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2/BLevel6/BLevel" to="Screen" method="ButtomUp_LevelWasSelected" binds= [6, NodePath("HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2/BLevel6")]]
-[connection signal="button_up" from="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Confirmation/HBoxContainer/BConfirm" to="Screen" method="ButtomUp_LevelConfirm"]
+[connection signal="button_up" from="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Confirmation/HBoxContainer/BConfirm" to="Screen" method="ButtomUp_LevelConfirm" binds= [NodePath("HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Confirmation/HBoxContainer/BConfirm")]]
 
 [editable path="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1/BLevel1"]
 [editable path="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1/BLevel2"]

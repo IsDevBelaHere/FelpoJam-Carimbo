@@ -12,9 +12,14 @@ public partial class MainMenu : MarginContainer
 	public Node2D instantiated_okCarimbo;
 	Levels levelSelected;
 	TextureRect rectSelected;
+	bool canClick = true;
 
 	public void ButtomUp_PlayButton()
 	{
+		if (!canClick)
+		{
+			return;
+		}
 		levelMenu.Visible =! levelMenu.Visible;
 
 		tableRect.Texture = levelMenu.Visible ? tableTextures[1] : tableTextures[0];
@@ -23,6 +28,10 @@ public partial class MainMenu : MarginContainer
 
 	public void ButtomUp_LevelWasSelected(int level, string rectNodePath)
 	{
+		if (!canClick)
+		{
+			return;
+		}
 		TextureRect rect = GetNode<TextureRect>(rectNodePath);
 		BLevelBehaviour rectScript = rect as BLevelBehaviour;
 
@@ -62,19 +71,26 @@ public partial class MainMenu : MarginContainer
 		instantiated_okCarimbo.GlobalPosition = placePosition;
 		instantiated_okCarimbo.Visible = true;
 	}
-	public async void ButtomUp_LevelConfirm()
+	public async void ButtomUp_LevelConfirm(string buttonNodePath)
 	{
 		if ((int)levelSelected < 1)
 		{
 			return;
 		}
+		canClick = false;
+		TextureButton button = GetNode<TextureButton>(buttonNodePath);
+		Vector2 placePosition = button.GlobalPosition + new Vector2(20f,10f);
 		Tween tween = GetTree().CreateTween();
 
-		tween.TweenProperty(GetParent<Control>(), "modulate", new Color(0,0,0),5.0f);
+		carimbo3DTexture.GlobalPosition = new(placePosition.X - carimbo3DTexture.Size.X/2, placePosition.Y - carimbo3DTexture.Size.Y/2);
+		carimboAnimationPlayer.Play("Stamping");
+		tween.TweenProperty(GetParent<Control>(), "modulate", new Color(0,0,0),4.0f);
+		await ToSignal(carimboAnimationPlayer, "animation_finished");
 		tween.Play();
 		
 		await ToSignal(tween,"finished");
-
+		SceneTreeTimer timer = GetTree().CreateTimer(1.0f);
+		await ToSignal(timer, "timeout");
 		GetTree().ChangeSceneToFile(Globals.LevelsToScene[levelSelected]);
 	}
 }

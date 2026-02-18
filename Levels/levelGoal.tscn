@@ -1,0 +1,75 @@
+[gd_scene load_steps=9 format=3 uid="uid://bted0exekw6dl"]
+
+[ext_resource type="Texture2D" uid="uid://cbn1ckle2s0o5" path="res://Levels/MainMenu/LevelCarimbo.png" id="1_671sq"]
+[ext_resource type="Script" uid="uid://bp52icrt2ynai" path="res://Levels/LevelGoal.cs" id="1_uvhml"]
+[ext_resource type="FontFile" uid="uid://22nm7d6brli" path="res://Models/Fonts/Bitrimus.ttf" id="2_uvhml"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ly1y1"]
+size = Vector2(64, 32)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ukopx"]
+font = ExtResource("2_uvhml")
+shadow_color = Color(1, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_nmn3k"]
+resource_name = "giggle"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.06, 1.06), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_4td14"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fk0t6"]
+_data = {
+&"RESET": SubResource("Animation_4td14"),
+&"giggle": SubResource("Animation_nmn3k")
+}
+
+[node name="Goal" type="StaticBody2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_uvhml")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_671sq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ly1y1")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -33.0
+offset_top = -31.0
+offset_right = 33.0
+offset_bottom = -8.0
+text = "Assine Aqui!"
+label_settings = SubResource("LabelSettings_ukopx")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_fk0t6")
+}
+autoplay = "giggle"
