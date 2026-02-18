@@ -13,6 +13,7 @@ public partial class Player : CharacterBody2D
 	public bool isInJumpKarimbo = false;
 	public bool isExitingBoostKarimbo = false;
 	public bool isEnteringStopKarimbo = false;
+	public AnimatedSprite2D animatedSprite2D;
 
 
     public override void _Ready()
@@ -24,7 +25,8 @@ public partial class Player : CharacterBody2D
 		{
 			QueueFree();	
 		}
-		
+		animatedSprite2D = GetChild<AnimatedSprite2D>(0);
+		animatedSprite2D.Play("Running");
     }
 
 	public async Task BoostTimeout()
@@ -72,6 +74,8 @@ public partial class Player : CharacterBody2D
 			velocity = new(0, 0);
 		}
 
+		Rotation = velocity.Angle();
+		
 		Velocity = velocity;
 		MoveAndSlide();
 	}

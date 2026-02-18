@@ -9,11 +9,13 @@ public partial class MainMenu : MarginContainer
 	[Export] public TextureRect carimbo3DTexture;
 	[Export] public AnimationPlayer carimboAnimationPlayer;
 	[Export] public Texture2D[] tableTextures;
+	[Export] public CharacterBody2D player;
+	[Export] public TextureRect overlay;
 	public Node2D instantiated_okCarimbo;
 	Levels levelSelected;
 	TextureRect rectSelected;
 	bool canClick = true;
-
+	bool confirmating;
 	public void ButtomUp_PlayButton()
 	{
 		if (!canClick)
@@ -67,6 +69,12 @@ public partial class MainMenu : MarginContainer
 	}
 	public void PutAStamp()
 	{
+		if (confirmating)
+		{
+			player.Visible = false;
+			overlay.Visible = true;
+			return;
+		}
 		Vector2 placePosition = rectSelected.GlobalPosition + new Vector2(20f,10f);
 		instantiated_okCarimbo.GlobalPosition = placePosition;
 		instantiated_okCarimbo.Visible = true;
@@ -81,7 +89,8 @@ public partial class MainMenu : MarginContainer
 		TextureButton button = GetNode<TextureButton>(buttonNodePath);
 		Vector2 placePosition = button.GlobalPosition + new Vector2(20f,10f);
 		Tween tween = GetTree().CreateTween();
-
+		
+		confirmating = true;
 		carimbo3DTexture.GlobalPosition = new(placePosition.X - carimbo3DTexture.Size.X/2, placePosition.Y - carimbo3DTexture.Size.Y/2);
 		carimboAnimationPlayer.Play("Stamping");
 		tween.TweenProperty(GetParent<Control>(), "modulate", new Color(0,0,0),4.0f);
