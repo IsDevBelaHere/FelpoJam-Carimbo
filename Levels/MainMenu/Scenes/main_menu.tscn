@@ -1,8 +1,8 @@
-[gd_scene load_steps=24 format=3 uid="uid://deluxceh5ahtu"]
+[gd_scene load_steps=27 format=3 uid="uid://deluxceh5ahtu"]
 
 [ext_resource type="Texture2D" uid="uid://8x8ym680jyf3" path="res://Levels/MainMenu/Table.png" id="1_4frkg"]
 [ext_resource type="Script" uid="uid://c6nbucx3nstcr" path="res://Levels/MainMenu/Scripts/MainMenu.cs" id="1_i7ovf"]
-[ext_resource type="PackedScene" uid="uid://etuakkqb231b" path="res://Models/Carimbo/Scenes/OKCarimbo.tscn" id="2_d1bml"]
+[ext_resource type="PackedScene" uid="uid://etuakkqb231b" path="res://Levels/MainMenu/Scenes/Scenes/OKCarimbo.tscn" id="2_d1bml"]
 [ext_resource type="FontFile" uid="uid://22nm7d6brli" path="res://Models/Fonts/Bitrimus.ttf" id="2_n7ggc"]
 [ext_resource type="Texture2D" uid="uid://dfqlnl7ts8qgc" path="res://Levels/MainMenu/PaginaLevel.png" id="3_d1bml"]
 [ext_resource type="Texture2D" uid="uid://cbn1ckle2s0o5" path="res://Levels/MainMenu/LevelCarimbo.png" id="4_6fwcj"]
@@ -10,13 +10,15 @@
 [ext_resource type="PackedScene" uid="uid://b5m061l6wav04" path="res://Levels/MainMenu/Scenes/b_level_1.tscn" id="4_n7ggc"]
 [ext_resource type="FontFile" uid="uid://cxkgi55cpw22q" path="res://Models/Fonts/DummyText.ttf" id="5_4frkg"]
 [ext_resource type="PackedScene" uid="uid://cgvdygsmivy5w" path="res://Models/Carimbo/CarimboV1.glb" id="8_6fwcj"]
+[ext_resource type="PackedScene" uid="uid://bjgx0mn6fma2v" path="res://Entities/Player/Scenes/player.tscn" id="10_mh1d1"]
+[ext_resource type="Texture2D" uid="uid://fygsamqmlghs" path="res://Entities/Karimbos/PlataformCarimbo.png" id="10_roedx"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jy27m"]
 font = ExtResource("2_n7ggc")
 font_size = 96
 font_color = Color(0, 0, 0, 1)
 shadow_size = 4
-shadow_color = Color(18.892157, 18.892157, 18.892157, 1)
+shadow_color = Color(1, 1, 1, 1)
 shadow_offset = Vector2(0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_3es34"]
@@ -67,6 +69,10 @@ line_spacing = 0.0
 font = ExtResource("5_4frkg")
 font_size = 5
 font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_6ab0b"]
+font = ExtResource("2_n7ggc")
+font_color = Color(0.13333334, 0.1254902, 0.20392157, 1)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_6fwcj"]
 viewport_path = NodePath("SubViewport")
@@ -164,7 +170,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_4frkg")
 
-[node name="Screen" type="MarginContainer" parent="." node_paths=PackedStringArray("levelMenu", "tableRect", "carimbo3DTexture", "carimboAnimationPlayer")]
+[node name="Screen" type="MarginContainer" parent="." node_paths=PackedStringArray("levelMenu", "tableRect", "carimbo3DTexture", "carimboAnimationPlayer", "player", "overlay")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -178,6 +184,8 @@ tableRect = NodePath("../Table")
 carimbo3DTexture = NodePath("../Carimbo3DTexture")
 carimboAnimationPlayer = NodePath("../SubViewport/CarimboPivot/CarimboV1/AnimationPlayer")
 tableTextures = Array[Texture2D]([ExtResource("1_4frkg"), ExtResource("4_d2l5n")])
+player = NodePath("HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Confirmation/HBoxContainer/Player")
+overlay = NodePath("HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Confirmation/HBoxContainer/BConfirm/Overlay")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Screen"]
 layout_mode = 2
@@ -250,7 +258,6 @@ size_flags_horizontal = 6
 size_flags_vertical = 4
 
 [node name="Menu" type="MarginContainer" parent="Screen/HBoxContainer/Right Middle"]
-visible = false
 custom_minimum_size = Vector2(256, 320)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -368,6 +375,33 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 texture_normal = ExtResource("4_6fwcj")
 
+[node name="Overlay" type="TextureRect" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Confirmation/HBoxContainer/BConfirm"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_roedx")
+
+[node name="Carimbado" type="Label" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Confirmation/HBoxContainer/BConfirm/Overlay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = 5.0
+offset_right = -1.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.13788101
+text = "CARIMBADO"
+label_settings = SubResource("LabelSettings_6ab0b")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Label2" type="Label" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Confirmation/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -378,6 +412,13 @@ asdadssa asdddasdasd asdsss
 asdaddd ddddddda asd asddds"
 label_settings = SubResource("LabelSettings_qor8d")
 horizontal_alignment = 2
+
+[node name="Player" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Confirmation/HBoxContainer" instance=ExtResource("10_mh1d1")]
+position = Vector2(121, 18)
+script = null
+
+[node name="AnimatedSprite2D" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Confirmation/HBoxContainer/Player" index="0"]
+animation = &"Idle"
 
 [node name="Control" type="Control" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Confirmation"]
 layout_mode = 2
@@ -398,7 +439,6 @@ grow_vertical = 2
 pivot_offset = Vector2(960, 540)
 mouse_filter = 2
 texture = SubResource("ViewportTexture_6fwcj")
-metadata/_edit_lock_ = true
 
 [node name="SubViewport" type="SubViewport" parent="."]
 transparent_bg = true
@@ -436,7 +476,7 @@ sky_mode = 1
 [connection signal="button_up" from="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2/BLevel4/BLevel" to="Screen" method="ButtomUp_LevelWasSelected" binds= [4, NodePath("HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2/BLevel4")]]
 [connection signal="button_up" from="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2/BLevel5/BLevel" to="Screen" method="ButtomUp_LevelWasSelected" binds= [5, NodePath("HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2/BLevel5")]]
 [connection signal="button_up" from="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2/BLevel6/BLevel" to="Screen" method="ButtomUp_LevelWasSelected" binds= [6, NodePath("HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2/BLevel6")]]
-[connection signal="button_up" from="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Confirmation/HBoxContainer/BConfirm" to="Screen" method="ButtomUp_LevelConfirm"]
+[connection signal="button_up" from="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Confirmation/HBoxContainer/BConfirm" to="Screen" method="ButtomUp_LevelConfirm" binds= [NodePath("HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Confirmation/HBoxContainer/BConfirm")]]
 
 [editable path="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1/BLevel1"]
 [editable path="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1/BLevel2"]
@@ -444,3 +484,4 @@ sky_mode = 1
 [editable path="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2/BLevel4"]
 [editable path="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2/BLevel5"]
 [editable path="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2/BLevel6"]
+[editable path="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Confirmation/HBoxContainer/Player"]

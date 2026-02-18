@@ -1,12 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://cv0pwckytk6b6"]
+[gd_scene load_steps=11 format=3 uid="uid://cv0pwckytk6b6"]
 
 [ext_resource type="Texture2D" uid="uid://tmnv5ol7xqqv" path="res://Levels/LevelBackground.png" id="1_emgdg"]
 [ext_resource type="FontFile" uid="uid://cxkgi55cpw22q" path="res://Models/Fonts/DummyText.ttf" id="2_2tg0b"]
 [ext_resource type="PackedScene" uid="uid://bjgx0mn6fma2v" path="res://Entities/Player/Scenes/player.tscn" id="3_2tg0b"]
-[ext_resource type="Texture2D" uid="uid://cbn1ckle2s0o5" path="res://Levels/MainMenu/LevelCarimbo.png" id="4_tlak8"]
-[ext_resource type="FontFile" uid="uid://22nm7d6brli" path="res://Models/Fonts/Bitrimus.ttf" id="5_rscqj"]
-[ext_resource type="PackedScene" path="res://Entities/Player/Scenes/carimbos_slot_bar.tscn" id="6_ppnqt"]
-[ext_resource type="Resource" uid="uid://bfvgtm5vu8n3c" path="res://Entities/Karimbos/Resources/CarimboDelete.tres" id="7_ly1y1"]
+[ext_resource type="PackedScene" uid="uid://bted0exekw6dl" path="res://Levels/levelGoal.tscn" id="3_rscqj"]
+[ext_resource type="PackedScene" uid="uid://cb63wd1ak7qlj" path="res://Entities/Player/Scenes/carimbos_slot_bar.tscn" id="6_ppnqt"]
 [ext_resource type="PackedScene" uid="uid://dvx3wclkbuddl" path="res://Entities/Karimbos/Scenes/carimbo.tscn" id="8_ly1y1"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jppi2"]
@@ -22,13 +20,6 @@ size = Vector2(86, 19)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ppnqt"]
 size = Vector2(102, 32)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ly1y1"]
-size = Vector2(64, 32)
-
-[sub_resource type="LabelSettings" id="LabelSettings_ukopx"]
-font = ExtResource("5_rscqj")
-shadow_color = Color(1, 0, 0, 1)
 
 [node name="Level1" type="Node2D"]
 
@@ -90,24 +81,8 @@ horizontal_alignment = 1
 position = Vector2(44, 16)
 shape = SubResource("RectangleShape2D_ppnqt")
 
-[node name="Goal" type="StaticBody2D" parent="World"]
+[node name="Goal" parent="World" instance=ExtResource("3_rscqj")]
 position = Vector2(196, 105)
-collision_layer = 2
-collision_mask = 2
-
-[node name="Sprite2D" type="Sprite2D" parent="World/Goal"]
-texture = ExtResource("4_tlak8")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Goal"]
-shape = SubResource("RectangleShape2D_ly1y1")
-
-[node name="Label" type="Label" parent="World/Goal"]
-offset_left = -33.0
-offset_top = -31.0
-offset_right = 33.0
-offset_bottom = -8.0
-text = "Assine Aqui!"
-label_settings = SubResource("LabelSettings_ukopx")
 
 [node name="OverWorld" type="Node2D" parent="."]
 
@@ -118,5 +93,4 @@ position = Vector2(57, 218)
 position = Vector2(269, 179)
 
 [node name="CarimbosSlotBar" parent="." instance=ExtResource("6_ppnqt")]
-carimboRes = ExtResource("7_ly1y1")
 carimbo = ExtResource("8_ly1y1")
