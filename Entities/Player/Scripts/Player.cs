@@ -13,9 +13,7 @@ public partial class Player : CharacterBody2D
 	public bool isInJumpKarimbo = false;
 	public bool isExitingBoostKarimbo = false;
 	public bool isEnteringStopKarimbo = false;
-	public bool pauseToggle = false;
 	public AnimatedSprite2D animatedSprite2D;
-
 
     public override void _Ready()
     {
@@ -37,52 +35,46 @@ public partial class Player : CharacterBody2D
 	}
 
 	public override void _PhysicsProcess(double delta)
-	{
-		if (!pauseToggle)
+    {
+		Vector2 velocity = Velocity;
+		if (isExitingBoostKarimbo)
 		{
-			Vector2 velocity = Velocity;
-			if (isExitingBoostKarimbo)
-			{
-				isExitingBoostKarimbo = false;
+			isExitingBoostKarimbo = false;
 #pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
-				BoostTimeout();
+			BoostTimeout();
 #pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
-			}
-
-			// Add the gravity.
-			if (!IsOnFloor())
-			{
-				velocity += GetGravity() * (float)delta;
-			}
-
-			// Handle Jump.
-			if (isInJumpKarimbo)
-			{
-				if (velocity.Y > 0)
-				{
-					velocity.Y += JumpVelocity * 2;
-				} else
-				{
-					velocity.Y += JumpVelocity;
-				}
-			}
-			
-			// Makes the character move right constantly, later this will be changed based on if its inverted or not (1 is right, -1 is left)
-			
-			velocity.X = direction * Speed * speedMultiplier;
-
-			if (isEnteringStopKarimbo)
-			{
-				isEnteringStopKarimbo = false;
-				velocity = new(0, 0);
-			}
-
-			Velocity = velocity;
-			MoveAndSlide();
 		}
-		Rotation = velocity.Angle();
+
+		// Add the gravity.
+		if (!IsOnFloor())
+		{
+			velocity += GetGravity() * (float)delta;
+		}
+
+		// Handle Jump.
+		if (isInJumpKarimbo)
+		{
+			if (velocity.Y > 0)
+			{
+				velocity.Y += JumpVelocity * 2;
+			} else
+			{
+				velocity.Y += JumpVelocity;
+			}
+		}
+
+		// Makes the character move right constantly, later this will be changed based on if its inverted or not (1 is right, -1 is left)
+
+		velocity.X = direction * Speed * speedMultiplier;
+
+		if (isEnteringStopKarimbo)
+		{
+			isEnteringStopKarimbo = false;
+			velocity = new(0, 0);
+		}
 		
+		Rotation = velocity.Angle();
 		Velocity = velocity;
 		MoveAndSlide();
-	}
+    }
 }

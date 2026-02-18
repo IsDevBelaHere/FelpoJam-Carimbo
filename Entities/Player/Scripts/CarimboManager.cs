@@ -38,18 +38,6 @@ public partial class CarimboManager : Node
 			carimboType = "CarimboSlime";
 		}
 
-		if (Input.IsActionJustPressed("pause"))
-		{
-			if (Player.instance.pauseToggle)
-			{
-				Player.instance.pauseToggle = false;
-			}
-			else
-			{
-				Player.instance.pauseToggle = true;				
-			}
-		}
-
 		if (Input.IsActionJustPressed("mouse_1"))
 		{
 			Node2D new_carimbo = carimbo.Instantiate<Node2D>();
