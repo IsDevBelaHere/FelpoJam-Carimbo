@@ -4,6 +4,10 @@ using System;
 public partial class CarimboManager : Node
 {
 	[Export] public PackedScene carimbo;
+	[Export] public LevelInfo levelInfo;
+	public Node2D[] carimboArray;
+	public int carimboArrayCounter = 0;
+	public int carimboTotalAmount = 0;
 	public static CarimboManager instance;
 	public string carimboType = "CarimboPlatform";
 	public int roundingGrid = 8;
@@ -67,7 +71,9 @@ public partial class CarimboManager : Node
 		{
 			Node2D new_carimbo = carimbo.Instantiate<Node2D>();
 			AddChild(new_carimbo);
-			new_carimbo.Position = roundToMultiple(GetViewport().GetMousePosition().Floor(), roundingGrid);
+			carimboArray[carimboArrayCounter] = new_carimbo;
+			carimboArray[carimboArrayCounter].Position = roundToMultiple(GetViewport().GetMousePosition().Floor(), roundingGrid);
+			carimboArrayCounter++;
 		}
     }
 
@@ -79,7 +85,12 @@ public partial class CarimboManager : Node
 		} else
 		{
 			QueueFree();	
-		}
+		}   
 		
-    }
+		for (int i = 0; i < levelInfo.carimboAmounts.Length; i++)
+		{
+			carimboTotalAmount += levelInfo.carimboAmounts[i];
+		}
+		carimboArray = new Node2D[carimboTotalAmount];
+	}
 }
