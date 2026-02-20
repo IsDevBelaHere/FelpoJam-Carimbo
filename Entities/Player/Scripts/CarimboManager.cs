@@ -73,6 +73,11 @@ public partial class CarimboManager : Node
 			carimboType = "CarimboSlime";
 		}
 
+		if (Input.IsActionJustPressed("karimbo_slot6"))
+		{
+			carimboType = "CarimboDelete";
+		}
+
 		if (Input.IsActionJustPressed("mouse_1") && carimboArrayCounter < carimboTotalAmount && newCarimboOverlay.GetChild<Sprite2D>(0).Texture == overlayOk)
 		{
 			Node2D new_carimbo = carimbo.Instantiate<Node2D>();
@@ -107,6 +112,7 @@ public partial class CarimboManager : Node
 			{
 				newCarimboOverlay.GetChild<Sprite2D>(0).Texture = overlayNotOk;
 			}
+			GD.Print(newCarimboOverlay.GetChild<Area2D>(1).GetOverlappingBodies());
 		}
 	}
 
