@@ -1,0 +1,7 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://13i6v6l5npsa"]
+
+[ext_resource type="Script" uid="uid://biydjcqqhonff" path="res://Levels/LevelInfo.cs" id="1_kur1t"]
+
+[resource]
+script = ExtResource("1_kur1t")
+carimboAmounts = PackedInt32Array(3, 0, 0, 0, 0, 0)
