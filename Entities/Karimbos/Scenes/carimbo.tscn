@@ -15,10 +15,11 @@ size = Vector2(64, 32)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7tkmc"]
 size = Vector2(64, 32)
 
-[node name="Node2D" type="Node2D"]
+[node name="Carimbo" type="Node2D"]
 script = ExtResource("1_pfidf")
 
 [node name="KarimboGeneric" type="Area2D" parent="."]
+collision_layer = 9
 input_pickable = false
 
 [node name="Sprite2D" type="Sprite2D" parent="KarimboGeneric"]
@@ -39,6 +40,7 @@ autowrap_mode = 3
 shape = SubResource("RectangleShape2D_pfidf")
 
 [node name="KarimboPlatform" type="StaticBody2D" parent="."]
+collision_layer = 9
 
 [node name="Sprite2D" type="Sprite2D" parent="KarimboPlatform"]
 texture = ExtResource("1_nxkef")

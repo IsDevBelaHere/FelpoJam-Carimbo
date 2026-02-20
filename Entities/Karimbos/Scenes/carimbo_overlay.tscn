@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://daqge5adop85q"]
+
+[ext_resource type="Texture2D" uid="uid://dimf7wrrrms8o" path="res://Entities/Karimbos/carimbo_OKOverlay.png" id="1_pvr45"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pvr45"]
+size = Vector2(63, 31)
+
+[node name="carimbo_overlay" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_pvr45")
+
+[node name="KarimboArea" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KarimboArea"]
+shape = SubResource("RectangleShape2D_pvr45")
