@@ -87,16 +87,24 @@ public partial class CarimboManager : Node
 			}	
 		}
 
-		if (Input.IsActionJustPressed("mouse_1") && carimboArrayCounter < carimboTotalAmount && newCarimboOverlay.GetChild<Sprite2D>(0).Texture == overlayOk)
+		if (Input.IsActionJustPressed("mouse_1"))
 		{
-			Node2D new_carimbo = carimbo.Instantiate<Node2D>();
-			AddChild(new_carimbo);
-			carimboArray[carimboArrayCounter] = new_carimbo;
-			carimboArray[carimboArrayCounter].Position = newCarimboOverlay.Position;
-			carimboArray[carimboArrayCounter].Rotation = newCarimboOverlay.Rotation;
-			carimboArrayCounter++;
-			skipCheck = true;
-			newCarimboOverlay.GetChild<Sprite2D>(0).Texture = overlayNotOk;
+			if (carimboType.Equals("CarimboDelete"))
+			{
+				
+			} 
+			else if (levelInfo.carimboAmounts[Carimbo.GetIndexByCarimbo(carimboType)] > 0 && newCarimboOverlay.GetChild<Sprite2D>(0).Texture == overlayOk)
+			{
+				Node2D new_carimbo = carimbo.Instantiate<Node2D>();
+				AddChild(new_carimbo);
+				carimboArray[carimboArrayCounter] = new_carimbo;
+				carimboArray[carimboArrayCounter].Position = newCarimboOverlay.Position;
+				carimboArray[carimboArrayCounter].Rotation = newCarimboOverlay.Rotation;
+				carimboArrayCounter++;
+				skipCheck = true;
+				newCarimboOverlay.GetChild<Sprite2D>(0).Texture = overlayNotOk;
+				levelInfo.carimboAmounts[Carimbo.GetIndexByCarimbo(carimboType)]--; 
+			}
 		}
     }
 
