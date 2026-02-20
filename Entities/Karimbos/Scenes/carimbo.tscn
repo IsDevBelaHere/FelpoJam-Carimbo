@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dvx3wclkbuddl"]
+[gd_scene load_steps=7 format=3 uid="uid://dvx3wclkbuddl"]
 
 [ext_resource type="Texture2D" uid="uid://fygsamqmlghs" path="res://Entities/Karimbos/PlataformCarimbo.png" id="1_nxkef"]
 [ext_resource type="Script" uid="uid://cyrwsdyodefu5" path="res://Entities/Karimbos/Scenes/KarimboTrigger.cs" id="1_pfidf"]
@@ -12,6 +12,9 @@ font_color = Color(0.13333334, 0.1254902, 0.20392157, 1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pfidf"]
 size = Vector2(64, 32)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7tkmc"]
+size = Vector2(64, 32)
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_pfidf")
 
@@ -22,17 +25,15 @@ input_pickable = false
 texture = ExtResource("1_nxkef")
 
 [node name="Label" type="Label" parent="KarimboGeneric"]
-offset_left = -31.0
-offset_top = -14.0
-offset_right = 31.0
-offset_bottom = 14.0
-text = "Plataforma
-Karimbada!"
+offset_left = -32.0
+offset_top = -16.0
+offset_right = 32.0
+offset_bottom = 16.0
+text = "Plataforma Karimbada!"
 label_settings = SubResource("LabelSettings_nxkef")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
-metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KarimboGeneric"]
 shape = SubResource("RectangleShape2D_pfidf")
@@ -43,20 +44,18 @@ shape = SubResource("RectangleShape2D_pfidf")
 texture = ExtResource("1_nxkef")
 
 [node name="Label" type="Label" parent="KarimboPlatform"]
-offset_left = -31.0
-offset_top = -14.0
-offset_right = 31.0
-offset_bottom = 14.0
-text = "Plataforma
-Karimbada!"
+offset_left = -32.0
+offset_top = -16.0
+offset_right = 32.0
+offset_bottom = 16.0
+text = "Plataforma Karimbada! "
 label_settings = SubResource("LabelSettings_nxkef")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
-metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KarimboPlatform"]
-shape = SubResource("RectangleShape2D_pfidf")
+shape = SubResource("RectangleShape2D_7tkmc")
 disabled = true
 
 [connection signal="body_entered" from="KarimboGeneric" to="." method="AreaEnter"]

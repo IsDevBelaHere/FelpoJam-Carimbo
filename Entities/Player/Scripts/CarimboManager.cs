@@ -68,6 +68,10 @@ public partial class CarimboManager : Node
 			Node2D new_carimbo = carimbo.Instantiate<Node2D>();
 			AddChild(new_carimbo);
 			new_carimbo.Position = roundToMultiple(GetViewport().GetMousePosition().Floor(), roundingGrid);
+			if (carimboType == "CarimboPlatform")
+			{
+				new_carimbo.GetChild<Area2D>(0).QueueFree();
+			}
 		}
     }
 
