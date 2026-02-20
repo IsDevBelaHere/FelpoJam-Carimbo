@@ -71,9 +71,20 @@ public partial class CarimboManager : Node
 			carimboType = Carimbo.GetCarimboByAction("karimbo_slot6");
 		}
 
-		if (Input.IsActionJustPressed("karimbo_slot6"))
+		if (Input.IsActionJustPressed("karimbo_slot7"))
 		{
-			carimboType = "CarimboDelete";
+			carimboType = Carimbo.GetCarimboByAction("karimbo_slot7");
+		}
+
+		if (Input.IsActionJustPressed("rotate"))
+		{
+			if (newCarimboOverlay.Rotation == 0)
+			{
+				newCarimboOverlay.Rotation = Mathf.DegToRad(270);
+			} else
+			{
+				newCarimboOverlay.Rotation = 0;
+			}	
 		}
 
 		if (Input.IsActionJustPressed("mouse_1") && carimboArrayCounter < carimboTotalAmount && newCarimboOverlay.GetChild<Sprite2D>(0).Texture == overlayOk)
@@ -81,7 +92,8 @@ public partial class CarimboManager : Node
 			Node2D new_carimbo = carimbo.Instantiate<Node2D>();
 			AddChild(new_carimbo);
 			carimboArray[carimboArrayCounter] = new_carimbo;
-			carimboArray[carimboArrayCounter].Position = roundToMultiple(GetViewport().GetMousePosition().Floor(), roundingGrid);
+			carimboArray[carimboArrayCounter].Position = newCarimboOverlay.Position;
+			carimboArray[carimboArrayCounter].Rotation = newCarimboOverlay.Rotation;
 			carimboArrayCounter++;
 			skipCheck = true;
 			newCarimboOverlay.GetChild<Sprite2D>(0).Texture = overlayNotOk;
@@ -103,14 +115,13 @@ public partial class CarimboManager : Node
 			skipCheck = false;
 		} else 
 		{
-			if (newCarimboOverlay.GetChild<Area2D>(1).GetOverlappingBodies().Count == 0)
+			if (!newCarimboOverlay.GetChild<Area2D>(1).HasOverlappingAreas())
 			{
 				newCarimboOverlay.GetChild<Sprite2D>(0).Texture = overlayOk;
 			} else
 			{
 				newCarimboOverlay.GetChild<Sprite2D>(0).Texture = overlayNotOk;
 			}
-			GD.Print(newCarimboOverlay.GetChild<Area2D>(1).GetOverlappingBodies());
 		}
 	}
 
@@ -121,7 +132,7 @@ public partial class CarimboManager : Node
 			skipCheck = false;
 		} else 
 		{
-			if (newCarimboOverlay.GetChild<Area2D>(1).GetOverlappingBodies().Count == 0)
+			if (!newCarimboOverlay.GetChild<Area2D>(1).HasOverlappingAreas())
 			{
 				newCarimboOverlay.GetChild<Sprite2D>(0).Texture = overlayOk;
 			} else
