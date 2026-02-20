@@ -1,13 +1,8 @@
-[gd_scene load_steps=11 format=4 uid="uid://cr58uup08huye"]
+[gd_scene load_steps=6 format=4 uid="uid://cr58uup08huye"]
 
 [ext_resource type="Texture2D" uid="uid://duaeih28r35hw" path="res://Entities/Player/PlayerPlaceholder.png" id="1_gtnvv"]
 [ext_resource type="PackedScene" uid="uid://bjgx0mn6fma2v" path="res://Entities/Player/Scenes/player.tscn" id="2_gtnvv"]
-[ext_resource type="Script" uid="uid://chjxdln2m17r0" path="res://Entities/Player/Scripts/CarimboManager.cs" id="3_xto7t"]
-[ext_resource type="PackedScene" uid="uid://daqge5adop85q" path="res://Entities/Karimbos/Scenes/carimbo_overlay.tscn" id="5_8a2b0"]
-[ext_resource type="Resource" uid="uid://13i6v6l5npsa" path="res://Levels/LevelInfo.tres" id="5_t80w2"]
-[ext_resource type="PackedScene" uid="uid://dvx3wclkbuddl" path="res://Entities/Karimbos/Scenes/carimbo.tscn" id="5_uhyyw"]
-[ext_resource type="Texture2D" uid="uid://dimf7wrrrms8o" path="res://Entities/Karimbos/carimbo_OKOverlay.png" id="7_ecu0b"]
-[ext_resource type="Texture2D" uid="uid://c2jm62d4m582d" path="res://Entities/Karimbos/carimbo_NOTOKOverlay.png" id="8_t2u7g"]
+[ext_resource type="PackedScene" uid="uid://cjo5jkj23qw0o" path="res://Entities/Player/Scenes/carimbo_manager.tscn" id="3_wav5q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wav5q"]
 texture = ExtResource("1_gtnvv")
@@ -28,10 +23,4 @@ tile_set = SubResource("TileSet_wav5q")
 [node name="Player" parent="." instance=ExtResource("2_gtnvv")]
 position = Vector2(69, 157)
 
-[node name="Node2D" type="Node2D" parent="."]
-script = ExtResource("3_xto7t")
-carimbo = ExtResource("5_uhyyw")
-carimboOverlay = ExtResource("5_8a2b0")
-levelInfo = ExtResource("5_t80w2")
-overlayOk = ExtResource("7_ecu0b")
-overlayNotOk = ExtResource("8_t2u7g")
+[node name="CarimboManager" parent="." instance=ExtResource("3_wav5q")]

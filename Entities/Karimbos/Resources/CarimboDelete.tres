@@ -3,4 +3,5 @@
 [ext_resource type="Script" uid="uid://be7cf6uiy8b0o" path="res://Entities/Karimbos/Scripts/CarimboDelete.cs" id="1_caauc"]
 
 [resource]
+resource_name = "CarimboDelete"
 script = ExtResource("1_caauc")

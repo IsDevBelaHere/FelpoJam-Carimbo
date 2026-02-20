@@ -3,5 +3,6 @@
 [ext_resource type="Script" uid="uid://lx60isd8eoet" path="res://Entities/Karimbos/Scripts/CarimboSlime.cs" id="1_vwvba"]
 
 [resource]
+resource_name = "CarimboSlime"
 script = ExtResource("1_vwvba")
 CarimboText = "Sliminho Karimbado!"

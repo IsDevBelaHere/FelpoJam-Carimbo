@@ -3,5 +3,6 @@
 [ext_resource type="Script" uid="uid://bx250ykdwodds" path="res://Entities/Karimbos/Scripts/CarimboJump.cs" id="1_iwbhi"]
 
 [resource]
+resource_name = "CarimboJump"
 script = ExtResource("1_iwbhi")
 CarimboText = "Pulo Karimbado!"

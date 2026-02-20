@@ -1,18 +1,26 @@
-[gd_scene load_steps=5 format=3 uid="uid://cb63wd1ak7qlj"]
+[gd_scene load_steps=12 format=3 uid="uid://cb63wd1ak7qlj"]
 
 [ext_resource type="FontFile" uid="uid://bypy357spaisb" path="res://Models/Fonts/Undead Pixel 8.ttf" id="1_snsji"]
-[ext_resource type="Script" uid="uid://chjxdln2m17r0" path="res://Entities/Player/Scripts/CarimboManager.cs" id="1_v0v58"]
+[ext_resource type="Script" uid="uid://b2lnuwxnb33j7" path="res://Entities/Player/Scripts/CarimbosSlotBar.cs" id="1_u1w1e"]
+[ext_resource type="Resource" uid="uid://dj5h721i45t5p" path="res://Entities/Karimbos/Resources/CarimboPlatform.tres" id="2_fimvr"]
 [ext_resource type="Texture2D" uid="uid://o7o0tcfmrixt" path="res://Models/Carimbo/CarimboButton.png" id="2_u1w1e"]
+[ext_resource type="Resource" uid="uid://2ovfxx5ykpcs" path="res://Entities/Karimbos/Resources/CarimboJump.tres" id="5_xmum5"]
+[ext_resource type="Resource" uid="uid://ddps8kvbkf12t" path="res://Entities/Karimbos/Resources/CarimboSwap.tres" id="6_6islp"]
+[ext_resource type="Resource" uid="uid://cy2rjw2igf28x" path="res://Entities/Karimbos/Resources/CarimboBoost.tres" id="7_dklmc"]
+[ext_resource type="Resource" uid="uid://bp58ax2bedq3r" path="res://Entities/Karimbos/Resources/CarimboSlime.tres" id="8_pg1ph"]
+[ext_resource type="Resource" uid="uid://lm7ux80egf6l" path="res://Entities/Karimbos/Resources/CarimboStop.tres" id="9_xj75b"]
+[ext_resource type="Resource" uid="uid://bfvgtm5vu8n3c" path="res://Entities/Karimbos/Resources/CarimboDelete.tres" id="10_mbh8t"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ppnqt"]
 font = ExtResource("1_snsji")
 
-[node name="CarimbosSlotBar" type="Control"]
+[node name="CarimbosSlotBar" type="Control" node_paths=PackedStringArray("buttonControlsLocation")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 640.0
 offset_bottom = 360.0
-script = ExtResource("1_v0v58")
+script = ExtResource("1_u1w1e")
+buttonControlsLocation = NodePath("Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer")
 
 [node name="Screen" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -44,6 +52,7 @@ theme_override_constants/separation = 51
 
 [node name="PlatformButtonControl" type="Control" parent="Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer"]
 layout_mode = 2
+metadata/res = ExtResource("2_fimvr")
 
 [node name="CarimboButton" type="TextureButton" parent="Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer/PlatformButtonControl"]
 layout_mode = 1
@@ -63,6 +72,7 @@ pivot_offset = Vector2(56, 16)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture_normal = ExtResource("2_u1w1e")
+stretch_mode = 4
 
 [node name="Label" type="Label" parent="Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer/PlatformButtonControl/CarimboButton"]
 custom_minimum_size = Vector2(104, 24)
@@ -81,6 +91,7 @@ autowrap_mode = 3
 
 [node name="JumpButtonControl" type="Control" parent="Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer"]
 layout_mode = 2
+metadata/res = ExtResource("5_xmum5")
 
 [node name="CarimboButton" type="TextureButton" parent="Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer/JumpButtonControl"]
 layout_mode = 1
@@ -100,6 +111,7 @@ pivot_offset = Vector2(56, 16)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture_normal = ExtResource("2_u1w1e")
+stretch_mode = 4
 
 [node name="Label" type="Label" parent="Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer/JumpButtonControl/CarimboButton"]
 custom_minimum_size = Vector2(104, 24)
@@ -118,6 +130,7 @@ autowrap_mode = 3
 
 [node name="SwapButtonControl" type="Control" parent="Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer"]
 layout_mode = 2
+metadata/res = ExtResource("6_6islp")
 
 [node name="CarimboButton" type="TextureButton" parent="Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer/SwapButtonControl"]
 layout_mode = 1
@@ -136,6 +149,7 @@ pivot_offset = Vector2(56, 16)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture_normal = ExtResource("2_u1w1e")
+stretch_mode = 4
 
 [node name="Label" type="Label" parent="Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer/SwapButtonControl/CarimboButton"]
 custom_minimum_size = Vector2(104, 24)
@@ -154,6 +168,7 @@ autowrap_mode = 3
 
 [node name="BoostButtonControl" type="Control" parent="Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer"]
 layout_mode = 2
+metadata/res = ExtResource("7_dklmc")
 
 [node name="CarimboButton" type="TextureButton" parent="Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer/BoostButtonControl"]
 layout_mode = 1
@@ -173,6 +188,7 @@ pivot_offset = Vector2(56, 16)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture_normal = ExtResource("2_u1w1e")
+stretch_mode = 4
 
 [node name="Label" type="Label" parent="Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer/BoostButtonControl/CarimboButton"]
 custom_minimum_size = Vector2(104, 24)
@@ -191,6 +207,7 @@ autowrap_mode = 3
 
 [node name="SlimeButtonControl" type="Control" parent="Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer"]
 layout_mode = 2
+metadata/res = ExtResource("8_pg1ph")
 
 [node name="CarimboButton" type="TextureButton" parent="Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer/SlimeButtonControl"]
 layout_mode = 1
@@ -210,6 +227,7 @@ pivot_offset = Vector2(56, 16)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture_normal = ExtResource("2_u1w1e")
+stretch_mode = 4
 
 [node name="Label" type="Label" parent="Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer/SlimeButtonControl/CarimboButton"]
 custom_minimum_size = Vector2(104, 24)
@@ -228,6 +246,7 @@ autowrap_mode = 3
 
 [node name="StopButtonControl" type="Control" parent="Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer"]
 layout_mode = 2
+metadata/res = ExtResource("9_xj75b")
 
 [node name="CarimboButton" type="TextureButton" parent="Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer/StopButtonControl"]
 layout_mode = 1
@@ -246,6 +265,7 @@ pivot_offset = Vector2(56, 16)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture_normal = ExtResource("2_u1w1e")
+stretch_mode = 4
 
 [node name="Label" type="Label" parent="Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer/StopButtonControl/CarimboButton"]
 custom_minimum_size = Vector2(104, 24)
@@ -264,6 +284,7 @@ autowrap_mode = 3
 
 [node name="DeleteButtonControl" type="Control" parent="Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer"]
 layout_mode = 2
+metadata/res = ExtResource("10_mbh8t")
 
 [node name="CarimboButton" type="TextureButton" parent="Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer/DeleteButtonControl"]
 layout_mode = 1
@@ -283,6 +304,7 @@ pivot_offset = Vector2(56, 16)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture_normal = ExtResource("2_u1w1e")
+stretch_mode = 4
 
 [node name="Label" type="Label" parent="Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer/DeleteButtonControl/CarimboButton"]
 custom_minimum_size = Vector2(104, 24)

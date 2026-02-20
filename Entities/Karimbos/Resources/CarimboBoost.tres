@@ -3,5 +3,6 @@
 [ext_resource type="Script" uid="uid://c4xyaqiii7ca8" path="res://Entities/Karimbos/Scripts/CarimboBoost.cs" id="1_slv5h"]
 
 [resource]
+resource_name = "CarimboBoost"
 script = ExtResource("1_slv5h")
 CarimboText = "Velocidade Karimbada!"
