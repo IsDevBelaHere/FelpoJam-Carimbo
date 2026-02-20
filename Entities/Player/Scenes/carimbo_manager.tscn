@@ -1,0 +1,16 @@
+[gd_scene load_steps=7 format=3 uid="uid://cjo5jkj23qw0o"]
+
+[ext_resource type="Script" uid="uid://chjxdln2m17r0" path="res://Entities/Player/Scripts/CarimboManager.cs" id="1_q0e2g"]
+[ext_resource type="PackedScene" uid="uid://dvx3wclkbuddl" path="res://Entities/Karimbos/Scenes/carimbo.tscn" id="2_4bj8n"]
+[ext_resource type="PackedScene" uid="uid://daqge5adop85q" path="res://Entities/Karimbos/Scenes/carimbo_overlay.tscn" id="3_i1mq0"]
+[ext_resource type="Resource" path="res://Levels/LevelInfo.tres" id="4_2f6ad"]
+[ext_resource type="Texture2D" uid="uid://dimf7wrrrms8o" path="res://Entities/Karimbos/carimbo_OKOverlay.png" id="5_hvy3k"]
+[ext_resource type="Texture2D" uid="uid://c2jm62d4m582d" path="res://Entities/Karimbos/carimbo_NOTOKOverlay.png" id="6_617eb"]
+
+[node name="CarimboManager" type="Node2D"]
+script = ExtResource("1_q0e2g")
+carimbo = ExtResource("2_4bj8n")
+carimboOverlay = ExtResource("3_i1mq0")
+levelInfo = ExtResource("4_2f6ad")
+overlayOk = ExtResource("5_hvy3k")
+overlayNotOk = ExtResource("6_617eb")

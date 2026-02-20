@@ -12,6 +12,7 @@ public enum Levels
     level_5,
     level_6
 }
+
 public class Globals
 {
     public static Dictionary<Levels, string> LevelsToScene = new Dictionary<Levels, string>{

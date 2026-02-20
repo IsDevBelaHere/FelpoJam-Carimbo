@@ -1,6 +1,4 @@
 using Godot;
-using System;
-using System.Security.Cryptography.X509Certificates;
 
 public partial class CarimboManager : Node
 {
@@ -45,32 +43,32 @@ public partial class CarimboManager : Node
     {
 		if (Input.IsActionJustPressed("karimbo_slot1"))
 		{
-			carimboType = "CarimboPlatform";
+			carimboType = Carimbo.GetCarimboByAction("karimbo_slot1");
 		}
 
 		if (Input.IsActionJustPressed("karimbo_slot2"))
 		{
-			carimboType = "CarimboSwap";
+			carimboType = Carimbo.GetCarimboByAction("karimbo_slot2");
 		}
 
 		if (Input.IsActionJustPressed("karimbo_slot3"))
 		{
-			carimboType = "CarimboJump";
+			carimboType = Carimbo.GetCarimboByAction("karimbo_slot3");
 		}
 
 		if (Input.IsActionJustPressed("karimbo_slot4"))
 		{
-			carimboType = "CarimboBoost";
+			carimboType = Carimbo.GetCarimboByAction("karimbo_slot4");
 		}
 
 		if (Input.IsActionJustPressed("karimbo_slot5"))
 		{
-			carimboType = "CarimboStop";
+			carimboType = Carimbo.GetCarimboByAction("karimbo_slot5");
 		}
 
 		if (Input.IsActionJustPressed("karimbo_slot6"))
 		{
-			carimboType = "CarimboSlime";
+			carimboType = Carimbo.GetCarimboByAction("karimbo_slot6");
 		}
 
 		if (Input.IsActionJustPressed("karimbo_slot6"))
