@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dfqlnl7ts8qgc" path="res://Levels/MainMenu/PaginaLevel.png" id="3_d1bml"]
 [ext_resource type="Texture2D" uid="uid://cbn1ckle2s0o5" path="res://Levels/MainMenu/LevelCarimbo.png" id="4_6fwcj"]
 [ext_resource type="Texture2D" uid="uid://ceowipjojfnjl" path="res://Levels/MainMenu/Table_NoLevels.png" id="4_d2l5n"]
-[ext_resource type="PackedScene" uid="uid://b5m061l6wav04" path="res://Levels/MainMenu/Scenes/b_level_1.tscn" id="4_n7ggc"]
+[ext_resource type="PackedScene" path="res://Levels/MainMenu/Scenes/b_level_1.tscn" id="4_n7ggc"]
 [ext_resource type="FontFile" uid="uid://cxkgi55cpw22q" path="res://Models/Fonts/DummyText.ttf" id="5_4frkg"]
 [ext_resource type="PackedScene" uid="uid://cgvdygsmivy5w" path="res://Models/Carimbo/CarimboV1.glb" id="8_6fwcj"]
 [ext_resource type="PackedScene" uid="uid://bjgx0mn6fma2v" path="res://Entities/Player/Scenes/player.tscn" id="10_mh1d1"]
@@ -449,6 +449,7 @@ animation = &"Idle"
 layout_mode = 2
 
 [node name="SettingsMenu" type="MarginContainer" parent="Screen/HBoxContainer/Right Middle"]
+visible = false
 layout_mode = 2
 
 [node name="ColorRect" type="ColorRect" parent="Screen/HBoxContainer/Right Middle/SettingsMenu"]
