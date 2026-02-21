@@ -9,9 +9,9 @@ public abstract partial class Carimbo : Resource
     public virtual Texture2D CarimboImg {get;set;}
     public abstract void CarimboFunction(bool entering);
 
-    public static string GetCarimboByAction(string carimbo )
+    public static string GetCarimboByAction(string action )
     {
-        switch (carimbo)
+        switch (action)
         {
             case "karimbo_slot1": 
                 return "CarimboPlatform";
@@ -37,9 +37,9 @@ public abstract partial class Carimbo : Resource
         return string.Empty;
     }
 
-    public static string GetActionByCarimbo(string action)
+    public static string GetActionByCarimbo(string carimbo)
     {
-        switch (action)
+        switch (carimbo)
         {
             case "CarimboPlatform":
                 return "karimbo_slot1";
@@ -63,5 +63,33 @@ public abstract partial class Carimbo : Resource
                 return "karimbo_slot7";
         }
         return string.Empty;
+    }
+
+    public static int GetIndexByCarimbo(string carimbo)
+    {
+        switch (carimbo)
+        {
+            case "CarimboPlatform":
+                return 0;
+                
+            case "CarimboJump":
+                return 1;
+
+            case "CarimboSwap":
+                return 2;
+
+            case "CarimboBoost":
+                return 3;
+
+            case "CarimboSlime":
+                return 4;
+
+            case "CarimboStop":
+                return 5;
+
+            case "CarimboDelete":
+                return 6;
+        }
+        return 0;
     }
 }
