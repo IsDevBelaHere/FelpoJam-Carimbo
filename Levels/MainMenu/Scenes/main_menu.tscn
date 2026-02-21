@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://deluxceh5ahtu"]
+[gd_scene load_steps=35 format=3 uid="uid://deluxceh5ahtu"]
 
 [ext_resource type="Texture2D" uid="uid://8x8ym680jyf3" path="res://Levels/MainMenu/Table.png" id="1_4frkg"]
 [ext_resource type="Script" uid="uid://c6nbucx3nstcr" path="res://Levels/MainMenu/Scripts/MainMenu.cs" id="1_i7ovf"]
@@ -24,9 +24,7 @@ shadow_size = 4
 shadow_color = Color(1, 1, 1, 1)
 shadow_offset = Vector2(0, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_3es34"]
-font = ExtResource("2_n7ggc")
-font_size = 32
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s224q"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_15p6s"]
 font = ExtResource("2_n7ggc")
@@ -79,6 +77,15 @@ font_color = Color(0.13333334, 0.1254902, 0.20392157, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_r3e7c"]
 font = ExtResource("12_7p5m2")
+font_size = 24
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8imfh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kwx33"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r3e7c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7p5m2"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_6fwcj"]
 viewport_path = NodePath("SubViewport")
@@ -189,7 +196,7 @@ okCarimbo = ExtResource("2_d1bml")
 tableRect = NodePath("../Table")
 carimbo3DTexture = NodePath("../Carimbo3DTexture")
 carimboAnimationPlayer = NodePath("../SubViewport/CarimboPivot/CarimboV1/AnimationPlayer")
-tableTextures = Array[Texture2D]([ExtResource("1_4frkg"), ExtResource("4_d2l5n")])
+tableTextures = Array[Texture2D]([ExtResource("1_4frkg"), ExtResource("4_d2l5n"), null])
 player = NodePath("HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Confirmation/HBoxContainer/Player")
 overlay = NodePath("HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Confirmation/HBoxContainer/BConfirm/Overlay")
 monhado = NodePath("../AudioStreamPlayer2D")
@@ -230,6 +237,8 @@ vertical_alignment = 1
 
 [node name="MenuButtons" type="HBoxContainer" parent="Screen/HBoxContainer/LeftBottom/Menu/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_constants/separation = 24
 
 [node name="Control" type="Control" parent="Screen/HBoxContainer/LeftBottom/Menu/VBoxContainer/MenuButtons"]
@@ -237,27 +246,35 @@ layout_mode = 2
 
 [node name="Buttons" type="VBoxContainer" parent="Screen/HBoxContainer/LeftBottom/Menu/VBoxContainer/MenuButtons"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_constants/separation = 16
 
 [node name="PlayButton" type="Button" parent="Screen/HBoxContainer/LeftBottom/Menu/VBoxContainer/MenuButtons/Buttons"]
 custom_minimum_size = Vector2(128, 32)
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 4
 size_flags_vertical = 4
-text = "
-"
-
-[node name="Label" type="Label" parent="Screen/HBoxContainer/LeftBottom/Menu/VBoxContainer/MenuButtons/Buttons/PlayButton"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0.13333334, 0.1254902, 0.20392157, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_n7ggc")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/focus = SubResource("StyleBoxEmpty_s224q")
 text = "Jogar"
-label_settings = SubResource("LabelSettings_3es34")
-horizontal_alignment = 1
-vertical_alignment = 1
+flat = true
+
+[node name="ConfigsButton" type="Button" parent="Screen/HBoxContainer/LeftBottom/Menu/VBoxContainer/MenuButtons/Buttons"]
+custom_minimum_size = Vector2(128, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_outline_color = Color(0.13333334, 0.1254902, 0.20392157, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_n7ggc")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/focus = SubResource("StyleBoxEmpty_s224q")
+text = "Configurações"
+flat = true
 
 [node name="Right Middle" type="MarginContainer" parent="Screen/HBoxContainer"]
 layout_mode = 2
@@ -441,6 +458,14 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 color = Color(0.35698137, 0.44849294, 0.6648379, 1)
 
+[node name="TextureRect" type="TextureRect" parent="Screen/HBoxContainer/Right Middle/SettingsMenu/ColorRect"]
+self_modulate = Color(1, 1, 1, 0.33333334)
+layout_mode = 0
+offset_right = 256.0
+offset_bottom = 320.0
+texture = ExtResource("13_s224q")
+stretch_mode = 1
+
 [node name="MarginContainer" type="MarginContainer" parent="Screen/HBoxContainer/Right Middle/SettingsMenu/ColorRect"]
 layout_mode = 1
 anchors_preset = 15
@@ -451,6 +476,7 @@ grow_vertical = 2
 
 [node name="Paper" type="VBoxContainer" parent="Screen/HBoxContainer/Right Middle/SettingsMenu/ColorRect/MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 9
 
 [node name="Header" type="VBoxContainer" parent="Screen/HBoxContainer/Right Middle/SettingsMenu/ColorRect/MarginContainer/Paper"]
 layout_mode = 2
@@ -466,30 +492,48 @@ size_flags_vertical = 0
 text = "CONFIGURAÇÕES"
 label_settings = SubResource("LabelSettings_r3e7c")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Screen/HBoxContainer/Right Middle/SettingsMenu/ColorRect/MarginContainer/Paper"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Screen/HBoxContainer/Right Middle/SettingsMenu/ColorRect/MarginContainer/Paper"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VideoMenu" type="Button" parent="Screen/HBoxContainer/Right Middle/SettingsMenu/ColorRect/MarginContainer/Paper/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("2_n7ggc")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8imfh")
+text = "=Video="
+flat = true
+
+[node name="AudioMenu" type="Button" parent="Screen/HBoxContainer/Right Middle/SettingsMenu/ColorRect/MarginContainer/Paper/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("2_n7ggc")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kwx33")
+text = "=Audio="
+flat = true
+
+[node name="ControlsMenu" type="Button" parent="Screen/HBoxContainer/Right Middle/SettingsMenu/ColorRect/MarginContainer/Paper/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("2_n7ggc")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_r3e7c")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7p5m2")
+text = "=Controles="
+flat = true
+
+[node name="ConfigContent" type="MarginContainer" parent="Screen/HBoxContainer/Right Middle/SettingsMenu/ColorRect/MarginContainer/Paper"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="VideoMenu" type="Button" parent="Screen/HBoxContainer/Right Middle/SettingsMenu/ColorRect/MarginContainer/Paper/VBoxContainer"]
+[node name="VideoConfigs" type="VBoxContainer" parent="Screen/HBoxContainer/Right Middle/SettingsMenu/ColorRect/MarginContainer/Paper/ConfigContent"]
 layout_mode = 2
-text = "Video"
-flat = true
-
-[node name="AudioMenu" type="Button" parent="Screen/HBoxContainer/Right Middle/SettingsMenu/ColorRect/MarginContainer/Paper/VBoxContainer"]
-layout_mode = 2
-text = "Audio"
-flat = true
-
-[node name="ControlsMenu" type="Button" parent="Screen/HBoxContainer/Right Middle/SettingsMenu/ColorRect/MarginContainer/Paper/VBoxContainer"]
-layout_mode = 2
-text = "Controles"
-flat = true
-
-[node name="TextureRect" type="TextureRect" parent="Screen/HBoxContainer/Right Middle/SettingsMenu"]
-self_modulate = Color(1, 1, 1, 0.33333334)
-layout_mode = 2
-texture = ExtResource("13_s224q")
-stretch_mode = 1
 
 [node name="Carimbo3DTexture" type="TextureRect" parent="."]
 layout_mode = 1
@@ -544,6 +588,7 @@ current = true
 stream = ExtResource("13_6ab0b")
 
 [connection signal="button_up" from="Screen/HBoxContainer/LeftBottom/Menu/VBoxContainer/MenuButtons/Buttons/PlayButton" to="Screen" method="ButtomUp_PlayButton"]
+[connection signal="button_up" from="Screen/HBoxContainer/LeftBottom/Menu/VBoxContainer/MenuButtons/Buttons/ConfigsButton" to="Screen" method="ButtomUp_PlayButton"]
 [connection signal="button_up" from="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1/BLevel1/BLevel" to="Screen" method="ButtomUp_LevelWasSelected" binds= [1, NodePath("HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1/BLevel1")]]
 [connection signal="button_up" from="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1/BLevel2/BLevel" to="Screen" method="ButtomUp_LevelWasSelected" binds= [2, NodePath("HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1/BLevel2")]]
 [connection signal="button_up" from="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1/BLevel3/BLevel" to="Screen" method="ButtomUp_LevelWasSelected" binds= [3, NodePath("HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1/BLevel3")]]
