@@ -4,4 +4,4 @@
 
 [resource]
 script = ExtResource("1_kur1t")
-carimboAmounts = PackedInt32Array(3, 0, 0, 0, 0, 0)
+carimboAmounts = PackedInt32Array(11, 11, 11, 11, 11, 11)

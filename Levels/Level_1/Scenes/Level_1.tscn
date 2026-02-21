@@ -1,11 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://cv0pwckytk6b6"]
+[gd_scene load_steps=13 format=3 uid="uid://cv0pwckytk6b6"]
 
 [ext_resource type="Texture2D" uid="uid://tmnv5ol7xqqv" path="res://Levels/LevelBackground.png" id="1_emgdg"]
 [ext_resource type="Texture2D" uid="uid://dhoixuvj47c8c" path="res://Levels/Table_OnLevel.png" id="1_ukopx"]
 [ext_resource type="FontFile" uid="uid://cxkgi55cpw22q" path="res://Models/Fonts/DummyText.ttf" id="2_2tg0b"]
 [ext_resource type="PackedScene" uid="uid://bjgx0mn6fma2v" path="res://Entities/Player/Scenes/player.tscn" id="3_2tg0b"]
 [ext_resource type="PackedScene" uid="uid://bted0exekw6dl" path="res://Levels/levelGoal.tscn" id="3_rscqj"]
-[ext_resource type="PackedScene" uid="uid://cb63wd1ak7qlj" path="res://Entities/Player/Scenes/carimbos_slot_bar.tscn" id="6_ppnqt"]
+[ext_resource type="PackedScene" path="res://Entities/Player/Scenes/carimbos_slot_bar.tscn" id="6_ppnqt"]
+[ext_resource type="PackedScene" uid="uid://cjo5jkj23qw0o" path="res://Entities/Player/Scenes/carimbo_manager.tscn" id="8_ly1y1"]
 [ext_resource type="PackedScene" uid="uid://dokvesmocnlac" path="res://Levels/boundaries.tscn" id="9_05a1t"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jppi2"]
@@ -98,3 +99,5 @@ position = Vector2(57, 218)
 metadata/_edit_lock_ = true
 
 [node name="Boundaries" parent="." instance=ExtResource("9_05a1t")]
+
+[node name="CarimboManager" parent="." instance=ExtResource("8_ly1y1")]
