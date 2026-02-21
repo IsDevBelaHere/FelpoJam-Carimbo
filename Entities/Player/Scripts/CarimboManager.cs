@@ -14,6 +14,7 @@ public partial class CarimboManager : Node
 	public string carimboType = "CarimboPlatform";
 	public int roundingGrid = 8;
 	public Node2D newCarimboOverlay;
+	public int delay = -1;
 	public Vector2 roundToMultiple(Vector2 coords, int rounding)
 	{
 		int numberX = (int)coords.X / rounding * rounding;
@@ -47,7 +48,7 @@ public partial class CarimboManager : Node
 		{
 			newCarimboOverlay.GetChild<Sprite2D>(0).Texture = overlayNotOk;
 		}
-
+		
 		if (Input.IsActionJustPressed("karimbo_slot1"))
 		{
 			carimboType = Carimbo.GetCarimboByAction("karimbo_slot1");
@@ -96,6 +97,18 @@ public partial class CarimboManager : Node
 
 		if (Input.IsActionJustPressed("mouse_1"))
 		{
+			delay = 3;
+		}
+    }
+
+	public override void _PhysicsProcess(double delta)
+	{
+		newCarimboOverlay.Position = roundToMultiple(GetViewport().GetMousePosition(), roundingGrid);
+		if (delay > 0)
+		{
+			delay--;
+		} else if (delay == 0)
+		{
 			if (carimboType.Equals("CarimboDelete"))
 			{
 				for (int i = 0; i < newCarimboOverlay.GetChild<Area2D>(1).GetOverlappingAreas().Count; i++)
@@ -103,7 +116,7 @@ public partial class CarimboManager : Node
 					newCarimboOverlay.GetChild<Area2D>(1).GetOverlappingAreas()[i].GetParent().QueueFree();			
 				}
 			} 
-			else if (levelInfo.carimboAmounts[Carimbo.GetIndexByCarimbo(carimboType)] > 0 && !newCarimboOverlay.GetChild<Area2D>(1).HasOverlappingAreas())
+			else if (levelInfo.carimboAmounts[Carimbo.GetIndexByCarimbo(carimboType)] > 0 && newCarimboOverlay.GetChild<Sprite2D>(0).Texture == overlayOk)
 			{
 				Node2D new_carimbo = carimbo.Instantiate<Node2D>();
 				AddChild(new_carimbo);
@@ -113,15 +126,13 @@ public partial class CarimboManager : Node
 				carimboArrayCounter++;
 				levelInfo.carimboAmounts[Carimbo.GetIndexByCarimbo(carimboType)]--; 
 			}
+			delay = -1;
 		}
-    }
+	}
 
-	public override void _Input(InputEvent @event)
+	public void AreaEnter(Node2D collider)
 	{
-		if (@event is InputEventMouseMotion mouseMove)
-		{
-			newCarimboOverlay.Position = roundToMultiple(mouseMove.Position, roundingGrid);
-		}
+		newCarimboOverlay.GetChild<Sprite2D>(0).Texture = overlayNotOk;
 	}
 
 	public override void _Ready()
@@ -142,5 +153,6 @@ public partial class CarimboManager : Node
 
 		newCarimboOverlay = carimboOverlay.Instantiate<Node2D>();
 		AddChild(newCarimboOverlay);
+		newCarimboOverlay.GetChild<Area2D>(1).AreaEntered += AreaEnter;
 	}
 }
