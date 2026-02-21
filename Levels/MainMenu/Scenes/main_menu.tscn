@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://deluxceh5ahtu"]
+[gd_scene load_steps=31 format=3 uid="uid://deluxceh5ahtu"]
 
 [ext_resource type="Texture2D" uid="uid://8x8ym680jyf3" path="res://Levels/MainMenu/Table.png" id="1_4frkg"]
 [ext_resource type="Script" uid="uid://c6nbucx3nstcr" path="res://Levels/MainMenu/Scripts/MainMenu.cs" id="1_i7ovf"]
@@ -12,7 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://cgvdygsmivy5w" path="res://Models/Carimbo/CarimboV1.glb" id="8_6fwcj"]
 [ext_resource type="PackedScene" uid="uid://bjgx0mn6fma2v" path="res://Entities/Player/Scenes/player.tscn" id="10_mh1d1"]
 [ext_resource type="Texture2D" uid="uid://fygsamqmlghs" path="res://Entities/Karimbos/PlataformCarimbo.png" id="10_roedx"]
+[ext_resource type="FontFile" uid="uid://bypy357spaisb" path="res://Models/Fonts/Undead Pixel 8.ttf" id="12_7p5m2"]
 [ext_resource type="AudioStream" uid="uid://dh4jbej4fev2f" path="res://Models/Audios/FXCarimbando_e_molhado.wav" id="13_6ab0b"]
+[ext_resource type="Texture2D" uid="uid://7pmulhpm2kws" path="res://Models/Grid/Grid.png" id="13_s224q"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jy27m"]
 font = ExtResource("2_n7ggc")
@@ -74,6 +76,9 @@ font_color = Color(0, 0, 0, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_6ab0b"]
 font = ExtResource("2_n7ggc")
 font_color = Color(0.13333334, 0.1254902, 0.20392157, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_r3e7c"]
+font = ExtResource("12_7p5m2")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_6fwcj"]
 viewport_path = NodePath("SubViewport")
@@ -422,10 +427,69 @@ script = null
 
 [node name="AnimatedSprite2D" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Confirmation/HBoxContainer/Player" index="0"]
 animation = &"Idle"
-frame_progress = 0.0
 
 [node name="Control" type="Control" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Confirmation"]
 layout_mode = 2
+
+[node name="SettingsMenu" type="MarginContainer" parent="Screen/HBoxContainer/Right Middle"]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Screen/HBoxContainer/Right Middle/SettingsMenu"]
+custom_minimum_size = Vector2(256, 320)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(0.35698137, 0.44849294, 0.6648379, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="Screen/HBoxContainer/Right Middle/SettingsMenu/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Paper" type="VBoxContainer" parent="Screen/HBoxContainer/Right Middle/SettingsMenu/ColorRect/MarginContainer"]
+layout_mode = 2
+
+[node name="Header" type="VBoxContainer" parent="Screen/HBoxContainer/Right Middle/SettingsMenu/ColorRect/MarginContainer/Paper"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Control" type="Control" parent="Screen/HBoxContainer/Right Middle/SettingsMenu/ColorRect/MarginContainer/Paper/Header"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Screen/HBoxContainer/Right Middle/SettingsMenu/ColorRect/MarginContainer/Paper/Header"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "CONFIGURAÇÕES"
+label_settings = SubResource("LabelSettings_r3e7c")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Screen/HBoxContainer/Right Middle/SettingsMenu/ColorRect/MarginContainer/Paper"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VideoMenu" type="Button" parent="Screen/HBoxContainer/Right Middle/SettingsMenu/ColorRect/MarginContainer/Paper/VBoxContainer"]
+layout_mode = 2
+text = "Video"
+flat = true
+
+[node name="AudioMenu" type="Button" parent="Screen/HBoxContainer/Right Middle/SettingsMenu/ColorRect/MarginContainer/Paper/VBoxContainer"]
+layout_mode = 2
+text = "Audio"
+flat = true
+
+[node name="ControlsMenu" type="Button" parent="Screen/HBoxContainer/Right Middle/SettingsMenu/ColorRect/MarginContainer/Paper/VBoxContainer"]
+layout_mode = 2
+text = "Controles"
+flat = true
+
+[node name="TextureRect" type="TextureRect" parent="Screen/HBoxContainer/Right Middle/SettingsMenu"]
+self_modulate = Color(1, 1, 1, 0.33333334)
+layout_mode = 2
+texture = ExtResource("13_s224q")
+stretch_mode = 1
 
 [node name="Carimbo3DTexture" type="TextureRect" parent="."]
 layout_mode = 1

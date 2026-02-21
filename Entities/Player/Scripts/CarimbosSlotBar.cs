@@ -13,24 +13,24 @@ public partial class CarimbosSlotBar : Control
 	{
 		int childrenAmt = buttonControlsLocation.GetChildren().Count;
 
-		commonButtonSize = buttonControlsLocation.GetChild<Control>(0).GetChild<TextureButton>(0).Size;
+		commonButtonSize = buttonControlsLocation.GetChild<Control>(0).GetChild<Control>(1).GetChild<TextureButton>(0).Size;
 
 		for (int i = 0; i < childrenAmt-1; i++)
 		{
-			Control item = buttonControlsLocation.GetChild<Control>(i);
+			Control item = buttonControlsLocation.GetChild<HBoxContainer>(i).GetChild<Control>(1);
 			
-			var lambdaItem = item;
+			
+			TextureButton button = item.GetChild<TextureButton>(0);
 
-			TextureButton button = lambdaItem.GetChild<TextureButton>(0);
-
-			var lambdaButton = button;
-			button.ButtonUp += () => ButtonUp_SelectCarimbo(lambdaItem.GetMeta("res").As<Carimbo>(),lambdaButton);
-			GD.Print(lambdaItem.GetMeta("res").As<Carimbo>().ResourceName);
+			
+			button.ButtonUp += () => ButtonUp_SelectCarimbo(item.GetMeta("res").As<Carimbo>(),button);
+			GD.Print(item.GetMeta("res").As<Carimbo>().ResourceName);
 		}
 	}
 	
 	public void ButtonUp_SelectCarimbo(Carimbo carimbo, Control node)
 	{
+		GD.Print(carimbo.ResourceName);
 		Input.ActionPress(Carimbo.GetActionByCarimbo(carimbo.ResourceName));
 	}
 }
