@@ -1,12 +1,12 @@
-[gd_scene load_steps=13 format=3 uid="uid://cv0pwckytk6b6"]
+[gd_scene load_steps=14 format=3 uid="uid://cv0pwckytk6b6"]
 
 [ext_resource type="Texture2D" uid="uid://tmnv5ol7xqqv" path="res://Levels/LevelBackground.png" id="1_emgdg"]
 [ext_resource type="Texture2D" uid="uid://dhoixuvj47c8c" path="res://Levels/Table_OnLevel.png" id="1_ukopx"]
 [ext_resource type="FontFile" uid="uid://cxkgi55cpw22q" path="res://Models/Fonts/DummyText.ttf" id="2_2tg0b"]
 [ext_resource type="PackedScene" uid="uid://bjgx0mn6fma2v" path="res://Entities/Player/Scenes/player.tscn" id="3_2tg0b"]
 [ext_resource type="PackedScene" uid="uid://bted0exekw6dl" path="res://Levels/levelGoal.tscn" id="3_rscqj"]
-[ext_resource type="PackedScene" path="res://Entities/Player/Scenes/carimbos_slot_bar.tscn" id="6_ppnqt"]
 [ext_resource type="PackedScene" uid="uid://cjo5jkj23qw0o" path="res://Entities/Player/Scenes/carimbo_manager.tscn" id="8_ly1y1"]
+[ext_resource type="Script" uid="uid://biydjcqqhonff" path="res://Levels/LevelInfo.cs" id="8_ukopx"]
 [ext_resource type="PackedScene" uid="uid://dokvesmocnlac" path="res://Levels/boundaries.tscn" id="9_05a1t"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jppi2"]
@@ -23,6 +23,10 @@ size = Vector2(86, 19)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ppnqt"]
 size = Vector2(102, 32)
 
+[sub_resource type="Resource" id="Resource_05a1t"]
+script = ExtResource("8_ukopx")
+carimboAmounts = PackedInt32Array(6, 2, 3, 4, 5, 6, 1)
+
 [node name="Level_1" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -32,8 +36,15 @@ texture = ExtResource("1_ukopx")
 [node name="World" type="Node2D" parent="."]
 position = Vector2(269, 179)
 
-[node name="Map" type="Sprite2D" parent="World"]
+[node name="Map" type="Area2D" parent="World"]
+collision_layer = 16
+collision_mask = 8
+
+[node name="Sprite2D" type="Sprite2D" parent="World/Map"]
 texture = ExtResource("1_emgdg")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="World/Map"]
+polygon = PackedVector2Array(-256, -160, 183, -160, 183, -158, 213, -128, 255, -99, 256, -99, 256, 160, -256, 160, -256, -159, -269, -159, -269, 181, 371, 181, 371, -179, -269, -179, -269, -160)
 
 [node name="Plataform" type="StaticBody2D" parent="World"]
 position = Vector2(-252, 46)
@@ -95,9 +106,10 @@ position = Vector2(86, 81)
 [node name="Player" parent="OverWorld" instance=ExtResource("3_2tg0b")]
 position = Vector2(57, 218)
 
-[node name="CarimbosSlotBar" parent="." instance=ExtResource("6_ppnqt")]
-metadata/_edit_lock_ = true
-
 [node name="Boundaries" parent="." instance=ExtResource("9_05a1t")]
 
-[node name="CarimboManager" parent="." instance=ExtResource("8_ly1y1")]
+[node name="CarimboManager" parent="." node_paths=PackedStringArray("map") instance=ExtResource("8_ly1y1")]
+levelInfo = SubResource("Resource_05a1t")
+map = NodePath("../World/Map")
+
+[editable path="CarimboManager"]
