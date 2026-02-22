@@ -4,13 +4,13 @@
 [ext_resource type="Script" uid="uid://cyrwsdyodefu5" path="res://Entities/Karimbos/Scenes/KarimboTrigger.cs" id="1_pfidf"]
 [ext_resource type="FontFile" uid="uid://bypy357spaisb" path="res://Models/Fonts/Undead Pixel 8.ttf" id="2_nxkef"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pfidf"]
+size = Vector2(64, 32)
+
 [sub_resource type="LabelSettings" id="LabelSettings_nxkef"]
 font = ExtResource("2_nxkef")
 font_size = 8
 font_color = Color(0.13333334, 0.1254902, 0.20392157, 1)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pfidf"]
-size = Vector2(64, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7tkmc"]
 size = Vector2(64, 32)
@@ -21,20 +21,6 @@ script = ExtResource("1_pfidf")
 [node name="KarimboGeneric" type="Area2D" parent="."]
 collision_layer = 9
 input_pickable = false
-
-[node name="Sprite2D" type="Sprite2D" parent="KarimboGeneric"]
-texture = ExtResource("1_nxkef")
-
-[node name="Label" type="Label" parent="KarimboGeneric"]
-offset_left = -32.0
-offset_top = -16.0
-offset_right = 32.0
-offset_bottom = 16.0
-text = "Plataforma Karimbada!"
-label_settings = SubResource("LabelSettings_nxkef")
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KarimboGeneric"]
 shape = SubResource("RectangleShape2D_pfidf")

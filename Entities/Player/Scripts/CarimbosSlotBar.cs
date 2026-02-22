@@ -33,4 +33,6 @@ public partial class CarimbosSlotBar : Control
 		GD.Print(carimbo.ResourceName);
 		Input.ActionPress(Carimbo.GetActionByCarimbo(carimbo.ResourceName));
 	}
+
+	
 }
