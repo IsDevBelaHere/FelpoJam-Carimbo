@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://deluxceh5ahtu"]
+[gd_scene load_steps=38 format=3 uid="uid://deluxceh5ahtu"]
 
 [ext_resource type="Texture2D" uid="uid://8x8ym680jyf3" path="res://Levels/MainMenu/Table.png" id="1_4frkg"]
 [ext_resource type="Script" uid="uid://c6nbucx3nstcr" path="res://Levels/MainMenu/Scripts/MainMenu.cs" id="1_i7ovf"]
@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dfqlnl7ts8qgc" path="res://Levels/MainMenu/PaginaLevel.png" id="3_d1bml"]
 [ext_resource type="Texture2D" uid="uid://cbn1ckle2s0o5" path="res://Levels/MainMenu/LevelCarimbo.png" id="4_6fwcj"]
 [ext_resource type="Texture2D" uid="uid://ceowipjojfnjl" path="res://Levels/MainMenu/Table_NoLevels.png" id="4_d2l5n"]
-[ext_resource type="PackedScene" path="res://Levels/MainMenu/Scenes/b_level_1.tscn" id="4_n7ggc"]
+[ext_resource type="PackedScene" uid="uid://b5m061l6wav04" path="res://Levels/MainMenu/Scenes/b_level_1.tscn" id="4_n7ggc"]
 [ext_resource type="FontFile" uid="uid://cxkgi55cpw22q" path="res://Models/Fonts/DummyText.ttf" id="5_4frkg"]
 [ext_resource type="PackedScene" uid="uid://cgvdygsmivy5w" path="res://Models/Carimbo/CarimboV1.glb" id="8_6fwcj"]
 [ext_resource type="PackedScene" uid="uid://bjgx0mn6fma2v" path="res://Entities/Player/Scenes/player.tscn" id="10_mh1d1"]
@@ -15,6 +15,7 @@
 [ext_resource type="FontFile" uid="uid://bypy357spaisb" path="res://Models/Fonts/Undead Pixel 8.ttf" id="12_7p5m2"]
 [ext_resource type="AudioStream" uid="uid://dh4jbej4fev2f" path="res://Models/Audios/FXCarimbando_e_molhado.wav" id="13_6ab0b"]
 [ext_resource type="Texture2D" uid="uid://7pmulhpm2kws" path="res://Models/Grid/Grid.png" id="13_s224q"]
+[ext_resource type="Script" uid="uid://bo0ndsfpai38x" path="res://Levels/MainMenu/Scenes/option_button_resize.gd" id="14_s224q"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jy27m"]
 font = ExtResource("2_n7ggc")
@@ -76,8 +77,8 @@ font = ExtResource("2_n7ggc")
 font_color = Color(0.13333334, 0.1254902, 0.20392157, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_r3e7c"]
-font = ExtResource("12_7p5m2")
-font_size = 24
+font = ExtResource("2_n7ggc")
+font_size = 48
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8imfh"]
 
@@ -86,6 +87,11 @@ font_size = 24
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r3e7c"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7p5m2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7p5m2"]
+font = ExtResource("2_n7ggc")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fxghf"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_6fwcj"]
 viewport_path = NodePath("SubViewport")
@@ -183,7 +189,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_4frkg")
 
-[node name="Screen" type="MarginContainer" parent="." node_paths=PackedStringArray("levelMenu", "tableRect", "carimbo3DTexture", "carimboAnimationPlayer", "player", "overlay", "monhado")]
+[node name="Screen" type="MarginContainer" parent="." node_paths=PackedStringArray("levelMenu", "configContent", "tableRect", "carimbo3DTexture", "carimboAnimationPlayer", "player", "overlay", "monhado")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -192,6 +198,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_i7ovf")
 levelMenu = NodePath("HBoxContainer/Right Middle/Menu")
+configContent = NodePath("HBoxContainer/Right Middle/SettingsMenu/ColorRect/MarginContainer/Paper/ConfigContent")
 okCarimbo = ExtResource("2_d1bml")
 tableRect = NodePath("../Table")
 carimbo3DTexture = NodePath("../Carimbo3DTexture")
@@ -199,7 +206,7 @@ carimboAnimationPlayer = NodePath("../SubViewport/CarimboPivot/CarimboV1/Animati
 tableTextures = Array[Texture2D]([ExtResource("1_4frkg"), ExtResource("4_d2l5n"), null])
 player = NodePath("HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Confirmation/HBoxContainer/Player")
 overlay = NodePath("HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Confirmation/HBoxContainer/BConfirm/Overlay")
-monhado = NodePath("../AudioStreamPlayer2D")
+monhado = NodePath("../FXCarimbando")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Screen"]
 layout_mode = 2
@@ -449,7 +456,6 @@ animation = &"Idle"
 layout_mode = 2
 
 [node name="SettingsMenu" type="MarginContainer" parent="Screen/HBoxContainer/Right Middle"]
-visible = false
 layout_mode = 2
 
 [node name="ColorRect" type="ColorRect" parent="Screen/HBoxContainer/Right Middle/SettingsMenu"]
@@ -535,6 +541,133 @@ size_flags_vertical = 3
 
 [node name="VideoConfigs" type="VBoxContainer" parent="Screen/HBoxContainer/Right Middle/SettingsMenu/ColorRect/MarginContainer/Paper/ConfigContent"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="ResolutionBoxContainer" type="HBoxContainer" parent="Screen/HBoxContainer/Right Middle/SettingsMenu/ColorRect/MarginContainer/Paper/ConfigContent/VideoConfigs"]
+custom_minimum_size = Vector2(205.905, 0)
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Label" type="Label" parent="Screen/HBoxContainer/Right Middle/SettingsMenu/ColorRect/MarginContainer/Paper/ConfigContent/VideoConfigs/ResolutionBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Resolução"
+label_settings = SubResource("LabelSettings_7p5m2")
+
+[node name="OptionButton" type="OptionButton" parent="Screen/HBoxContainer/Right Middle/SettingsMenu/ColorRect/MarginContainer/Paper/ConfigContent/VideoConfigs/ResolutionBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("12_7p5m2")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fxghf")
+selected = 3
+item_count = 4
+popup/item_0/text = "2560x1440"
+popup/item_0/id = 0
+popup/item_1/text = "1920x1080"
+popup/item_1/id = 1
+popup/item_2/text = "1280x720"
+popup/item_2/id = 2
+popup/item_3/text = "640x360"
+popup/item_3/id = 3
+script = ExtResource("14_s224q")
+fontstyle = ExtResource("12_7p5m2")
+
+[node name="WindowModeBoxContainer2" type="HBoxContainer" parent="Screen/HBoxContainer/Right Middle/SettingsMenu/ColorRect/MarginContainer/Paper/ConfigContent/VideoConfigs"]
+custom_minimum_size = Vector2(205.905, 0)
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Label" type="Label" parent="Screen/HBoxContainer/Right Middle/SettingsMenu/ColorRect/MarginContainer/Paper/ConfigContent/VideoConfigs/WindowModeBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Modo de Janela"
+label_settings = SubResource("LabelSettings_7p5m2")
+
+[node name="OptionButton" type="OptionButton" parent="Screen/HBoxContainer/Right Middle/SettingsMenu/ColorRect/MarginContainer/Paper/ConfigContent/VideoConfigs/WindowModeBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("12_7p5m2")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fxghf")
+selected = 0
+fit_to_longest_item = false
+item_count = 3
+popup/item_0/text = "Janela"
+popup/item_0/id = 0
+popup/item_1/text = "Janela Sem Bordas"
+popup/item_1/id = 1
+popup/item_2/text = "Tela Cheia"
+popup/item_2/id = 2
+script = ExtResource("14_s224q")
+fontstyle = ExtResource("12_7p5m2")
+
+[node name="AudioConfigs" type="VBoxContainer" parent="Screen/HBoxContainer/Right Middle/SettingsMenu/ColorRect/MarginContainer/Paper/ConfigContent"]
+visible = false
+layout_mode = 2
+
+[node name="MasterBoxContainer" type="HBoxContainer" parent="Screen/HBoxContainer/Right Middle/SettingsMenu/ColorRect/MarginContainer/Paper/ConfigContent/AudioConfigs"]
+custom_minimum_size = Vector2(205.905, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 14
+
+[node name="Label" type="Label" parent="Screen/HBoxContainer/Right Middle/SettingsMenu/ColorRect/MarginContainer/Paper/ConfigContent/AudioConfigs/MasterBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Principal"
+label_settings = SubResource("LabelSettings_7p5m2")
+
+[node name="HSlider" type="HSlider" parent="Screen/HBoxContainer/Right Middle/SettingsMenu/ColorRect/MarginContainer/Paper/ConfigContent/AudioConfigs/MasterBoxContainer"]
+custom_minimum_size = Vector2(123.25, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+max_value = 1.0
+step = 0.1
+
+[node name="EffectsBoxContainer" type="HBoxContainer" parent="Screen/HBoxContainer/Right Middle/SettingsMenu/ColorRect/MarginContainer/Paper/ConfigContent/AudioConfigs"]
+custom_minimum_size = Vector2(205.905, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 14
+
+[node name="Label" type="Label" parent="Screen/HBoxContainer/Right Middle/SettingsMenu/ColorRect/MarginContainer/Paper/ConfigContent/AudioConfigs/EffectsBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Efeitos"
+label_settings = SubResource("LabelSettings_7p5m2")
+
+[node name="HSlider" type="HSlider" parent="Screen/HBoxContainer/Right Middle/SettingsMenu/ColorRect/MarginContainer/Paper/ConfigContent/AudioConfigs/EffectsBoxContainer"]
+custom_minimum_size = Vector2(123.25, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+max_value = 1.0
+step = 0.1
+
+[node name="MusicBoxContainer" type="HBoxContainer" parent="Screen/HBoxContainer/Right Middle/SettingsMenu/ColorRect/MarginContainer/Paper/ConfigContent/AudioConfigs"]
+custom_minimum_size = Vector2(205.905, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 14
+
+[node name="Label" type="Label" parent="Screen/HBoxContainer/Right Middle/SettingsMenu/ColorRect/MarginContainer/Paper/ConfigContent/AudioConfigs/MusicBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Music"
+label_settings = SubResource("LabelSettings_7p5m2")
+
+[node name="HSlider" type="HSlider" parent="Screen/HBoxContainer/Right Middle/SettingsMenu/ColorRect/MarginContainer/Paper/ConfigContent/AudioConfigs/MusicBoxContainer"]
+custom_minimum_size = Vector2(123.25, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+max_value = 1.0
+step = 0.1
 
 [node name="Carimbo3DTexture" type="TextureRect" parent="."]
 layout_mode = 1
@@ -585,8 +718,9 @@ sky_mode = 1
 [node name="AudioListener2D" type="AudioListener2D" parent="."]
 current = true
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="FXCarimbando" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("13_6ab0b")
+bus = &"Effects"
 
 [connection signal="button_up" from="Screen/HBoxContainer/LeftBottom/Menu/VBoxContainer/MenuButtons/Buttons/PlayButton" to="Screen" method="ButtomUp_PlayButton"]
 [connection signal="button_up" from="Screen/HBoxContainer/LeftBottom/Menu/VBoxContainer/MenuButtons/Buttons/ConfigsButton" to="Screen" method="ButtomUp_PlayButton"]

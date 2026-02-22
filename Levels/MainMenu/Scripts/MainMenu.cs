@@ -3,6 +3,7 @@ using Godot;
 public partial class MainMenu : MarginContainer
 {
 	[Export] public MarginContainer levelMenu;
+	[Export] public MarginContainer configContent;
 	[Export] public PackedScene okCarimbo;
 	[Export] public TextureRect tableRect;
 	[Export] public TextureRect carimbo3DTexture;
@@ -16,6 +17,58 @@ public partial class MainMenu : MarginContainer
 	TextureRect rectSelected;
 	bool canClick = true;
 	bool confirmating;
+
+
+	[ExportGroup("ConfigMenuTopics")]
+	[Export] Control videoConfigs;
+	[Export] Control audioConfigs;
+	[Export] Control keyBindsConfigs;
+
+    public override void _Ready()
+	{
+		
+	}
+
+	private Vector2I ResolutionByIndex(int index)
+	{
+		switch (index)
+		{
+			case 0: 
+				return new(2560,1440);
+			case 1:
+				return new(1920,1080);
+			case 2:
+				return new(1280,720);
+			case 3:
+				return new(640,360);
+		}
+		return new(1920,1080);
+	}
+	public void ItemSelected_Resolution(int index)
+	{
+		DisplayServer.WindowSetSize(ResolutionByIndex(index));
+	}
+	public void ItemSelected_WindowMode(int index)
+	{
+		switch (index)
+		{
+			case 0:
+				DisplayServer.WindowSetMode(DisplayServer.WindowMode.Windowed);
+				return;
+			case 1:
+				DisplayServer.WindowSetMode(DisplayServer.WindowMode.Fullscreen);
+				return;
+			case 2:
+				DisplayServer.WindowSetMode(DisplayServer.WindowMode.ExclusiveFullscreen);
+				return;
+		}
+	}
+	public void ValueChanged_BusVolume(float value, string busName)
+	{
+		int busIndex = AudioServer.GetBusIndex(busName);
+
+		
+	}
 	public void ButtomUp_PlayButton()
 	{
 		if (!canClick)
