@@ -67,41 +67,14 @@ public partial class CarimboManager : Node
 			newCarimboOverlay.GetChild<Sprite2D>(0).Texture = overlayNotOk;
 		}
 
-		if (Input.IsActionJustPressed("karimbo_slot1"))
+		for (int i = 1; i <= 7; i++)
 		{
-			carimboType = Carimbo.GetCarimboByAction("karimbo_slot1");
+			if (Input.IsActionJustPressed("karimbo_slot" + i))
+			{
+				carimboType = Carimbo.GetCarimboByAction("karimbo_slot" + i);
+			}
 		}
-
-		if (Input.IsActionJustPressed("karimbo_slot2"))
-		{
-			carimboType = Carimbo.GetCarimboByAction("karimbo_slot2");
-		}
-
-		if (Input.IsActionJustPressed("karimbo_slot3"))
-		{
-			carimboType = Carimbo.GetCarimboByAction("karimbo_slot3");
-		}
-
-		if (Input.IsActionJustPressed("karimbo_slot4"))
-		{
-			carimboType = Carimbo.GetCarimboByAction("karimbo_slot4");
-		}
-
-		if (Input.IsActionJustPressed("karimbo_slot5"))
-		{
-			carimboType = Carimbo.GetCarimboByAction("karimbo_slot5");
-		}
-
-		if (Input.IsActionJustPressed("karimbo_slot6"))
-		{
-			carimboType = Carimbo.GetCarimboByAction("karimbo_slot6");
-		}
-
-		if (Input.IsActionJustPressed("karimbo_slot7"))
-		{
-			carimboType = Carimbo.GetCarimboByAction("karimbo_slot7");
-		}
-
+		
 		if (Input.IsActionJustPressed("rotate"))
 		{
 			if (newCarimboOverlay.Rotation == 0)
