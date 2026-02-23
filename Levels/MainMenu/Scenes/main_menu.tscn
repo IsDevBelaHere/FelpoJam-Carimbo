@@ -189,7 +189,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_4frkg")
 
-[node name="Screen" type="MarginContainer" parent="." node_paths=PackedStringArray("levelMenu", "configContent", "tableRect", "carimbo3DTexture", "carimboAnimationPlayer", "player", "overlay", "monhado", "videoConfigs", "audioConfigs", "keyBindsConfigs")]
+[node name="Screen" type="MarginContainer" parent="." node_paths=PackedStringArray("levelMenu", "configContent", "tableRect", "carimbo3DTexture", "carimboAnimationPlayer", "player", "overlay", "settingMenu", "monhado", "videoConfigs", "audioConfigs", "keyBindsConfigs")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -206,6 +206,7 @@ carimboAnimationPlayer = NodePath("../SubViewport/CarimboPivot/CarimboV1/Animati
 tableTextures = Array[Texture2D]([ExtResource("1_4frkg"), ExtResource("4_d2l5n"), null])
 player = NodePath("HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Confirmation/HBoxContainer/Player")
 overlay = NodePath("HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Confirmation/HBoxContainer/BConfirm/Overlay")
+settingMenu = NodePath("HBoxContainer/Right Middle/SettingsMenu")
 monhado = NodePath("../FXCarimbando")
 videoConfigs = NodePath("HBoxContainer/Right Middle/SettingsMenu/ColorRect/MarginContainer/Paper/ConfigContent/VideoConfigs")
 audioConfigs = NodePath("HBoxContainer/Right Middle/SettingsMenu/ColorRect/MarginContainer/Paper/ConfigContent/AudioConfigs")
@@ -505,12 +506,12 @@ size_flags_vertical = 0
 text = "CONFIGURAÇÕES"
 label_settings = SubResource("LabelSettings_r3e7c")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Screen/HBoxContainer/Right Middle/SettingsMenu/ColorRect/MarginContainer/Paper"]
+[node name="Topics" type="HBoxContainer" parent="Screen/HBoxContainer/Right Middle/SettingsMenu/ColorRect/MarginContainer/Paper"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="VideoMenu" type="Button" parent="Screen/HBoxContainer/Right Middle/SettingsMenu/ColorRect/MarginContainer/Paper/HBoxContainer"]
+[node name="VideoMenu" type="Button" parent="Screen/HBoxContainer/Right Middle/SettingsMenu/ColorRect/MarginContainer/Paper/Topics"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -520,7 +521,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_8imfh")
 text = "=Video="
 flat = true
 
-[node name="AudioMenu" type="Button" parent="Screen/HBoxContainer/Right Middle/SettingsMenu/ColorRect/MarginContainer/Paper/HBoxContainer"]
+[node name="AudioMenu" type="Button" parent="Screen/HBoxContainer/Right Middle/SettingsMenu/ColorRect/MarginContainer/Paper/Topics"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -530,7 +531,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_kwx33")
 text = "=Audio="
 flat = true
 
-[node name="ControlsMenu" type="Button" parent="Screen/HBoxContainer/Right Middle/SettingsMenu/ColorRect/MarginContainer/Paper/HBoxContainer"]
+[node name="ControlsMenu" type="Button" parent="Screen/HBoxContainer/Right Middle/SettingsMenu/ColorRect/MarginContainer/Paper/Topics"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -634,6 +635,7 @@ layout_mode = 2
 size_flags_horizontal = 10
 max_value = 1.0
 step = 0.1
+value = 0.5
 
 [node name="EffectsBoxContainer" type="HBoxContainer" parent="Screen/HBoxContainer/Right Middle/SettingsMenu/ColorRect/MarginContainer/Paper/ConfigContent/AudioConfigs"]
 custom_minimum_size = Vector2(205.905, 0)
@@ -654,6 +656,7 @@ layout_mode = 2
 size_flags_horizontal = 10
 max_value = 1.0
 step = 0.1
+value = 0.5
 
 [node name="MusicBoxContainer" type="HBoxContainer" parent="Screen/HBoxContainer/Right Middle/SettingsMenu/ColorRect/MarginContainer/Paper/ConfigContent/AudioConfigs"]
 custom_minimum_size = Vector2(205.905, 0)
@@ -674,6 +677,7 @@ layout_mode = 2
 size_flags_horizontal = 10
 max_value = 1.0
 step = 0.1
+value = 0.5
 
 [node name="KeybindsConfigs" type="VBoxContainer" parent="Screen/HBoxContainer/Right Middle/SettingsMenu/ColorRect/MarginContainer/Paper/ConfigContent"]
 visible = false
@@ -733,7 +737,7 @@ stream = ExtResource("13_6ab0b")
 bus = &"Effects"
 
 [connection signal="button_up" from="Screen/HBoxContainer/LeftBottom/Menu/VBoxContainer/MenuButtons/Buttons/PlayButton" to="Screen" method="ButtomUp_PlayButton"]
-[connection signal="button_up" from="Screen/HBoxContainer/LeftBottom/Menu/VBoxContainer/MenuButtons/Buttons/ConfigsButton" to="Screen" method="ButtomUp_PlayButton"]
+[connection signal="button_up" from="Screen/HBoxContainer/LeftBottom/Menu/VBoxContainer/MenuButtons/Buttons/ConfigsButton" to="Screen" method="ButtomUp_Configs"]
 [connection signal="button_up" from="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1/BLevel1/BLevel" to="Screen" method="ButtomUp_LevelWasSelected" binds= [1, NodePath("HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1/BLevel1")]]
 [connection signal="button_up" from="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1/BLevel2/BLevel" to="Screen" method="ButtomUp_LevelWasSelected" binds= [2, NodePath("HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1/BLevel2")]]
 [connection signal="button_up" from="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1/BLevel3/BLevel" to="Screen" method="ButtomUp_LevelWasSelected" binds= [3, NodePath("HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1/BLevel3")]]
@@ -741,6 +745,9 @@ bus = &"Effects"
 [connection signal="button_up" from="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2/BLevel5/BLevel" to="Screen" method="ButtomUp_LevelWasSelected" binds= [5, NodePath("HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2/BLevel5")]]
 [connection signal="button_up" from="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2/BLevel6/BLevel" to="Screen" method="ButtomUp_LevelWasSelected" binds= [6, NodePath("HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2/BLevel6")]]
 [connection signal="button_up" from="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Confirmation/HBoxContainer/BConfirm" to="Screen" method="ButtomUp_LevelConfirm" binds= [NodePath("HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Confirmation/HBoxContainer/BConfirm")]]
+[connection signal="button_up" from="Screen/HBoxContainer/Right Middle/SettingsMenu/ColorRect/MarginContainer/Paper/Topics/VideoMenu" to="Screen" method="ButtomUp_VideoMenu"]
+[connection signal="button_up" from="Screen/HBoxContainer/Right Middle/SettingsMenu/ColorRect/MarginContainer/Paper/Topics/AudioMenu" to="Screen" method="ButtomUp_AudioMenu"]
+[connection signal="button_up" from="Screen/HBoxContainer/Right Middle/SettingsMenu/ColorRect/MarginContainer/Paper/Topics/ControlsMenu" to="Screen" method="ButtomUp_KeybindMenu"]
 [connection signal="item_selected" from="Screen/HBoxContainer/Right Middle/SettingsMenu/ColorRect/MarginContainer/Paper/ConfigContent/VideoConfigs/ResolutionBoxContainer/OptionButton" to="Screen" method="ItemSelected_Resolution"]
 [connection signal="item_selected" from="Screen/HBoxContainer/Right Middle/SettingsMenu/ColorRect/MarginContainer/Paper/ConfigContent/VideoConfigs/WindowModeBoxContainer2/OptionButton" to="Screen" method="ItemSelected_WindowMode"]
 [connection signal="value_changed" from="Screen/HBoxContainer/Right Middle/SettingsMenu/ColorRect/MarginContainer/Paper/ConfigContent/AudioConfigs/MasterBoxContainer/HSlider" to="Screen" method="ValueChanged_BusVolume" binds= ["Master"]]

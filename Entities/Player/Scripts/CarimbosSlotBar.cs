@@ -23,12 +23,12 @@ public partial class CarimbosSlotBar : Control
 			TextureButton button = item.GetChild<TextureButton>(0);
 
 			
-			button.ButtonUp += () => ButtonUp_SelectCarimbo(item.GetMeta("res").As<Carimbo>(),button);
+			button.ButtonUp += () => ButtomUp_SelectCarimbo(item.GetMeta("res").As<Carimbo>(),button);
 			GD.Print(item.GetMeta("res").As<Carimbo>().ResourceName);
 		}
 	}
 	
-	public void ButtonUp_SelectCarimbo(Carimbo carimbo, Control node)
+	public void ButtomUp_SelectCarimbo(Carimbo carimbo, Control node)
 	{
 		CarimboManager.instance.carimboType = carimbo.ResourceName;
 	}

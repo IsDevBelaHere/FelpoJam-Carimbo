@@ -21,6 +21,7 @@ public partial class MainMenu : MarginContainer
 
 
 	[ExportGroup("ConfigMenuTopics")]
+	[Export] Button videoMenuButton;
 	[Export] Control videoConfigs;
 	[Export] Control audioConfigs;
 	[Export] Control keyBindsConfigs;
@@ -28,6 +29,11 @@ public partial class MainMenu : MarginContainer
     public override void _Ready()
     {
         ItemSelected_WindowMode(2);
+		for (int i = 0; i < 2; i++)
+		{
+
+			ValueChanged_BusVolume(0.5f,AudioServer.GetBusName(i));
+		}
     }
 
     
@@ -82,7 +88,7 @@ public partial class MainMenu : MarginContainer
 
 		AudioServer.SetBusVolumeDb(busIndex,db);
 	}
-	public void ButtommUp_Configs()
+	public void ButtomUp_Configs()
 	{
 		if (!canClick)
 		{
@@ -92,6 +98,25 @@ public partial class MainMenu : MarginContainer
 		levelMenu.Visible = false;
 		
 	}
+	public void ButtomUp_VideoMenu()
+	{
+		videoConfigs.Visible = true;
+		audioConfigs.Visible = false;
+		keyBindsConfigs.Visible = false;
+	}
+	public void ButtomUp_AudioMenu()
+	{
+		videoConfigs.Visible = false;
+		audioConfigs.Visible = true;
+		keyBindsConfigs.Visible = false;
+	}
+	public void ButtomUp_KeybindMenu()
+	{
+		videoConfigs.Visible = false;
+		audioConfigs.Visible = false;
+		keyBindsConfigs.Visible = true;
+	}
+
 	public void ButtomUp_PlayButton()
 	{
 		if (!canClick)
