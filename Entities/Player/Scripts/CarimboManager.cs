@@ -75,7 +75,7 @@ public partial class CarimboManager : Node
 			}
 		}
 		
-		if (Input.IsActionJustPressed("rotate"))
+		if (Input.IsActionJustPressed("rotate") && !freezeOverlayMovement)
 		{
 			if (newCarimboOverlay.Rotation == 0)
 			{
