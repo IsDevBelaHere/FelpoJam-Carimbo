@@ -11,6 +11,7 @@ public partial class MainMenu : MarginContainer
 	[Export] public Texture2D[] tableTextures;
 	[Export] public CharacterBody2D player;
 	[Export] public TextureRect overlay;
+	[Export] public MarginContainer settingMenu;
 	[Export] public AudioStreamPlayer2D monhado;
 	public Node2D instantiated_okCarimbo;
 	Levels levelSelected;
@@ -25,9 +26,11 @@ public partial class MainMenu : MarginContainer
 	[Export] Control keyBindsConfigs;
 
     public override void _Ready()
-	{
-		
-	}
+    {
+        ItemSelected_WindowMode(2);
+    }
+
+    
 
 	private Vector2I ResolutionByIndex(int index)
 	{
@@ -50,23 +53,43 @@ public partial class MainMenu : MarginContainer
 	}
 	public void ItemSelected_WindowMode(int index)
 	{
+		OptionButton optionButton = videoConfigs.GetChild<Control>(0).GetChild<OptionButton>(1);
 		switch (index)
 		{
 			case 0:
 				DisplayServer.WindowSetMode(DisplayServer.WindowMode.Windowed);
-				return;
+				optionButton.SetItemText(3,"640x360");
+				optionButton.Disabled = false;
+				break;
 			case 1:
 				DisplayServer.WindowSetMode(DisplayServer.WindowMode.Fullscreen);
-				return;
+				optionButton.SetItemText(3, GetViewport().GetWindow().Size.X + "x" + GetViewport().GetWindow().Size.Y);
+				optionButton.Disabled = true;
+				break;
 			case 2:
 				DisplayServer.WindowSetMode(DisplayServer.WindowMode.ExclusiveFullscreen);
-				return;
+				optionButton.SetItemText(3, GetViewport().GetWindow().Size.X + "x" + GetViewport().GetWindow().Size.Y);
+				optionButton.Disabled = true;
+				break;
 		}
+		optionButton.Select(3);
+		ItemSelected_Resolution(3);
 	}
 	public void ValueChanged_BusVolume(float value, string busName)
 	{
 		int busIndex = AudioServer.GetBusIndex(busName);
+		float db = Mathf.LinearToDb(value);
 
+		AudioServer.SetBusVolumeDb(busIndex,db);
+	}
+	public void ButtommUp_Configs()
+	{
+		if (!canClick)
+		{
+			return;
+		}
+		settingMenu.Visible =! settingMenu.Visible;
+		levelMenu.Visible = false;
 		
 	}
 	public void ButtomUp_PlayButton()
@@ -76,6 +99,7 @@ public partial class MainMenu : MarginContainer
 			return;
 		}
 		levelMenu.Visible =! levelMenu.Visible;
+		settingMenu.Visible = false;
 
 		tableRect.Texture = levelMenu.Visible ? tableTextures[1] : tableTextures[0];
 

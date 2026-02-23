@@ -189,7 +189,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_4frkg")
 
-[node name="Screen" type="MarginContainer" parent="." node_paths=PackedStringArray("levelMenu", "configContent", "tableRect", "carimbo3DTexture", "carimboAnimationPlayer", "player", "overlay", "monhado")]
+[node name="Screen" type="MarginContainer" parent="." node_paths=PackedStringArray("levelMenu", "configContent", "tableRect", "carimbo3DTexture", "carimboAnimationPlayer", "player", "overlay", "monhado", "videoConfigs", "audioConfigs", "keyBindsConfigs")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -207,9 +207,13 @@ tableTextures = Array[Texture2D]([ExtResource("1_4frkg"), ExtResource("4_d2l5n")
 player = NodePath("HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Confirmation/HBoxContainer/Player")
 overlay = NodePath("HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Confirmation/HBoxContainer/BConfirm/Overlay")
 monhado = NodePath("../FXCarimbando")
+videoConfigs = NodePath("HBoxContainer/Right Middle/SettingsMenu/ColorRect/MarginContainer/Paper/ConfigContent/VideoConfigs")
+audioConfigs = NodePath("HBoxContainer/Right Middle/SettingsMenu/ColorRect/MarginContainer/Paper/ConfigContent/AudioConfigs")
+keyBindsConfigs = NodePath("HBoxContainer/Right Middle/SettingsMenu/ColorRect/MarginContainer/Paper/ConfigContent/KeybindsConfigs")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Screen"]
 layout_mode = 2
+size_flags_horizontal = 4
 
 [node name="LeftBottom" type="MarginContainer" parent="Screen/HBoxContainer"]
 layout_mode = 2
@@ -457,6 +461,8 @@ layout_mode = 2
 
 [node name="SettingsMenu" type="MarginContainer" parent="Screen/HBoxContainer/Right Middle"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="ColorRect" type="ColorRect" parent="Screen/HBoxContainer/Right Middle/SettingsMenu"]
 custom_minimum_size = Vector2(256, 320)
@@ -593,7 +599,7 @@ size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("12_7p5m2")
 theme_override_font_sizes/font_size = 8
 theme_override_styles/focus = SubResource("StyleBoxEmpty_fxghf")
-selected = 0
+selected = 2
 fit_to_longest_item = false
 item_count = 3
 popup/item_0/text = "Janela"
@@ -669,6 +675,10 @@ size_flags_horizontal = 10
 max_value = 1.0
 step = 0.1
 
+[node name="KeybindsConfigs" type="VBoxContainer" parent="Screen/HBoxContainer/Right Middle/SettingsMenu/ColorRect/MarginContainer/Paper/ConfigContent"]
+visible = false
+layout_mode = 2
+
 [node name="Carimbo3DTexture" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -731,6 +741,11 @@ bus = &"Effects"
 [connection signal="button_up" from="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2/BLevel5/BLevel" to="Screen" method="ButtomUp_LevelWasSelected" binds= [5, NodePath("HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2/BLevel5")]]
 [connection signal="button_up" from="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2/BLevel6/BLevel" to="Screen" method="ButtomUp_LevelWasSelected" binds= [6, NodePath("HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2/BLevel6")]]
 [connection signal="button_up" from="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Confirmation/HBoxContainer/BConfirm" to="Screen" method="ButtomUp_LevelConfirm" binds= [NodePath("HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Confirmation/HBoxContainer/BConfirm")]]
+[connection signal="item_selected" from="Screen/HBoxContainer/Right Middle/SettingsMenu/ColorRect/MarginContainer/Paper/ConfigContent/VideoConfigs/ResolutionBoxContainer/OptionButton" to="Screen" method="ItemSelected_Resolution"]
+[connection signal="item_selected" from="Screen/HBoxContainer/Right Middle/SettingsMenu/ColorRect/MarginContainer/Paper/ConfigContent/VideoConfigs/WindowModeBoxContainer2/OptionButton" to="Screen" method="ItemSelected_WindowMode"]
+[connection signal="value_changed" from="Screen/HBoxContainer/Right Middle/SettingsMenu/ColorRect/MarginContainer/Paper/ConfigContent/AudioConfigs/MasterBoxContainer/HSlider" to="Screen" method="ValueChanged_BusVolume" binds= ["Master"]]
+[connection signal="value_changed" from="Screen/HBoxContainer/Right Middle/SettingsMenu/ColorRect/MarginContainer/Paper/ConfigContent/AudioConfigs/EffectsBoxContainer/HSlider" to="Screen" method="ValueChanged_BusVolume" binds= ["Effects"]]
+[connection signal="value_changed" from="Screen/HBoxContainer/Right Middle/SettingsMenu/ColorRect/MarginContainer/Paper/ConfigContent/AudioConfigs/MusicBoxContainer/HSlider" to="Screen" method="ValueChanged_BusVolume" binds= ["Music"]]
 
 [editable path="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1/BLevel1"]
 [editable path="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1/BLevel2"]

@@ -102,7 +102,7 @@ public partial class CarimboManager : Node
 			carimboType = Carimbo.GetCarimboByAction("karimbo_slot7");
 		}
 
-		if (Input.IsActionJustPressed("rotate"))
+		if (Input.IsActionJustPressed("rotate") && !freezeOverlayMovement)
 		{
 			if (newCarimboOverlay.Rotation == 0)
 			{
@@ -123,9 +123,8 @@ public partial class CarimboManager : Node
 
 	public async Task SpawnKarimbo()
 	{
-		SceneTree scenetree = Engine.GetMainLoop() as SceneTree;
-		await ToSignal(scenetree, SceneTree.SignalName.PhysicsFrame);
-		await ToSignal(scenetree, SceneTree.SignalName.PhysicsFrame);
+		await ToSignal(GetTree(), SceneTree.SignalName.PhysicsFrame);
+		await ToSignal(GetTree(), SceneTree.SignalName.PhysicsFrame);
 		if (levelInfo.carimboAmounts[Carimbo.GetIndexByCarimbo(carimboType)] > 0 && carimboType.Equals("CarimboDelete"))
 		{
 			for (int i = 0; i < newCarimboOverlay.GetChild<Area2D>(1).GetOverlappingAreas().Count; i++)

@@ -39,6 +39,7 @@ public abstract partial class Carimbo : Resource
 
     public static string GetActionByCarimbo(string carimbo)
     {
+        GD.Print(carimbo);
         switch (carimbo)
         {
             case "CarimboPlatform":

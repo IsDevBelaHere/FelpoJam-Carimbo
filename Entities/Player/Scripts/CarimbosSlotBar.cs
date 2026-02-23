@@ -30,9 +30,6 @@ public partial class CarimbosSlotBar : Control
 	
 	public void ButtonUp_SelectCarimbo(Carimbo carimbo, Control node)
 	{
-		GD.Print(carimbo.ResourceName);
-		Input.ActionPress(Carimbo.GetActionByCarimbo(carimbo.ResourceName));
+		CarimboManager.instance.carimboType = carimbo.ResourceName;
 	}
-
-	
 }
