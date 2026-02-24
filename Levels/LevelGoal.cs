@@ -1,7 +1,17 @@
 using Godot;
 using System;
+using System.Runtime.InteropServices.Marshalling;
 
-public partial class LevelGoal : StaticBody2D
+
+
+public partial class LevelGoal : Area2D
 {
-	
+    [Export] public Levels nextLevel;
+	public void AreaEnter(Node collider)
+    {
+        if (collider is Player)
+        {
+            GetTree().ChangeSceneToFile(Globals.LevelsToScene[nextLevel]);
+        }
+    }
 }
