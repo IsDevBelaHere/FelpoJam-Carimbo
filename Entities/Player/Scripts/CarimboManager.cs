@@ -15,8 +15,8 @@ public partial class CarimboManager : Node
 	public int carimboTotalAmount = 0;
 	public static CarimboManager instance;
 	public string carimboType = "CarimboPlatform";
-	public int roundingGrid = 4;
-	public bool freezeOverlayMovement = false;
+	public int roundingGrid = 2;
+	public bool freezeOverlayMovement = true;
 	public Node2D newCarimboOverlay;
 
 	public Vector2 roundToMultiple(Vector2 coords, int rounding)
@@ -43,16 +43,21 @@ public partial class CarimboManager : Node
 		return coords;
 	}
 
-	public void updateLabels()
+	public void UpdateLabels(bool f = false)
 	{
 		for (int i = 0; i < 7; i++)
 		{
 			allTheThings.GetChild<HBoxContainer>(i).GetChild<Label>(0).Text = levelInfo.carimboAmounts[i] + "x";	
+			if (f && levelInfo.carimboAmounts[i] == 0)
+			{
+				allTheThings.GetChild<HBoxContainer>(i).Visible = false;
+			}
 		}
 	}
 
     public override void _Process(double delta)
     {
+		
 		for (int i = 1; i <= 7; i++)
 		{
 			if (Input.IsActionJustPressed("karimbo_slot" + i))
@@ -60,8 +65,7 @@ public partial class CarimboManager : Node
 				carimboType = Carimbo.GetCarimboByAction("karimbo_slot" + i);
 			}
 		}
-		
-		
+
 		if (freezeOverlayMovement)
 		{
 			return;
@@ -69,12 +73,13 @@ public partial class CarimboManager : Node
 
 		newCarimboOverlay.Position = roundToMultiple(GetViewport().GetMousePosition(), roundingGrid);
 
-		if (!newCarimboOverlay.GetChild<Area2D>(1).HasOverlappingAreas())
-		{
-			newCarimboOverlay.GetChild<Sprite2D>(0).Texture = overlayOk;
-		} else
+		if (newCarimboOverlay.GetChild<Area2D>(1).HasOverlappingAreas() || newCarimboOverlay.GetChild<Area2D>(1).HasOverlappingBodies())
 		{
 			newCarimboOverlay.GetChild<Sprite2D>(0).Texture = overlayNotOk;
+			
+		} else
+		{
+			newCarimboOverlay.GetChild<Sprite2D>(0).Texture = overlayOk;
 		}
 
 		
@@ -108,9 +113,9 @@ public partial class CarimboManager : Node
 				newCarimboOverlay.GetChild<Area2D>(1).GetOverlappingAreas()[i].GetParent().QueueFree();	
 			}
 			levelInfo.carimboAmounts[Carimbo.GetIndexByCarimbo(carimboType)]--;
-			updateLabels();	
+			UpdateLabels();	
 		} 
-		else if (levelInfo.carimboAmounts[Carimbo.GetIndexByCarimbo(carimboType)] > 0 && !newCarimboOverlay.GetChild<Area2D>(1).HasOverlappingAreas())
+		else if (levelInfo.carimboAmounts[Carimbo.GetIndexByCarimbo(carimboType)] > 0 && !(newCarimboOverlay.GetChild<Area2D>(1).HasOverlappingAreas() || newCarimboOverlay.GetChild<Area2D>(1).HasOverlappingBodies()))
 		{
 			Node2D new_carimbo = carimbo.Instantiate<Node2D>();
 			AddChild(new_carimbo);
@@ -119,7 +124,7 @@ public partial class CarimboManager : Node
 			carimboArray[carimboArrayCounter].Rotation = newCarimboOverlay.Rotation;
 			carimboArrayCounter++;
 			levelInfo.carimboAmounts[Carimbo.GetIndexByCarimbo(carimboType)]--;
-			updateLabels();	
+			UpdateLabels();	
 		}
 		freezeOverlayMovement = false;
 	}
@@ -129,7 +134,6 @@ public partial class CarimboManager : Node
 
 		newCarimboOverlay = carimboOverlay.Instantiate<Node2D>();
 		AddChild(newCarimboOverlay);
-		updateLabels();
 
 		freezeOverlayMovement = false;
 	}
@@ -150,5 +154,6 @@ public partial class CarimboManager : Node
 		}
 
 		carimboArray = new Node2D[carimboTotalAmount];
+		UpdateLabels(true);
 	}
 }

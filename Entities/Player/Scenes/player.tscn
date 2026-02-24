@@ -56,10 +56,12 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_psage"]
-radius = 8.0
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_psage"]
+points = PackedVector2Array(7.946871, 1.359134, 3.2734673, -7.367796, 1.359134, -7.946871, -7.367796, -3.2734673, -7.946871, -1.359134, -3.2734673, 7.367796, -1.359134, 7.946871, 7.367796, 3.2734673)
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 8209
+collision_mask = 8209
 script = ExtResource("1_psage")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -70,4 +72,5 @@ animation = &"Exploding"
 autoplay = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_psage")
+rotation = 1.2770526
+shape = SubResource("ConvexPolygonShape2D_psage")

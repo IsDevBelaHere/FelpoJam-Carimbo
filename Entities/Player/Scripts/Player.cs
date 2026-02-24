@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 public partial class Player : CharacterBody2D
 {
 	public float Speed = 200.0f;
-	public const float JumpVelocity = -100.0f;
+	public const float JumpVelocity = -60.0f;
 	public float speedMultiplier = 0;
 	public static Player instance;
 	public int direction = 1;

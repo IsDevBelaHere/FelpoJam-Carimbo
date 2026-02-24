@@ -33,7 +33,7 @@ carimboOverlay = ExtResource("3_i1mq0")
 levelInfo = ExtResource("4_2f6ad")
 overlayOk = ExtResource("5_hvy3k")
 overlayNotOk = ExtResource("6_617eb")
-allTheThings = NodePath("CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/AllTheThings")
+allTheThings = NodePath("CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer/AllTheThings")
 
 [node name="CarimbosSlotBar" type="Control" parent="." node_paths=PackedStringArray("buttonControlsLocation")]
 layout_mode = 3
@@ -41,7 +41,7 @@ anchors_preset = 0
 offset_right = 640.0
 offset_bottom = 360.0
 script = ExtResource("7_gtkfi")
-buttonControlsLocation = NodePath("Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/AllTheThings")
+buttonControlsLocation = NodePath("Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer/AllTheThings")
 
 [node name="Screen" type="MarginContainer" parent="CarimbosSlotBar"]
 layout_mode = 1
@@ -65,28 +65,36 @@ theme_override_constants/separation = 64
 [node name="SelectorContainer" type="MarginContainer" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
-size_flags_vertical = 4
 
-[node name="AllTheThings" type="VBoxContainer" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer"]
 layout_mode = 2
+theme_override_constants/separation = 22
+
+[node name="Control" type="Control" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="AllTheThings" type="VBoxContainer" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
 theme_override_constants/separation = 38
 
-[node name="PlataformHBox" type="HBoxContainer" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/AllTheThings"]
+[node name="PlataformHBox" type="HBoxContainer" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer/AllTheThings"]
 layout_mode = 2
 theme_override_constants/separation = 64
 
-[node name="Amount" type="Label" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/AllTheThings/PlataformHBox"]
+[node name="Amount" type="Label" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer/AllTheThings/PlataformHBox"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "0x"
 label_settings = SubResource("LabelSettings_6islp")
 vertical_alignment = 1
 
-[node name="PlatformButtonControl" type="Control" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/AllTheThings/PlataformHBox"]
+[node name="PlatformButtonControl" type="Control" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer/AllTheThings/PlataformHBox"]
 layout_mode = 2
 metadata/res = ExtResource("9_p8p5b")
 
-[node name="CarimboButton" type="TextureButton" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/AllTheThings/PlataformHBox/PlatformButtonControl"]
+[node name="CarimboButton" type="TextureButton" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer/AllTheThings/PlataformHBox/PlatformButtonControl"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -106,7 +114,7 @@ size_flags_vertical = 4
 texture_normal = ExtResource("10_d2xvh")
 stretch_mode = 4
 
-[node name="Label" type="Label" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/AllTheThings/PlataformHBox/PlatformButtonControl/CarimboButton"]
+[node name="Label" type="Label" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer/AllTheThings/PlataformHBox/PlatformButtonControl/CarimboButton"]
 custom_minimum_size = Vector2(104, 24)
 layout_mode = 1
 anchors_preset = 15
@@ -121,22 +129,22 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="JumpHBox" type="HBoxContainer" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/AllTheThings"]
+[node name="JumpHBox" type="HBoxContainer" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer/AllTheThings"]
 layout_mode = 2
 theme_override_constants/separation = 64
 
-[node name="Amount" type="Label" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/AllTheThings/JumpHBox"]
+[node name="Amount" type="Label" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer/AllTheThings/JumpHBox"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "0x"
 label_settings = SubResource("LabelSettings_6islp")
 vertical_alignment = 1
 
-[node name="JumpButtonControl" type="Control" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/AllTheThings/JumpHBox"]
+[node name="JumpButtonControl" type="Control" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer/AllTheThings/JumpHBox"]
 layout_mode = 2
 metadata/res = ExtResource("12_w4m5j")
 
-[node name="CarimboButton" type="TextureButton" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/AllTheThings/JumpHBox/JumpButtonControl"]
+[node name="CarimboButton" type="TextureButton" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer/AllTheThings/JumpHBox/JumpButtonControl"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -156,7 +164,7 @@ size_flags_vertical = 4
 texture_normal = ExtResource("10_d2xvh")
 stretch_mode = 4
 
-[node name="Label" type="Label" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/AllTheThings/JumpHBox/JumpButtonControl/CarimboButton"]
+[node name="Label" type="Label" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer/AllTheThings/JumpHBox/JumpButtonControl/CarimboButton"]
 custom_minimum_size = Vector2(104, 24)
 layout_mode = 1
 anchors_preset = 15
@@ -171,11 +179,11 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="SwapHBox" type="HBoxContainer" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/AllTheThings"]
+[node name="SwapHBox" type="HBoxContainer" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer/AllTheThings"]
 layout_mode = 2
 theme_override_constants/separation = 64
 
-[node name="Amount" type="Label" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/AllTheThings/SwapHBox"]
+[node name="Amount" type="Label" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer/AllTheThings/SwapHBox"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "0x"
@@ -183,11 +191,11 @@ label_settings = SubResource("LabelSettings_6islp")
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="SwapButtonControl" type="Control" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/AllTheThings/SwapHBox"]
+[node name="SwapButtonControl" type="Control" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer/AllTheThings/SwapHBox"]
 layout_mode = 2
 metadata/res = ExtResource("13_s8ljj")
 
-[node name="CarimboButton" type="TextureButton" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/AllTheThings/SwapHBox/SwapButtonControl"]
+[node name="CarimboButton" type="TextureButton" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer/AllTheThings/SwapHBox/SwapButtonControl"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -206,7 +214,7 @@ size_flags_vertical = 4
 texture_normal = ExtResource("10_d2xvh")
 stretch_mode = 4
 
-[node name="Label" type="Label" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/AllTheThings/SwapHBox/SwapButtonControl/CarimboButton"]
+[node name="Label" type="Label" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer/AllTheThings/SwapHBox/SwapButtonControl/CarimboButton"]
 custom_minimum_size = Vector2(104, 24)
 layout_mode = 1
 anchors_preset = 15
@@ -221,22 +229,22 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="BoostHBox" type="HBoxContainer" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/AllTheThings"]
+[node name="BoostHBox" type="HBoxContainer" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer/AllTheThings"]
 layout_mode = 2
 theme_override_constants/separation = 64
 
-[node name="Amount" type="Label" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/AllTheThings/BoostHBox"]
+[node name="Amount" type="Label" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer/AllTheThings/BoostHBox"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "0x"
 label_settings = SubResource("LabelSettings_6islp")
 vertical_alignment = 1
 
-[node name="BoostButtonControl" type="Control" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/AllTheThings/BoostHBox"]
+[node name="BoostButtonControl" type="Control" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer/AllTheThings/BoostHBox"]
 layout_mode = 2
 metadata/res = ExtResource("14_f5mhj")
 
-[node name="CarimboButton" type="TextureButton" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/AllTheThings/BoostHBox/BoostButtonControl"]
+[node name="CarimboButton" type="TextureButton" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer/AllTheThings/BoostHBox/BoostButtonControl"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -256,7 +264,7 @@ size_flags_vertical = 4
 texture_normal = ExtResource("10_d2xvh")
 stretch_mode = 4
 
-[node name="Label" type="Label" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/AllTheThings/BoostHBox/BoostButtonControl/CarimboButton"]
+[node name="Label" type="Label" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer/AllTheThings/BoostHBox/BoostButtonControl/CarimboButton"]
 custom_minimum_size = Vector2(104, 24)
 layout_mode = 1
 anchors_preset = 15
@@ -271,22 +279,22 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="SlimeHBox" type="HBoxContainer" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/AllTheThings"]
+[node name="SlimeHBox" type="HBoxContainer" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer/AllTheThings"]
 layout_mode = 2
 theme_override_constants/separation = 64
 
-[node name="Amount" type="Label" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/AllTheThings/SlimeHBox"]
+[node name="Amount" type="Label" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer/AllTheThings/SlimeHBox"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "0x"
 label_settings = SubResource("LabelSettings_6islp")
 vertical_alignment = 1
 
-[node name="SlimeButtonControl" type="Control" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/AllTheThings/SlimeHBox"]
+[node name="SlimeButtonControl" type="Control" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer/AllTheThings/SlimeHBox"]
 layout_mode = 2
 metadata/res = ExtResource("15_p0t3c")
 
-[node name="CarimboButton" type="TextureButton" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/AllTheThings/SlimeHBox/SlimeButtonControl"]
+[node name="CarimboButton" type="TextureButton" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer/AllTheThings/SlimeHBox/SlimeButtonControl"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -306,7 +314,7 @@ size_flags_vertical = 4
 texture_normal = ExtResource("10_d2xvh")
 stretch_mode = 4
 
-[node name="Label" type="Label" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/AllTheThings/SlimeHBox/SlimeButtonControl/CarimboButton"]
+[node name="Label" type="Label" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer/AllTheThings/SlimeHBox/SlimeButtonControl/CarimboButton"]
 custom_minimum_size = Vector2(104, 24)
 layout_mode = 1
 anchors_preset = 15
@@ -321,22 +329,22 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="StopHBox" type="HBoxContainer" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/AllTheThings"]
+[node name="StopHBox" type="HBoxContainer" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer/AllTheThings"]
 layout_mode = 2
 theme_override_constants/separation = 64
 
-[node name="Amount" type="Label" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/AllTheThings/StopHBox"]
+[node name="Amount" type="Label" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer/AllTheThings/StopHBox"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "0x"
 label_settings = SubResource("LabelSettings_6islp")
 vertical_alignment = 1
 
-[node name="StopButtonControl" type="Control" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/AllTheThings/StopHBox"]
+[node name="StopButtonControl" type="Control" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer/AllTheThings/StopHBox"]
 layout_mode = 2
 metadata/res = ExtResource("16_4xqla")
 
-[node name="CarimboButton" type="TextureButton" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/AllTheThings/StopHBox/StopButtonControl"]
+[node name="CarimboButton" type="TextureButton" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer/AllTheThings/StopHBox/StopButtonControl"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -355,7 +363,7 @@ size_flags_vertical = 4
 texture_normal = ExtResource("10_d2xvh")
 stretch_mode = 4
 
-[node name="Label" type="Label" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/AllTheThings/StopHBox/StopButtonControl/CarimboButton"]
+[node name="Label" type="Label" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer/AllTheThings/StopHBox/StopButtonControl/CarimboButton"]
 custom_minimum_size = Vector2(104, 24)
 layout_mode = 1
 anchors_preset = 15
@@ -370,22 +378,22 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="DeleteHBox" type="HBoxContainer" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/AllTheThings"]
+[node name="DeleteHBox" type="HBoxContainer" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer/AllTheThings"]
 layout_mode = 2
 theme_override_constants/separation = 64
 
-[node name="Amount" type="Label" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/AllTheThings/DeleteHBox"]
+[node name="Amount" type="Label" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer/AllTheThings/DeleteHBox"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "0x"
 label_settings = SubResource("LabelSettings_6islp")
 vertical_alignment = 1
 
-[node name="DeleteButtonControl" type="Control" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/AllTheThings/DeleteHBox"]
+[node name="DeleteButtonControl" type="Control" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer/AllTheThings/DeleteHBox"]
 layout_mode = 2
 metadata/res = ExtResource("17_xntai")
 
-[node name="CarimboButton" type="TextureButton" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/AllTheThings/DeleteHBox/DeleteButtonControl"]
+[node name="CarimboButton" type="TextureButton" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer/AllTheThings/DeleteHBox/DeleteButtonControl"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -405,7 +413,7 @@ size_flags_vertical = 4
 texture_normal = ExtResource("10_d2xvh")
 stretch_mode = 4
 
-[node name="Label" type="Label" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/AllTheThings/DeleteHBox/DeleteButtonControl/CarimboButton"]
+[node name="Label" type="Label" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer/SelectorContainer/VBoxContainer/AllTheThings/DeleteHBox/DeleteButtonControl/CarimboButton"]
 custom_minimum_size = Vector2(104, 24)
 layout_mode = 1
 anchors_preset = 15

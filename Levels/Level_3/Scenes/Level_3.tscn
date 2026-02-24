@@ -1,0 +1,189 @@
+[gd_scene load_steps=16 format=3 uid="uid://b8q3gelmrwudl"]
+
+[ext_resource type="Texture2D" uid="uid://dhoixuvj47c8c" path="res://Levels/Table_OnLevel.png" id="1_lyyqx"]
+[ext_resource type="Texture2D" uid="uid://tmnv5ol7xqqv" path="res://Levels/LevelBackground.png" id="2_k52dd"]
+[ext_resource type="FontFile" uid="uid://cxkgi55cpw22q" path="res://Models/Fonts/DummyText.ttf" id="3_3ufww"]
+[ext_resource type="PackedScene" uid="uid://bted0exekw6dl" path="res://Levels/levelGoal.tscn" id="4_rlase"]
+[ext_resource type="PackedScene" uid="uid://bjgx0mn6fma2v" path="res://Entities/Player/Scenes/player.tscn" id="5_fmpf0"]
+[ext_resource type="FontFile" uid="uid://22nm7d6brli" path="res://Models/Fonts/Bitrimus.ttf" id="6_h63w4"]
+[ext_resource type="PackedScene" uid="uid://dokvesmocnlac" path="res://Levels/boundaries.tscn" id="7_0rb30"]
+[ext_resource type="PackedScene" uid="uid://cjo5jkj23qw0o" path="res://Entities/Player/Scenes/carimbo_manager.tscn" id="8_hluyg"]
+[ext_resource type="Script" uid="uid://biydjcqqhonff" path="res://Levels/LevelInfo.cs" id="9_ei7wx"]
+[ext_resource type="Script" uid="uid://cdy6k85772vqm" path="res://Levels/Level_1/Scenes/LevelStart.cs" id="10_bu7nt"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_uehxh"]
+font = ExtResource("3_3ufww")
+font_size = 8
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j2k6v"]
+size = Vector2(117, 18.5)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_upulf"]
+
+[sub_resource type="Resource" id="Resource_pl5i6"]
+script = ExtResource("9_ei7wx")
+carimboAmounts = PackedInt32Array(1, 2, 0, 0, 0, 0, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_uliw6"]
+font = ExtResource("6_h63w4")
+font_size = 48
+font_color = Color(0.94082916, 0.9390667, 0.97368675, 1)
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="Level_3" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(320, 180)
+texture = ExtResource("1_lyyqx")
+
+[node name="World" type="Node2D" parent="."]
+position = Vector2(320, 180)
+
+[node name="Map" type="Area2D" parent="World"]
+position = Vector2(-52, 0)
+collision_layer = 16
+collision_mask = 8
+
+[node name="Sprite2D" type="Sprite2D" parent="World/Map"]
+texture = ExtResource("2_k52dd")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="World/Map"]
+visible = false
+polygon = PackedVector2Array(-256, -160, 180, -160, 256, -95, 256, 160, -256, 160, -256, -158, -268, -158, -268, 180, 372, 180, 372, -180, -268, -180, -268, -159)
+
+[node name="Plataform" type="StaticBody2D" parent="World"]
+position = Vector2(-220, 121)
+collision_layer = 513
+
+[node name="Label" type="Label" parent="World/Plataform"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.0
+offset_top = -11.5
+offset_right = 58.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "asddd vugnaes sra dsaa asdsda
+sss da aaaaaaaaa  asd asdasda"
+label_settings = SubResource("LabelSettings_uehxh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Plataform"]
+position = Vector2(0.5, 0.25)
+shape = SubResource("RectangleShape2D_j2k6v")
+
+[node name="Plataform2" type="StaticBody2D" parent="World"]
+position = Vector2(-88, 91)
+collision_layer = 513
+
+[node name="Label" type="Label" parent="World/Plataform2"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.0
+offset_top = -11.5
+offset_right = 58.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "asddd vugnaes sra dsaa asdsda
+sss da aaaaaaaaa  asd asdasda"
+label_settings = SubResource("LabelSettings_uehxh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Plataform2"]
+position = Vector2(0.5, 0.25)
+shape = SubResource("RectangleShape2D_j2k6v")
+
+[node name="Goal" parent="World" instance=ExtResource("4_rlase")]
+position = Vector2(-54, -79)
+
+[node name="OverWorld" type="Node2D" parent="World"]
+position = Vector2(-269, -195)
+
+[node name="Player" parent="World/OverWorld" instance=ExtResource("5_fmpf0")]
+position = Vector2(15, 294)
+
+[node name="Tips2" type="RichTextLabel" parent="World"]
+offset_left = -21.0
+offset_top = 44.0
+offset_right = 196.0
+offset_bottom = 137.0
+theme_override_colors/default_color = Color(0.11372549, 0.101960786, 0.19215687, 1)
+theme_override_constants/line_separation = 2
+theme_override_fonts/normal_font = ExtResource("6_h63w4")
+theme_override_font_sizes/normal_font_size = 16
+theme_override_styles/focus = SubResource("StyleBoxEmpty_upulf")
+text = "O papel deste documento e os a seguir foram processados com um material derrapante, especialmente para a  gota de tinta. O assinante se compromete em pagar as despesas gastas para fabricar este papel."
+fit_content = true
+
+[node name="Tips3" type="RichTextLabel" parent="World"]
+offset_left = -292.0
+offset_top = -119.0
+offset_right = 123.0
+offset_bottom = 36.0
+theme_override_colors/default_color = Color(0.11372549, 0.101960786, 0.19215687, 1)
+theme_override_constants/line_separation = 2
+theme_override_fonts/normal_font = ExtResource("6_h63w4")
+theme_override_font_sizes/normal_font_size = 16
+theme_override_styles/focus = SubResource("StyleBoxEmpty_upulf")
+fit_content = true
+
+[node name="Boundaries" parent="." instance=ExtResource("7_0rb30")]
+position = Vector2(-36, -7)
+
+[node name="CollisionShape2D" parent="Boundaries" index="0"]
+position = Vector2(305, 356)
+
+[node name="CollisionShape2D3" parent="Boundaries" index="1"]
+position = Vector2(305, 24)
+
+[node name="CollisionShape2D2" parent="Boundaries" index="2"]
+position = Vector2(39, 176)
+
+[node name="CollisionShape2D4" parent="Boundaries" index="3"]
+position = Vector2(571, 176)
+
+[node name="CarimboManager" parent="." instance=ExtResource("8_hluyg")]
+levelInfo = SubResource("Resource_pl5i6")
+
+[node name="CarimbosSlotBar" parent="CarimboManager" index="0"]
+metadata/_edit_lock_ = true
+
+[node name="LevelStart" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 640.0
+offset_bottom = 360.0
+script = ExtResource("10_bu7nt")
+playerSpeedMultiplier = 1.0
+metadata/_edit_lock_ = true
+
+[node name="Label2" type="Label" parent="LevelStart"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -229.0
+offset_top = 120.5
+offset_right = 125.0
+offset_bottom = 171.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Espaço para começar"
+label_settings = SubResource("LabelSettings_uliw6")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[editable path="Boundaries"]
+[editable path="CarimboManager"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cv0pwckytk6b6"]
+[gd_scene load_steps=18 format=3 uid="uid://cv0pwckytk6b6"]
 
 [ext_resource type="Texture2D" uid="uid://tmnv5ol7xqqv" path="res://Levels/LevelBackground.png" id="1_emgdg"]
 [ext_resource type="Texture2D" uid="uid://dhoixuvj47c8c" path="res://Levels/Table_OnLevel.png" id="1_ukopx"]
@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://dokvesmocnlac" path="res://Levels/boundaries.tscn" id="9_05a1t"]
 [ext_resource type="Script" uid="uid://cdy6k85772vqm" path="res://Levels/Level_1/Scenes/LevelStart.cs" id="9_72ns5"]
 [ext_resource type="FontFile" uid="uid://22nm7d6brli" path="res://Models/Fonts/Bitrimus.ttf" id="9_ukopx"]
-[ext_resource type="Texture2D" uid="uid://duaeih28r35hw" path="res://Entities/Player/PlayerPlaceholder.png" id="11_72ns5"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jppi2"]
 font = ExtResource("2_2tg0b")
@@ -18,13 +17,19 @@ font_size = 8
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tlak8"]
-size = Vector2(109, 19)
+size = Vector2(152, 19)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_72ns5"]
+size = Vector2(111, 19)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5u80u"]
+size = Vector2(109, 45)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_05a1t"]
 
 [sub_resource type="Resource" id="Resource_05a1t"]
 script = ExtResource("8_ukopx")
-carimboAmounts = PackedInt32Array(6, 2, 3, 4, 5, 6, 1)
+carimboAmounts = PackedInt32Array(1, 0, 0, 0, 0, 0, 0)
 
 [sub_resource type="LabelSettings" id="LabelSettings_05a1t"]
 font = ExtResource("9_ukopx")
@@ -32,13 +37,6 @@ font_size = 48
 font_color = Color(0.94082916, 0.9390667, 0.97368675, 1)
 shadow_size = 4
 shadow_color = Color(0, 0, 0, 1)
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5u80u"]
-texture = ExtResource("11_72ns5")
-0:0/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_ffkyi"]
-sources/1 = SubResource("TileSetAtlasSource_5u80u")
 
 [node name="Level_1" type="Node2D"]
 
@@ -62,7 +60,9 @@ visible = false
 polygon = PackedVector2Array(-256, -160, 180, -160, 256, -95, 256, 160, -256, 160, -256, -158, -268, -158, -268, 180, 372, 180, 372, -180, -268, -180, -268, -159)
 
 [node name="Plataform" type="StaticBody2D" parent="World"]
-position = Vector2(-188, 128)
+position = Vector2(-199, 127)
+collision_layer = 513
+collision_mask = 513
 
 [node name="Label" type="Label" parent="World/Plataform"]
 anchors_preset = 8
@@ -77,16 +77,17 @@ offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
-text = "asdasdd asddd vugnaes sreo 
-aaaaaaa sssssss da aaaaaaaaa "
+text = "asdasdd asddd vugnaes sreo  aaasdasdas
+aaaaaaa sssssss da aaaaaaaaa  asdaasda"
 label_settings = SubResource("LabelSettings_jppi2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Plataform"]
-position = Vector2(-3.5, 0)
 shape = SubResource("RectangleShape2D_tlak8")
 
 [node name="Plataform2" type="StaticBody2D" parent="World"]
 position = Vector2(4, 128)
+collision_layer = 513
+collision_mask = 513
 
 [node name="Label" type="Label" parent="World/Plataform2"]
 anchors_preset = 8
@@ -108,11 +109,12 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Plataform2"]
-position = Vector2(-3.5, 0)
-shape = SubResource("RectangleShape2D_tlak8")
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_72ns5")
 
 [node name="Plataform3" type="StaticBody2D" parent="World"]
-position = Vector2(188, 128)
+position = Vector2(148, 116)
+collision_layer = 513
 
 [node name="Label" type="Label" parent="World/Plataform3"]
 anchors_preset = 8
@@ -135,11 +137,13 @@ label_settings = SubResource("LabelSettings_jppi2")
 vertical_alignment = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Plataform3"]
-position = Vector2(-3.5, 0)
-shape = SubResource("RectangleShape2D_tlak8")
+position = Vector2(-3.5, 0.5)
+shape = SubResource("RectangleShape2D_5u80u")
 
 [node name="Goal" parent="World" instance=ExtResource("3_rscqj")]
 position = Vector2(2, 99)
+collision_layer = 513
+collision_mask = 513
 
 [node name="OverWorld" type="Node2D" parent="World"]
 position = Vector2(-269, -195)
@@ -148,18 +152,20 @@ position = Vector2(-269, -195)
 position = Vector2(38, 293)
 
 [node name="Tips" type="RichTextLabel" parent="World"]
-offset_left = -241.0
-offset_top = -118.0
-offset_right = 190.0
-offset_bottom = -62.0
+offset_left = -292.0
+offset_top = -119.0
+offset_right = 123.0
+offset_bottom = 36.0
 theme_override_colors/default_color = Color(0.11372549, 0.101960786, 0.19215687, 1)
 theme_override_constants/line_separation = 2
 theme_override_fonts/normal_font = ExtResource("9_ukopx")
 theme_override_font_sizes/normal_font_size = 16
 theme_override_styles/focus = SubResource("StyleBoxEmpty_05a1t")
-text = "    Você deve levar a gota de tinta até a area de \"Assine Aqui\" usando seus carimbos. No documento atual, apenas carimbos de plataforma serão aceitos! Outros carimbos  serão permitidos nos proximos documentos desta coletania.
+text = "    Você deve levar a gota de tinta até a area de \"Assine Aqui\" usando seus carimbos. A gota de tinta seguira constantemente para a direita. No documento atual, apenas carimbos de plataforma serão aceitos! Outros carimbos  serão permitidos nos proximos documentos desta coletania.
 
-    O carimbo de plataforma pode ser usado para.... criar uma plataforma. Use ele para abrir caminho em um penhasco!"
+    O carimbo de plataforma pode ser usado para.... criar uma plataforma. Use ele para abrir caminho em um penhasco!
+
+    Observações: Não rasure o documento, não utilize carimbos vermelhos, não carimbe encima de textos e ao assinar o contrato você se compromete a não utilizar o banheiro aé o horario de almoço."
 fit_content = true
 
 [node name="Boundaries" parent="." instance=ExtResource("9_05a1t")]
@@ -189,6 +195,7 @@ anchors_preset = 0
 offset_right = 640.0
 offset_bottom = 360.0
 script = ExtResource("9_72ns5")
+playerSpeedMultiplier = 0.5
 metadata/_edit_lock_ = true
 
 [node name="Label2" type="Label" parent="LevelStart"]
@@ -208,10 +215,6 @@ text = "Espaço para começar"
 label_settings = SubResource("LabelSettings_05a1t")
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="TileMapLayer" type="TileMapLayer" parent="."]
-scale = Vector2(0.25, 0.25)
-tile_set = SubResource("TileSet_ffkyi")
 
 [editable path="Boundaries"]
 [editable path="CarimboManager"]
