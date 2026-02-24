@@ -191,24 +191,6 @@ offset_bottom = 360.0
 script = ExtResource("9_72ns5")
 metadata/_edit_lock_ = true
 
-[node name="Label" type="Label" parent="LevelStart"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -172.0
-offset_top = -187.5
-offset_right = 68.0
-offset_bottom = -136.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "Preparado?"
-label_settings = SubResource("LabelSettings_05a1t")
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="Label2" type="Label" parent="LevelStart"]
 layout_mode = 1
 anchors_preset = 8
@@ -217,12 +199,12 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -229.0
-offset_top = 128.5
+offset_top = 120.5
 offset_right = 125.0
-offset_bottom = 179.5
+offset_bottom = 171.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "Espaço para continuar"
+text = "Espaço para começar"
 label_settings = SubResource("LabelSettings_05a1t")
 horizontal_alignment = 1
 vertical_alignment = 1

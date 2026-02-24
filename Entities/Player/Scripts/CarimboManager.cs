@@ -17,7 +17,8 @@ public partial class CarimboManager : Node
 	public static CarimboManager instance;
 	public string carimboType = "CarimboPlatform";
 	public int roundingGrid = 8;
-	public bool freezeOverlayMovement = false;
+	public bool freezeOverlayMovement = true;
+	public bool started;
 	public Node2D newCarimboOverlay;
 
 	public Vector2 roundToMultiple(Vector2 coords, int rounding)
@@ -54,10 +55,21 @@ public partial class CarimboManager : Node
 
     public override void _Process(double delta)
     {
-		if (!freezeOverlayMovement)
+		for (int i = 1; i <= 7; i++)
 		{
-			newCarimboOverlay.Position = roundToMultiple(GetViewport().GetMousePosition(), roundingGrid);
+			if (Input.IsActionJustPressed("karimbo_slot" + i))
+			{
+				carimboType = Carimbo.GetCarimboByAction("karimbo_slot" + i);
+			}
 		}
+		
+		
+		if (freezeOverlayMovement)
+		{
+			return;
+		}
+
+		newCarimboOverlay.Position = roundToMultiple(GetViewport().GetMousePosition(), roundingGrid);
 
 		if (!newCarimboOverlay.GetChild<Area2D>(1).HasOverlappingAreas() && !map.HasOverlappingAreas())
 		{
@@ -67,15 +79,8 @@ public partial class CarimboManager : Node
 			newCarimboOverlay.GetChild<Sprite2D>(0).Texture = overlayNotOk;
 		}
 
-		for (int i = 1; i <= 7; i++)
-		{
-			if (Input.IsActionJustPressed("karimbo_slot" + i))
-			{
-				carimboType = Carimbo.GetCarimboByAction("karimbo_slot" + i);
-			}
-		}
 		
-		if (Input.IsActionJustPressed("rotate") && !freezeOverlayMovement)
+		if (Input.IsActionJustPressed("rotate"))
 		{
 			if (newCarimboOverlay.Rotation == 0)
 			{
@@ -121,6 +126,16 @@ public partial class CarimboManager : Node
 		freezeOverlayMovement = false;
 	}
 
+	public void Start()
+	{
+
+		newCarimboOverlay = carimboOverlay.Instantiate<Node2D>();
+		AddChild(newCarimboOverlay);
+		updateLabels();
+
+		freezeOverlayMovement = false;
+	}
+
 	public override void _Ready()
     {
         if (instance != this)
@@ -135,10 +150,7 @@ public partial class CarimboManager : Node
 		{
 			carimboTotalAmount += levelInfo.carimboAmounts[i];
 		}
-		carimboArray = new Node2D[carimboTotalAmount];
 
-		newCarimboOverlay = carimboOverlay.Instantiate<Node2D>();
-		AddChild(newCarimboOverlay);
-		updateLabels();
+		carimboArray = new Node2D[carimboTotalAmount];
 	}
 }

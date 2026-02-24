@@ -5,6 +5,7 @@ public partial class LevelStart : Control
 	
 	public override void _Ready()
 	{
+		
 	}
 
 	
@@ -13,6 +14,8 @@ public partial class LevelStart : Control
 		if (Input.IsActionJustPressed("confirm"))
 		{
 			Visible = false;
+			Player.instance.speedMultiplier = 1;
+			CarimboManager.instance.Start();
 		}
 	}
 }
