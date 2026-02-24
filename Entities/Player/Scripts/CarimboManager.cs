@@ -10,13 +10,12 @@ public partial class CarimboManager : Node
 	[Export] public Texture2D overlayOk;
 	[Export] public Texture2D overlayNotOk;
 	[Export] public VBoxContainer allTheThings;
-	[Export] public Area2D map;
 	public Node2D[] carimboArray;
 	public int carimboArrayCounter = 0;
 	public int carimboTotalAmount = 0;
 	public static CarimboManager instance;
 	public string carimboType = "CarimboPlatform";
-	public int roundingGrid = 8;
+	public int roundingGrid = 4;
 	public bool freezeOverlayMovement = false;
 	public Node2D newCarimboOverlay;
 
@@ -59,7 +58,7 @@ public partial class CarimboManager : Node
 			newCarimboOverlay.Position = roundToMultiple(GetViewport().GetMousePosition(), roundingGrid);
 		}
 
-		if (!newCarimboOverlay.GetChild<Area2D>(1).HasOverlappingAreas() && !map.HasOverlappingAreas())
+		if (!newCarimboOverlay.GetChild<Area2D>(1).HasOverlappingAreas())
 		{
 			newCarimboOverlay.GetChild<Sprite2D>(0).Texture = overlayOk;
 		} else
@@ -107,7 +106,7 @@ public partial class CarimboManager : Node
 			levelInfo.carimboAmounts[Carimbo.GetIndexByCarimbo(carimboType)]--;
 			updateLabels();	
 		} 
-		else if (levelInfo.carimboAmounts[Carimbo.GetIndexByCarimbo(carimboType)] > 0 && !map.HasOverlappingAreas() && !newCarimboOverlay.GetChild<Area2D>(1).HasOverlappingAreas())
+		else if (levelInfo.carimboAmounts[Carimbo.GetIndexByCarimbo(carimboType)] > 0 && !newCarimboOverlay.GetChild<Area2D>(1).HasOverlappingAreas())
 		{
 			Node2D new_carimbo = carimbo.Instantiate<Node2D>();
 			AddChild(new_carimbo);

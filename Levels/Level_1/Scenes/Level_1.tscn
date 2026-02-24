@@ -34,9 +34,10 @@ position = Vector2(320, 180)
 texture = ExtResource("1_ukopx")
 
 [node name="World" type="Node2D" parent="."]
-position = Vector2(269, 179)
+position = Vector2(320, 180)
 
 [node name="Map" type="Area2D" parent="World"]
+position = Vector2(-52, 0)
 collision_layer = 16
 collision_mask = 8
 
@@ -44,7 +45,8 @@ collision_mask = 8
 texture = ExtResource("1_emgdg")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="World/Map"]
-polygon = PackedVector2Array(-256, -160, 183, -160, 183, -158, 213, -128, 255, -99, 256, -99, 256, 160, -256, 160, -256, -159, -269, -159, -269, 181, 371, 181, 371, -179, -269, -179, -269, -160)
+visible = false
+polygon = PackedVector2Array(-256, -160, 180, -160, 256, -95, 256, 160, -256, 160, -256, -158, -268, -158, -268, 180, 372, 180, 372, -180, -268, -180, -268, -159)
 
 [node name="Plataform" type="StaticBody2D" parent="World"]
 position = Vector2(-252, 46)
@@ -108,8 +110,7 @@ position = Vector2(57, 218)
 
 [node name="Boundaries" parent="." instance=ExtResource("9_05a1t")]
 
-[node name="CarimboManager" parent="." node_paths=PackedStringArray("map") instance=ExtResource("8_ly1y1")]
+[node name="CarimboManager" parent="." instance=ExtResource("8_ly1y1")]
 levelInfo = SubResource("Resource_05a1t")
-map = NodePath("../World/Map")
 
 [editable path="CarimboManager"]
