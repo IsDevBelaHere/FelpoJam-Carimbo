@@ -17,7 +17,7 @@ sources/1 = SubResource("TileSetAtlasSource_wav5q")
 [sub_resource type="Resource" id="Resource_xto7t"]
 resource_local_to_scene = true
 script = ExtResource("4_xto7t")
-carimboAmounts = PackedInt32Array(22, 22, 22, 22, 22, 22, 22, 22)
+carimboAmounts = PackedInt32Array(0, 0, 22, 22, 22, 22, 22, 22)
 
 [node name="LevelRoot" type="Node2D"]
 

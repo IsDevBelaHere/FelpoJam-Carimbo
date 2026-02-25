@@ -1,4 +1,5 @@
 using System;
+using System.Data;
 using System.Threading.Tasks;
 using Godot;
 
@@ -11,6 +12,7 @@ public partial class CarimboManager : Node
 	[Export] public Texture2D overlayNotOk;
 	[Export] public VBoxContainer allTheThings;
 	public Node2D[] carimboArray;
+	public int[] keyToCarimboArray = new int[7];
 	public int carimboArrayCounter = 0;
 	public int carimboTotalAmount = 0;
 	public static CarimboManager instance;
@@ -45,43 +47,59 @@ public partial class CarimboManager : Node
 
 	public void UpdateLabels(bool f = false)
 	{
+		int counter = 0;
 		for (int i = 0; i < 7; i++)
 		{
 			allTheThings.GetChild<HBoxContainer>(i).GetChild<Label>(0).Text = levelInfo.carimboAmounts[i] + "x";	
-			if (f && levelInfo.carimboAmounts[i] == 0)
+			if (f)
 			{
-				allTheThings.GetChild<HBoxContainer>(i).Visible = false;
+				if (levelInfo.carimboAmounts[i] == 0)
+				{
+					allTheThings.GetChild<HBoxContainer>(i).Visible = false;
+				}
+				else
+				{
+					keyToCarimboArray[counter] = i + 1;
+					counter++;
+				}
 			}
 		}
 	}
 
     public override void _Process(double delta)
     {
-		
-		for (int i = 1; i <= 7; i++)
+		if (freezeOverlayMovement)
 		{
-			if (Input.IsActionJustPressed("karimbo_slot" + i))
+			return;
+		}
+
+		for (int i = 0; i < 7; i++)
+		{
+			if (Input.IsActionJustPressed("karimbo_slot" + (i + 1)))
 			{
-				if ((carimboType == "CarimboPlatform" && i != 1) || (carimboType == "CarimboDelete" && i != 7))
+				if (keyToCarimboArray[i] == 0)
+				{
+					break;
+				}
+
+				if ((carimboType == "CarimboPlatform" && keyToCarimboArray[i] != 1) || (carimboType == "CarimboDelete" && keyToCarimboArray[i] != 7))
 				{
 					newCarimboOverlay.GetChild<Area2D>(1).CollisionMask = 48;
+					
 				}
-				carimboType = Carimbo.GetCarimboByAction("karimbo_slot" + i);
-				if (i == 1)
+
+				carimboType = Carimbo.GetCarimboByAction("karimbo_slot" + keyToCarimboArray[i]);
+				
+				if (carimboType == "CarimboPlatform")
 				{
 					newCarimboOverlay.GetChild<Area2D>(1).CollisionMask = 49;
 				}
 
-				if (i == 7)
+				if (carimboType == "CarimboDelete")
 				{
 					newCarimboOverlay.GetChild<Area2D>(1).CollisionMask = 32;
 				}
 			}
-		}
-
-		if (freezeOverlayMovement)
-		{
-			return;
 		}
 
 		newCarimboOverlay.Position = roundToMultiple(GetViewport().GetMousePosition(), roundingGrid);
