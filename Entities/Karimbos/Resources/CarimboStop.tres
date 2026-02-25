@@ -1,8 +1,10 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://lm7ux80egf6l"]
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://lm7ux80egf6l"]
 
 [ext_resource type="Script" uid="uid://c74rrgh5aw04a" path="res://Entities/Karimbos/Scripts/CarimboStop.cs" id="1_gqrrf"]
+[ext_resource type="Texture2D" uid="uid://btj0jx7mg243i" path="res://Entities/Karimbos/StopCarimbo.png" id="1_uby4u"]
 
 [resource]
 resource_name = "CarimboStop"
 script = ExtResource("1_gqrrf")
 CarimboText = "Parar Karimbado!"
+CarimboImg = ExtResource("1_uby4u")
