@@ -158,14 +158,17 @@ label_settings = SubResource("LabelSettings_uehxh")
 position = Vector2(-10.5, 0)
 shape = SubResource("RectangleShape2D_ieku2")
 
-[node name="Goal" parent="World" instance=ExtResource("4_db1mi")]
+[node name="LevelGoal" parent="World" instance=ExtResource("4_db1mi")]
 position = Vector2(149, -6)
+nextLevel = 4
 
 [node name="OverWorld" type="Node2D" parent="World"]
 position = Vector2(-269, -195)
 
 [node name="Player" parent="World/OverWorld" instance=ExtResource("5_sl8xr")]
 position = Vector2(15, 294)
+collision_layer = 8208
+collision_mask = 8192
 
 [node name="Tips2" type="RichTextLabel" parent="World"]
 offset_left = -292.0
@@ -220,7 +223,6 @@ anchors_preset = 0
 offset_right = 640.0
 offset_bottom = 360.0
 script = ExtResource("10_vsjj3")
-playerSpeedMultiplier = 0.5
 metadata/_edit_lock_ = true
 
 [node name="Label2" type="Label" parent="LevelStart"]

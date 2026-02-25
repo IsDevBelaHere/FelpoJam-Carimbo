@@ -103,8 +103,9 @@ label_settings = SubResource("LabelSettings_uehxh")
 position = Vector2(0.5, 0.25)
 shape = SubResource("RectangleShape2D_j2k6v")
 
-[node name="Goal" parent="World" instance=ExtResource("4_w1jme")]
+[node name="LevelGoal" parent="World" instance=ExtResource("4_w1jme")]
 position = Vector2(-54, -79)
+nextLevel = 5
 
 [node name="OverWorld" type="Node2D" parent="World"]
 position = Vector2(-269, -195)
@@ -167,7 +168,6 @@ anchors_preset = 0
 offset_right = 640.0
 offset_bottom = 360.0
 script = ExtResource("10_u4f1d")
-playerSpeedMultiplier = 0.5
 metadata/_edit_lock_ = true
 
 [node name="Label2" type="Label" parent="LevelStart"]

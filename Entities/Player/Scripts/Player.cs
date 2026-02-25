@@ -7,6 +7,7 @@ public partial class Player : CharacterBody2D
 	public float Speed = 200.0f;
 	public const float JumpVelocity = -60.0f;
 	public float speedMultiplier = 0;
+	[Export] public float sceneSpeedMultiplier;
 	public static Player instance;
 	public int direction = 1;
 	public bool isInJumpKarimbo = false;

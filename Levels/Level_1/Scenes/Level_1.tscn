@@ -17,13 +17,13 @@ font_size = 8
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tlak8"]
-size = Vector2(152, 19)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_72ns5"]
-size = Vector2(111, 19)
+size = Vector2(153, 19)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5u80u"]
 size = Vector2(109, 45)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_72ns5"]
+size = Vector2(111, 19)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_05a1t"]
 
@@ -60,7 +60,7 @@ visible = false
 polygon = PackedVector2Array(-256, -160, 180, -160, 256, -95, 256, 160, -256, 160, -256, -158, -268, -158, -268, 180, 372, 180, 372, -180, -268, -180, -268, -159)
 
 [node name="Plataform" type="StaticBody2D" parent="World"]
-position = Vector2(-199, 127)
+position = Vector2(-206, 127)
 collision_layer = 513
 collision_mask = 513
 
@@ -77,40 +77,13 @@ offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
-text = "asdasdd asddd vugnaes sreo  aaasdasdas
-aaaaaaa sssssss da aaaaaaaaa  asdaasda"
+text = "asdasdd asddd vugnaes sreo  aaasdasdas 
+aaaaaaa sssssss da aaaaaaaaa  asdaasda "
 label_settings = SubResource("LabelSettings_jppi2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Plataform"]
-shape = SubResource("RectangleShape2D_tlak8")
-
-[node name="Plataform2" type="StaticBody2D" parent="World"]
-position = Vector2(4, 128)
-collision_layer = 513
-collision_mask = 513
-
-[node name="Label" type="Label" parent="World/Plataform2"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -58.0
-offset_top = -11.5
-offset_right = 58.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-text = "asdasdd asddd vugnaes a aaaa
-a aaaaaaaaaa aaaaaa"
-label_settings = SubResource("LabelSettings_jppi2")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Plataform2"]
 position = Vector2(-0.5, 0)
-shape = SubResource("RectangleShape2D_72ns5")
+shape = SubResource("RectangleShape2D_tlak8")
 
 [node name="Plataform3" type="StaticBody2D" parent="World"]
 position = Vector2(148, 116)
@@ -140,11 +113,43 @@ vertical_alignment = 1
 position = Vector2(-3.5, 0.5)
 shape = SubResource("RectangleShape2D_5u80u")
 
+[node name="Plataform2" type="StaticBody2D" parent="World"]
+position = Vector2(4, 128)
+collision_layer = 513
+collision_mask = 513
+
+[node name="Label" type="Label" parent="World/Plataform2"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.0
+offset_top = -11.5
+offset_right = 58.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "asdasdd asddd vugnaes a aaaa
+a aaaaaaaaaa aaaaaa"
+label_settings = SubResource("LabelSettings_jppi2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Plataform2"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_72ns5")
+
 [node name="OverWorld" type="Node2D" parent="World"]
 position = Vector2(-269, -195)
 
 [node name="Player" parent="World/OverWorld" instance=ExtResource("3_2tg0b")]
-position = Vector2(38, 293)
+position = Vector2(2, 293)
+
+[node name="LevelGoal" parent="World" instance=ExtResource("3_rscqj")]
+position = Vector2(2, 97)
+nextLevel = 2
 
 [node name="Tips" type="RichTextLabel" parent="World"]
 offset_left = -292.0
@@ -162,10 +167,6 @@ text = "    Você deve levar a gota de tinta até a area de \"Assine Aqui\" usan
 
     Observações: Não rasure o documento, não utilize carimbos vermelhos, não carimbe encima de textos e ao assinar o contrato você se compromete a não utilizar o banheiro aé o horario de almoço."
 fit_content = true
-
-[node name="LevelGoal" parent="World" instance=ExtResource("3_rscqj")]
-position = Vector2(3, 97)
-nextLevel = 2
 
 [node name="Boundaries" parent="." instance=ExtResource("9_05a1t")]
 position = Vector2(-36, -7)
@@ -194,7 +195,6 @@ anchors_preset = 0
 offset_right = 640.0
 offset_bottom = 360.0
 script = ExtResource("9_72ns5")
-playerSpeedMultiplier = 1.0
 metadata/_edit_lock_ = true
 
 [node name="Label2" type="Label" parent="LevelStart"]

@@ -2,8 +2,6 @@ using Godot;
 using System;
 public partial class LevelStart : Control
 {
-	private bool confirmed;
-	[Export] public float playerSpeedMultiplier;
 	public static LevelStart instance;
 	public override void _Ready()
 	{
@@ -19,15 +17,11 @@ public partial class LevelStart : Control
 	
 	public override void _Process(double delta)
 	{
-		
-		
-
-		if (Input.IsActionJustPressed("confirm") && !confirmed)
+		if (Input.IsActionJustPressed("confirm") && Visible)
 		{
 			Visible = false;
-			Player.instance.speedMultiplier = playerSpeedMultiplier;
 			CarimboManager.instance.Start();
-			confirmed = true;
+			Player.instance.speedMultiplier = Player.instance.sceneSpeedMultiplier;
 		}
 	}
 }

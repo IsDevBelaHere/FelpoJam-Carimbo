@@ -11,7 +11,11 @@ public partial class LevelGoal : Area2D
     {
         if (collider is Player)
         {
-            GetTree().ChangeSceneToFile(Globals.LevelsToScene[nextLevel]);
+            CallDeferred(MethodName.PerformSceneChange);  
         }
+    }
+    public void PerformSceneChange()
+    {
+        GetTree().ChangeSceneToFile(Globals.LevelsToScene[nextLevel]);
     }
 }

@@ -20,14 +20,14 @@ script = ExtResource("1_pfidf")
 
 [node name="KarimboGeneric" type="Area2D" parent="."]
 collision_layer = 48
-collision_mask = 17
+collision_mask = 8193
 input_pickable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KarimboGeneric"]
 shape = SubResource("RectangleShape2D_pfidf")
 
 [node name="KarimboPlatform" type="StaticBody2D" parent="."]
-collision_layer = 48
+collision_layer = 32
 collision_mask = 32
 
 [node name="Sprite2D" type="Sprite2D" parent="KarimboPlatform"]
