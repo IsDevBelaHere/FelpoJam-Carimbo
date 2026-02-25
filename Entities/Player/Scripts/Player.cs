@@ -67,6 +67,7 @@ public partial class Player : CharacterBody2D
 		}
 		
 		animatedSprite2D.Rotation = velocity.Angle();
+		animatedSprite2D.FlipV = Mathf.RadToDeg(animatedSprite2D.Rotation) >= 90;
 		Velocity = velocity;
 		MoveAndSlide();
     }

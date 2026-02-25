@@ -97,9 +97,8 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_psage"]
-radius = 3.9999957
-height = 13.999987
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_psage"]
+points = PackedVector2Array(0.009621143, 6.9999933, 5.9999943, -0.008246634, -0.009621143, -6.9999933, -4.999995, 0.0068721953)
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 8193
@@ -115,6 +114,6 @@ animation = &"Idle"
 autoplay = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -5.0000005)
+position = Vector2(0, -6)
 rotation = -1.5694219
-shape = SubResource("CapsuleShape2D_psage")
+shape = SubResource("ConvexPolygonShape2D_psage")

@@ -1,0 +1,199 @@
+[gd_scene load_steps=17 format=3 uid="uid://df55ympqe45d8"]
+
+[ext_resource type="Script" uid="uid://cdy6k85772vqm" path="res://Levels/Level_1/Scenes/LevelStart.cs" id="1_s5duf"]
+[ext_resource type="Texture2D" uid="uid://ccahv3fvn81j2" path="res://Models/InGameUI/PaperResetingLevel-Sheet.png" id="2_ovh3k"]
+[ext_resource type="Texture2D" uid="uid://ds1cco01m8w0e" path="res://Models/InGameUI/caneta.png" id="3_tq0g2"]
+[ext_resource type="FontFile" uid="uid://22nm7d6brli" path="res://Models/Fonts/Bitrimus.ttf" id="4_g5r7q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rsxid"]
+atlas = ExtResource("2_ovh3k")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_exq1c"]
+atlas = ExtResource("2_ovh3k")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wdc6v"]
+atlas = ExtResource("2_ovh3k")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_km8vb"]
+atlas = ExtResource("2_ovh3k")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yojeb"]
+atlas = ExtResource("2_ovh3k")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kepej"]
+atlas = ExtResource("2_ovh3k")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ji11x"]
+animations = [{
+"frames": [],
+"loop": false,
+"name": &"default",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rsxid")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_exq1c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wdc6v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_km8vb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yojeb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kepej")
+}],
+"loop": true,
+"name": &"writing",
+"speed": 1.67
+}]
+
+[sub_resource type="Animation" id="Animation_n5tl5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(6, -12)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_es5fk"]
+resource_name = "writing"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.19, 0.47, 0.76666665, 1, 1.1333333, 1.3666667, 1.51, 1.6333333, 1.7666667, 1.89, 2),
+"transitions": PackedFloat32Array(4.141059, 0.27739242, 1.3660405, 0.9659371, 5.278032, 7.2100043, 1, 1, 6.498019, 1, 6.498019, 1),
+"update": 0,
+"values": [-2.583087292951608, -2.0943951023931953, -3.2271137869375153, -2.5010568181078745, -2.583087292951608, -3.3073989325292543, -3.7105699897399447, -2.9862583501622977, -2.34223185617639, -2.583087292951608, -2.34223185617639, -2.583087292951608]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f0b61"]
+_data = {
+&"RESET": SubResource("Animation_n5tl5"),
+&"writing": SubResource("Animation_es5fk")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_5u80u"]
+font = ExtResource("4_g5r7q")
+font_color = Color(0.9019608, 0.9019608, 0.9019608, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_05a1t"]
+font = ExtResource("4_g5r7q")
+font_size = 48
+font_color = Color(0.94082916, 0.9390667, 0.97368675, 1)
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="LevelStart" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 640.0
+offset_bottom = 360.0
+script = ExtResource("1_s5duf")
+metadata/_edit_lock_ = true
+
+[node name="Control" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -296.0
+offset_top = 162.0
+offset_right = -296.0
+offset_bottom = 162.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Paper" type="AnimatedSprite2D" parent="Control"]
+sprite_frames = SubResource("SpriteFrames_ji11x")
+animation = &"writing"
+autoplay = "default"
+
+[node name="CanetaAzul" type="Sprite2D" parent="Control"]
+position = Vector2(6, -12)
+texture = ExtResource("3_tq0g2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/CanetaAzul"]
+libraries = {
+&"": SubResource("AnimationLibrary_f0b61")
+}
+autoplay = "writing"
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 3.0
+offset_right = 144.0
+offset_bottom = 29.0
+text = "Reiniciando level"
+label_settings = SubResource("LabelSettings_5u80u")
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -229.0
+offset_top = 120.5
+offset_right = 125.0
+offset_bottom = 171.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Espaço para começar"
+label_settings = SubResource("LabelSettings_05a1t")
+horizontal_alignment = 1
+vertical_alignment = 1

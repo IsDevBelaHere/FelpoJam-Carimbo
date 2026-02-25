@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://d8trqjo8m2vk"]
+[gd_scene load_steps=17 format=3 uid="uid://d8trqjo8m2vk"]
 
 [ext_resource type="Texture2D" uid="uid://dhoixuvj47c8c" path="res://Levels/Table_OnLevel.png" id="1_sw4ho"]
 [ext_resource type="Texture2D" uid="uid://tmnv5ol7xqqv" path="res://Levels/LevelBackground.png" id="2_q4epi"]
@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dokvesmocnlac" path="res://Levels/boundaries.tscn" id="7_gploy"]
 [ext_resource type="PackedScene" uid="uid://cjo5jkj23qw0o" path="res://Entities/Player/Scenes/carimbo_manager.tscn" id="8_2otuy"]
 [ext_resource type="Script" uid="uid://biydjcqqhonff" path="res://Levels/LevelInfo.cs" id="9_jodmm"]
-[ext_resource type="Script" uid="uid://cdy6k85772vqm" path="res://Levels/Level_1/Scenes/LevelStart.cs" id="10_v1jq7"]
+[ext_resource type="PackedScene" uid="uid://df55ympqe45d8" path="res://Levels/level_start.tscn" id="10_sw4ho"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_15oer"]
 font = ExtResource("3_ibqaw")
@@ -28,15 +28,9 @@ size = Vector2(88, 19)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sw4ho"]
 
 [sub_resource type="Resource" id="Resource_frss1"]
+resource_local_to_scene = true
 script = ExtResource("9_jodmm")
 carimboAmounts = PackedInt32Array(2, 0, 0, 0, 0, 0, 0)
-
-[sub_resource type="LabelSettings" id="LabelSettings_dygnr"]
-font = ExtResource("6_ug4gt")
-font_size = 48
-font_color = Color(0.94082916, 0.9390667, 0.97368675, 1)
-shadow_size = 4
-shadow_color = Color(0, 0, 0, 1)
 
 [node name="Level_1_2" type="Node2D"]
 
@@ -145,7 +139,8 @@ nextLevel = 3
 position = Vector2(-269, -195)
 
 [node name="Player" parent="World/OverWorld" instance=ExtResource("5_y1rcr")]
-position = Vector2(5, 263)
+position = Vector2(4, 284)
+sceneSpeedMultiplier = 0.5
 
 [node name="Tips2" type="RichTextLabel" parent="World"]
 offset_left = -292.0
@@ -194,31 +189,7 @@ levelInfo = SubResource("Resource_frss1")
 [node name="CarimbosSlotBar" parent="CarimboManager" index="0"]
 metadata/_edit_lock_ = true
 
-[node name="LevelStart" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 640.0
-offset_bottom = 360.0
-script = ExtResource("10_v1jq7")
-metadata/_edit_lock_ = true
-
-[node name="Label2" type="Label" parent="LevelStart"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -229.0
-offset_top = 120.5
-offset_right = 125.0
-offset_bottom = 171.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "Espaço para começar"
-label_settings = SubResource("LabelSettings_dygnr")
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="LevelStart" parent="." instance=ExtResource("10_sw4ho")]
 
 [editable path="Boundaries"]
 [editable path="CarimboManager"]
