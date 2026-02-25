@@ -62,7 +62,15 @@ public partial class CarimboManager : Node
 		{
 			if (Input.IsActionJustPressed("karimbo_slot" + i))
 			{
+				if (carimboType == "CarimboPlatform" && i != 1)
+				{
+					newCarimboOverlay.GetChild<Area2D>(1).CollisionMask = 16;
+				}
 				carimboType = Carimbo.GetCarimboByAction("karimbo_slot" + i);
+				if (i == 1)
+				{
+					newCarimboOverlay.GetChild<Area2D>(1).CollisionMask = 17;
+				}
 			}
 		}
 
@@ -131,9 +139,13 @@ public partial class CarimboManager : Node
 
 	public void Start()
 	{
-
 		newCarimboOverlay = carimboOverlay.Instantiate<Node2D>();
 		AddChild(newCarimboOverlay);
+
+		if (carimboType == "CarimboPlatform")
+		{
+			newCarimboOverlay.GetChild<Area2D>(1).CollisionMask = 17;
+		}
 
 		freezeOverlayMovement = false;
 	}
@@ -148,6 +160,8 @@ public partial class CarimboManager : Node
 			QueueFree();	
 		}   
 		
+		
+
 		for (int i = 0; i < levelInfo.carimboAmounts.Length; i++)
 		{
 			carimboTotalAmount += levelInfo.carimboAmounts[i];
