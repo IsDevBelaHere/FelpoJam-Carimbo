@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cfgpjox47cnpq"
-path="res://.godot/imported/sprite_sheet_player.png-13d35f3098b626f74ff738393c21f03c.ctex"
+uid="uid://ccahv3fvn81j2"
+path="res://.godot/imported/PaperResetingLevel-Sheet.png-32da5275b5bc69eca5fca66a741eaa18.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Entities/Player/sprite_sheet_player.png"
-dest_files=["res://.godot/imported/sprite_sheet_player.png-13d35f3098b626f74ff738393c21f03c.ctex"]
+source_file="res://Models/InGameUI/PaperResetingLevel-Sheet.png"
+dest_files=["res://.godot/imported/PaperResetingLevel-Sheet.png-32da5275b5bc69eca5fca66a741eaa18.ctex"]
 
 [params]
 

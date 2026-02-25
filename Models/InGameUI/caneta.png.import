@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ekjqvtjg6kaq"
-path="res://.godot/imported/PlayerSheet.png-3d5b74b3f0dbbebfa50fe764e59bfeae.ctex"
+uid="uid://ds1cco01m8w0e"
+path="res://.godot/imported/caneta.png-4eef6c4b04398091599017bff4d06689.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Entities/Player/PlayerSheet.png"
-dest_files=["res://.godot/imported/PlayerSheet.png-3d5b74b3f0dbbebfa50fe764e59bfeae.ctex"]
+source_file="res://Models/InGameUI/caneta.png"
+dest_files=["res://.godot/imported/caneta.png-4eef6c4b04398091599017bff4d06689.ctex"]
 
 [params]
 
