@@ -67,7 +67,7 @@ public partial class Player : CharacterBody2D
 			velocity = new(0, 0);
 		}
 		
-		Rotation = velocity.Angle();
+		animatedSprite2D.Rotation = velocity.Angle();
 		Velocity = velocity;
 		MoveAndSlide();
     }

@@ -145,7 +145,7 @@ shape = SubResource("RectangleShape2D_72ns5")
 position = Vector2(-269, -195)
 
 [node name="Player" parent="World/OverWorld" instance=ExtResource("3_2tg0b")]
-position = Vector2(2, 293)
+position = Vector2(1, 309)
 
 [node name="LevelGoal" parent="World" instance=ExtResource("3_rscqj")]
 position = Vector2(2, 97)

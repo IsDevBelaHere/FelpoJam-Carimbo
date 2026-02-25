@@ -111,7 +111,8 @@ nextLevel = 5
 position = Vector2(-269, -195)
 
 [node name="Player" parent="World/OverWorld" instance=ExtResource("5_86hms")]
-position = Vector2(15, 294)
+position = Vector2(6, 303)
+sceneSpeedMultiplier = 0.8
 
 [node name="Tips2" type="RichTextLabel" parent="World"]
 offset_left = -292.0
