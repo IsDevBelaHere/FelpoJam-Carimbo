@@ -164,7 +164,9 @@ text = "    Você deve levar a gota de tinta até a area de \"Assine Aqui\" usan
 fit_content = true
 
 [node name="LevelGoal" parent="World" instance=ExtResource("3_rscqj")]
-nextLevel = 2
+position = Vector2(3, 97)
+collision_layer = 2
+collision_mask = 2
 
 [node name="Boundaries" parent="." instance=ExtResource("9_05a1t")]
 position = Vector2(-36, -7)
