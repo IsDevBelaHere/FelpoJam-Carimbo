@@ -87,7 +87,7 @@ public partial class CarimboManager : Node
 		newCarimboOverlay.Position = roundToMultiple(GetViewport().GetMousePosition(), roundingGrid);
 		if (carimboType == "CarimboDelete")
 		{
-			if (newCarimboOverlay.GetChild<Area2D>(1).HasOverlappingBodies())
+			if (newCarimboOverlay.GetChild<Area2D>(1).HasOverlappingAreas())
 			{
 				newCarimboOverlay.GetChild<Sprite2D>(0).Texture = overlayOk;
 			} else
@@ -130,15 +130,18 @@ public partial class CarimboManager : Node
 	{
 		await ToSignal(GetTree(), SceneTree.SignalName.PhysicsFrame);
 		await ToSignal(GetTree(), SceneTree.SignalName.PhysicsFrame);
-		if (levelInfo.carimboAmounts[Carimbo.GetIndexByCarimbo(carimboType)] > 0 && carimboType.Equals("CarimboDelete") && newCarimboOverlay.GetChild<Sprite2D>(0).Texture == overlayOk)
+		if (levelInfo.carimboAmounts[Carimbo.GetIndexByCarimbo(carimboType)] > 0 && carimboType.Equals("CarimboDelete"))
 		{
-			for (int i = 0; i < newCarimboOverlay.GetChild<Area2D>(1).GetOverlappingAreas().Count; i++)
+			if (newCarimboOverlay.GetChild<Sprite2D>(0).Texture == overlayOk)
 			{
-				newCarimboOverlay.GetChild<Area2D>(1).GetOverlappingAreas()[i].GetParent().QueueFree();	
+				for (int i = 0; i < newCarimboOverlay.GetChild<Area2D>(1).GetOverlappingAreas().Count; i++)
+				{
+					newCarimboOverlay.GetChild<Area2D>(1).GetOverlappingAreas()[i].GetParent().QueueFree();	
+				}
+				
+				levelInfo.carimboAmounts[Carimbo.GetIndexByCarimbo(carimboType)]--;
+				UpdateLabels();	
 			}
-			
-			levelInfo.carimboAmounts[Carimbo.GetIndexByCarimbo(carimboType)]--;
-			UpdateLabels();	
 		} 
 		else if (levelInfo.carimboAmounts[Carimbo.GetIndexByCarimbo(carimboType)] > 0 && !(newCarimboOverlay.GetChild<Area2D>(1).HasOverlappingAreas() || newCarimboOverlay.GetChild<Area2D>(1).HasOverlappingBodies()))
 		{
