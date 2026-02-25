@@ -3,5 +3,6 @@
 [ext_resource type="Script" uid="uid://biydjcqqhonff" path="res://Levels/LevelInfo.cs" id="1_kur1t"]
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("1_kur1t")
 carimboAmounts = PackedInt32Array(22, 22, 22, 22, 22, 22, 22, 22)

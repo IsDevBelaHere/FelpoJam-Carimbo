@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bjgx0mn6fma2v"]
+[gd_scene load_steps=15 format=3 uid="uid://bjgx0mn6fma2v"]
 
 [ext_resource type="Script" uid="uid://bhcl2dccio6bv" path="res://Entities/Player/Scripts/Player.cs" id="1_psage"]
 [ext_resource type="Texture2D" uid="uid://ekjqvtjg6kaq" path="res://Entities/Player/PlayerSheet.png" id="2_psage"]
@@ -97,6 +97,10 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_psage"]
+radius = 3.9999957
+height = 13.999987
+
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 8193
 collision_mask = 8209
@@ -105,11 +109,12 @@ sceneSpeedMultiplier = 1.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(0, -24)
-scale = Vector2(2, 2)
+position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_6i14f")
 animation = &"Idle"
 autoplay = "Idle"
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-12, -6, -12, -2, -2, 6, 2, 6, 12, -2, 12, -6, 2, -14, -2, -14)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -5.0000005)
+rotation = -1.5694219
+shape = SubResource("CapsuleShape2D_psage")

@@ -111,7 +111,7 @@ nextLevel = 5
 position = Vector2(-269, -195)
 
 [node name="Player" parent="World/OverWorld" instance=ExtResource("5_86hms")]
-position = Vector2(6, 303)
+position = Vector2(4, 307)
 sceneSpeedMultiplier = 0.8
 
 [node name="Tips2" type="RichTextLabel" parent="World"]
