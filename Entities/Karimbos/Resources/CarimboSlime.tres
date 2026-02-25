@@ -8,3 +8,4 @@ resource_name = "CarimboSlime"
 script = ExtResource("1_vwvba")
 CarimboText = "Sliminho Karimbado!"
 CarimboImg = ExtResource("1_3764s")
+textColor = Color(0.5764706, 0.7411765, 0.62352943, 1)

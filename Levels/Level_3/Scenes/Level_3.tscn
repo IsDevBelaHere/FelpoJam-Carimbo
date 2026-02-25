@@ -190,5 +190,11 @@ metadata/_edit_lock_ = true
 
 [node name="LevelStart" parent="." instance=ExtResource("10_j4w1i")]
 
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_left = 140.0
+offset_top = 95.0
+offset_right = 396.0
+offset_bottom = 283.0
+
 [editable path="Boundaries"]
 [editable path="CarimboManager"]

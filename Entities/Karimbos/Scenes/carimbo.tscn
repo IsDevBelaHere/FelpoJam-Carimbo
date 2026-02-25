@@ -7,13 +7,13 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pfidf"]
 size = Vector2(64, 32)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7tkmc"]
+size = Vector2(64, 32)
+
 [sub_resource type="LabelSettings" id="LabelSettings_nxkef"]
 font = ExtResource("2_nxkef")
 font_size = 8
 font_color = Color(0.13333334, 0.1254902, 0.20392157, 1)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7tkmc"]
-size = Vector2(64, 32)
 
 [node name="Carimbo" type="Node2D"]
 script = ExtResource("1_pfidf")
@@ -30,10 +30,14 @@ shape = SubResource("RectangleShape2D_pfidf")
 collision_layer = 32
 collision_mask = 0
 
-[node name="Sprite2D" type="Sprite2D" parent="KarimboPlatform"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KarimboPlatform"]
+shape = SubResource("RectangleShape2D_7tkmc")
+disabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_nxkef")
 
-[node name="Label" type="Label" parent="KarimboPlatform"]
+[node name="Label" type="Label" parent="."]
 offset_left = -32.0
 offset_top = -16.0
 offset_right = 32.0
@@ -43,10 +47,6 @@ label_settings = SubResource("LabelSettings_nxkef")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="KarimboPlatform"]
-shape = SubResource("RectangleShape2D_7tkmc")
-disabled = true
 
 [connection signal="body_entered" from="KarimboGeneric" to="." method="AreaEnter"]
 [connection signal="body_exited" from="KarimboGeneric" to="." method="AreaEXit"]
