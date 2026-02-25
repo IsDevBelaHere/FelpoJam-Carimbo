@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dokvesmocnlac" path="res://Levels/boundaries.tscn" id="7_sjtw1"]
 [ext_resource type="PackedScene" uid="uid://cjo5jkj23qw0o" path="res://Entities/Player/Scenes/carimbo_manager.tscn" id="8_svhi2"]
 [ext_resource type="Script" uid="uid://biydjcqqhonff" path="res://Levels/LevelInfo.cs" id="9_d3oov"]
-[ext_resource type="PackedScene" uid="uid://df55ympqe45d8" path="res://Levels/level_start.tscn" id="10_sb0oq"]
+[ext_resource type="PackedScene" path="res://Levels/level_start.tscn" id="10_sb0oq"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_uehxh"]
 font = ExtResource("3_4yb0f")
@@ -49,7 +49,8 @@ polygon = PackedVector2Array(-256, -160, 180, -160, 256, -95, 256, 160, -256, 16
 
 [node name="Plataform" type="StaticBody2D" parent="World"]
 position = Vector2(-220, 121)
-collision_layer = 513
+collision_layer = 528
+collision_mask = 0
 
 [node name="Label" type="Label" parent="World/Plataform"]
 anchors_preset = 8
@@ -74,7 +75,8 @@ shape = SubResource("RectangleShape2D_j2k6v")
 
 [node name="Plataform2" type="StaticBody2D" parent="World"]
 position = Vector2(-49, -49)
-collision_layer = 513
+collision_layer = 528
+collision_mask = 0
 
 [node name="Label" type="Label" parent="World/Plataform2"]
 anchors_preset = 8
@@ -118,9 +120,10 @@ theme_override_constants/line_separation = 2
 theme_override_fonts/normal_font = ExtResource("6_rpl1d")
 theme_override_font_sizes/normal_font_size = 16
 theme_override_styles/focus = SubResource("StyleBoxEmpty_upulf")
-text = "A frase \"assine em baixo\" não pode ser utilizada para se referir a assinatura deste documento. A area de assinatura                        está em um lugar extremamente alto, seu carimbo de pulo                       não consegue levar a gota de tinta até aqui, então pense em um                            jeito dela ficar por  mais tempo dentro do carimbo para                                                   ganhar mais velocidade de pulo...
+text = "A frase \"assine em baixo\" não pode ser utilizada para se referir a assinatura deste documento. A área de assinatura                        está em um lugar extremamente alto, seu carimbo de pulo                       não consegue levar a gota de tinta até aqui, então pense em um                            jeito dela ficar por  mais tempo dentro do carimbo para                                                   ganhar mais velocidade de pulo...
 
-A tinta desse texto é antiaderente, então não se preocupe com o fato da gota de tinta \"grudar\" quando for passar por ele."
+A tinta desse texto é antiaderente, então não se preocupe com o fato da gota de tinta \"grudar\" quando for passar por ele.
+"
 fit_content = true
 
 [node name="Tips3" type="RichTextLabel" parent="World"]

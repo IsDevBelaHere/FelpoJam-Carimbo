@@ -27,9 +27,7 @@ public partial class KarimboTrigger : Node2D
 		carimboRes = GD.Load<Carimbo>("res://Entities/Karimbos/Resources/" + CarimboManager.instance.carimboType + ".tres");
         if (carimboRes is CarimboPlatform)
 		{
-			GetChild(1).GetChild<CollisionShape2D>(2).Disabled = false;
-
-
+			GetChild(1).GetChild<CollisionShape2D>(0).Disabled = false;
 		}
 		else
 		{
@@ -39,4 +37,4 @@ public partial class KarimboTrigger : Node2D
 			GetChild<Label>(3).LabelSettings.FontColor = carimboRes.textColor;
 		}
     }
-}
+}	

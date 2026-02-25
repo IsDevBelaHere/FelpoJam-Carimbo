@@ -8,4 +8,3 @@ resource_name = "CarimboSwap"
 script = ExtResource("1_lhw0o")
 CarimboText = "Trocar Karimbado!"
 CarimboImg = ExtResource("1_ue3f4")
-textColor = Color(0.9019608, 0.9019608, 0.9019608, 1)

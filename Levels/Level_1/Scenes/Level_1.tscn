@@ -157,11 +157,11 @@ theme_override_constants/line_separation = 2
 theme_override_fonts/normal_font = ExtResource("9_ukopx")
 theme_override_font_sizes/normal_font_size = 16
 theme_override_styles/focus = SubResource("StyleBoxEmpty_05a1t")
-text = "    Você deve levar a gota de tinta até a area de \"Assine Aqui\" usando seus carimbos. A gota de tinta seguira constantemente para a direita. No documento atual, apenas carimbos de plataforma serão aceitos! Outros carimbos  serão permitidos nos proximos documentos desta coletania.
+text = "Você deve levar a gota de tinta até a área de \"Assine Aqui\" usando seus carimbos. A gota de tinta seguirá constantemente para a direita. No documento atual, apenas carimbos de plataforma serão aceitos! Outros carimbos serão permitidos nos próximos documentos desta coletânea.
 
-    O carimbo de plataforma pode ser usado para.... criar uma plataforma. Use ele para abrir caminho em um penhasco!
+    O carimbo de plataforma pode ser usado para... criar uma plataforma. Use ele para abrir caminho em um penhasco!
 
-    Observações: Não rasure o documento, não utilize carimbos vermelhos, não carimbe encima de textos e ao assinar o contrato você se compromete a não utilizar o banheiro aé o horario de almoço."
+    Observações: Não rasure o documento, não utilize carimbos vermelhos, não carimbe em cima de textos e ao assinar o contrato você se compromete a não utilizar o banheiro até o horário de almoço."
 fit_content = true
 
 [node name="Boundaries" parent="." instance=ExtResource("9_05a1t")]

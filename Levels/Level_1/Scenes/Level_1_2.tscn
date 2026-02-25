@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dokvesmocnlac" path="res://Levels/boundaries.tscn" id="7_gploy"]
 [ext_resource type="PackedScene" uid="uid://cjo5jkj23qw0o" path="res://Entities/Player/Scenes/carimbo_manager.tscn" id="8_2otuy"]
 [ext_resource type="Script" uid="uid://biydjcqqhonff" path="res://Levels/LevelInfo.cs" id="9_jodmm"]
-[ext_resource type="PackedScene" uid="uid://df55ympqe45d8" path="res://Levels/level_start.tscn" id="10_sw4ho"]
+[ext_resource type="PackedScene" path="res://Levels/level_start.tscn" id="10_sw4ho"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_15oer"]
 font = ExtResource("3_ibqaw")
@@ -55,7 +55,8 @@ polygon = PackedVector2Array(-256, -160, 180, -160, 256, -95, 256, 160, -256, 16
 
 [node name="Plataform" type="StaticBody2D" parent="World"]
 position = Vector2(-212, 98)
-collision_layer = 513
+collision_layer = 528
+collision_mask = 0
 
 [node name="Label" type="Label" parent="World/Plataform"]
 anchors_preset = 8
@@ -80,7 +81,8 @@ shape = SubResource("RectangleShape2D_q4epi")
 
 [node name="Plataform3" type="StaticBody2D" parent="World"]
 position = Vector2(-44, 97)
-collision_layer = 513
+collision_layer = 528
+collision_mask = 0
 
 [node name="Label" type="Label" parent="World/Plataform3"]
 anchors_preset = 8
@@ -108,7 +110,8 @@ shape = SubResource("RectangleShape2D_sw4ho")
 
 [node name="Plataform2" type="StaticBody2D" parent="World"]
 position = Vector2(118, 96)
-collision_layer = 513
+collision_layer = 528
+collision_mask = 0
 
 [node name="Label" type="Label" parent="World/Plataform2"]
 anchors_preset = 8
@@ -152,13 +155,13 @@ theme_override_constants/line_separation = 2
 theme_override_fonts/normal_font = ExtResource("6_ug4gt")
 theme_override_font_sizes/normal_font_size = 16
 theme_override_styles/focus = SubResource("StyleBoxEmpty_sw4ho")
-text = "Note que por mais que o regulamento do documento não permita carimbar por cima do texto, ainda assim, é possivel rotacionar seus carimbos para carimbar em areas mais estreitas."
+text = "Note que por mais que o regulamento do documento não permita carimbar por cima do texto, ainda assim, é possível rotacionar seus carimbos para carimbar em áreas mais estreitas."
 fit_content = true
 
 [node name="Tips3" type="RichTextLabel" parent="World"]
-offset_left = -3.0
+offset_left = -15.0
 offset_top = 16.0
-offset_right = 412.0
+offset_right = 400.0
 offset_bottom = 171.0
 theme_override_colors/default_color = Color(0.11372549, 0.101960786, 0.19215687, 1)
 theme_override_constants/line_separation = 2
