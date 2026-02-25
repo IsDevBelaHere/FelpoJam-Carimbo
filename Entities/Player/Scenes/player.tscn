@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bjgx0mn6fma2v"]
+[gd_scene load_steps=14 format=3 uid="uid://bjgx0mn6fma2v"]
 
 [ext_resource type="Script" uid="uid://bhcl2dccio6bv" path="res://Entities/Player/Scripts/Player.cs" id="1_psage"]
 [ext_resource type="Texture2D" uid="uid://ekjqvtjg6kaq" path="res://Entities/Player/PlayerSheet.png" id="2_psage"]
@@ -97,9 +97,6 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_psage"]
-points = PackedVector2Array(0.009621143, 6.9999933, 5.9999943, -0.008246634, -0.009621143, -6.9999933, -4.999995, 0.0068721953)
-
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 8193
 collision_mask = 8241
@@ -113,7 +110,5 @@ sprite_frames = SubResource("SpriteFrames_6i14f")
 animation = &"Idle"
 autoplay = "Idle"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -6)
-rotation = -1.5694219
-shape = SubResource("ConvexPolygonShape2D_psage")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(3, -1, 7, -4, 6, -9, 2, -11, -2, -11, -6, -9, -7, -4, -3, -1)

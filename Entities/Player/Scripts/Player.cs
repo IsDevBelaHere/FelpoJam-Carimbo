@@ -65,9 +65,7 @@ public partial class Player : CharacterBody2D
 			isEnteringStopKarimbo = false;
 			velocity = new(0, 0);
 		}
-		
-		animatedSprite2D.Rotation = velocity.Angle();
-		animatedSprite2D.FlipV = Mathf.RadToDeg(animatedSprite2D.Rotation) >= 90;
+		animatedSprite2D.FlipH = direction < 0;
 		Velocity = velocity;
 		MoveAndSlide();
     }
