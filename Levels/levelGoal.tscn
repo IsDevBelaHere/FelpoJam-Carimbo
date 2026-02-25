@@ -51,7 +51,7 @@ _data = {
 
 [node name="LevelGoal" type="Area2D"]
 collision_layer = 0
-collision_mask = 8192
+collision_mask = 8193
 script = ExtResource("1_uvhml")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

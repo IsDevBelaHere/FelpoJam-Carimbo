@@ -19,7 +19,7 @@ size = Vector2(64, 32)
 script = ExtResource("1_pfidf")
 
 [node name="KarimboGeneric" type="Area2D" parent="."]
-collision_layer = 48
+collision_layer = 16
 collision_mask = 8193
 input_pickable = false
 
@@ -27,8 +27,7 @@ input_pickable = false
 shape = SubResource("RectangleShape2D_pfidf")
 
 [node name="KarimboPlatform" type="StaticBody2D" parent="."]
-collision_layer = 32
-collision_mask = 32
+collision_mask = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="KarimboPlatform"]
 texture = ExtResource("1_nxkef")
