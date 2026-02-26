@@ -191,7 +191,7 @@ tracks/2/path = NodePath("../../../Screen")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.1),
+"times": PackedFloat32Array(0.0769),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],

@@ -15,6 +15,8 @@ public partial class Player : CharacterBody2D
 	public bool isEnteringStopKarimbo = false;
 	public AnimatedSprite2D animatedSprite2D;
 
+	public bool frozen;
+
     public override void _Ready()
     {
         if (instance != this)
@@ -36,6 +38,10 @@ public partial class Player : CharacterBody2D
 
 	public override void _PhysicsProcess(double delta)
     {
+		if (frozen)
+		{
+			return;
+		}
 		Vector2 velocity = Velocity;
 		if (isExitingBoostKarimbo)
 		{

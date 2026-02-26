@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bted0exekw6dl"]
+[gd_scene load_steps=13 format=3 uid="uid://bted0exekw6dl"]
 
 [ext_resource type="Texture2D" uid="uid://cbn1ckle2s0o5" path="res://Levels/MainMenu/LevelCarimbo.png" id="1_671sq"]
 [ext_resource type="Script" uid="uid://bp52icrt2ynai" path="res://Levels/LevelGoal.cs" id="1_uvhml"]
 [ext_resource type="FontFile" uid="uid://22nm7d6brli" path="res://Models/Fonts/Bitrimus.ttf" id="2_uvhml"]
+[ext_resource type="PackedScene" uid="uid://cgvdygsmivy5w" path="res://Models/Carimbo/CarimboV1.glb" id="4_nmn3k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uvhml"]
 size = Vector2(64, 32)
@@ -49,6 +50,29 @@ _data = {
 &"giggle": SubResource("Animation_nmn3k")
 }
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_4td14"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="Animation" id="Animation_fk0t6"]
+resource_name = "stamping"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.48026597, 1),
+"transitions": PackedFloat32Array(0.17, 1, 1, 0.17),
+"update": 0,
+"values": [Vector3(2.74, 3.67, 14), Vector3(0, -5.31, 0), Vector3(0, -5.31, 0), Vector3(2.74, 3.67, 14)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kict2"]
+_data = {
+&"stamping": SubResource("Animation_fk0t6")
+}
+
 [node name="LevelGoal" type="Area2D"]
 collision_layer = 0
 collision_mask = 8193
@@ -75,5 +99,50 @@ libraries = {
 &"": SubResource("AnimationLibrary_fk0t6")
 }
 autoplay = "giggle"
+
+[node name="Carimbo3DTexture" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(960, 540)
+mouse_filter = 2
+texture = SubResource("ViewportTexture_4td14")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+handle_input_locally = false
+anisotropic_filtering_level = 0
+fsr_sharpness = 1.0
+size = Vector2i(1920, 1080)
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 4.0514307, -2.4855137e-05)
+current = true
+size = 2.942
+near = 1.0
+far = 100.0
+
+[node name="CarimboPivot" type="Node3D" parent="SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -11.149912, 0)
+
+[node name="CarimboV1" parent="SubViewport/CarimboPivot" instance=ExtResource("4_nmn3k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0, -5.31, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SubViewport/CarimboPivot/CarimboV1"]
+libraries = {
+&"": SubResource("AnimationLibrary_kict2")
+}
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport"]
+transform = Transform3D(1, 0, 0, 0, -0.028008848, 0.9996077, 0, -0.9996077, -0.028008848, 0, 0, 0)
+sky_mode = 1
 
 [connection signal="body_entered" from="." to="." method="AreaEnter"]
