@@ -66,6 +66,16 @@ public partial class CarimboManager : Node
 		}
 	}
 
+	public void MouseEnter()
+	{
+		newCarimboOverlay.Visible = false;
+	}
+
+	public void MouseExited()
+	{
+		newCarimboOverlay.Visible = true;
+	}
+
     public override void _Process(double delta)
     {
 		if (freezeOverlayMovement)
