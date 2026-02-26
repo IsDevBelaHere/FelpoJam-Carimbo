@@ -21,7 +21,6 @@ public partial class MainMenu : MarginContainer
 
 
 	[ExportGroup("ConfigMenuTopics")]
-	[Export] Button videoMenuButton;
 	[Export] Control videoConfigs;
 	[Export] Control audioConfigs;
 	[Export] Control keyBindsConfigs;
@@ -88,7 +87,7 @@ public partial class MainMenu : MarginContainer
 
 		AudioServer.SetBusVolumeDb(busIndex,db);
 	}
-	public void ButtomUp_Configs()
+	public void ButtonUp_Configs()
 	{
 		if (!canClick)
 		{
@@ -96,28 +95,28 @@ public partial class MainMenu : MarginContainer
 		}
 		settingMenu.Visible =! settingMenu.Visible;
 		levelMenu.Visible = false;
+		levelMenu.GetParent<Control>().Visible = levelMenu.Visible || settingMenu.Visible;
 		
 	}
-	public void ButtomUp_VideoMenu()
+	public void ButtonUp_VideoMenu()
 	{
 		videoConfigs.Visible = true;
 		audioConfigs.Visible = false;
-		keyBindsConfigs.Visible = false;
+		
 	}
-	public void ButtomUp_AudioMenu()
+	public void ButtonUp_AudioMenu()
 	{
 		videoConfigs.Visible = false;
 		audioConfigs.Visible = true;
-		keyBindsConfigs.Visible = false;
+		
 	}
-	public void ButtomUp_KeybindMenu()
+	public void ButtonUp_KeybindMenu()
 	{
 		videoConfigs.Visible = false;
 		audioConfigs.Visible = false;
-		keyBindsConfigs.Visible = true;
 	}
 
-	public void ButtomUp_PlayButton()
+	public void ButtonUp_PlayButton()
 	{
 		if (!canClick)
 		{
@@ -126,11 +125,13 @@ public partial class MainMenu : MarginContainer
 		levelMenu.Visible =! levelMenu.Visible;
 		settingMenu.Visible = false;
 
+		levelMenu.GetParent<Control>().Visible = levelMenu.Visible || settingMenu.Visible;
+
 		tableRect.Texture = levelMenu.Visible ? tableTextures[1] : tableTextures[0];
 
 	}
 
-	public void ButtomUp_LevelWasSelected(int level, string rectNodePath)
+	public void ButtonUp_LevelWasSelected(int level, string rectNodePath)
 	{
 		if (!canClick)
 		{
@@ -182,7 +183,7 @@ public partial class MainMenu : MarginContainer
 		instantiated_okCarimbo.GlobalPosition = placePosition;
 		instantiated_okCarimbo.Visible = true;
 	}
-	public async void ButtomUp_LevelConfirm(string buttonNodePath)
+	public async void ButtonUp_LevelConfirm(string buttonNodePath)
 	{
 		if ((int)levelSelected < 1)
 		{
@@ -197,7 +198,8 @@ public partial class MainMenu : MarginContainer
 		carimbo3DTexture.GlobalPosition = new(placePosition.X - carimbo3DTexture.Size.X/2, placePosition.Y - carimbo3DTexture.Size.Y/2);
 		carimboAnimationPlayer.Play("Stamping");
 
-		tween.TweenProperty(GetParent<Control>(), "modulate", new Color(0,0,0),4.0f);
+		tween.TweenProperty(GetParent<Control>(), "modulate", new Color(0,0,0),2.0f);
+		tween.TweenProperty(GetParent<Control>().GetChild<AudioStreamPlayer2D>(0), "volume_linear", 0f,2.0f);
 
 		await ToSignal(carimboAnimationPlayer, "animation_finished");
 
@@ -210,5 +212,9 @@ public partial class MainMenu : MarginContainer
 		await ToSignal(timer, "timeout");
 		
 		GetTree().ChangeSceneToFile(Globals.LevelsToScene[levelSelected]);
+	}
+	public void ButtonUp_QuitGame()
+	{
+		GetTree().Quit();
 	}
 }

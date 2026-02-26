@@ -45,7 +45,7 @@ public partial class LevelStart : Control
 			{
 				resetingControl.Visible = true;
 			}
-			if (resetTimer > 3)
+			if (resetTimer > 1.5)
 			{
 				GetTree().ReloadCurrentScene();
 			}

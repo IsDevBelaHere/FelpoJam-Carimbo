@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="FelpoJam-Carimbo"
-run/main_scene="res://Levels/MainMenu/Scenes/main_menu.tscn"
+run/main_scene="uid://b038j1mampu0"
 config/features=PackedStringArray("4.5", "C#", "GL Compatibility")
 config/icon="uid://cjmyu8c6q7wwj"
 
@@ -19,11 +19,14 @@ config/icon="uid://cjmyu8c6q7wwj"
 
 buses/default_bus_layout="uid://c6tbhdtjrgxmr"
 
+[autoload]
+
+StaticAudioPlayerScene="*res://Models/Audios/StaticAudioPlayer.tscn"
+
 [display]
 
 window/size/viewport_width=640
 window/size/viewport_height=360
-window/size/mode=3
 window/size/resizable=false
 window/size/extend_to_title=true
 window/size/maximize_disabled=true

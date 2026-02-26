@@ -9,7 +9,7 @@
 [ext_resource type="Script" uid="uid://biydjcqqhonff" path="res://Levels/LevelInfo.cs" id="8_ukopx"]
 [ext_resource type="PackedScene" uid="uid://dokvesmocnlac" path="res://Levels/boundaries.tscn" id="9_05a1t"]
 [ext_resource type="FontFile" uid="uid://22nm7d6brli" path="res://Models/Fonts/Bitrimus.ttf" id="9_ukopx"]
-[ext_resource type="PackedScene" path="res://Levels/level_start.tscn" id="10_05a1t"]
+[ext_resource type="PackedScene" uid="uid://df55ympqe45d8" path="res://Levels/level_start.tscn" id="10_05a1t"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jppi2"]
 font = ExtResource("2_2tg0b")
@@ -166,20 +166,6 @@ fit_content = true
 
 [node name="Boundaries" parent="." instance=ExtResource("9_05a1t")]
 position = Vector2(-36, -7)
-collision_layer = 2147483649
-collision_mask = 8193
-
-[node name="CollisionShape2D" parent="Boundaries" index="0"]
-position = Vector2(305, 356)
-
-[node name="CollisionShape2D3" parent="Boundaries" index="1"]
-position = Vector2(305, 24)
-
-[node name="CollisionShape2D2" parent="Boundaries" index="2"]
-position = Vector2(39, 176)
-
-[node name="CollisionShape2D4" parent="Boundaries" index="3"]
-position = Vector2(571, 176)
 
 [node name="CarimboManager" parent="." instance=ExtResource("8_ly1y1")]
 levelInfo = SubResource("Resource_05a1t")

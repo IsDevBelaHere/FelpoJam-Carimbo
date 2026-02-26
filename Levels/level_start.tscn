@@ -57,7 +57,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"writing",
-"speed": 1.67
+"speed": 3.35
 }]
 
 [sub_resource type="Animation" id="Animation_n5tl5"]
@@ -160,6 +160,7 @@ grow_vertical = 2
 sprite_frames = SubResource("SpriteFrames_ji11x")
 animation = &"writing"
 autoplay = "default"
+frame_progress = 0.9194264
 
 [node name="CanetaAzul" type="Sprite2D" parent="Control"]
 position = Vector2(6, -12)

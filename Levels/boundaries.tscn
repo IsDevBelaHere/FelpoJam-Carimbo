@@ -12,19 +12,21 @@ normal = Vector2(1, 0)
 normal = Vector2(-1, 0)
 
 [node name="Boundaries" type="StaticBody2D"]
+collision_layer = 1073741825
+collision_mask = 8193
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(305, 348)
+position = Vector2(304, 351)
 shape = SubResource("WorldBoundaryShape2D_5aiin")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
-position = Vector2(305, 10)
+position = Vector2(305, 22)
 shape = SubResource("WorldBoundaryShape2D_woaqd")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(11, 176)
+position = Vector2(43, 176)
 shape = SubResource("WorldBoundaryShape2D_5mf04")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
-position = Vector2(527, 176)
+position = Vector2(566, 176)
 shape = SubResource("WorldBoundaryShape2D_ga7vi")
