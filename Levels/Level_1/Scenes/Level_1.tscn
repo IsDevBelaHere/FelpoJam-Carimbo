@@ -175,5 +175,8 @@ metadata/_edit_lock_ = true
 
 [node name="LevelStart" parent="." instance=ExtResource("10_05a1t")]
 
+[connection signal="mouse_entered" from="CarimboManager/SlotBarArea" to="CarimboManager" method="MouseEnter"]
+[connection signal="mouse_exited" from="CarimboManager/SlotBarArea" to="CarimboManager" method="MouseExited"]
+
 [editable path="Boundaries"]
 [editable path="CarimboManager"]

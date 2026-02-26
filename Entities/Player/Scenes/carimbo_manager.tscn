@@ -434,10 +434,10 @@ autowrap_mode = 3
 [node name="Control" type="Control" parent="CarimbosSlotBar/Screen/Right/KarimboSelector/HBoxContainer"]
 layout_mode = 2
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="SlotBarArea" type="Area2D" parent="."]
 position = Vector2(491, 18)
 collision_layer = 2147483649
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SlotBarArea"]
 position = Vector2(91, 162)
 shape = SubResource("RectangleShape2D_gtkfi")
