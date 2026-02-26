@@ -117,11 +117,22 @@ public partial class CarimboManager : Node
 		{
 			if (newCarimboOverlay.GetChild<Area2D>(1).HasOverlappingAreas() || newCarimboOverlay.GetChild<Area2D>(1).HasOverlappingBodies())
 			{
+				
 				newCarimboOverlay.GetChild<Sprite2D>(0).Texture = overlayNotOk;
+				foreach(Area2D area in newCarimboOverlay.GetChild<Area2D>(1).GetOverlappingAreas())
+				{
+					if (area.GetCollisionLayerValue(32))
+					{
+						newCarimboOverlay.Visible = false;
+						break;
+					}
+				}
+				
 				
 			} else
 			{
 				newCarimboOverlay.GetChild<Sprite2D>(0).Texture = overlayOk;
+				newCarimboOverlay.Visible = true;
 			}
 		}
 
