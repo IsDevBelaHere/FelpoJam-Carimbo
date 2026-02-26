@@ -1,0 +1,285 @@
+[gd_scene load_steps=20 format=3 uid="uid://bvt8u74euic1v"]
+
+[ext_resource type="Texture2D" uid="uid://dhoixuvj47c8c" path="res://Levels/Table_OnLevel.png" id="1_yr7v7"]
+[ext_resource type="Texture2D" uid="uid://tmnv5ol7xqqv" path="res://Levels/LevelBackground.png" id="2_hkyh8"]
+[ext_resource type="FontFile" uid="uid://cxkgi55cpw22q" path="res://Models/Fonts/DummyText.ttf" id="3_v5h8s"]
+[ext_resource type="PackedScene" uid="uid://bted0exekw6dl" path="res://Levels/levelGoal.tscn" id="4_3j3l1"]
+[ext_resource type="PackedScene" uid="uid://bjgx0mn6fma2v" path="res://Entities/Player/Scenes/player.tscn" id="5_2rt4n"]
+[ext_resource type="FontFile" uid="uid://22nm7d6brli" path="res://Models/Fonts/Bitrimus.ttf" id="6_mqusn"]
+[ext_resource type="PackedScene" uid="uid://dokvesmocnlac" path="res://Levels/boundaries.tscn" id="7_xvkay"]
+[ext_resource type="PackedScene" uid="uid://cjo5jkj23qw0o" path="res://Entities/Player/Scenes/carimbo_manager.tscn" id="8_b0h7s"]
+[ext_resource type="Script" uid="uid://biydjcqqhonff" path="res://Levels/LevelInfo.cs" id="9_vog0u"]
+[ext_resource type="PackedScene" uid="uid://df55ympqe45d8" path="res://Levels/level_start.tscn" id="10_8pf85"]
+[ext_resource type="PackedScene" uid="uid://dvx3wclkbuddl" path="res://Entities/Karimbos/Scenes/carimbo.tscn" id="10_hkyh8"]
+[ext_resource type="Resource" uid="uid://ddps8kvbkf12t" path="res://Entities/Karimbos/Resources/CarimboSwap.tres" id="11_3j3l1"]
+[ext_resource type="Resource" uid="uid://dj5h721i45t5p" path="res://Entities/Karimbos/Resources/CarimboPlatform.tres" id="12_2rt4n"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_uttqv"]
+font = ExtResource("3_v5h8s")
+font_size = 8
+font_color = Color(0.11372549, 0.101960786, 0.19215687, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r3y2j"]
+size = Vector2(157, 19)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v5h8s"]
+size = Vector2(76, 19)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y78wr"]
+size = Vector2(90, 18.5)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rs2g5"]
+
+[sub_resource type="Resource" id="Resource_amolt"]
+resource_local_to_scene = true
+script = ExtResource("9_vog0u")
+carimboAmounts = PackedInt32Array(1, 3, 2, 1, 0, 0, 2)
+
+[node name="Level_4" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(320, 180)
+texture = ExtResource("1_yr7v7")
+
+[node name="World" type="Node2D" parent="."]
+position = Vector2(320, 180)
+
+[node name="Map" type="Area2D" parent="World"]
+position = Vector2(-52, 0)
+collision_layer = 16
+collision_mask = 8
+
+[node name="Sprite2D" type="Sprite2D" parent="World/Map"]
+texture = ExtResource("2_hkyh8")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="World/Map"]
+visible = false
+polygon = PackedVector2Array(-256, -160, 180, -160, 256, -95, 256, 160, -256, 160, -256, -158, -268, -158, -268, 180, 372, 180, 372, -180, -268, -180, -268, -159)
+
+[node name="Plataform" type="StaticBody2D" parent="World"]
+position = Vector2(-219, 144)
+collision_layer = 529
+
+[node name="Label" type="Label" parent="World/Plataform"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -79.0
+offset_top = -27.0
+offset_right = 205.0
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "Vugnaes sreo 2 kajsdkaa aksdjk skasdjaksd 
+asda ads asd asda sdasas das da da sdad"
+label_settings = SubResource("LabelSettings_uttqv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Plataform"]
+position = Vector2(-0.5, -15.5)
+shape = SubResource("RectangleShape2D_r3y2j")
+
+[node name="Plataform2" type="StaticBody2D" parent="World"]
+position = Vector2(-219, 87)
+collision_layer = 529
+
+[node name="Label" type="Label" parent="World/Plataform2"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -79.0
+offset_top = -27.0
+offset_right = 205.0
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "Vugnaes sreo 2 kajsdkaa aksdjk skasdjaksd 
+asda ads asd asda sdasas das da da sdad"
+label_settings = SubResource("LabelSettings_uttqv")
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Plataform2"]
+position = Vector2(-0.5, -15.5)
+shape = SubResource("RectangleShape2D_r3y2j")
+
+[node name="Plataform4" type="StaticBody2D" parent="World"]
+position = Vector2(-84, 4)
+collision_layer = 529
+
+[node name="Label" type="Label" parent="World/Plataform4"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -79.0
+offset_top = -27.0
+offset_right = 205.0
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "Vugnaes sreo 2 kajsdkaa aksdjk skasdjaksd 
+asda ads asd asda sdasas das da da sdad"
+label_settings = SubResource("LabelSettings_uttqv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Plataform4"]
+position = Vector2(-0.5, -15.5)
+shape = SubResource("RectangleShape2D_r3y2j")
+
+[node name="Plataform5" type="StaticBody2D" parent="World"]
+position = Vector2(-220, 4)
+collision_layer = 529
+
+[node name="Label" type="Label" parent="World/Plataform5"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -79.0
+offset_top = -27.0
+offset_right = 205.0
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "laskd llaskd l lsdksal
+ksdja kasdj ak kkjks"
+label_settings = SubResource("LabelSettings_uttqv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Plataform5"]
+position = Vector2(-41, -15.5)
+shape = SubResource("RectangleShape2D_v5h8s")
+
+[node name="Plataform6" type="StaticBody2D" parent="World"]
+position = Vector2(109, 87)
+collision_layer = 529
+
+[node name="Label" type="Label" parent="World/Plataform6"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -79.0
+offset_top = -27.0
+offset_right = 205.0
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "laskd llaskd l lsdksal
+ksdja kasdj ak kkjks"
+label_settings = SubResource("LabelSettings_uttqv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Plataform6"]
+position = Vector2(-41, -15.5)
+shape = SubResource("RectangleShape2D_v5h8s")
+
+[node name="Plataform3" type="StaticBody2D" parent="World"]
+position = Vector2(170, -28)
+collision_layer = 529
+
+[node name="Label" type="Label" parent="World/Plataform3"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.0
+offset_top = -11.5
+offset_right = 58.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "pqowepqo qweqweqweq q
+qweq eq qweqeqeq qweqe"
+label_settings = SubResource("LabelSettings_uttqv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Plataform3"]
+position = Vector2(-13, 0.25)
+shape = SubResource("RectangleShape2D_y78wr")
+
+[node name="LevelGoal" parent="World" instance=ExtResource("4_3j3l1")]
+position = Vector2(158, -58)
+nextLevel = 6
+
+[node name="OverWorld" type="Node2D" parent="World"]
+position = Vector2(-269, -195)
+
+[node name="Player" parent="World/OverWorld" instance=ExtResource("5_2rt4n")]
+position = Vector2(-1, 291)
+sceneSpeedMultiplier = 0.8
+
+[node name="Tips2" type="RichTextLabel" parent="World"]
+offset_left = -57.0
+offset_top = 29.0
+offset_right = 160.0
+offset_bottom = 122.0
+theme_override_colors/default_color = Color(0.11372549, 0.101960786, 0.19215687, 1)
+theme_override_constants/line_separation = 2
+theme_override_fonts/normal_font = ExtResource("6_mqusn")
+theme_override_font_sizes/normal_font_size = 16
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rs2g5")
+text = "Qualquer dano cometido aos documentos, dados, clientes e caso haja 
+comportamento                             de má conduta será da               responsabilidade do assinante. A empresa é isenta de qualquer dano a ela causado pelo empregado."
+fit_content = true
+
+[node name="Tips3" type="RichTextLabel" parent="World"]
+offset_left = -292.0
+offset_top = -119.0
+offset_right = 123.0
+offset_bottom = 36.0
+theme_override_colors/default_color = Color(0.11372549, 0.101960786, 0.19215687, 1)
+theme_override_constants/line_separation = 2
+theme_override_fonts/normal_font = ExtResource("6_mqusn")
+theme_override_font_sizes/normal_font_size = 16
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rs2g5")
+text = "É proibido o uso de corretivo, borracha, caneta que apaga, rasura, indicar com \"nulo\" e X. 
+
+	Invés desses métodos feios  desorganizados, utilize o carimbo \"Deletar\", feito pela nossa empresa que não deixa rastros de outros carimbos (e apenas carimbos) no texto!
+"
+fit_content = true
+
+[node name="Boundaries" parent="." instance=ExtResource("7_xvkay")]
+position = Vector2(-36, -7)
+collision_mask = 1
+
+[node name="CollisionShape2D" parent="Boundaries" index="0"]
+position = Vector2(305, 356)
+
+[node name="CollisionShape2D3" parent="Boundaries" index="1"]
+position = Vector2(305, 24)
+
+[node name="CollisionShape2D2" parent="Boundaries" index="2"]
+position = Vector2(39, 176)
+
+[node name="CollisionShape2D4" parent="Boundaries" index="3"]
+position = Vector2(571, 176)
+
+[node name="CarimboManager" parent="." instance=ExtResource("8_b0h7s")]
+levelInfo = SubResource("Resource_amolt")
+
+[node name="CarimbosSlotBar" parent="CarimboManager" index="0"]
+metadata/_edit_lock_ = true
+
+[node name="Carimbo" parent="CarimboManager" instance=ExtResource("10_hkyh8")]
+position = Vector2(212, 258)
+carimboRes = ExtResource("11_3j3l1")
+
+[node name="Carimbo3" parent="CarimboManager" instance=ExtResource("10_hkyh8")]
+position = Vector2(164, 210)
+rotation = -1.5707964
+carimboRes = ExtResource("12_2rt4n")
+
+[node name="LevelStart" parent="." instance=ExtResource("10_8pf85")]
+
+[editable path="Boundaries"]
+[editable path="CarimboManager"]

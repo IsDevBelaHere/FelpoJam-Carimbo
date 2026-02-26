@@ -4,7 +4,7 @@ using System;
 public partial class KarimboTrigger : Node2D
 {
 	
-	Carimbo carimboRes;
+	[Export] Carimbo carimboRes;
 
 	public void AreaEnter(Node2D collider)
 	{
@@ -24,7 +24,11 @@ public partial class KarimboTrigger : Node2D
 
     public override void _Ready()
     {
-		carimboRes = GD.Load<Carimbo>("res://Entities/Karimbos/Resources/" + CarimboManager.instance.carimboType + ".tres");
+		if (carimboRes == null)
+		{
+			carimboRes = GD.Load<Carimbo>("res://Entities/Karimbos/Resources/" + CarimboManager.instance.carimboType + ".tres");	
+		}
+		
         if (carimboRes is CarimboPlatform)
 		{
 			GetChild(1).GetChild<CollisionShape2D>(0).Disabled = false;

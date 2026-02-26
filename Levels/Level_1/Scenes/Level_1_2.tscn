@@ -9,12 +9,12 @@
 [ext_resource type="PackedScene" uid="uid://dokvesmocnlac" path="res://Levels/boundaries.tscn" id="7_gploy"]
 [ext_resource type="PackedScene" uid="uid://cjo5jkj23qw0o" path="res://Entities/Player/Scenes/carimbo_manager.tscn" id="8_2otuy"]
 [ext_resource type="Script" uid="uid://biydjcqqhonff" path="res://Levels/LevelInfo.cs" id="9_jodmm"]
-[ext_resource type="PackedScene" path="res://Levels/level_start.tscn" id="10_sw4ho"]
+[ext_resource type="PackedScene" uid="uid://df55ympqe45d8" path="res://Levels/level_start.tscn" id="10_sw4ho"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_15oer"]
 font = ExtResource("3_ibqaw")
 font_size = 8
-font_color = Color(0, 0, 0, 1)
+font_color = Color(0.11372549, 0.101960786, 0.19215687, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q4epi"]
 size = Vector2(132, 19)

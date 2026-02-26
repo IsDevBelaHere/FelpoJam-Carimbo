@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cd8688b51s1k2"]
+[gd_scene load_steps=16 format=3 uid="uid://cd8688b51s1k2"]
 
 [ext_resource type="Texture2D" uid="uid://dhoixuvj47c8c" path="res://Levels/Table_OnLevel.png" id="1_1gqv7"]
 [ext_resource type="Texture2D" uid="uid://tmnv5ol7xqqv" path="res://Levels/LevelBackground.png" id="2_k8qaa"]
@@ -17,10 +17,7 @@ font_size = 8
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j2k6v"]
-size = Vector2(117, 18.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_e50vh"]
-size = Vector2(90, 45)
+size = Vector2(216, 57)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j4w1i"]
 size = Vector2(90, 18.5)
@@ -30,7 +27,7 @@ size = Vector2(90, 18.5)
 [sub_resource type="Resource" id="Resource_j4w1i"]
 resource_local_to_scene = true
 script = ExtResource("9_e0ldp")
-carimboAmounts = PackedInt32Array(1, 2, 1, 0, 0, 0, 0)
+carimboAmounts = PackedInt32Array(0, 1, 0, 1, 0, 0, 0)
 
 [node name="Level_3_2" type="Node2D"]
 
@@ -63,50 +60,26 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -58.0
-offset_top = -11.5
-offset_right = 58.0
-offset_bottom = 11.5
+offset_left = -79.0
+offset_top = -27.0
+offset_right = 205.0
+offset_bottom = 35.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
-text = "asddd vugnaes sra dsaa asdsda
-sss da aaaaaaaaa  asd asdasda"
+text = "aksdjask laksjdalks djalks alskjdalskdjakj a sdjaskl djalsdkal
+kasdjak dak ja kk aj ksdjksdjaksd jas kjdak sjk kajsdkajsdka
+    iuiiusad isduasi duisada  uds aisduiaudiusad us aiduia u
+ads sda
+   aisdjas aisdjas idsai duasi udai uaiudaiudaisduaisuiasudasidusaidu aidu aisd"
 label_settings = SubResource("LabelSettings_uehxh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Plataform"]
-position = Vector2(0.5, 0.25)
+position = Vector2(29, 3.5)
 shape = SubResource("RectangleShape2D_j2k6v")
 
-[node name="Plataform2" type="StaticBody2D" parent="World"]
-position = Vector2(-81, 98)
-collision_layer = 529
-
-[node name="Label" type="Label" parent="World/Plataform2"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -58.0
-offset_top = -11.5
-offset_right = 33.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-text = "pqowepqo qweqweqweq q
-qweq eq qweqeqeq qweqe
-vignaes sreo kasldk asdk
-adkjd akjasdkjd akasdkjk"
-label_settings = SubResource("LabelSettings_uehxh")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Plataform2"]
-position = Vector2(-13, 0.5)
-shape = SubResource("RectangleShape2D_e50vh")
-
 [node name="Plataform3" type="StaticBody2D" parent="World"]
-position = Vector2(-201, 16)
+position = Vector2(170, -28)
 collision_layer = 529
 
 [node name="Label" type="Label" parent="World/Plataform3"]
@@ -131,27 +104,27 @@ position = Vector2(-13, 0.25)
 shape = SubResource("RectangleShape2D_j4w1i")
 
 [node name="LevelGoal" parent="World" instance=ExtResource("4_1x7xe")]
-position = Vector2(-213, -14)
+position = Vector2(158, -58)
 nextLevel = 6
 
 [node name="OverWorld" type="Node2D" parent="World"]
 position = Vector2(-269, -195)
 
 [node name="Player" parent="World/OverWorld" instance=ExtResource("5_tqg1y")]
-position = Vector2(7, 307)
+position = Vector2(-1, 291)
 sceneSpeedMultiplier = 0.8
 
 [node name="Tips2" type="RichTextLabel" parent="World"]
-offset_left = -21.0
-offset_top = 44.0
-offset_right = 196.0
-offset_bottom = 137.0
+offset_left = -80.0
+offset_top = 86.0
+offset_right = 137.0
+offset_bottom = 179.0
 theme_override_colors/default_color = Color(0.11372549, 0.101960786, 0.19215687, 1)
 theme_override_constants/line_separation = 2
 theme_override_fonts/normal_font = ExtResource("6_ljfmv")
 theme_override_font_sizes/normal_font_size = 16
 theme_override_styles/focus = SubResource("StyleBoxEmpty_upulf")
-text = "O papel deste documento e os a seguir foram processados com um material derrapante, especialmente para a  gota de tinta. O assinante se compromete em pagar as despesas gastas para fabricar este papel."
+text = "Você se compromete a chegar sempre no horário correto (6:30). Caso haja atraso, será descontado do salario: R$0,10 por minuto após o horário esperado."
 fit_content = true
 
 [node name="Tips3" type="RichTextLabel" parent="World"]
@@ -164,7 +137,10 @@ theme_override_constants/line_separation = 2
 theme_override_fonts/normal_font = ExtResource("6_ljfmv")
 theme_override_font_sizes/normal_font_size = 16
 theme_override_styles/focus = SubResource("StyleBoxEmpty_upulf")
-text = "Dar uma meia volta é sempre uma opção, porém, você abandonou essa opção ao entrar nessa companhia assinando u contrato dizendo que seria obrigatoria a assinatura de todos os documentos que apresentaremos."
+text = "Às vezes quando estamos apressados, cometemos erros que atrasam o que estamos fazendo, gerando o efeito oposto ao objetivo. É uma aposta, já estamos atrasados mesmo, o que muda cinco minutinhos a menos ou a mais?
+
+	O carimbo \"Velocidade\" vai aumentar a velocidade da gota por um curto tempo.
+"
 fit_content = true
 
 [node name="Boundaries" parent="." instance=ExtResource("7_nmiwm")]

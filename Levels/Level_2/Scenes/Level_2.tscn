@@ -9,12 +9,12 @@
 [ext_resource type="PackedScene" uid="uid://dokvesmocnlac" path="res://Levels/boundaries.tscn" id="7_oba2k"]
 [ext_resource type="PackedScene" uid="uid://cjo5jkj23qw0o" path="res://Entities/Player/Scenes/carimbo_manager.tscn" id="8_y6gx6"]
 [ext_resource type="Script" uid="uid://biydjcqqhonff" path="res://Levels/LevelInfo.cs" id="9_0h10x"]
-[ext_resource type="PackedScene" path="res://Levels/level_start.tscn" id="10_ixqam"]
+[ext_resource type="PackedScene" uid="uid://df55ympqe45d8" path="res://Levels/level_start.tscn" id="10_ixqam"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_uehxh"]
 font = ExtResource("3_ieku2")
 font_size = 8
-font_color = Color(0, 0, 0, 1)
+font_color = Color(0.11372549, 0.101960786, 0.19215687, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j2k6v"]
 size = Vector2(117, 18.5)
@@ -177,7 +177,7 @@ theme_override_constants/line_separation = 2
 theme_override_fonts/normal_font = ExtResource("6_w8tp4")
 theme_override_font_sizes/normal_font_size = 16
 theme_override_styles/focus = SubResource("StyleBoxEmpty_upulf")
-text = "Note que por mais que o regulamento do documento não permita carimbar por cima do texto, ainda assim, é possível rotacionar seus carimbos para carimbar em áreas mais estreitas."
+text = "Alguns textos serão altos, não tenha medo e salte por cima deles com o carimbo \"Pular\"."
 fit_content = true
 
 [node name="Tips3" type="RichTextLabel" parent="World"]
