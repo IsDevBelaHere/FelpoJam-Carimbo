@@ -114,7 +114,6 @@ public partial class CarimboManager : Node
 				{
 					newCarimboOverlay.GetChild<Area2D>(1).CollisionMask = 1<<(6-1);
 				}
-				GD.Print(newCarimboOverlay.GetChild<Area2D>(1).CollisionMask);
 			}
 		}
 

@@ -10,7 +10,7 @@ public partial class Player : CharacterBody2D
 	[Export] public float sceneSpeedMultiplier;
 	public static Player instance;
 	public int direction = 1;
-	public bool isInJumpKarimbo = false;
+	public int isInJumpKarimbo = 0;
 	public bool isExitingBoostKarimbo = false;
 	public bool IsEnteringStopKarimbo = false;
 	public AnimatedSprite2D animatedSprite2D;
@@ -75,7 +75,7 @@ public partial class Player : CharacterBody2D
 		}
 
 		// Handle Jump.
-		if (isInJumpKarimbo)
+		if (isInJumpKarimbo > 0)
 		{
 			velocity.Y += JumpVelocity;
 		}

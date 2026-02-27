@@ -7,10 +7,10 @@ public partial class CarimboJump : Carimbo
     {
         if (entering)
         {
-            Player.instance.isInJumpKarimbo = true;
+            Player.instance.isInJumpKarimbo += 1;
         } else
         {
-            Player.instance.isInJumpKarimbo = false;
+            Player.instance.isInJumpKarimbo -= 1;
         }
     }
 
