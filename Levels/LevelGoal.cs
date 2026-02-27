@@ -4,9 +4,20 @@ using Godot;
 public partial class LevelGoal : Area2D
 {
     #pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
-
+    public static LevelGoal instance;
     [Export] public Levels nextLevel;
     [Export] public AnimationPlayer animationPlayer;
+    public override void _Ready()
+    {
+        if (instance != this)
+        {
+            instance = this;
+        }else
+		{
+			QueueFree();
+		}
+    }
+
     public async Task CallTween()
     {
         Tween tween = GetTree().CreateTween();
@@ -17,7 +28,12 @@ public partial class LevelGoal : Area2D
         //animationPlayer.Play("stamping");
 
     }
-
+    public async Task CallAnimation()
+    {
+        animationPlayer.Play("stamping");
+        await ToSignal(animationPlayer, "animation_finished");
+        LevelStart.instance.endLabel.Visible = true;
+    }
 	public void AreaEnter(Node collider)
     {
         if (collider is Player && !Player.instance.frozen)
@@ -38,10 +54,6 @@ public partial class LevelGoal : Area2D
     public void ButtonUp_PlayAnimation()
     {
         GetChild<Button>(8).Visible = false;
-        animationPlayer.Play("stamping");
-    }
-    public void PerformSceneChange()
-    {
-        GetTree().ChangeSceneToFile(Globals.LevelsToScene[nextLevel]);
+        CallAnimation();
     }
 }

@@ -163,6 +163,7 @@ offset_left = -15.0
 offset_top = 16.0
 offset_right = 400.0
 offset_bottom = 171.0
+mouse_filter = 2
 theme_override_colors/default_color = Color(0.11372549, 0.101960786, 0.19215687, 1)
 theme_override_constants/line_separation = 2
 theme_override_fonts/normal_font = ExtResource("6_ug4gt")

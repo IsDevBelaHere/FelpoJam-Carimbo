@@ -7,7 +7,8 @@ public partial class LevelStart : Control
 	public Control resetingControl;
 	public AnimatedSprite2D paper;
 	public Sprite2D bluePen;
-	public Label label;
+	public Label startLabel;
+	public Label endLabel;
 	public override void _Ready()
 	{
 		if (instance != this)
@@ -15,7 +16,8 @@ public partial class LevelStart : Control
 			resetingControl = GetChild<Control>(0);
 			paper = resetingControl.GetChild<AnimatedSprite2D>(0);
 			bluePen = resetingControl.GetChild<Sprite2D>(1);
-			label = GetChild<Label>(1);
+			startLabel = GetChild<Label>(1);
+			endLabel = GetChild<Label>(2);
 			instance = this;
 		}else
 		{
@@ -23,14 +25,20 @@ public partial class LevelStart : Control
 		}
 	}
 
-	
+	public void EndGame()
+	{
+		endLabel.Visible = true;
+	}
 	public override void _Process(double delta)
 	{
-		if (Input.IsActionJustPressed("confirm") && label.Visible)
+		if (Input.IsActionJustPressed("confirm") && startLabel.Visible)
 		{
 			GetChild<Label>(1).Visible = false;
 			CarimboManager.instance.Start();
 			Player.instance.speedMultiplier = Player.instance.sceneSpeedMultiplier;
+		}else if (Input.IsActionJustPressed("confirm") && endLabel.Visible)
+		{
+			CallDeferred(MethodName.PerformSceneChange, (int)LevelGoal.instance.nextLevel);
 		}
 
 		if (Input.IsActionPressed("confirm"))
@@ -57,4 +65,8 @@ public partial class LevelStart : Control
 		}
 
 	}
+	public void PerformSceneChange(int nextLevel)
+    {
+        GetTree().ChangeSceneToFile(Globals.LevelsToScene[(Levels)nextLevel]);
+    }
 }
