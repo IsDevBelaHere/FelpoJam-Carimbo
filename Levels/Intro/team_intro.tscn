@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dbqoaseapr5tb" path="res://Scripts/TeamIntro.cs" id="1_jy6ew"]
 [ext_resource type="Texture2D" uid="uid://baed1n12b3ql4" path="res://Models/TeamLogo/StralosLogo.png" id="2_fitl7"]
 [ext_resource type="FontFile" uid="uid://22nm7d6brli" path="res://Models/Fonts/Bitrimus.ttf" id="3_f2412"]
-[ext_resource type="AudioStream" uid="uid://bgb1q2wba0xf6" path="res://Models/Audios/fx's/IntroStralos.wav" id="4_bey6l"]
+[ext_resource type="AudioStream" uid="uid://jkqqxd1ep813" path="res://Models/Audios/fx/IntroStralos.ogg" id="4_jy6ew"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_rujp2"]
 font = ExtResource("3_f2412")
@@ -145,6 +145,6 @@ autoplay = "popping"
 [node name="AudioListener2D" type="AudioListener2D" parent="."]
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_bey6l")
+stream = ExtResource("4_jy6ew")
 autoplay = true
 bus = &"Effects"

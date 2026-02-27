@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://d1ncueqg54f1g"
+path="res://.godot/imported/SelecionarCarimbo.ogg-79d0f30be8b0b47360df3b06b29aa603.oggvorbisstr"
+
+[deps]
+
+source_file="res://Models/Audios/fx/selecionar carimbo/SelecionarCarimbo.ogg"
+dest_files=["res://.godot/imported/SelecionarCarimbo.ogg-79d0f30be8b0b47360df3b06b29aa603.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

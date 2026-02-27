@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cv0pwckytk6b6"]
+[gd_scene load_steps=18 format=3 uid="uid://cv0pwckytk6b6"]
 
 [ext_resource type="Texture2D" uid="uid://tmnv5ol7xqqv" path="res://Levels/LevelBackground.png" id="1_emgdg"]
 [ext_resource type="Texture2D" uid="uid://dhoixuvj47c8c" path="res://Levels/Table_OnLevel.png" id="1_ukopx"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dokvesmocnlac" path="res://Levels/boundaries.tscn" id="9_05a1t"]
 [ext_resource type="FontFile" uid="uid://22nm7d6brli" path="res://Models/Fonts/Bitrimus.ttf" id="9_ukopx"]
 [ext_resource type="PackedScene" uid="uid://df55ympqe45d8" path="res://Levels/level_start.tscn" id="10_05a1t"]
+[ext_resource type="AudioStream" uid="uid://b6skj0n36xxw4" path="res://Models/Audios/Músicas/Impress-Calmo.ogg" id="11_72ns5"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jppi2"]
 font = ExtResource("2_2tg0b")
@@ -172,6 +173,7 @@ position = Vector2(-36, -7)
 levelInfo = SubResource("Resource_05a1t")
 
 [node name="LevelStart" parent="." instance=ExtResource("10_05a1t")]
+levelMusic = ExtResource("11_72ns5")
 
 [editable path="Boundaries"]
 [editable path="CarimboManager"]

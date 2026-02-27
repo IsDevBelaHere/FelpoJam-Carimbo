@@ -1,9 +1,15 @@
-[gd_scene load_steps=17 format=3 uid="uid://df55ympqe45d8"]
+[gd_scene load_steps=30 format=3 uid="uid://df55ympqe45d8"]
 
 [ext_resource type="Script" uid="uid://cdy6k85772vqm" path="res://Levels/Level_1/Scenes/LevelStart.cs" id="1_s5duf"]
 [ext_resource type="Texture2D" uid="uid://ccahv3fvn81j2" path="res://Models/InGameUI/PaperResetingLevel-Sheet.png" id="2_ovh3k"]
 [ext_resource type="Texture2D" uid="uid://ds1cco01m8w0e" path="res://Models/InGameUI/caneta.png" id="3_tq0g2"]
 [ext_resource type="FontFile" uid="uid://22nm7d6brli" path="res://Models/Fonts/Bitrimus.ttf" id="4_g5r7q"]
+[ext_resource type="Script" uid="uid://b2yn3bgy4wk4x" path="res://Levels/InGameMenu.cs" id="5_tq0g2"]
+[ext_resource type="Resource" uid="uid://3kiq1upt6qji" path="res://Models/Audios/Resources/Instances/Configs.tres" id="6_3u31q"]
+[ext_resource type="Texture2D" uid="uid://b6ifu3n4w2oaq" path="res://Models/InGameUI/InGameMenu.png" id="6_g5r7q"]
+[ext_resource type="Texture2D" uid="uid://7pmulhpm2kws" path="res://Models/Grid/Grid.png" id="8_smah0"]
+[ext_resource type="FontFile" uid="uid://bypy357spaisb" path="res://Models/Fonts/Undead Pixel 8.ttf" id="9_yljcp"]
+[ext_resource type="Script" uid="uid://bo0ndsfpai38x" path="res://Levels/MainMenu/Scenes/option_button_resize.gd" id="10_3nth4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rsxid"]
 atlas = ExtResource("2_ovh3k")
@@ -133,6 +139,26 @@ font_color = Color(0.94082916, 0.9390667, 0.97368675, 1)
 shadow_size = 4
 shadow_color = Color(0, 0, 0, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_3u31q"]
+font = ExtResource("4_g5r7q")
+font_size = 48
+font_color = Color(0.11372549, 0.101960786, 0.19215687, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_142l6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_thla1"]
+font = ExtResource("4_g5r7q")
+font_size = 48
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fs0l4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7ju84"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vud2m"]
+font = ExtResource("4_g5r7q")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7jtsf"]
+
 [node name="LevelStart" type="Control"]
 layout_mode = 3
 anchors_preset = 0
@@ -219,3 +245,318 @@ text = "Espaço para passar de level"
 label_settings = SubResource("LabelSettings_05a1t")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="UI" type="Control" parent="." node_paths=PackedStringArray("configMenu", "videoConfigs", "audioConfigs")]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_tq0g2")
+configResource = ExtResource("6_3u31q")
+configMenu = NodePath("SettingsMenu")
+videoConfigs = NodePath("SettingsMenu/ColorRect/Paper/ConfigContent/VideoConfigs")
+audioConfigs = NodePath("SettingsMenu/ColorRect/Paper/ConfigContent/AudioConfigs")
+
+[node name="TextureRect" type="TextureRect" parent="UI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -94.0
+offset_right = 128.0
+offset_bottom = 94.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_g5r7q")
+
+[node name="Label" type="Label" parent="UI/TextureRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -26.0
+offset_top = 15.0
+offset_right = 74.0
+offset_bottom = 66.0
+grow_horizontal = 2
+text = "Menu"
+label_settings = SubResource("LabelSettings_3u31q")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button3" type="Button" parent="UI/TextureRect"]
+layout_mode = 0
+offset_left = 102.0
+offset_top = 63.0
+offset_right = 186.0
+offset_bottom = 84.0
+theme_override_colors/font_color = Color(0.36919817, 0.4364653, 0.673422, 1)
+theme_override_colors/font_focus_color = Color(0.36862746, 0.43529412, 0.6745098, 1)
+theme_override_fonts/font = ExtResource("4_g5r7q")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/focus = SubResource("StyleBoxEmpty_142l6")
+text = "Voltar"
+flat = true
+
+[node name="Button2" type="Button" parent="UI/TextureRect"]
+layout_mode = 0
+offset_left = 94.0
+offset_top = 96.0
+offset_right = 178.0
+offset_bottom = 117.0
+theme_override_colors/font_color = Color(0.36919817, 0.4364653, 0.673422, 1)
+theme_override_colors/font_focus_color = Color(0.36862746, 0.43529412, 0.6745098, 1)
+theme_override_fonts/font = ExtResource("4_g5r7q")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/focus = SubResource("StyleBoxEmpty_142l6")
+text = "Configurações"
+flat = true
+
+[node name="Button" type="Button" parent="UI/TextureRect"]
+layout_mode = 0
+offset_left = 78.0
+offset_top = 129.0
+offset_right = 162.0
+offset_bottom = 150.0
+theme_override_colors/font_color = Color(0.36919817, 0.4364653, 0.673422, 1)
+theme_override_colors/font_focus_color = Color(0.36862746, 0.43529412, 0.6745098, 1)
+theme_override_fonts/font = ExtResource("4_g5r7q")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/focus = SubResource("StyleBoxEmpty_142l6")
+text = "Menu de inicio"
+flat = true
+
+[node name="SettingsMenu" type="MarginContainer" parent="UI"]
+visible = false
+layout_mode = 0
+offset_left = 378.0
+offset_top = 20.0
+offset_right = 634.0
+offset_bottom = 340.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ColorRect" type="ColorRect" parent="UI/SettingsMenu"]
+custom_minimum_size = Vector2(256, 320)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(0.35698137, 0.44849294, 0.6648379, 1)
+
+[node name="TextureRect" type="TextureRect" parent="UI/SettingsMenu/ColorRect"]
+self_modulate = Color(1, 1, 1, 0.33333334)
+layout_mode = 0
+offset_right = 256.0
+offset_bottom = 320.0
+texture = ExtResource("8_smah0")
+stretch_mode = 1
+
+[node name="Paper" type="VBoxContainer" parent="UI/SettingsMenu/ColorRect"]
+layout_mode = 0
+offset_right = 256.0
+offset_bottom = 320.0
+theme_override_constants/separation = 9
+
+[node name="Header" type="VBoxContainer" parent="UI/SettingsMenu/ColorRect/Paper"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Control" type="Control" parent="UI/SettingsMenu/ColorRect/Paper/Header"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/SettingsMenu/ColorRect/Paper/Header"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "CONFIGURAÇÕES"
+label_settings = SubResource("LabelSettings_thla1")
+
+[node name="Topics" type="HBoxContainer" parent="UI/SettingsMenu/ColorRect/Paper"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VideoMenu" type="Button" parent="UI/SettingsMenu/ColorRect/Paper/Topics"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("4_g5r7q")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fs0l4")
+text = "=Video="
+flat = true
+
+[node name="AudioMenu" type="Button" parent="UI/SettingsMenu/ColorRect/Paper/Topics"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("4_g5r7q")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7ju84")
+text = "=Audio="
+flat = true
+
+[node name="ConfigContent" type="MarginContainer" parent="UI/SettingsMenu/ColorRect/Paper"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VideoConfigs" type="VBoxContainer" parent="UI/SettingsMenu/ColorRect/Paper/ConfigContent"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="ResolutionBoxContainer" type="HBoxContainer" parent="UI/SettingsMenu/ColorRect/Paper/ConfigContent/VideoConfigs"]
+custom_minimum_size = Vector2(205.905, 0)
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Label" type="Label" parent="UI/SettingsMenu/ColorRect/Paper/ConfigContent/VideoConfigs/ResolutionBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Resolução"
+label_settings = SubResource("LabelSettings_vud2m")
+
+[node name="OptionButton" type="OptionButton" parent="UI/SettingsMenu/ColorRect/Paper/ConfigContent/VideoConfigs/ResolutionBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("9_yljcp")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7jtsf")
+selected = 3
+item_count = 4
+popup/item_0/text = "2560x1440"
+popup/item_0/id = 0
+popup/item_1/text = "1920x1080"
+popup/item_1/id = 1
+popup/item_2/text = "1280x720"
+popup/item_2/id = 2
+popup/item_3/text = "640x360"
+popup/item_3/id = 3
+script = ExtResource("10_3nth4")
+fontstyle = ExtResource("9_yljcp")
+
+[node name="WindowModeBoxContainer2" type="HBoxContainer" parent="UI/SettingsMenu/ColorRect/Paper/ConfigContent/VideoConfigs"]
+custom_minimum_size = Vector2(205.905, 0)
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Label" type="Label" parent="UI/SettingsMenu/ColorRect/Paper/ConfigContent/VideoConfigs/WindowModeBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Modo de Janela"
+label_settings = SubResource("LabelSettings_vud2m")
+
+[node name="OptionButton" type="OptionButton" parent="UI/SettingsMenu/ColorRect/Paper/ConfigContent/VideoConfigs/WindowModeBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("9_yljcp")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7jtsf")
+selected = 0
+fit_to_longest_item = false
+item_count = 3
+popup/item_0/text = "Janela"
+popup/item_0/id = 0
+popup/item_1/text = "Janela Sem Bordas"
+popup/item_1/id = 1
+popup/item_2/text = "Tela Cheia"
+popup/item_2/id = 2
+script = ExtResource("10_3nth4")
+fontstyle = ExtResource("9_yljcp")
+
+[node name="AudioConfigs" type="VBoxContainer" parent="UI/SettingsMenu/ColorRect/Paper/ConfigContent"]
+visible = false
+layout_mode = 2
+
+[node name="MasterBoxContainer" type="HBoxContainer" parent="UI/SettingsMenu/ColorRect/Paper/ConfigContent/AudioConfigs"]
+custom_minimum_size = Vector2(205.905, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 14
+
+[node name="Label" type="Label" parent="UI/SettingsMenu/ColorRect/Paper/ConfigContent/AudioConfigs/MasterBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Principal"
+label_settings = SubResource("LabelSettings_vud2m")
+
+[node name="HSlider" type="HSlider" parent="UI/SettingsMenu/ColorRect/Paper/ConfigContent/AudioConfigs/MasterBoxContainer"]
+custom_minimum_size = Vector2(123.25, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+max_value = 1.0
+step = 0.1
+value = 0.5
+
+[node name="EffectsBoxContainer" type="HBoxContainer" parent="UI/SettingsMenu/ColorRect/Paper/ConfigContent/AudioConfigs"]
+custom_minimum_size = Vector2(205.905, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 14
+
+[node name="Label" type="Label" parent="UI/SettingsMenu/ColorRect/Paper/ConfigContent/AudioConfigs/EffectsBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Efeitos"
+label_settings = SubResource("LabelSettings_vud2m")
+
+[node name="HSlider" type="HSlider" parent="UI/SettingsMenu/ColorRect/Paper/ConfigContent/AudioConfigs/EffectsBoxContainer"]
+custom_minimum_size = Vector2(123.25, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+max_value = 1.0
+step = 0.1
+value = 0.5
+
+[node name="MusicBoxContainer" type="HBoxContainer" parent="UI/SettingsMenu/ColorRect/Paper/ConfigContent/AudioConfigs"]
+custom_minimum_size = Vector2(205.905, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 14
+
+[node name="Label" type="Label" parent="UI/SettingsMenu/ColorRect/Paper/ConfigContent/AudioConfigs/MusicBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Music"
+label_settings = SubResource("LabelSettings_vud2m")
+
+[node name="HSlider" type="HSlider" parent="UI/SettingsMenu/ColorRect/Paper/ConfigContent/AudioConfigs/MusicBoxContainer"]
+custom_minimum_size = Vector2(123.25, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+max_value = 1.0
+step = 0.1
+value = 0.5
+
+[node name="ColorRect" type="ColorRect" parent="UI"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.39215687)
+
+[connection signal="button_up" from="UI/TextureRect/Button3" to="UI" method="ButtonUp_Return"]
+[connection signal="button_up" from="UI/TextureRect/Button2" to="UI" method="ButtonUp_Configs"]
+[connection signal="button_up" from="UI/TextureRect/Button" to="UI" method="ButtonUp_GoToMainMenu"]
+[connection signal="button_up" from="UI/SettingsMenu/ColorRect/Paper/Topics/VideoMenu" to="UI" method="ButtonUp_VideoMenu"]
+[connection signal="button_up" from="UI/SettingsMenu/ColorRect/Paper/Topics/AudioMenu" to="UI" method="ButtonUp_AudioMenu"]
+[connection signal="item_selected" from="UI/SettingsMenu/ColorRect/Paper/ConfigContent/VideoConfigs/ResolutionBoxContainer/OptionButton" to="UI" method="ItemSelected_Resolution"]
+[connection signal="item_selected" from="UI/SettingsMenu/ColorRect/Paper/ConfigContent/VideoConfigs/WindowModeBoxContainer2/OptionButton" to="UI" method="ItemSelected_WindowMode"]
+[connection signal="value_changed" from="UI/SettingsMenu/ColorRect/Paper/ConfigContent/AudioConfigs/MasterBoxContainer/HSlider" to="UI" method="ValueChanged_BusVolume" binds= ["Master"]]
+[connection signal="value_changed" from="UI/SettingsMenu/ColorRect/Paper/ConfigContent/AudioConfigs/EffectsBoxContainer/HSlider" to="UI" method="ValueChanged_BusVolume" binds= ["Effects"]]
+[connection signal="value_changed" from="UI/SettingsMenu/ColorRect/Paper/ConfigContent/AudioConfigs/MusicBoxContainer/HSlider" to="UI" method="ValueChanged_BusVolume" binds= ["Music"]]

@@ -2,6 +2,7 @@ using Godot;
 using System;
 public partial class LevelStart : Control
 {
+	[Export] public AudioStreamOggVorbis levelMusic;
 	public static LevelStart instance;
 	public double resetTimer;
 	public Control resetingControl;
@@ -18,6 +19,10 @@ public partial class LevelStart : Control
 			bluePen = resetingControl.GetChild<Sprite2D>(1);
 			startLabel = GetChild<Label>(1);
 			endLabel = GetChild<Label>(2);
+			if (levelMusic != null)
+			{
+				StaticAudioPlayer.instance.PlayCD(levelMusic,true);
+			}
 			instance = this;
 		}else
 		{
@@ -62,6 +67,19 @@ public partial class LevelStart : Control
 			paper.Stop();
 			resetingControl.Visible = false;
 			resetTimer = 0;
+		}
+
+		if (Input.IsActionJustReleased("pause"))
+		{
+			Control fodase = GetChild<Control>(3);
+			fodase.Visible =! fodase.Visible;
+
+			Player.instance.frozen = fodase.Visible;
+			if (CarimboManager.instance.newCarimboOverlay != null)
+			{
+				CarimboManager.instance.freezeOverlayMovement = fodase.Visible;
+				CarimboManager.instance.newCarimboOverlay.Visible = fodase.Visible;	
+			}
 		}
 
 	}

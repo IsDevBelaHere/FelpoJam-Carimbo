@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b8q3gelmrwudl"]
+[gd_scene load_steps=18 format=3 uid="uid://b8q3gelmrwudl"]
 
 [ext_resource type="Texture2D" uid="uid://dhoixuvj47c8c" path="res://Levels/Table_OnLevel.png" id="1_lyyqx"]
 [ext_resource type="Texture2D" uid="uid://tmnv5ol7xqqv" path="res://Levels/LevelBackground.png" id="2_k52dd"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cjo5jkj23qw0o" path="res://Entities/Player/Scenes/carimbo_manager.tscn" id="8_hluyg"]
 [ext_resource type="Script" uid="uid://biydjcqqhonff" path="res://Levels/LevelInfo.cs" id="9_ei7wx"]
 [ext_resource type="PackedScene" uid="uid://df55ympqe45d8" path="res://Levels/level_start.tscn" id="10_j4w1i"]
+[ext_resource type="AudioStream" uid="uid://crw0pspm42cwi" path="res://Models/Audios/Músicas/ManchadeTinta-Calmo_Médio.ogg" id="11_e50vh"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_uehxh"]
 font = ExtResource("3_3ufww")
@@ -152,6 +153,7 @@ offset_left = -292.0
 offset_top = -119.0
 offset_right = 123.0
 offset_bottom = 36.0
+mouse_filter = 2
 theme_override_colors/default_color = Color(0.11372549, 0.101960786, 0.19215687, 1)
 theme_override_constants/line_separation = 2
 theme_override_fonts/normal_font = ExtResource("6_h63w4")
@@ -191,6 +193,7 @@ levelInfo = SubResource("Resource_j4w1i")
 metadata/_edit_lock_ = true
 
 [node name="LevelStart" parent="." instance=ExtResource("10_j4w1i")]
+levelMusic = ExtResource("11_e50vh")
 
 [editable path="Boundaries"]
 [editable path="CarimboManager"]

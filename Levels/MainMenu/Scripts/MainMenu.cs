@@ -19,22 +19,59 @@ public partial class MainMenu : MarginContainer
 	bool canClick = true;
 	bool confirmating;
 
+	[Export] public Configs configResource;
 
 	[ExportGroup("ConfigMenuTopics")]
 	[Export] Control videoConfigs;
 	[Export] Control audioConfigs;
 	[Export] Control keyBindsConfigs;
-
+	bool loadingMode = true;
     public override void _Ready()
     {
-        ItemSelected_WindowMode(2);
-		for (int i = 0; i < 2; i++)
+		if (FileAccess.FileExists("user://configs.tres"))
 		{
-
-			ValueChanged_BusVolume(0.5f,AudioServer.GetBusName(i));
+			configResource = GD.Load<Configs>("user://configs.tres");
+			UpdateConfigMenu();
+			loadingMode = false;
 		}
+		else
+		{
+			for (int i = 0; i < 2; i++)
+			{
+				ItemSelected_WindowMode(0);
+				ValueChanged_BusVolume(0.5f,AudioServer.GetBusName(i));
+			}
+			UpdateConfigResource();
+		}
+		
     }
+	public void UpdateConfigResource()
+	{
+		configResource.resolution = ResolutionByIndex(videoConfigs.GetChild<Control>(0).GetChild<OptionButton>(1).Selected);
+		configResource.windowMode = GetWindowModeByIndex(videoConfigs.GetChild<Control>(1).GetChild<OptionButton>(1).Selected);
+		configResource.masterAudio = (float)audioConfigs.GetChild<Control>(0).GetChild<HSlider>(1).Value;
+		configResource.effectsAudio = (float)audioConfigs.GetChild<Control>(1).GetChild<HSlider>(1).Value;
+		configResource.musicAudio = (float)audioConfigs.GetChild<Control>(2).GetChild<HSlider>(1).Value;
+		configResource.SaveData("user://configs.tres");
+		
+	}
+	public void UpdateConfigMenu()
+	{
+		videoConfigs.GetChild<Control>(0).GetChild<OptionButton>(1).Select(GetIndexByResolution(configResource.resolution));
+		videoConfigs.GetChild<Control>(0).GetChild<OptionButton>(1).EmitSignal("item_selected",GetIndexByResolution(configResource.resolution));
 
+		videoConfigs.GetChild<Control>(1).GetChild<OptionButton>(1).Select(GetIndexByWindowMode(configResource.windowMode));
+		videoConfigs.GetChild<Control>(1).GetChild<OptionButton>(1).EmitSignal("item_selected",GetIndexByWindowMode(configResource.windowMode));
+
+		audioConfigs.GetChild<Control>(0).GetChild<HSlider>(1).Value = configResource.masterAudio;
+		audioConfigs.GetChild<Control>(0).GetChild<HSlider>(1).EmitSignal("value_changed",configResource.masterAudio);
+
+		audioConfigs.GetChild<Control>(1).GetChild<HSlider>(1).Value = configResource.effectsAudio;
+		audioConfigs.GetChild<Control>(1).GetChild<HSlider>(1).EmitSignal("value_changed",configResource.effectsAudio);
+
+		audioConfigs.GetChild<Control>(2).GetChild<HSlider>(1).Value = configResource.musicAudio;
+		audioConfigs.GetChild<Control>(2).GetChild<HSlider>(1).EmitSignal("value_changed",configResource.musicAudio);
+	}
     
 
 	private Vector2I ResolutionByIndex(int index)
@@ -54,31 +91,72 @@ public partial class MainMenu : MarginContainer
 	}
 	public void ItemSelected_Resolution(int index)
 	{
+		if (loadingMode) return;
 		DisplayServer.WindowSetSize(ResolutionByIndex(index));
+		UpdateConfigResource();
+	}
+	public DisplayServer.WindowMode GetWindowModeByIndex(int index)
+	{
+		return index switch
+		{
+			0 => DisplayServer.WindowMode.Windowed,
+			1 => DisplayServer.WindowMode.Fullscreen,
+			2 => DisplayServer.WindowMode.ExclusiveFullscreen,
+			_ => DisplayServer.WindowMode.Windowed
+		};
+	}
+	private int GetIndexByResolution(Vector2I resolution)
+	{
+		Vector2I _0 = new(2560,1440);
+		Vector2I _1 = new(1920,1080);
+		Vector2I _2 = new(1280,720);
+		Vector2I _3 = new(640,360);
+		if (resolution == _0)
+		{
+			return 0;
+		}else if (resolution == _1)
+		{
+			return 1;
+		}else if (resolution == _2)
+		{
+			return 2;
+		}else if (resolution == _3)
+		{
+			return 3;
+		}
+		return 0;
+	}
+	public int GetIndexByWindowMode(DisplayServer.WindowMode mode)
+	{
+		return mode switch
+		{
+			DisplayServer.WindowMode.Windowed => 0,
+			DisplayServer.WindowMode.Fullscreen => 1,
+			DisplayServer.WindowMode.ExclusiveFullscreen => 2,
+			_ => 0
+		};
 	}
 	public void ItemSelected_WindowMode(int index)
 	{
+		
 		OptionButton optionButton = videoConfigs.GetChild<Control>(0).GetChild<OptionButton>(1);
-		switch (index)
+		if (index != 0)
 		{
-			case 0:
-				DisplayServer.WindowSetMode(DisplayServer.WindowMode.Windowed);
-				optionButton.SetItemText(3,"640x360");
-				optionButton.Disabled = false;
-				break;
-			case 1:
-				DisplayServer.WindowSetMode(DisplayServer.WindowMode.Fullscreen);
-				optionButton.SetItemText(3, GetViewport().GetWindow().Size.X + "x" + GetViewport().GetWindow().Size.Y);
-				optionButton.Disabled = true;
-				break;
-			case 2:
-				DisplayServer.WindowSetMode(DisplayServer.WindowMode.ExclusiveFullscreen);
-				optionButton.SetItemText(3, GetViewport().GetWindow().Size.X + "x" + GetViewport().GetWindow().Size.Y);
-				optionButton.Disabled = true;
-				break;
+			optionButton.SetItemText(3, GetViewport().GetWindow().Size.X + "x" + GetViewport().GetWindow().Size.Y);
+			optionButton.Select(3);
+			ItemSelected_Resolution(3);
+			optionButton.Disabled = true;
 		}
-		optionButton.Select(3);
-		ItemSelected_Resolution(3);
+		else
+		{
+			optionButton.Disabled = false;
+			optionButton.SetItemText(3, "640x360");
+		}
+
+		DisplayServer.WindowSetMode(GetWindowModeByIndex(index));
+
+		if (loadingMode) return;
+		UpdateConfigResource();
 	}
 	public void ValueChanged_BusVolume(float value, string busName)
 	{
@@ -86,6 +164,9 @@ public partial class MainMenu : MarginContainer
 		float db = Mathf.LinearToDb(value);
 
 		AudioServer.SetBusVolumeDb(busIndex,db);
+		
+		if (loadingMode) return;
+		UpdateConfigResource();
 	}
 	public void ButtonUp_Configs()
 	{
@@ -210,7 +291,7 @@ public partial class MainMenu : MarginContainer
 		SceneTreeTimer timer = GetTree().CreateTimer(1.0f);
 
 		await ToSignal(timer, "timeout");
-		
+		StaticAudioPlayer.instance.PlayCD("res://Models/Audios/Músicas/Impress-Calmo.ogg",true);
 		GetTree().ChangeSceneToFile(Globals.LevelsToScene[levelSelected]);
 	}
 	public void ButtonUp_QuitGame()

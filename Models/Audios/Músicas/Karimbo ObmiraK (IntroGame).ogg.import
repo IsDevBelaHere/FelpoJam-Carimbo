@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cnpw2dh3nf7bf"
+path="res://.godot/imported/Karimbo ObmiraK (IntroGame).ogg-4f654ae3c8e2789248b264151c07f36d.oggvorbisstr"
+
+[deps]
+
+source_file="res://Models/Audios/Músicas/Karimbo ObmiraK (IntroGame).ogg"
+dest_files=["res://.godot/imported/Karimbo ObmiraK (IntroGame).ogg-4f654ae3c8e2789248b264151c07f36d.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
