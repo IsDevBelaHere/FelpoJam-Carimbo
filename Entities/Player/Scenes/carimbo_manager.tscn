@@ -27,7 +27,7 @@ shadow_color = Color(0.22352941, 0.21568628, 0.30588236, 1)
 font = ExtResource("11_p44qq")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gtkfi"]
-size = Vector2(116, 360)
+size = Vector2(121, 360)
 
 [node name="CarimboManager" type="Node2D" node_paths=PackedStringArray("allTheThings")]
 script = ExtResource("1_q0e2g")
@@ -448,7 +448,7 @@ position = Vector2(491, 18)
 collision_layer = 2147483649
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SlotBarArea"]
-position = Vector2(91, 162)
+position = Vector2(88.5, 162)
 shape = SubResource("RectangleShape2D_gtkfi")
 
 [connection signal="mouse_entered" from="SlotBarArea" to="." method="MouseEnter"]
