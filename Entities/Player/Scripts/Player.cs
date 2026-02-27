@@ -14,7 +14,7 @@ public partial class Player : CharacterBody2D
 	public bool isExitingBoostKarimbo = false;
 	public bool IsEnteringStopKarimbo = false;
 	public AnimatedSprite2D animatedSprite2D;
-
+	public int delay = 0;
 	public bool frozen;
 
     public override void _Ready()
@@ -85,23 +85,33 @@ public partial class Player : CharacterBody2D
 
 		
 		animatedSprite2D.FlipH = direction < 0;
-		KinematicCollision2D collision = MoveAndCollide(velocity * (float)delta, true);
-		if (collision != null)
+		
+		Velocity = velocity;
+		MoveAndSlide();
+		for (int i = 0; i < GetSlideCollisionCount(); i++)
 		{
-			if (collision.GetCollider() is StaticBody2D )
+			KinematicCollision2D collision = GetSlideCollision(i);
+			if (collision != null)
 			{
-				StaticBody2D collider = collision.GetCollider() as StaticBody2D;
-				if (collider.GetCollisionLayerValue(6))
+				if (collision.GetCollider() is StaticBody2D )
 				{
-					if (collider.GetParent<KarimboTrigger>().carimboRes is CarimboSlime)
+					StaticBody2D collider = collision.GetCollider() as StaticBody2D;
+					if (collider.GetCollisionLayerValue(6))
 					{
-						velocity -= 3 * GetGravity() * (float)delta;
-						velocity = velocity.Bounce(collision.GetNormal());
+						if (collider.GetParent<KarimboTrigger>().carimboRes is CarimboSlime)
+						{
+							velocity -= 3 * GetGravity() * (float)delta;
+							velocity = velocity.Bounce(collision.GetNormal());
+							delay = 2;
+						}
 					}
 				}
 			}
 		}
-		Velocity = velocity;
-		MoveAndSlide();
+		if (delay > 0)
+		{
+			Velocity = velocity;
+			delay--;
+		}
     }
 }
