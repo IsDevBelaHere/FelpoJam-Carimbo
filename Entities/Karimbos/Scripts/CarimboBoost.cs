@@ -7,7 +7,7 @@ public partial class CarimboBoost : Carimbo
     {
         if (entering)
         {
-            Player.instance.speedMultiplier += 0.5f;
+            Player.instance.speedMultiplier += Player.instance.sceneSpeedMultiplier/2;
         } else
         {
             Player.instance.isExitingBoostKarimbo = true;
