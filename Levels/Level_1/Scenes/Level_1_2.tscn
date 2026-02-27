@@ -134,16 +134,16 @@ label_settings = SubResource("LabelSettings_15oer")
 position = Vector2(-14, 0)
 shape = SubResource("RectangleShape2D_o4at7")
 
-[node name="LevelGoal" parent="World" instance=ExtResource("4_tefkj")]
-position = Vector2(105, 63)
-nextLevel = 3
-
 [node name="OverWorld" type="Node2D" parent="World"]
 position = Vector2(-269, -195)
 
 [node name="Player" parent="World/OverWorld" instance=ExtResource("5_y1rcr")]
 position = Vector2(4, 284)
 sceneSpeedMultiplier = 0.5
+
+[node name="LevelGoal" parent="World" instance=ExtResource("4_tefkj")]
+position = Vector2(105, 63)
+nextLevel = 3
 
 [node name="Tips2" type="RichTextLabel" parent="World"]
 offset_left = -292.0

@@ -208,7 +208,6 @@ libraries = {
 autoplay = "giggle"
 
 [node name="Button" type="Button" parent="."]
-anchors_preset = -1
 offset_left = -32.0
 offset_top = -16.0
 offset_right = 32.0
@@ -218,6 +217,7 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/focus = SubResource("StyleBoxEmpty_fk0t6")
+disabled = true
 flat = true
 
 [connection signal="body_entered" from="." to="." method="AreaEnter"]

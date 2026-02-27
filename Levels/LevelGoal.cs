@@ -41,6 +41,7 @@ public partial class LevelGoal : Area2D
             Player.instance.frozen = true;
             CarimboManager.instance.freezeOverlayMovement = true;
             CarimboManager.instance.newCarimboOverlay.Visible = false;
+            GetChild<Button>(8).Disabled = false;
             CallTween();
         }
     }
