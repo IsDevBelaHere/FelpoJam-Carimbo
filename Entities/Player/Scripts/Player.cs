@@ -45,6 +45,17 @@ public partial class Player : CharacterBody2D
 		speedMultiplier = 1f;
 	}
 
+	public async Task KillPlayer()
+	{
+		frozen = true;
+		animatedSprite2D.Play("Exploding");
+		await ToSignal(GetTree().CreateTimer(.5f), SceneTreeTimer.SignalName.Timeout);
+		if (IsInsideTree())
+		{
+			GetTree().ReloadCurrentScene();
+		}
+	}
+
 	public override void _PhysicsProcess(double delta)
     {
 		if (frozen)
@@ -106,10 +117,8 @@ public partial class Player : CharacterBody2D
 					}
 					if (collider.GetCollisionLayerValue(7))
 					{
-						if (IsInsideTree())
-						{
-							GetTree().ReloadCurrentScene();
-						}
+#pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
+							KillPlayer();
 					}
 				}
 			}
