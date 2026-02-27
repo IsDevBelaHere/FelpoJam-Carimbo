@@ -16,7 +16,6 @@ public partial class LevelStart : Control
 			paper = resetingControl.GetChild<AnimatedSprite2D>(0);
 			bluePen = resetingControl.GetChild<Sprite2D>(1);
 			label = GetChild<Label>(1);
-			GD.Print("reg");
 			instance = this;
 		}else
 		{
