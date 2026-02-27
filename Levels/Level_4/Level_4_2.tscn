@@ -44,7 +44,7 @@ size = Vector2(29, 6.5)
 [sub_resource type="Resource" id="Resource_jjy0q"]
 resource_local_to_scene = true
 script = ExtResource("10_tkj8w")
-carimboAmounts = PackedInt32Array(0, 2, 2, 0, 0, 0, 2)
+carimboAmounts = PackedInt32Array(0, 2, 0, 0, 0, 0, 2)
 
 [node name="Level_4_2" type="Node2D"]
 
@@ -194,7 +194,7 @@ shape = SubResource("RectangleShape2D_u1oju")
 
 [node name="LevelGoal" parent="World" instance=ExtResource("5_lcsw1")]
 position = Vector2(130, 77)
-nextLevel = 6
+nextLevel = 9
 
 [node name="Tips2" type="RichTextLabel" parent="World"]
 offset_left = -164.0

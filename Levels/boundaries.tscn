@@ -12,8 +12,8 @@ normal = Vector2(1, 0)
 normal = Vector2(-1, 0)
 
 [node name="Boundaries" type="StaticBody2D"]
-collision_layer = 1073741825
-collision_mask = 8193
+collision_layer = 1073741888
+collision_mask = 8192
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(304, 351)

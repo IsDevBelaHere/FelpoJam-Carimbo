@@ -24,7 +24,7 @@ size = Vector2(117, 18.5)
 [sub_resource type="Resource" id="Resource_pl5i6"]
 resource_local_to_scene = true
 script = ExtResource("9_d3oov")
-carimboAmounts = PackedInt32Array(1, 2, 0, 0, 0, 0, 0)
+carimboAmounts = PackedInt32Array(0, 1, 0, 0, 0, 0, 0)
 
 [node name="Level_2_2" type="Node2D"]
 

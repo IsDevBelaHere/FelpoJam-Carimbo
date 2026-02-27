@@ -99,7 +99,7 @@ animations = [{
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 8193
-collision_mask = 8241
+collision_mask = 8305
 script = ExtResource("1_psage")
 sceneSpeedMultiplier = 1.0
 

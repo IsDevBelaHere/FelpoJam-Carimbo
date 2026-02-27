@@ -104,6 +104,13 @@ public partial class Player : CharacterBody2D
 							delay = 2;
 						}
 					}
+					if (collider.GetCollisionLayerValue(7))
+					{
+						if (IsInsideTree())
+						{
+							GetTree().ReloadCurrentScene();
+						}
+					}
 				}
 			}
 		}

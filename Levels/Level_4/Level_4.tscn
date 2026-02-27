@@ -209,7 +209,7 @@ shape = SubResource("RectangleShape2D_y78wr")
 
 [node name="LevelGoal" parent="World" instance=ExtResource("4_3j3l1")]
 position = Vector2(158, -58)
-nextLevel = 6
+nextLevel = 8
 
 [node name="OverWorld" type="Node2D" parent="World"]
 position = Vector2(-269, -195)
