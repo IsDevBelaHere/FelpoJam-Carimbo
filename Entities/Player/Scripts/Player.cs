@@ -35,7 +35,7 @@ public partial class Player : CharacterBody2D
 		await ToSignal(GetTree().CreateTimer(2f), SceneTreeTimer.SignalName.Timeout);
 		if (speedMultiplier >= 1)
 		{
-			speedMultiplier -= 0.5f;
+			speedMultiplier -= sceneSpeedMultiplier/2;
 		}
 	}
 
@@ -100,7 +100,6 @@ public partial class Player : CharacterBody2D
 					{
 						if (collider.GetParent<KarimboTrigger>().carimboRes is CarimboSlime)
 						{
-							velocity -= 3 * GetGravity() * (float)delta;
 							velocity = velocity.Bounce(collision.GetNormal());
 							delay = 2;
 						}

@@ -98,23 +98,23 @@ public partial class CarimboManager : Node
 					break;
 				}
 
-				if ((carimboType == "CarimboPlatform" && keyToCarimboArray[i] != 1) || (carimboType == "CarimboDelete" && keyToCarimboArray[i] != 7))
+				if ((carimboType == "CarimboPlatform" && keyToCarimboArray[i] != 1) || (carimboType == "CarimboSlime" && keyToCarimboArray[i] != 5) || (carimboType == "CarimboDelete" && keyToCarimboArray[i] != 7))
 				{
-					newCarimboOverlay.GetChild<Area2D>(1).CollisionMask = 48;
-					
+					newCarimboOverlay.GetChild<Area2D>(1).CollisionMask = 1<<(6-1)|1<<(5-1);
 				}
 
 				carimboType = Carimbo.GetCarimboByAction("karimbo_slot" + keyToCarimboArray[i]);
 				
-				if (carimboType == "CarimboPlatform")
+				if (carimboType == "CarimboPlatform" || carimboType == "CarimboSlime")
 				{
-					newCarimboOverlay.GetChild<Area2D>(1).CollisionMask = 49;
+					newCarimboOverlay.GetChild<Area2D>(1).CollisionMask = 1<<(6-1)|1<<(5-1)|1<<(1-1);
 				}
 
 				if (carimboType == "CarimboDelete")
 				{
-					newCarimboOverlay.GetChild<Area2D>(1).CollisionMask = 32;
+					newCarimboOverlay.GetChild<Area2D>(1).CollisionMask = 1<<(6-1);
 				}
+				GD.Print(newCarimboOverlay.GetChild<Area2D>(1).CollisionMask);
 			}
 		}
 
