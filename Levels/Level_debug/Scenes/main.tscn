@@ -4,17 +4,17 @@
 [ext_resource type="Script" uid="uid://biydjcqqhonff" path="res://Levels/LevelInfo.cs" id="2_nrlaa"]
 [ext_resource type="PackedScene" uid="uid://df55ympqe45d8" path="res://Levels/level_start.tscn" id="2_w4a7v"]
 
-[sub_resource type="Resource" id="Resource_xto7t"]
+[sub_resource type="Resource" id="Resource_nrlaa"]
 resource_local_to_scene = true
 script = ExtResource("2_nrlaa")
-carimboAmounts = PackedInt32Array(22, 22, 22, 22, 22, 22, 22, 22)
+carimboAmounts = PackedInt32Array(2, 2, 2, 2, 2, 2, 2)
 
 [node name="Main" type="Node2D"]
 
 [node name="LevelRoot" parent="." instance=ExtResource("1_i4nfe")]
 
 [node name="CarimboManager" parent="LevelRoot" index="2"]
-levelInfo = SubResource("Resource_xto7t")
+levelInfo = SubResource("Resource_nrlaa")
 
 [node name="LevelStart" parent="." instance=ExtResource("2_w4a7v")]
 

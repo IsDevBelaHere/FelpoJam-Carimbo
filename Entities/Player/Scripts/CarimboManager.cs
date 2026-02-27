@@ -20,6 +20,7 @@ public partial class CarimboManager : Node
 	public int roundingGrid = 2;
 	public bool freezeOverlayMovement = true;
 	public Node2D newCarimboOverlay;
+	public bool isOutOfCarimbos = false;
 
 	public Vector2 roundToMultiple(Vector2 coords, int rounding)
 	{
@@ -68,7 +69,7 @@ public partial class CarimboManager : Node
 
 	public void MouseEnter()
 	{
-		if (!freezeOverlayMovement)
+		if (!freezeOverlayMovement && !isOutOfCarimbos)
 		{
 			newCarimboOverlay.Visible = false;	
 		}
@@ -76,7 +77,7 @@ public partial class CarimboManager : Node
 
 	public void MouseExited()
 	{	
-		if (!freezeOverlayMovement)
+		if (!freezeOverlayMovement && !isOutOfCarimbos)
 		{
 			newCarimboOverlay.Visible = true;
 		}
@@ -85,21 +86,21 @@ public partial class CarimboManager : Node
 	public void CarimboSelect(int carimboToSpawn)
 	{
 		if ((carimboType == "CarimboPlatform" && carimboToSpawn != 1) || (carimboType == "CarimboSlime" && carimboToSpawn != 5) || (carimboType == "CarimboDelete" && carimboToSpawn != 7))
-				{
-					newCarimboOverlay.GetChild<Area2D>(1).CollisionMask = 1<<(6-1)|1<<(5-1);
-				}
+			{
+				newCarimboOverlay.GetChild<Area2D>(1).CollisionMask = 1<<(6-1)|1<<(5-1);
+			}
 
-				carimboType = Carimbo.GetCarimboByAction("karimbo_slot" + carimboToSpawn);
-				
-				if (carimboType == "CarimboPlatform" || carimboType == "CarimboSlime")
-				{
-					newCarimboOverlay.GetChild<Area2D>(1).CollisionMask = 1<<(6-1)|1<<(5-1)|1<<(1-1);
-				}
+			carimboType = Carimbo.GetCarimboByAction("karimbo_slot" + carimboToSpawn);
+			
+			if (carimboType == "CarimboPlatform" || carimboType == "CarimboSlime")
+			{
+				newCarimboOverlay.GetChild<Area2D>(1).CollisionMask = 1<<(6-1)|1<<(5-1)|1<<(1-1);
+			}
 
-				if (carimboType == "CarimboDelete")
-				{
-					newCarimboOverlay.GetChild<Area2D>(1).CollisionMask = 1<<(6-1);
-				}
+			if (carimboType == "CarimboDelete")
+			{
+				newCarimboOverlay.GetChild<Area2D>(1).CollisionMask = 1<<(6-1);
+			}
 	}
 
     public override void _Process(double delta)
@@ -204,6 +205,22 @@ public partial class CarimboManager : Node
 			UpdateLabels();	
 		}
 		freezeOverlayMovement = false;
+		if (levelInfo.carimboAmounts[Carimbo.GetIndexByCarimbo(carimboType)] == 0)
+		{
+			for (int i = 0; i < 7; i++)
+			{
+				if (levelInfo.carimboAmounts[i] > 0)
+				{
+					CarimboSelect(i + 1);
+					break;
+				}
+			}
+			if (levelInfo.carimboAmounts[Carimbo.GetIndexByCarimbo(carimboType)] == 0)
+			{
+				newCarimboOverlay.Visible = false;
+				isOutOfCarimbos = true;
+			}
+		}
 	}
 
 	public void Start()
