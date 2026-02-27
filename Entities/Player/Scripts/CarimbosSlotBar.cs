@@ -29,6 +29,6 @@ public partial class CarimbosSlotBar : Control
 	
 	public void ButtomUp_SelectCarimbo(Carimbo carimbo, Control node)
 	{
-		CarimboManager.instance.carimboType = carimbo.ResourceName;
+		CarimboManager.instance.CarimboSelect(Carimbo.GetIndexByCarimbo(carimbo.ResourceName));
 	}
 }

@@ -82,6 +82,26 @@ public partial class CarimboManager : Node
 		}
 	}
 
+	public void CarimboSelect(int carimboToSpawn)
+	{
+		if ((carimboType == "CarimboPlatform" && carimboToSpawn != 1) || (carimboType == "CarimboSlime" && carimboToSpawn != 5) || (carimboType == "CarimboDelete" && carimboToSpawn != 7))
+				{
+					newCarimboOverlay.GetChild<Area2D>(1).CollisionMask = 1<<(6-1)|1<<(5-1);
+				}
+
+				carimboType = Carimbo.GetCarimboByAction("karimbo_slot" + carimboToSpawn);
+				
+				if (carimboType == "CarimboPlatform" || carimboType == "CarimboSlime")
+				{
+					newCarimboOverlay.GetChild<Area2D>(1).CollisionMask = 1<<(6-1)|1<<(5-1)|1<<(1-1);
+				}
+
+				if (carimboType == "CarimboDelete")
+				{
+					newCarimboOverlay.GetChild<Area2D>(1).CollisionMask = 1<<(6-1);
+				}
+	}
+
     public override void _Process(double delta)
     {
 		if (freezeOverlayMovement)
@@ -98,22 +118,7 @@ public partial class CarimboManager : Node
 					break;
 				}
 
-				if ((carimboType == "CarimboPlatform" && keyToCarimboArray[i] != 1) || (carimboType == "CarimboSlime" && keyToCarimboArray[i] != 5) || (carimboType == "CarimboDelete" && keyToCarimboArray[i] != 7))
-				{
-					newCarimboOverlay.GetChild<Area2D>(1).CollisionMask = 1<<(6-1)|1<<(5-1);
-				}
-
-				carimboType = Carimbo.GetCarimboByAction("karimbo_slot" + keyToCarimboArray[i]);
-				
-				if (carimboType == "CarimboPlatform" || carimboType == "CarimboSlime")
-				{
-					newCarimboOverlay.GetChild<Area2D>(1).CollisionMask = 1<<(6-1)|1<<(5-1)|1<<(1-1);
-				}
-
-				if (carimboType == "CarimboDelete")
-				{
-					newCarimboOverlay.GetChild<Area2D>(1).CollisionMask = 1<<(6-1);
-				}
+				CarimboSelect(keyToCarimboArray[i]);
 			}
 		}
 
@@ -206,10 +211,7 @@ public partial class CarimboManager : Node
 		newCarimboOverlay = carimboOverlay.Instantiate<Node2D>();
 		AddChild(newCarimboOverlay);
 
-		if (carimboType == "CarimboPlatform")
-		{
-			newCarimboOverlay.GetChild<Area2D>(1).CollisionMask = 17;
-		}
+		CarimboSelect(keyToCarimboArray[0]);
 
 		freezeOverlayMovement = false;
 	}
