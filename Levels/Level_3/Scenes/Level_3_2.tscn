@@ -52,7 +52,8 @@ polygon = PackedVector2Array(-256, -160, 180, -160, 256, -95, 256, 160, -256, 16
 
 [node name="Plataform" type="StaticBody2D" parent="World"]
 position = Vector2(-220, 121)
-collision_layer = 529
+collision_layer = 528
+collision_mask = 0
 
 [node name="Label" type="Label" parent="World/Plataform"]
 anchors_preset = 8
@@ -80,7 +81,8 @@ shape = SubResource("RectangleShape2D_j2k6v")
 
 [node name="Plataform3" type="StaticBody2D" parent="World"]
 position = Vector2(170, -28)
-collision_layer = 529
+collision_layer = 528
+collision_mask = 0
 
 [node name="Label" type="Label" parent="World/Plataform3"]
 anchors_preset = 8

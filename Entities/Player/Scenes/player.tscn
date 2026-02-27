@@ -60,7 +60,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Exploding",
-"speed": 2.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -107,7 +107,7 @@ sceneSpeedMultiplier = 1.0
 texture_filter = 1
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_6i14f")
-animation = &"Idle"
+animation = &"Exploding"
 autoplay = "Idle"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
