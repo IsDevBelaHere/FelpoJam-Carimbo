@@ -7,7 +7,15 @@ public partial class CarimboStop : Carimbo
     {
         if (entering)
         {
-            Player.instance.isEnteringStopKarimbo = true;
+            if (Player.instance.speedMultiplier > 1)
+            {
+                Player.instance.speedMultiplier = 1f;
+            } else
+            {
+                Player.instance.speedMultiplier = 0f;
+
+            }
+            Player.instance.IsEnteringStopKarimbo = true;
         }
     }
 

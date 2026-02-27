@@ -12,7 +12,7 @@ public partial class Player : CharacterBody2D
 	public int direction = 1;
 	public bool isInJumpKarimbo = false;
 	public bool isExitingBoostKarimbo = false;
-	public bool isEnteringStopKarimbo = false;
+	public bool IsEnteringStopKarimbo = false;
 	public AnimatedSprite2D animatedSprite2D;
 
 	public bool frozen;
@@ -33,6 +33,15 @@ public partial class Player : CharacterBody2D
 	public async Task BoostTimeout()
 	{
 		await ToSignal(GetTree().CreateTimer(2f), SceneTreeTimer.SignalName.Timeout);
+		if (speedMultiplier >= 1)
+		{
+			speedMultiplier -= 0.5f;
+		}
+	}
+
+	public async Task StopTimeout()
+	{
+		await ToSignal(GetTree().CreateTimer(2f), SceneTreeTimer.SignalName.Timeout);
 		speedMultiplier = 1f;
 	}
 
@@ -51,6 +60,14 @@ public partial class Player : CharacterBody2D
 #pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
 		}
 
+		if (IsEnteringStopKarimbo)
+		{
+			IsEnteringStopKarimbo = false;
+#pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
+			StopTimeout();
+#pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
+		}
+
 		// Add the gravity.
 		if (!IsOnFloor())
 		{
@@ -66,11 +83,7 @@ public partial class Player : CharacterBody2D
 
 		velocity.X = direction * Speed * speedMultiplier;
 
-		if (isEnteringStopKarimbo)
-		{
-			isEnteringStopKarimbo = false;
-			velocity = new(0, 0);
-		}
+		
 		animatedSprite2D.FlipH = direction < 0;
 		Velocity = velocity;
 		MoveAndSlide();
