@@ -450,3 +450,6 @@ collision_layer = 2147483649
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SlotBarArea"]
 position = Vector2(91, 162)
 shape = SubResource("RectangleShape2D_gtkfi")
+
+[connection signal="mouse_entered" from="SlotBarArea" to="." method="MouseEnter"]
+[connection signal="mouse_exited" from="SlotBarArea" to="." method="MouseExited"]
