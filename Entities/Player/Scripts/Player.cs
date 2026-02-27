@@ -85,6 +85,22 @@ public partial class Player : CharacterBody2D
 
 		
 		animatedSprite2D.FlipH = direction < 0;
+		KinematicCollision2D collision = MoveAndCollide(velocity * (float)delta, true);
+		if (collision != null)
+		{
+			if (collision.GetCollider() is StaticBody2D )
+			{
+				StaticBody2D collider = collision.GetCollider() as StaticBody2D;
+				if (collider.GetCollisionLayerValue(6))
+				{
+					if (collider.GetParent<KarimboTrigger>().carimboRes is CarimboSlime)
+					{
+						velocity -= 3 * GetGravity() * (float)delta;
+						velocity = velocity.Bounce(collision.GetNormal());
+					}
+				}
+			}
+		}
 		Velocity = velocity;
 		MoveAndSlide();
     }

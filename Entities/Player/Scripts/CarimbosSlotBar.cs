@@ -24,7 +24,6 @@ public partial class CarimbosSlotBar : Control
 
 			
 			button.ButtonUp += () => ButtomUp_SelectCarimbo(item.GetMeta("res").As<Carimbo>(),button);
-			GD.Print(item.GetMeta("res").As<Carimbo>().ResourceName);
 		}
 	}
 	

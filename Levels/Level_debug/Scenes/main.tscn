@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://3d4poqv7pojo"]
+[gd_scene load_steps=7 format=3 uid="uid://3d4poqv7pojo"]
 
 [ext_resource type="PackedScene" uid="uid://cr58uup08huye" path="res://Levels/level.tscn" id="1_i4nfe"]
 [ext_resource type="Script" uid="uid://biydjcqqhonff" path="res://Levels/LevelInfo.cs" id="2_nrlaa"]
 [ext_resource type="PackedScene" uid="uid://df55ympqe45d8" path="res://Levels/level_start.tscn" id="2_w4a7v"]
+[ext_resource type="PackedScene" uid="uid://dvx3wclkbuddl" path="res://Entities/Karimbos/Scenes/carimbo.tscn" id="4_46ep6"]
+[ext_resource type="Resource" uid="uid://bp58ax2bedq3r" path="res://Entities/Karimbos/Resources/CarimboSlime.tres" id="5_nsq4r"]
 
 [sub_resource type="Resource" id="Resource_xto7t"]
 resource_local_to_scene = true
@@ -17,6 +19,10 @@ carimboAmounts = PackedInt32Array(22, 22, 22, 22, 22, 22, 22, 22)
 levelInfo = SubResource("Resource_xto7t")
 
 [node name="LevelStart" parent="." instance=ExtResource("2_w4a7v")]
+
+[node name="Carimbo" parent="." instance=ExtResource("4_46ep6")]
+position = Vector2(74, 309)
+carimboRes = ExtResource("5_nsq4r")
 
 [editable path="LevelRoot"]
 [editable path="LevelRoot/CarimboManager"]
