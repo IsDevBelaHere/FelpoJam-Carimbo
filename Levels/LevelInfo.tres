@@ -5,4 +5,4 @@
 [resource]
 resource_local_to_scene = true
 script = ExtResource("1_kur1t")
-carimboAmounts = PackedInt32Array(0, 0, 0, 0, 0, 0, 0)
+carimboAmounts = PackedInt32Array(22, 22, 22, 22, 22, 22, 22, 22)
