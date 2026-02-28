@@ -32,7 +32,7 @@ public partial class Player : CharacterBody2D
 
 	public async Task BoostTimeout()
 	{
-		await ToSignal(GetTree().CreateTimer(2f), SceneTreeTimer.SignalName.Timeout);
+		await ToSignal(GetTree().CreateTimer(5f), SceneTreeTimer.SignalName.Timeout);
 		if (speedMultiplier >= 1)
 		{
 			speedMultiplier -= sceneSpeedMultiplier/2;
