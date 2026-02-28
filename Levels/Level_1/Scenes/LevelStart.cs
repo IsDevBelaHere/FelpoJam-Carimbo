@@ -37,16 +37,6 @@ public partial class LevelStart : Control
 			ProgressManager.Progress.levels[((int)LevelGoal.instance.nextLevel/2) - 1] = 1;
 			ProgressManager.Progress.SaveData(ProgressManager.Progress.path);
 		}
-
-
-		// if (((int)LevelGoal.instance.nextLevel - 1) % 2 == 1)
-		// {
-		// 	float floatedLevel = ((int)LevelGoal.instance.nextLevel -1) / 2;
-		// 	int level = (int)Math.Round(floatedLevel,MidpointRounding.AwayFromZero) - 1;
-
-		// 	ProgressManager.Progress.levels[level] = 1;
-		// 	ProgressManager.Progress.SaveData(ProgressManager.Progress.path);
-		// }
 	}
 
 	public void EndGame()

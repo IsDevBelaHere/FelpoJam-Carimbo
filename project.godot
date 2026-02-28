@@ -10,7 +10,8 @@ config_version=5
 
 [application]
 
-config/name="FelpoJam-Carimbo"
+config/name="Karimbo"
+config/version="1.0.0.0.0.0.0.0.0.0.0"
 run/main_scene="uid://b038j1mampu0"
 config/features=PackedStringArray("4.5", "C#", "GL Compatibility")
 config/icon="uid://cjmyu8c6q7wwj"

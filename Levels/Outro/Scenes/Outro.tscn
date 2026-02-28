@@ -1,0 +1,53 @@
+[gd_scene load_steps=4 format=3 uid="uid://buwce27rvim4u"]
+
+[ext_resource type="Script" uid="uid://ba220wk4quobf" path="res://Levels/Outro/Scenes/OutroScript.cs" id="1_0mcx2"]
+[ext_resource type="FontFile" uid="uid://bypy357spaisb" path="res://Models/Fonts/Undead Pixel 8.ttf" id="2_w6vkd"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_yyt5k"]
+font = ExtResource("2_w6vkd")
+
+[node name="Outro" type="Control" node_paths=PackedStringArray("label")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0mcx2")
+label = NodePath("Label")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 2.0
+offset_right = 70.22223
+offset_bottom = 38.666687
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.9, 0.9)
+text = "    Você carimba, assinando cada documento que aquela pasta te apresenta...
+
+    É engraçado como todos aqueles documentos burocráticos perguntavam se você aceitava os termos, perguntando se você abdica de direitos ou se você concorda com coisas absurdas...
+
+    Não é como se você fosse negar... ao final, você precisava daquele trabalho para sobreviver, você não podia simplesmente negar porquê não poderia ir ao banheiro no horário do almoço, ou que tivesse que pagar pelo material do próprio documento... espera... isso não é crime?  Enfim, você está sem dinheiro para buscar justiça de qualquer forma, então terá que ser assim.
+
+    Aproveite seu novo emprego!
+
+
+
+
+                                 Obrigado por jogar! (esc volta pro menu)"
+label_settings = SubResource("LabelSettings_yyt5k")
+autowrap_mode = 3
