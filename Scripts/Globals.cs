@@ -22,6 +22,7 @@ public enum Levels
 public class Globals
 {
     public static Dictionary<Levels, string> LevelsToScene = new Dictionary<Levels, string>{
+        {Levels.none, "res://Levels/Outro/Scenes/Outro.tscn"},
         {Levels.level_1,"res://Levels/Level_1/Scenes/Level_1.tscn"},
         {Levels.level_1_2, "res://Levels/Level_1/Scenes/Level_1_2.tscn"},
         {Levels.level_2, "res://Levels/Level_2/Scenes/Level_2.tscn"},

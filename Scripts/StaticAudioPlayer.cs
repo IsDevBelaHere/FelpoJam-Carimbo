@@ -47,7 +47,6 @@ public partial class StaticAudioPlayer : Node
         audioPlayer.Play();
         audioPlayer.VolumeLinear = 1;
         currentStream = stream;
-        
     }
     public async Task<AudioStreamPlayer2D> CreatePlaySFX(AudioStreamOggVorbis stream, bool looping = false)
     {
