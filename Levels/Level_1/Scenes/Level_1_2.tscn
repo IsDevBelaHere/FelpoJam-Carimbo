@@ -20,10 +20,10 @@ font_color = Color(0.11372549, 0.101960786, 0.19215687, 1)
 size = Vector2(132, 19)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sw4ho"]
-size = Vector2(88, 58.5)
+size = Vector2(88, 58)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o4at7"]
-size = Vector2(88, 19)
+size = Vector2(87, 19)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sw4ho"]
 
@@ -76,7 +76,7 @@ sss da aaaaaaaaa  asd asdasda aaa"
 label_settings = SubResource("LabelSettings_15oer")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Plataform"]
-position = Vector2(-1, 0)
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_q4epi")
 
 [node name="Plataform3" type="StaticBody2D" parent="World"]
@@ -105,7 +105,7 @@ vugnaes sreo"
 label_settings = SubResource("LabelSettings_15oer")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Plataform3"]
-position = Vector2(-14, 19.75)
+position = Vector2(-14, 20)
 shape = SubResource("RectangleShape2D_sw4ho")
 
 [node name="Plataform2" type="StaticBody2D" parent="World"]
@@ -131,7 +131,7 @@ sss da aaaaaaaaa  asd"
 label_settings = SubResource("LabelSettings_15oer")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Plataform2"]
-position = Vector2(-14, 0)
+position = Vector2(-14.5, 0.5)
 shape = SubResource("RectangleShape2D_o4at7")
 
 [node name="OverWorld" type="Node2D" parent="World"]

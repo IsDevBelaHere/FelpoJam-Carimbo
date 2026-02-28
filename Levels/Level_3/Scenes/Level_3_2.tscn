@@ -17,10 +17,10 @@ font_size = 8
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j2k6v"]
-size = Vector2(216, 57)
+size = Vector2(217, 58)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j4w1i"]
-size = Vector2(90, 18.5)
+size = Vector2(90, 19)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_upulf"]
 
@@ -76,7 +76,7 @@ ads sda
 label_settings = SubResource("LabelSettings_uehxh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Plataform"]
-position = Vector2(29, 3.5)
+position = Vector2(29.5, 4)
 shape = SubResource("RectangleShape2D_j2k6v")
 
 [node name="Plataform3" type="StaticBody2D" parent="World"]
@@ -102,7 +102,7 @@ qweq eq qweqeqeq qweqe"
 label_settings = SubResource("LabelSettings_uehxh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Plataform3"]
-position = Vector2(-13, 0.25)
+position = Vector2(-13, 0.5)
 shape = SubResource("RectangleShape2D_j4w1i")
 
 [node name="LevelGoal" parent="World" instance=ExtResource("4_1x7xe")]

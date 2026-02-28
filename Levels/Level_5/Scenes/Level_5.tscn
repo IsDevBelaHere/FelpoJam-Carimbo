@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dtr75slw6jg4q"]
+[gd_scene load_steps=15 format=3 uid="uid://dtr75slw6jg4q"]
 
 [ext_resource type="Texture2D" uid="uid://dhoixuvj47c8c" path="res://Levels/Table_OnLevel.png" id="1_fuq1b"]
 [ext_resource type="Texture2D" uid="uid://tmnv5ol7xqqv" path="res://Levels/LevelBackground.png" id="2_mb82s"]
@@ -19,18 +19,12 @@ font_color = Color(0, 0, 0, 1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4i1tu"]
 size = Vector2(117, 18.5)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4aomd"]
-size = Vector2(90, 45)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7iwes"]
-size = Vector2(90, 18.5)
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_00dp2"]
 
 [sub_resource type="Resource" id="Resource_od5ij"]
 resource_local_to_scene = true
 script = ExtResource("9_7jleq")
-carimboAmounts = PackedInt32Array(1, 2, 1, 0, 0, 0, 0)
+carimboAmounts = PackedInt32Array(0, 0, 0, 0, 0, 1, 0)
 
 [node name="Level_5" type="Node2D"]
 
@@ -54,8 +48,9 @@ visible = false
 polygon = PackedVector2Array(-256, -160, 180, -160, 256, -95, 256, 160, -256, 160, -256, -158, -268, -158, -268, 180, 372, 180, 372, -180, -268, -180, -268, -159)
 
 [node name="Plataform" type="StaticBody2D" parent="World"]
-position = Vector2(-220, 121)
-collision_layer = 513
+position = Vector2(-171, -74)
+collision_layer = 528
+collision_mask = 0
 
 [node name="Label" type="Label" parent="World/Plataform"]
 anchors_preset = 8
@@ -78,67 +73,15 @@ label_settings = SubResource("LabelSettings_wy8uh")
 position = Vector2(0.5, 0.25)
 shape = SubResource("RectangleShape2D_4i1tu")
 
-[node name="Plataform2" type="StaticBody2D" parent="World"]
-position = Vector2(-81, 98)
-collision_layer = 513
-
-[node name="Label" type="Label" parent="World/Plataform2"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -58.0
-offset_top = -11.5
-offset_right = 33.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-text = "pqowepqo qweqweqweq q
-qweq eq qweqeqeq qweqe
-vignaes sreo kasldk asdk
-adkjd akjasdkjd akasdkjk"
-label_settings = SubResource("LabelSettings_wy8uh")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Plataform2"]
-position = Vector2(-13, 0.5)
-shape = SubResource("RectangleShape2D_4aomd")
-
-[node name="Plataform3" type="StaticBody2D" parent="World"]
-position = Vector2(-201, 16)
-collision_layer = 513
-
-[node name="Label" type="Label" parent="World/Plataform3"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -58.0
-offset_top = -11.5
-offset_right = 58.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-text = "pqowepqo qweqweqweq q
-qweq eq qweqeqeq qweqe"
-label_settings = SubResource("LabelSettings_wy8uh")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Plataform3"]
-position = Vector2(-13, 0.25)
-shape = SubResource("RectangleShape2D_7iwes")
-
 [node name="LevelGoal" parent="World" instance=ExtResource("4_yus37")]
-position = Vector2(-213, -14)
-nextLevel = 6
+position = Vector2(-15, 85)
+nextLevel = 10
 
 [node name="Tips2" type="RichTextLabel" parent="World"]
-offset_left = -21.0
-offset_top = 44.0
-offset_right = 196.0
-offset_bottom = 137.0
+offset_left = -262.0
+offset_top = 42.0
+offset_right = -45.0
+offset_bottom = 135.0
 theme_override_colors/default_color = Color(0.11372549, 0.101960786, 0.19215687, 1)
 theme_override_constants/line_separation = 2
 theme_override_fonts/normal_font = ExtResource("5_qy6kw")
@@ -166,8 +109,8 @@ fit_content = true
 position = Vector2(51, -15)
 
 [node name="Player" parent="OverWorld" instance=ExtResource("6_ftk6e")]
-position = Vector2(7, 307)
-sceneSpeedMultiplier = 0.8
+position = Vector2(98, 112)
+sceneSpeedMultiplier = 2.0
 
 [node name="Boundaries" parent="." instance=ExtResource("7_5wy4r")]
 position = Vector2(-36, -7)

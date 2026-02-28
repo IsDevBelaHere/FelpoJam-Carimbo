@@ -19,10 +19,10 @@ font_size = 8
 font_color = Color(0.11372549, 0.101960786, 0.19215687, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yle0i"]
-size = Vector2(464, 33.25)
+size = Vector2(461, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j1373"]
-size = Vector2(467, 61.5)
+size = Vector2(464, 61.5)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rs2g5"]
 
@@ -76,7 +76,7 @@ dapibus dui. In hendrerit velit id pellentesque condimentum. In aliquam nisl ege
 label_settings = SubResource("LabelSettings_uttqv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Plataform2"]
-position = Vector2(-83, 108.375)
+position = Vector2(-83.5, 109)
 shape = SubResource("RectangleShape2D_yle0i")
 
 [node name="Plataform3" type="StaticBody2D" parent="World"]
@@ -105,7 +105,7 @@ Cras luctus libero sapien, a dignissim orci luctus id. Praesent volutpat velit e
 label_settings = SubResource("LabelSettings_uttqv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Plataform3"]
-position = Vector2(-81.5, 123.75)
+position = Vector2(-82, 123.75)
 shape = SubResource("RectangleShape2D_j1373")
 
 [node name="LevelGoal" parent="World" instance=ExtResource("4_3j3l1")]
