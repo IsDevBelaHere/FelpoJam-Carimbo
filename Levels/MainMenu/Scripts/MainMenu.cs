@@ -3,6 +3,7 @@ using Godot;
 public partial class MainMenu : MarginContainer
 {
 	[Export] public MarginContainer levelMenu;
+	[Export] public VBoxContainer levelButtons;
 	[Export] public MarginContainer configContent;
 	[Export] public PackedScene okCarimbo;
 	[Export] public TextureRect tableRect;
@@ -44,6 +45,36 @@ public partial class MainMenu : MarginContainer
 			UpdateConfigResource();
 		}
 		
+		for (int i = 0; i < levelButtons.GetChildren().Count; i++)
+		{
+			Control row = levelButtons.GetChild<Control>(i);
+			for (int _i = 0; _i < row.GetChildren().Count; _i++)
+			{
+				TextureButton button = row.GetChild<Control>(_i).GetChild<TextureButton>(1);
+				TextureRect blocked = row.GetChild<Control>(_i).GetChild<TextureRect>(2);
+				switch (i)
+				{
+					case 0:
+						if (ProgressManager.Progress.levels[_i] == 1)
+						{
+							button.Disabled = false;
+							blocked.Visible = false;
+							GD.Print("0 === "+i+" : "+_i);
+						}
+						break;
+					case 1:
+						if (ProgressManager.Progress.levels[_i+3] == 1)
+						{
+							button.Disabled = false;
+							blocked.Visible = false;
+							GD.Print("1 === "+i+" : "+_i);
+						}
+						break;
+				}
+				
+			}
+		}
+
     }
 	public void UpdateConfigResource()
 	{
@@ -53,7 +84,6 @@ public partial class MainMenu : MarginContainer
 		configResource.effectsAudio = (float)audioConfigs.GetChild<Control>(1).GetChild<HSlider>(1).Value;
 		configResource.musicAudio = (float)audioConfigs.GetChild<Control>(2).GetChild<HSlider>(1).Value;
 		configResource.SaveData("user://configs.tres");
-		
 	}
 	public void UpdateConfigMenu()
 	{
@@ -91,8 +121,8 @@ public partial class MainMenu : MarginContainer
 	}
 	public void ItemSelected_Resolution(int index)
 	{
-		if (loadingMode) return;
 		DisplayServer.WindowSetSize(ResolutionByIndex(index));
+		if (loadingMode) return;
 		UpdateConfigResource();
 	}
 	public DisplayServer.WindowMode GetWindowModeByIndex(int index)
@@ -138,7 +168,6 @@ public partial class MainMenu : MarginContainer
 	}
 	public void ItemSelected_WindowMode(int index)
 	{
-		
 		OptionButton optionButton = videoConfigs.GetChild<Control>(0).GetChild<OptionButton>(1);
 		if (index != 0)
 		{
@@ -239,7 +268,7 @@ public partial class MainMenu : MarginContainer
 		}
 		rectSelected = null;
 		instantiated_okCarimbo = okCarimbo.Instantiate<Node2D>();
-		AddChild(instantiated_okCarimbo);
+		levelMenu.AddChild(instantiated_okCarimbo);
 		instantiated_okCarimbo.Visible = false;
 		Vector2 placePosition = rect.GlobalPosition + new Vector2(20f,10f);
 		rectScript.SetActive(true);

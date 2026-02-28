@@ -3,23 +3,29 @@ using System;
 
 public partial class InGameMenu : Control
 {
-	[Export] Configs configResource;
+	[Export] public Configs configResource;
 	[Export] Container configMenu;
 
 	[ExportGroup("ConfigMenuTopics")]
 	[Export] Control videoConfigs;
 	[Export] Control audioConfigs;
 	[Export] Control keyBindsConfigs;
-
+	bool loadingMode = true;
     public override void _Ready()
     {
 		if (FileAccess.FileExists("user://configs.tres"))
 		{
 			configResource = GD.Load<Configs>("user://configs.tres");
 			UpdateConfigMenu();
+			loadingMode = false;
 		}
 		else
 		{
+			for (int i = 0; i < 2; i++)
+			{
+				ItemSelected_WindowMode(0);
+				ValueChanged_BusVolume(0.5f,AudioServer.GetBusName(i));
+			}
 			UpdateConfigResource();
 		}
     }
@@ -32,6 +38,7 @@ public partial class InGameMenu : Control
 		configResource.masterAudio = (float)audioConfigs.GetChild<Control>(0).GetChild<HSlider>(1).Value;
 		configResource.effectsAudio = (float)audioConfigs.GetChild<Control>(1).GetChild<HSlider>(1).Value;
 		configResource.musicAudio = (float)audioConfigs.GetChild<Control>(2).GetChild<HSlider>(1).Value;
+		configResource.SaveData("user://configs.tres");
 	}
 	public void UpdateConfigMenu()
 	{
@@ -131,6 +138,7 @@ public partial class InGameMenu : Control
 	public void ItemSelected_Resolution(int index)
 	{
 		DisplayServer.WindowSetSize(ResolutionByIndex(index));
+		if (loadingMode) return;
 		UpdateConfigResource();
 	}
 
@@ -171,7 +179,8 @@ public partial class InGameMenu : Control
 		}
 
 		DisplayServer.WindowSetMode(GetWindowModeByIndex(index));
-	
+
+		if (loadingMode) return;
 		UpdateConfigResource();
 	}
 	public void ValueChanged_BusVolume(float value, string busName)
@@ -180,7 +189,7 @@ public partial class InGameMenu : Control
 		float db = Mathf.LinearToDb(value);
 
 		AudioServer.SetBusVolumeDb(busIndex,db);
-
+		if (loadingMode) return;
 		UpdateConfigResource();
 	}
 

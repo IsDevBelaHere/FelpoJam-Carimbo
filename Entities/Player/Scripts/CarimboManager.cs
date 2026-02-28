@@ -230,8 +230,6 @@ public partial class CarimboManager : Node
 		{
 			QueueFree();	
 		}   
-		
-		
 
 		for (int i = 0; i < levelInfo.carimboAmounts.Length; i++)
 		{

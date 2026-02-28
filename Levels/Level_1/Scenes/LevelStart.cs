@@ -10,6 +10,7 @@ public partial class LevelStart : Control
 	public Sprite2D bluePen;
 	public Label startLabel;
 	public Label endLabel;
+	public Configs configFile;
 	public override void _Ready()
 	{
 		if (instance != this)
@@ -19,6 +20,9 @@ public partial class LevelStart : Control
 			bluePen = resetingControl.GetChild<Sprite2D>(1);
 			startLabel = GetChild<Label>(1);
 			endLabel = GetChild<Label>(2);
+
+			configFile = GetChild<InGameMenu>(3).configResource;
+
 			if (levelMusic != null)
 			{
 				StaticAudioPlayer.instance.PlayCD(levelMusic,true);
@@ -28,6 +32,21 @@ public partial class LevelStart : Control
 		{
 			QueueFree();
 		}
+		if (((int)LevelGoal.instance.nextLevel - 1) % 2 == 1)
+		{
+			ProgressManager.Progress.levels[((int)LevelGoal.instance.nextLevel/2) - 1] = 1;
+			ProgressManager.Progress.SaveData(ProgressManager.Progress.path);
+		}
+
+
+		// if (((int)LevelGoal.instance.nextLevel - 1) % 2 == 1)
+		// {
+		// 	float floatedLevel = ((int)LevelGoal.instance.nextLevel -1) / 2;
+		// 	int level = (int)Math.Round(floatedLevel,MidpointRounding.AwayFromZero) - 1;
+
+		// 	ProgressManager.Progress.levels[level] = 1;
+		// 	ProgressManager.Progress.SaveData(ProgressManager.Progress.path);
+		// }
 	}
 
 	public void EndGame()

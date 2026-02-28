@@ -266,7 +266,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_4frkg")
 
-[node name="Screen" type="MarginContainer" parent="." node_paths=PackedStringArray("levelMenu", "configContent", "tableRect", "carimbo3DTexture", "carimboAnimationPlayer", "player", "overlay", "settingMenu", "monhado", "videoConfigs", "audioConfigs")]
+[node name="Screen" type="MarginContainer" parent="." node_paths=PackedStringArray("levelMenu", "levelButtons", "configContent", "tableRect", "carimbo3DTexture", "carimboAnimationPlayer", "player", "overlay", "settingMenu", "monhado", "videoConfigs", "audioConfigs")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -275,6 +275,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_i7ovf")
 levelMenu = NodePath("HBoxContainer/Right Middle/Menu")
+levelButtons = NodePath("HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer")
 configContent = NodePath("HBoxContainer/Right Middle/SettingsMenu/ColorRect/MarginContainer/Paper/ConfigContent")
 okCarimbo = ExtResource("2_d1bml")
 tableRect = NodePath("../Table")
@@ -400,13 +401,11 @@ text = "Sair"
 flat = true
 
 [node name="Right Middle" type="MarginContainer" parent="Screen/HBoxContainer"]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 
 [node name="Menu" type="MarginContainer" parent="Screen/HBoxContainer/Right Middle"]
-visible = false
 custom_minimum_size = Vector2(256, 320)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -458,6 +457,9 @@ alignment = 1
 [node name="BLevel1" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1" instance=ExtResource("4_n7ggc")]
 layout_mode = 2
 
+[node name="BLevel" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1/BLevel1" index="1"]
+disabled = true
+
 [node name="BLevel2" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1" instance=ExtResource("4_n7ggc")]
 layout_mode = 2
 
@@ -465,12 +467,18 @@ layout_mode = 2
 text = "Level 2"
 label_settings = SubResource("LabelSettings_n7ggc")
 
+[node name="BLevel" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1/BLevel2" index="1"]
+disabled = true
+
 [node name="BLevel3" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1" instance=ExtResource("4_n7ggc")]
 layout_mode = 2
 
 [node name="Carimbado" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1/BLevel3" index="0"]
 text = "Level 3"
 label_settings = SubResource("LabelSettings_d1bml")
+
+[node name="BLevel" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row1/BLevel3" index="1"]
+disabled = true
 
 [node name="Row2" type="HBoxContainer" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer"]
 layout_mode = 2
@@ -485,6 +493,9 @@ layout_mode = 2
 text = "Level 4"
 label_settings = SubResource("LabelSettings_6fwcj")
 
+[node name="BLevel" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2/BLevel4" index="1"]
+disabled = true
+
 [node name="BLevel5" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2" instance=ExtResource("4_n7ggc")]
 layout_mode = 2
 
@@ -492,12 +503,18 @@ layout_mode = 2
 text = "Level 5"
 label_settings = SubResource("LabelSettings_4frkg")
 
+[node name="BLevel" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2/BLevel5" index="1"]
+disabled = true
+
 [node name="BLevel6" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2" instance=ExtResource("4_n7ggc")]
 layout_mode = 2
 
 [node name="Carimbado" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2/BLevel6" index="0"]
 text = "Level 6"
 label_settings = SubResource("LabelSettings_d2l5n")
+
+[node name="BLevel" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer/Selection/VBoxContainer/Row2/BLevel6" index="1"]
+disabled = true
 
 [node name="Confirmation" type="VBoxContainer" parent="Screen/HBoxContainer/Right Middle/Menu/TextureRect/MarginContainer/MarginContainer"]
 layout_mode = 2

@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://7x1cca87mt3r"]
+
+[ext_resource type="Script" uid="uid://de8uu8ih0t5n2" path="res://Entities/Player/Scenes/ProgressManager.cs" id="1_pesqa"]
+[ext_resource type="Resource" uid="uid://bhy2ka4uyf2lq" path="res://Entities/Player/Resource/Progress.tres" id="2_5o42s"]
+
+[node name="ProgressManager" type="Node"]
+script = ExtResource("1_pesqa")
+progress = ExtResource("2_5o42s")

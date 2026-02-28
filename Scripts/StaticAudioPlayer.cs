@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Godot;
 
 
@@ -7,6 +8,7 @@ public partial class StaticAudioPlayer : Node
     public static AudioStreamPlayer2D audioPlayer;
     public static AudioListener2D audioListener;
     
+    public AudioStreamOggVorbis currentStream;
     public override void _Ready()
     {
         if (instance != this)
@@ -28,22 +30,48 @@ public partial class StaticAudioPlayer : Node
     }
     public async void PlayCD(AudioStreamOggVorbis stream, bool looping = false)
     { 
-        AudioStreamOggVorbis dStream = stream.Duplicate() as AudioStreamOggVorbis;
-        dStream.Loop = looping;
 
-        if (dStream.ResourcePath == audioPlayer.Stream.ResourcePath)
+        if (stream == currentStream)
         {
+            GD.Print('a');
             return;
         }
         if (audioPlayer.Playing)
         {
             Tween tween = GetTree().CreateTween();
-            tween.TweenProperty(audioPlayer,"volume_linear",0,0.1f);
+            tween.TweenProperty(audioPlayer,"volume_linear",0,0.5f);
             await ToSignal(tween,"finished");
         }
-        
-        audioPlayer.Stream = dStream;
+        stream.Loop = looping;
+        audioPlayer.Stream = stream;
         audioPlayer.Play();
+        audioPlayer.VolumeLinear = 1;
+        currentStream = stream;
         
+    }
+    public async Task<AudioStreamPlayer2D> CreatePlaySFX(AudioStreamOggVorbis stream, bool looping = false)
+    {
+        stream.Loop = looping;
+        AudioStreamPlayer2D sfxAudioPlayer = new()
+        {
+            Stream = stream,
+            Bus = "Effects"
+        };
+        sfxAudioPlayer.Play();
+        ManageSFXLoop(sfxAudioPlayer, looping);
+        return sfxAudioPlayer;
+    }
+    public async void ManageSFXLoop(AudioStreamPlayer2D obj, bool looping)
+    {
+        if (!looping)
+        {
+            await ToSignal(obj,"finished");
+            obj.QueueFree();
+        }
+    }
+    public async Task<AudioStreamPlayer2D> CreateSFX(string streamPath, bool looping = false)
+    {
+        AudioStreamPlayer2D sfxAudioPlayer = await CreatePlaySFX(GD.Load<AudioStreamOggVorbis>(streamPath).Duplicate() as AudioStreamOggVorbis, looping);
+        return sfxAudioPlayer;
     }
 }

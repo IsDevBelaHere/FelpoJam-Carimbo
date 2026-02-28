@@ -172,7 +172,7 @@ position = Vector2(51, -15)
 
 [node name="Player" parent="OverWorld" instance=ExtResource("5_fmpf0")]
 position = Vector2(7, 307)
-sceneSpeedMultiplier = 0.5
+sceneSpeedMultiplier = 0.8
 
 [node name="Boundaries" parent="." instance=ExtResource("7_0rb30")]
 position = Vector2(-36, -7)
