@@ -165,7 +165,7 @@ position = Vector2(-34, 0.5)
 shape = SubResource("RectangleShape2D_yx30r")
 
 [node name="LevelGoal" parent="World" instance=ExtResource("4_rbris")]
-position = Vector2(-267, -29)
+position = Vector2(-262, -34)
 
 [node name="Tips2" type="RichTextLabel" parent="World"]
 offset_left = -262.0
@@ -177,7 +177,7 @@ theme_override_constants/line_separation = 2
 theme_override_fonts/normal_font = ExtResource("5_rhnyp")
 theme_override_font_sizes/normal_font_size = 16
 theme_override_styles/focus = SubResource("StyleBoxEmpty_00dp2")
-text = "O papel deste documento e os a seguir foram processados com um material derrapante, especialmente para a  gota de tinta. O assinante se compromete em pagar as despesas gastas para fabricar este papel."
+text = "aaaaaaa"
 fit_content = true
 
 [node name="Tips3" type="RichTextLabel" parent="World"]
@@ -190,10 +190,7 @@ theme_override_constants/line_separation = 2
 theme_override_fonts/normal_font = ExtResource("5_rhnyp")
 theme_override_font_sizes/normal_font_size = 16
 theme_override_styles/focus = SubResource("StyleBoxEmpty_00dp2")
-text = "Dar uma meia volta é sempre uma opção, porém, você abandonou essa opção ao entrar nessa companhia assinando um contrato dizendo que seria obrigatória a assinatura de todos os documentos que apresentaremos.
-
-
-    Carimbe com \"Virar\" para inverter a direção da gota de tinta."
+text = "aaaaaa"
 fit_content = true
 
 [node name="Carimbo" parent="World" instance=ExtResource("6_bxtam")]
