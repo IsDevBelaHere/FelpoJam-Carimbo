@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b08xe8d5diy0n"]
+[gd_scene load_steps=19 format=3 uid="uid://b08xe8d5diy0n"]
 
 [ext_resource type="Texture2D" uid="uid://dhoixuvj47c8c" path="res://Levels/Table_OnLevel.png" id="1_ixqam"]
 [ext_resource type="Texture2D" uid="uid://tmnv5ol7xqqv" path="res://Levels/LevelBackground.png" id="2_fidgi"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cjo5jkj23qw0o" path="res://Entities/Player/Scenes/carimbo_manager.tscn" id="8_y6gx6"]
 [ext_resource type="Script" uid="uid://biydjcqqhonff" path="res://Levels/LevelInfo.cs" id="9_0h10x"]
 [ext_resource type="PackedScene" uid="uid://df55ympqe45d8" path="res://Levels/level_start.tscn" id="10_ixqam"]
+[ext_resource type="AudioStream" uid="uid://b6skj0n36xxw4" path="res://Models/Audios/Músicas/Impress-Calmo.ogg" id="11_fidgi"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_uehxh"]
 font = ExtResource("3_ieku2")
@@ -215,6 +216,7 @@ levelInfo = SubResource("Resource_ybjja")
 metadata/_edit_lock_ = true
 
 [node name="LevelStart" parent="." instance=ExtResource("10_ixqam")]
+levelMusic = ExtResource("11_fidgi")
 
 [editable path="Boundaries"]
 [editable path="CarimboManager"]

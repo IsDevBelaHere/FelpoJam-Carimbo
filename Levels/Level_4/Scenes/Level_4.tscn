@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bvt8u74euic1v"]
+[gd_scene load_steps=19 format=3 uid="uid://bvt8u74euic1v"]
 
 [ext_resource type="Texture2D" uid="uid://dhoixuvj47c8c" path="res://Levels/Table_OnLevel.png" id="1_yr7v7"]
 [ext_resource type="Texture2D" uid="uid://tmnv5ol7xqqv" path="res://Levels/LevelBackground.png" id="2_hkyh8"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://df55ympqe45d8" path="res://Levels/level_start.tscn" id="10_8pf85"]
 [ext_resource type="PackedScene" uid="uid://dvx3wclkbuddl" path="res://Entities/Karimbos/Scenes/carimbo.tscn" id="10_hkyh8"]
 [ext_resource type="Resource" uid="uid://dj5h721i45t5p" path="res://Entities/Karimbos/Resources/CarimboPlatform.tres" id="12_2rt4n"]
+[ext_resource type="AudioStream" uid="uid://crw0pspm42cwi" path="res://Models/Audios/Músicas/ManchadeTinta-Calmo_Médio.ogg" id="13_2uhku"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_uttqv"]
 font = ExtResource("3_v5h8s")
@@ -173,6 +174,7 @@ levelInfo = SubResource("Resource_amolt")
 metadata/_edit_lock_ = true
 
 [node name="LevelStart" parent="." instance=ExtResource("10_8pf85")]
+levelMusic = ExtResource("13_2uhku")
 
 [editable path="Boundaries"]
 [editable path="CarimboManager"]
