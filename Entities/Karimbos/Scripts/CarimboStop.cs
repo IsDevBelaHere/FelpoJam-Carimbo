@@ -13,9 +13,8 @@ public partial class CarimboStop : Carimbo
             } else
             {
                 Player.instance.speedMultiplier = 0f;
-
+                Player.instance.IsEnteringStopKarimbo = true;
             }
-            Player.instance.IsEnteringStopKarimbo = true;
         }
     }
 
