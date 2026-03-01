@@ -1,19 +1,19 @@
 [gd_scene load_steps=18 format=3 uid="uid://cv0pwckytk6b6"]
 
-[ext_resource type="Texture2D" uid="uid://tmnv5ol7xqqv" path="res://Levels/LevelBackground.png" id="1_emgdg"]
-[ext_resource type="Texture2D" uid="uid://dhoixuvj47c8c" path="res://Levels/Table_OnLevel.png" id="1_ukopx"]
-[ext_resource type="FontFile" uid="uid://cxkgi55cpw22q" path="res://Models/Fonts/DummyText.ttf" id="2_2tg0b"]
-[ext_resource type="PackedScene" uid="uid://bjgx0mn6fma2v" path="res://Entities/Player/Scenes/player.tscn" id="3_2tg0b"]
-[ext_resource type="PackedScene" uid="uid://bted0exekw6dl" path="res://Levels/levelGoal.tscn" id="3_rscqj"]
-[ext_resource type="PackedScene" uid="uid://cjo5jkj23qw0o" path="res://Entities/Player/Scenes/carimbo_manager.tscn" id="8_ly1y1"]
-[ext_resource type="Script" uid="uid://biydjcqqhonff" path="res://Levels/LevelInfo.cs" id="8_ukopx"]
-[ext_resource type="PackedScene" uid="uid://dokvesmocnlac" path="res://Levels/boundaries.tscn" id="9_05a1t"]
-[ext_resource type="FontFile" uid="uid://22nm7d6brli" path="res://Models/Fonts/Bitrimus.ttf" id="9_ukopx"]
-[ext_resource type="PackedScene" uid="uid://df55ympqe45d8" path="res://Levels/level_start.tscn" id="10_05a1t"]
-[ext_resource type="AudioStream" uid="uid://b6skj0n36xxw4" path="res://Models/Audios/Músicas/Impress-Calmo.ogg" id="11_72ns5"]
+[ext_resource type="Texture2D" uid="uid://dhoixuvj47c8c" path="res://Levels/Table_OnLevel.png" id="1_rhi3d"]
+[ext_resource type="Texture2D" uid="uid://tmnv5ol7xqqv" path="res://Levels/LevelBackground.png" id="2_t43wk"]
+[ext_resource type="FontFile" uid="uid://cxkgi55cpw22q" path="res://Models/Fonts/DummyText.ttf" id="3_5rh8q"]
+[ext_resource type="PackedScene" uid="uid://bjgx0mn6fma2v" path="res://Entities/Player/Scenes/player.tscn" id="4_5ackd"]
+[ext_resource type="PackedScene" uid="uid://bted0exekw6dl" path="res://Levels/levelGoal.tscn" id="5_g501p"]
+[ext_resource type="FontFile" uid="uid://22nm7d6brli" path="res://Models/Fonts/Bitrimus.ttf" id="6_mptye"]
+[ext_resource type="PackedScene" uid="uid://dokvesmocnlac" path="res://Levels/boundaries.tscn" id="7_xd2sn"]
+[ext_resource type="PackedScene" uid="uid://cjo5jkj23qw0o" path="res://Entities/Player/Scenes/carimbo_manager.tscn" id="8_33fdw"]
+[ext_resource type="Script" uid="uid://biydjcqqhonff" path="res://Levels/LevelInfo.cs" id="9_7p1m7"]
+[ext_resource type="PackedScene" uid="uid://df55ympqe45d8" path="res://Levels/level_start.tscn" id="10_aiunm"]
+[ext_resource type="AudioStream" uid="uid://b6skj0n36xxw4" path="res://Models/Audios/Músicas/Impress-Calmo.ogg" id="11_qbbii"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jppi2"]
-font = ExtResource("2_2tg0b")
+font = ExtResource("3_5rh8q")
 font_size = 8
 font_color = Color(0.11372549, 0.101960786, 0.19215687, 1)
 
@@ -30,14 +30,14 @@ size = Vector2(112, 19)
 
 [sub_resource type="Resource" id="Resource_05a1t"]
 resource_local_to_scene = true
-script = ExtResource("8_ukopx")
+script = ExtResource("9_7p1m7")
 carimboAmounts = PackedInt32Array(1, 0, 0, 0, 0, 0, 0)
 
 [node name="Level_1" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(320, 180)
-texture = ExtResource("1_ukopx")
+texture = ExtResource("1_rhi3d")
 
 [node name="World" type="Node2D" parent="."]
 position = Vector2(320, 180)
@@ -48,7 +48,7 @@ collision_layer = 16
 collision_mask = 8
 
 [node name="Sprite2D" type="Sprite2D" parent="World/Map"]
-texture = ExtResource("1_emgdg")
+texture = ExtResource("2_t43wk")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="World/Map"]
 visible = false
@@ -140,11 +140,11 @@ shape = SubResource("RectangleShape2D_72ns5")
 [node name="OverWorld" type="Node2D" parent="World"]
 position = Vector2(-269, -195)
 
-[node name="Player" parent="World/OverWorld" instance=ExtResource("3_2tg0b")]
+[node name="Player" parent="World/OverWorld" instance=ExtResource("4_5ackd")]
 position = Vector2(1, 313)
 sceneSpeedMultiplier = 0.5
 
-[node name="LevelGoal" parent="World" instance=ExtResource("3_rscqj")]
+[node name="LevelGoal" parent="World" instance=ExtResource("5_g501p")]
 position = Vector2(2, 97)
 nextLevel = 2
 
@@ -156,7 +156,7 @@ offset_bottom = 36.0
 mouse_filter = 2
 theme_override_colors/default_color = Color(0.11372549, 0.101960786, 0.19215687, 1)
 theme_override_constants/line_separation = 2
-theme_override_fonts/normal_font = ExtResource("9_ukopx")
+theme_override_fonts/normal_font = ExtResource("6_mptye")
 theme_override_font_sizes/normal_font_size = 16
 theme_override_styles/focus = SubResource("StyleBoxEmpty_05a1t")
 text = "Você deve levar a gota de tinta até a área de \"Assine Aqui\" usando seus carimbos. A gota de tinta seguirá constantemente para a direita. No documento atual, apenas carimbos de plataforma serão aceitos! Outros carimbos serão permitidos nos próximos documentos desta coletânea.
@@ -166,14 +166,14 @@ text = "Você deve levar a gota de tinta até a área de \"Assine Aqui\" usando 
     Observações: Não rasure o documento, não utilize carimbos vermelhos, não carimbe em cima de textos e ao assinar o contrato você se compromete a não utilizar o banheiro até o horário de almoço."
 fit_content = true
 
-[node name="Boundaries" parent="." instance=ExtResource("9_05a1t")]
+[node name="Boundaries" parent="." instance=ExtResource("7_xd2sn")]
 position = Vector2(-36, -7)
 
-[node name="CarimboManager" parent="." instance=ExtResource("8_ly1y1")]
+[node name="CarimboManager" parent="." instance=ExtResource("8_33fdw")]
 levelInfo = SubResource("Resource_05a1t")
 
-[node name="LevelStart" parent="." instance=ExtResource("10_05a1t")]
-levelMusic = ExtResource("11_72ns5")
+[node name="LevelStart" parent="." instance=ExtResource("10_aiunm")]
+levelMusic = ExtResource("11_qbbii")
 
 [editable path="Boundaries"]
 [editable path="CarimboManager"]
