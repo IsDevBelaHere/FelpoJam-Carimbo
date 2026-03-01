@@ -147,7 +147,7 @@ rotation = 4.712389
 carimboRes = ExtResource("12_2rt4n")
 
 [node name="Carimbo2" parent="World" instance=ExtResource("10_hkyh8")]
-position = Vector2(43, 28)
+position = Vector2(74, 61)
 rotation = 4.712389
 carimboRes = ExtResource("12_2rt4n")
 
