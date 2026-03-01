@@ -401,6 +401,7 @@ text = "Sair"
 flat = true
 
 [node name="Right Middle" type="MarginContainer" parent="Screen/HBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
@@ -588,6 +589,7 @@ script = null
 layout_mode = 2
 
 [node name="SettingsMenu" type="MarginContainer" parent="Screen/HBoxContainer/Right Middle"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4

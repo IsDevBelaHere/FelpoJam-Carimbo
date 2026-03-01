@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dtr75slw6jg4q"]
+[gd_scene load_steps=16 format=3 uid="uid://dtr75slw6jg4q"]
 
 [ext_resource type="Texture2D" uid="uid://dhoixuvj47c8c" path="res://Levels/Table_OnLevel.png" id="1_fuq1b"]
 [ext_resource type="Texture2D" uid="uid://tmnv5ol7xqqv" path="res://Levels/LevelBackground.png" id="2_mb82s"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cjo5jkj23qw0o" path="res://Entities/Player/Scenes/carimbo_manager.tscn" id="8_ge6lf"]
 [ext_resource type="Script" uid="uid://biydjcqqhonff" path="res://Levels/LevelInfo.cs" id="9_7jleq"]
 [ext_resource type="PackedScene" uid="uid://df55ympqe45d8" path="res://Levels/level_start.tscn" id="10_f5tva"]
+[ext_resource type="AudioStream" uid="uid://d3ovtd46v1qjh" path="res://Models/Audios/Músicas/Caneta&trabalho-Medio_Hard.ogg" id="11_pbtgj"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_wy8uh"]
 font = ExtResource("3_ounjp")
@@ -134,6 +135,7 @@ levelInfo = SubResource("Resource_od5ij")
 metadata/_edit_lock_ = true
 
 [node name="LevelStart" parent="." instance=ExtResource("10_f5tva")]
+levelMusic = ExtResource("11_pbtgj")
 
 [editable path="Boundaries"]
 [editable path="CarimboManager"]

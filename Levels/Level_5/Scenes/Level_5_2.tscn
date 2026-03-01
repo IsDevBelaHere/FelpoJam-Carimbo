@@ -133,7 +133,7 @@ shape = SubResource("RectangleShape2D_b5tn0")
 
 [node name="LevelGoal" parent="World" instance=ExtResource("4_s8bwn")]
 position = Vector2(-238, -60)
-nextLevel = 10
+nextLevel = 11
 
 [node name="Tips2" type="RichTextLabel" parent="World"]
 offset_left = -262.0
