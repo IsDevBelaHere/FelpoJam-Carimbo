@@ -79,31 +79,31 @@ position = Vector2(-15, 85)
 nextLevel = 10
 
 [node name="Tips2" type="RichTextLabel" parent="World"]
-offset_left = -262.0
-offset_top = 42.0
-offset_right = -45.0
-offset_bottom = 135.0
+offset_left = -275.0
+offset_top = 26.0
+offset_right = -48.0
+offset_bottom = 119.0
+mouse_filter = 2
 theme_override_colors/default_color = Color(0.11372549, 0.101960786, 0.19215687, 1)
 theme_override_constants/line_separation = 2
 theme_override_fonts/normal_font = ExtResource("5_qy6kw")
 theme_override_font_sizes/normal_font_size = 16
 theme_override_styles/focus = SubResource("StyleBoxEmpty_00dp2")
-text = "O papel deste documento e os a seguir foram processados com um material derrapante, especialmente para a  gota de tinta. O assinante se compromete em pagar as despesas gastas para fabricar este papel."
+text = "Caso o contratado seja pego não cumprindo as atividades atribuídas a ele em horário de trabalho, será descontado 1 dia de pagamento de seu salário."
 fit_content = true
 
 [node name="Tips3" type="RichTextLabel" parent="World"]
-offset_left = -292.0
-offset_top = -119.0
-offset_right = 123.0
-offset_bottom = 36.0
+offset_left = -298.0
+offset_top = -44.0
+offset_right = 117.0
+offset_bottom = 111.0
+mouse_filter = 2
 theme_override_colors/default_color = Color(0.11372549, 0.101960786, 0.19215687, 1)
 theme_override_constants/line_separation = 2
 theme_override_fonts/normal_font = ExtResource("5_qy6kw")
 theme_override_font_sizes/normal_font_size = 16
 theme_override_styles/focus = SubResource("StyleBoxEmpty_00dp2")
-text = "Dar uma meia volta é sempre uma opção, porém, você abandonou essa opção ao entrar nessa companhia assinando um contrato dizendo que seria obrigatória a assinatura de todos os documentos que apresentaremos.
-
-    Carimbe com \"Virar\" para inverter a direção da gota de tinta."
+text = "Reforçando a frase do documento três, segundo verso, eu digo \"A pressa é a inimiga da perfeição\". Se dar um momento, é complicado, muitas vezes não encontramos esse tempo no meio de tanta pressa, mas encontrar esse tempo é importante para não \"derretermos\" igual uma gota de tinta no papel."
 fit_content = true
 
 [node name="OverWorld" type="Node2D" parent="."]
