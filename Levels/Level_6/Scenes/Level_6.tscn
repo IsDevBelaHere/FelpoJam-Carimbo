@@ -146,7 +146,7 @@ theme_override_constants/line_separation = 2
 theme_override_fonts/normal_font = ExtResource("5_3yvde")
 theme_override_font_sizes/normal_font_size = 16
 theme_override_styles/focus = SubResource("StyleBoxEmpty_00dp2")
-text = "O contrato realizará as atividades inerentes ao cargo e outras solicitadas."
+text = "O contratado realizará as atividades inerentes ao cargo e outras solicitadas."
 fit_content = true
 
 [node name="Tips3" type="RichTextLabel" parent="World"]
