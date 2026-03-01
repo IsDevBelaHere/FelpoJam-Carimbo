@@ -168,31 +168,31 @@ shape = SubResource("RectangleShape2D_yx30r")
 position = Vector2(-262, -34)
 
 [node name="Tips2" type="RichTextLabel" parent="World"]
-offset_left = -262.0
-offset_top = 42.0
-offset_right = -45.0
-offset_bottom = 135.0
+offset_left = -293.0
+offset_top = -12.0
+offset_right = -76.0
+offset_bottom = 31.0
 mouse_filter = 2
 theme_override_colors/default_color = Color(0.11372549, 0.101960786, 0.19215687, 1)
 theme_override_constants/line_separation = 2
 theme_override_fonts/normal_font = ExtResource("5_rhnyp")
 theme_override_font_sizes/normal_font_size = 16
 theme_override_styles/focus = SubResource("StyleBoxEmpty_00dp2")
-text = "aaaaaaa"
+text = "O contrato será automaticamente renovado e poderá ser alterado a qualquer momento pelos contratantes."
 fit_content = true
 
 [node name="Tips3" type="RichTextLabel" parent="World"]
 offset_left = -227.0
 offset_top = -127.0
 offset_right = 188.0
-offset_bottom = 28.0
+offset_bottom = 9.0
 mouse_filter = 2
 theme_override_colors/default_color = Color(0.11372549, 0.101960786, 0.19215687, 1)
 theme_override_constants/line_separation = 2
 theme_override_fonts/normal_font = ExtResource("5_rhnyp")
 theme_override_font_sizes/normal_font_size = 16
 theme_override_styles/focus = SubResource("StyleBoxEmpty_00dp2")
-text = "aaaaaa"
+text = "Bom. Aproveite o seu novo \"emprego\"... eu acho..."
 fit_content = true
 
 [node name="Carimbo" parent="World" instance=ExtResource("6_bxtam")]
