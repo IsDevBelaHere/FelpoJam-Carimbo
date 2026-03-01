@@ -20,6 +20,7 @@ public partial class CarimboManager : Node
 	public int roundingGrid = 2;
 	public bool freezeOverlayMovement = true;
 	public Node2D newCarimboOverlay;
+	public bool succeded = false;
 	public bool isOutOfCarimbos = false;
 	#pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
 	public Vector2 roundToMultiple(Vector2 coords, int rounding)
@@ -198,14 +199,30 @@ public partial class CarimboManager : Node
 		freezeOverlayMovement = false;
 		if (levelInfo.carimboAmounts[Carimbo.GetIndexByCarimbo(carimboType)] == 0)
 		{
-			for (int i = 0; i < 7; i++)
+			bool succeded = false;
+
+			for (int i = Carimbo.GetIndexByCarimbo(carimboType); i < 7; i++)
 			{
 				if (levelInfo.carimboAmounts[i] > 0)
 				{
 					CarimboSelect(i + 1,true);
+					succeded = true;
 					break;
 				}
 			}
+
+			if (!succeded)
+			{
+				for (int i = 0; i < 7; i++)
+				{
+					if (levelInfo.carimboAmounts[i] > 0)
+					{
+						CarimboSelect(i + 1,true);
+						break;
+					}
+				}
+			}
+
 			if (levelInfo.carimboAmounts[Carimbo.GetIndexByCarimbo(carimboType)] == 0)
 			{
 				newCarimboOverlay.Visible = false;
