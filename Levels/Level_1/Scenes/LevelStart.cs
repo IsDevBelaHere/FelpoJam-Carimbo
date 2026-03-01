@@ -99,7 +99,9 @@ public partial class LevelStart : Control
 		if (Input.IsActionJustPressed("pause"))
 		{
 			Control fodase = GetChild<Control>(3);
-			fodase.Visible =! fodase.Visible;
+			Control configsMenu = fodase.GetChild<Control>(1);
+			configsMenu.Visible = false;
+			fodase.Visible = !fodase.Visible;
 
 			Player.instance.frozen = fodase.Visible;
 			if (CarimboManager.instance.newCarimboOverlay != null)

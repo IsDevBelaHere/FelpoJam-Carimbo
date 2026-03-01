@@ -7,3 +7,4 @@ script = ExtResource("1_x51y3")
 masterAudio = 0.5
 effectsAudio = 0.5
 musicAudio = 0.5
+resolution = Vector2i(1280, 720)

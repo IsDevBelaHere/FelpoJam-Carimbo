@@ -406,6 +406,7 @@ size_flags_horizontal = 6
 size_flags_vertical = 4
 
 [node name="Menu" type="MarginContainer" parent="Screen/HBoxContainer/Right Middle"]
+visible = false
 custom_minimum_size = Vector2(256, 320)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -587,7 +588,6 @@ script = null
 layout_mode = 2
 
 [node name="SettingsMenu" type="MarginContainer" parent="Screen/HBoxContainer/Right Middle"]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -685,7 +685,7 @@ size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("12_7p5m2")
 theme_override_font_sizes/font_size = 8
 theme_override_styles/focus = SubResource("StyleBoxEmpty_fxghf")
-selected = 3
+selected = 2
 item_count = 4
 popup/item_0/text = "2560x1440"
 popup/item_0/id = 0
@@ -716,7 +716,7 @@ size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("12_7p5m2")
 theme_override_font_sizes/font_size = 8
 theme_override_styles/focus = SubResource("StyleBoxEmpty_fxghf")
-selected = 2
+selected = 0
 fit_to_longest_item = false
 item_count = 3
 popup/item_0/text = "Janela"
