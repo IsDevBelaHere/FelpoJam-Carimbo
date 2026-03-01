@@ -12,7 +12,7 @@ config_version=5
 
 config/name="A Vaga de Karimbo"
 config/version="1.0.0.0.0.0.0.0.0.0.0"
-run/main_scene="uid://b038j1mampu0"
+run/main_scene="uid://deluxceh5ahtu"
 config/features=PackedStringArray("4.5", "C#", "GL Compatibility")
 config/icon="uid://cjmyu8c6q7wwj"
 
