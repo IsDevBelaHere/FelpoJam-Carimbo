@@ -186,9 +186,9 @@ text = "O contratado deverá completar 66 horas semanais, trabalhando de segunda
 fit_content = true
 
 [node name="Tips3" type="RichTextLabel" parent="World"]
-offset_left = -292.0
+offset_left = -228.0
 offset_top = -119.0
-offset_right = 123.0
+offset_right = 187.0
 offset_bottom = 36.0
 theme_override_colors/default_color = Color(0.11372549, 0.101960786, 0.19215687, 1)
 theme_override_constants/line_separation = 2

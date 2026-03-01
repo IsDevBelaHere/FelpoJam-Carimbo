@@ -112,9 +112,9 @@ position = Vector2(4, 307)
 sceneSpeedMultiplier = 0.5
 
 [node name="Tips2" type="RichTextLabel" parent="World"]
-offset_left = -292.0
+offset_left = -226.0
 offset_top = -119.0
-offset_right = 123.0
+offset_right = 189.0
 offset_bottom = 36.0
 mouse_filter = 2
 theme_override_colors/default_color = Color(0.11372549, 0.101960786, 0.19215687, 1)
@@ -122,10 +122,7 @@ theme_override_constants/line_separation = 2
 theme_override_fonts/normal_font = ExtResource("6_rpl1d")
 theme_override_font_sizes/normal_font_size = 16
 theme_override_styles/focus = SubResource("StyleBoxEmpty_upulf")
-text = "A frase \"assine em baixo\" não pode ser utilizada para se referir a assinatura deste documento. A área de assinatura                        está em um lugar extremamente alto, seu carimbo de pulo                       não consegue levar a gota de tinta até aqui, então pense em um                            jeito dela ficar por  mais tempo dentro do carimbo para                                                   ganhar mais velocidade de pulo...
-
-A tinta desse texto é antiaderente, então não se preocupe com o fato da gota de tinta \"grudar\" quando for passar por ele.
-"
+text = "A frase \"assine em baixo\" não pode ser utilizada para se referir a assinatura deste documento. A área de                       assinatura está em um lugar extremamente alto, seu                              carimbo de pulo não consegue levar a gota de tinta até aqui,                               então pense em um jeito dela ficar por  mais tempo dentro do                                           carimbo para ganhar mais velocidade de pulo...                                             A tinta desse texto é antiaderente, então não se preocupe com o fato da gota de tinta \"grudar\" quando for passar por ele."
 fit_content = true
 
 [node name="Tips3" type="RichTextLabel" parent="World"]
