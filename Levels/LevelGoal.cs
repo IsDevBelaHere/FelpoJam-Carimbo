@@ -43,14 +43,19 @@ public partial class LevelGoal : Area2D
             CarimboManager.instance.newCarimboOverlay.Visible = false;
             GetChild<Button>(8).Disabled = false;
             CallTween();
+            StaticAudioPlayer.instance.SetEffectEnabled("Music",0);
         }
     }
     public void PutAStamp()
 	{
         Player.instance.Visible = false;
-		GetChild<TextureRect>(1 ).Visible = true;
+		GetChild<TextureRect>(1).Visible = true;
 		GetChild<AudioStreamPlayer2D>(2).Play();
         GetChild<AnimationPlayer>(7).Stop();
+        if (!LevelStart.IsLevelNewDocument())
+        {
+            LevelStart.instance.PullFolder();
+        }
 	}
     public void ButtonUp_PlayAnimation()
     {

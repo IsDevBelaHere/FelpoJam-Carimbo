@@ -11,6 +11,8 @@ public partial class LevelStart : Control
 	public Label startLabel;
 	public Label endLabel;
 	public Configs configFile;
+	public AnimationPlayer folderAnimation;
+	public ColorRect blackScreen;
 	public override void _Ready()
 	{
 		if (instance != this)
@@ -20,6 +22,8 @@ public partial class LevelStart : Control
 			bluePen = resetingControl.GetChild<Sprite2D>(1);
 			startLabel = GetChild<Label>(1);
 			endLabel = GetChild<Label>(2);
+			folderAnimation = GetChild<Sprite2D>(4).GetChild<AnimationPlayer>(0);
+			blackScreen = GetChild<ColorRect>(5);
 
 			configFile = GetChild<InGameMenu>(3).configResource;
 
@@ -32,16 +36,30 @@ public partial class LevelStart : Control
 		{
 			QueueFree();
 		}
-		if (((int)LevelGoal.instance.nextLevel - 1) % 2 == 1)
+		if (IsLevelNewDocument())
 		{
 			ProgressManager.Progress.levels[((int)LevelGoal.instance.nextLevel/2) - 1] = 1;
 			ProgressManager.Progress.SaveData(ProgressManager.Progress.path);
 		}
 	}
 
+	public static bool IsLevelNewDocument()
+	{
+		return ((int)LevelGoal.instance.nextLevel - 1) % 2 == 1;
+	}
 	public void EndGame()
 	{
 		endLabel.Visible = true;
+	}
+	public async void GoToNextLevel()
+	{
+		Tween tween = GetTree().CreateTween();
+		tween.TweenProperty(blackScreen,"modulate", new Color(0,0,0,1),0.1f);
+		blackScreen.Visible = true;
+		tween.Play();
+		await ToSignal(tween,"finished");
+		StaticAudioPlayer.instance.SetEffectEnabled("Music",0,false);
+		CallDeferred(MethodName.PerformSceneChange, (int)LevelGoal.instance.nextLevel);
 	}
 	public override void _Process(double delta)
 	{
@@ -52,7 +70,7 @@ public partial class LevelStart : Control
 			Player.instance.speedMultiplier = Player.instance.sceneSpeedMultiplier;
 		}else if (Input.IsActionJustPressed("confirm") && endLabel.Visible)
 		{
-			CallDeferred(MethodName.PerformSceneChange, (int)LevelGoal.instance.nextLevel);
+			GoToNextLevel();
 		}
 
 		if (Input.IsActionPressed("confirm"))
@@ -78,7 +96,7 @@ public partial class LevelStart : Control
 			resetTimer = 0;
 		}
 
-		if (Input.IsActionJustReleased("pause"))
+		if (Input.IsActionJustPressed("pause"))
 		{
 			Control fodase = GetChild<Control>(3);
 			fodase.Visible =! fodase.Visible;
@@ -91,6 +109,10 @@ public partial class LevelStart : Control
 			}
 		}
 
+	}
+	public void PullFolder()
+	{
+		folderAnimation.Play("pull");
 	}
 	public void PerformSceneChange(int nextLevel)
     {

@@ -21,7 +21,7 @@ public partial class CarimboManager : Node
 	public bool freezeOverlayMovement = true;
 	public Node2D newCarimboOverlay;
 	public bool isOutOfCarimbos = false;
-
+	#pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
 	public Vector2 roundToMultiple(Vector2 coords, int rounding)
 	{
 		int numberX = (int)coords.X / rounding * rounding;
@@ -83,11 +83,16 @@ public partial class CarimboManager : Node
 		}
 	}
 
-	public void CarimboSelect(int carimboToSpawn)
+	public void CarimboSelect(int carimboToSpawn, bool silent = false)
 	{
 		if ((carimboType == "CarimboPlatform" && carimboToSpawn != 1) || (carimboType == "CarimboSlime" && carimboToSpawn != 5) || (carimboType == "CarimboDelete" && carimboToSpawn != 7))
 			{
 				newCarimboOverlay.GetChild<Area2D>(1).CollisionMask = 1<<(6-1)|1<<(5-1);
+			}
+
+			if (carimboType != Carimbo.GetCarimboByAction("karimbo_slot" + carimboToSpawn) && !silent)
+			{
+				StaticAudioPlayer.instance.CreatePlaySFX("res://Models/Audios/fx/selecionar carimbo/SelecionarCarimboCURTO.ogg");
 			}
 
 			carimboType = Carimbo.GetCarimboByAction("karimbo_slot" + carimboToSpawn);
@@ -118,7 +123,6 @@ public partial class CarimboManager : Node
 				{
 					break;
 				}
-
 				CarimboSelect(keyToCarimboArray[i]);
 			}
 		}
@@ -158,7 +162,6 @@ public partial class CarimboManager : Node
 
 		if (Input.IsActionJustPressed("mouse_1"))
 		{
-#pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
 			SpawnKarimbo();
 			freezeOverlayMovement = true;
 		}
@@ -199,7 +202,7 @@ public partial class CarimboManager : Node
 			{
 				if (levelInfo.carimboAmounts[i] > 0)
 				{
-					CarimboSelect(i + 1);
+					CarimboSelect(i + 1,true);
 					break;
 				}
 			}

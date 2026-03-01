@@ -3,11 +3,13 @@ using System;
 
 public partial class OutroScript : Control
 {
+	#pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
 	[Export] public Label label;
 	public string text;
 	public override void _Ready()
 	{
 		StaticAudioPlayer.instance.PlayCD("res://Models/Audios/fx/tecladoPC.ogg",true);
+		StaticAudioPlayer.instance.CreatePlaySFX("res://Models/Audios/fx/colocando_café.ogg");
 
 		text = label.Text;
 		label.Text = "";

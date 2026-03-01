@@ -22,6 +22,13 @@ public partial class StaticAudioPlayer : Node
         audioPlayer = GetChild<AudioStreamPlayer2D>(0);
         audioListener = GetChild<AudioListener2D>(1);
     }
+
+    public void SetEffectEnabled(string audioBusName, int effectIndex, bool enabled = true)
+    {
+        int audioBusIndex = AudioServer.GetBusIndex(audioBusName);
+
+        AudioServer.SetBusEffectEnabled(audioBusIndex, effectIndex, enabled);
+    }
     
     public void PlayCD(string path, bool looping = false)
     {
@@ -56,6 +63,7 @@ public partial class StaticAudioPlayer : Node
             Stream = stream,
             Bus = "Effects"
         };
+        AddChild(sfxAudioPlayer);
         sfxAudioPlayer.Play();
         ManageSFXLoop(sfxAudioPlayer, looping);
         return sfxAudioPlayer;
@@ -68,7 +76,7 @@ public partial class StaticAudioPlayer : Node
             obj.QueueFree();
         }
     }
-    public async Task<AudioStreamPlayer2D> CreateSFX(string streamPath, bool looping = false)
+    public async Task<AudioStreamPlayer2D> CreatePlaySFX(string streamPath, bool looping = false)
     {
         AudioStreamPlayer2D sfxAudioPlayer = await CreatePlaySFX(GD.Load<AudioStreamOggVorbis>(streamPath).Duplicate() as AudioStreamOggVorbis, looping);
         return sfxAudioPlayer;

@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://df55ympqe45d8"]
+[gd_scene load_steps=35 format=3 uid="uid://df55ympqe45d8"]
 
 [ext_resource type="Script" uid="uid://cdy6k85772vqm" path="res://Levels/Level_1/Scenes/LevelStart.cs" id="1_s5duf"]
 [ext_resource type="Texture2D" uid="uid://ccahv3fvn81j2" path="res://Models/InGameUI/PaperResetingLevel-Sheet.png" id="2_ovh3k"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://7pmulhpm2kws" path="res://Models/Grid/Grid.png" id="8_smah0"]
 [ext_resource type="FontFile" uid="uid://bypy357spaisb" path="res://Models/Fonts/Undead Pixel 8.ttf" id="9_yljcp"]
 [ext_resource type="Script" uid="uid://bo0ndsfpai38x" path="res://Levels/MainMenu/Scenes/option_button_resize.gd" id="10_3nth4"]
+[ext_resource type="Texture2D" uid="uid://dhpjmt6lil1bn" path="res://Models/InGameUI/Folder.png" id="11_yljcp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rsxid"]
 atlas = ExtResource("2_ovh3k")
@@ -158,6 +159,69 @@ font_size = 48
 font = ExtResource("4_g5r7q")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7jtsf"]
+
+[sub_resource type="Animation" id="Animation_thla1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-364, -25)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_3nth4"]
+resource_name = "pull"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1.0717742, 0.25881627, 1),
+"update": 0,
+"values": [Vector2(-364, -25), Vector2(316.285, 138.95), Vector2(428.435, 190.375)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1.0717742, 0.25881627, 1),
+"update": 0,
+"values": [0.0, 1.6109388995907663, 1.8517943363659841]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fs0l4"]
+_data = {
+&"RESET": SubResource("Animation_thla1"),
+&"pull": SubResource("Animation_3nth4")
+}
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yljcp"]
 
 [node name="LevelStart" type="Control"]
 layout_mode = 3
@@ -549,6 +613,34 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 0.39215687)
+
+[node name="Folder" type="Sprite2D" parent="."]
+position = Vector2(-364, -25)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("11_yljcp")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Folder"]
+libraries = {
+&"": SubResource("AnimationLibrary_fs0l4")
+}
+
+[node name="OpenFolder" type="Button" parent="Folder"]
+offset_left = -78.000015
+offset_top = -112.0
+offset_right = 86.66667
+offset_bottom = 113.33334
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yljcp")
+flat = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
 
 [connection signal="button_up" from="UI/TextureRect/Button3" to="UI" method="ButtonUp_Return"]
 [connection signal="button_up" from="UI/TextureRect/Button2" to="UI" method="ButtonUp_Configs"]
