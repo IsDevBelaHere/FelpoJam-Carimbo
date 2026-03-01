@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bummpi5iuiv4e"]
+[gd_scene load_steps=21 format=3 uid="uid://bummpi5iuiv4e"]
 
 [ext_resource type="Texture2D" uid="uid://dhoixuvj47c8c" path="res://Levels/Table_OnLevel.png" id="1_16byx"]
 [ext_resource type="Texture2D" uid="uid://tmnv5ol7xqqv" path="res://Levels/LevelBackground.png" id="2_50b4a"]
@@ -20,13 +20,16 @@ font_size = 8
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c2f8a"]
-size = Vector2(117, 18.5)
+size = Vector2(117, 19)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8pdc5"]
-size = Vector2(116, 20)
+size = Vector2(117, 19)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nehrt"]
+size = Vector2(271, 19)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yx30r"]
-size = Vector2(46, 18.5)
+size = Vector2(44, 19)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_00dp2"]
 
@@ -80,11 +83,11 @@ sss da aaaaaaaaa  asd asdasda"
 label_settings = SubResource("LabelSettings_wy8uh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Plataform3"]
-position = Vector2(0.5, 0.25)
+position = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_c2f8a")
 
 [node name="Plataform4" type="StaticBody2D" parent="World"]
-position = Vector2(-62, 103)
+position = Vector2(-106, 111)
 collision_layer = 528
 collision_mask = 0
 
@@ -106,8 +109,34 @@ sss da aaaaaaaaa  asd asdasda"
 label_settings = SubResource("LabelSettings_wy8uh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Plataform4"]
-position = Vector2(1, 1)
+position = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_8pdc5")
+
+[node name="Plataform6" type="StaticBody2D" parent="World"]
+position = Vector2(-244, -74)
+collision_layer = 528
+collision_mask = 0
+
+[node name="Label" type="Label" parent="World/Plataform6"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -53.0
+offset_top = -11.0
+offset_right = 240.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "asddd vugnaes sra dsaa asdsda fdfsdf dfdfd sssss ss sssss ss sss sssss
+sss da aaaaaaaaa  asd asdasdaff sddd sss ddd sdssdsd sdss s sds sdss"
+label_settings = SubResource("LabelSettings_wy8uh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Plataform6"]
+position = Vector2(82.5, 0.5)
+shape = SubResource("RectangleShape2D_nehrt")
 
 [node name="Plataform5" type="StaticBody2D" parent="World"]
 position = Vector2(-171, -37)
@@ -120,10 +149,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -58.0
-offset_top = -11.5
-offset_right = 58.0
-offset_bottom = 11.5
+offset_left = -56.0
+offset_top = -11.0
+offset_right = 60.0
+offset_bottom = 12.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -132,11 +161,11 @@ sss da aaaa"
 label_settings = SubResource("LabelSettings_wy8uh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Plataform5"]
-position = Vector2(-35, 0.25)
+position = Vector2(-34, 0.5)
 shape = SubResource("RectangleShape2D_yx30r")
 
 [node name="LevelGoal" parent="World" instance=ExtResource("4_rbris")]
-position = Vector2(-265, -51)
+position = Vector2(-267, -29)
 
 [node name="Tips2" type="RichTextLabel" parent="World"]
 offset_left = -262.0
@@ -172,7 +201,7 @@ position = Vector2(-151, -30)
 carimboRes = ExtResource("7_nehrt")
 
 [node name="Carimbo2" parent="World" instance=ExtResource("6_bxtam")]
-position = Vector2(146, 7)
+position = Vector2(152, 62)
 carimboRes = ExtResource("8_nehrt")
 
 [node name="OverWorld" type="Node2D" parent="."]
