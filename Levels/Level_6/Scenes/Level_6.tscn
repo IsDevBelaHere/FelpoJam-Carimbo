@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dfudiu67gj388"]
+[gd_scene load_steps=18 format=3 uid="uid://btq4ctjtadv6x"]
 
 [ext_resource type="Texture2D" uid="uid://dhoixuvj47c8c" path="res://Levels/Table_OnLevel.png" id="1_4iq7m"]
 [ext_resource type="Texture2D" uid="uid://tmnv5ol7xqqv" path="res://Levels/LevelBackground.png" id="2_iab7p"]
@@ -44,7 +44,6 @@ position = Vector2(320, 180)
 
 [node name="Map" type="Area2D" parent="World"]
 position = Vector2(-52, 0)
-scale = Vector2(-1, 1)
 collision_layer = 16
 collision_mask = 8
 
@@ -138,30 +137,30 @@ position = Vector2(-238, -60)
 nextLevel = 11
 
 [node name="Tips2" type="RichTextLabel" parent="World"]
-offset_left = -103.0
-offset_top = -4.0
-offset_right = 114.0
-offset_bottom = 89.0
+offset_left = -292.0
+offset_top = 108.0
+offset_right = -75.0
+offset_bottom = 201.0
 theme_override_colors/default_color = Color(0.11372549, 0.101960786, 0.19215687, 1)
 theme_override_constants/line_separation = 2
 theme_override_fonts/normal_font = ExtResource("5_3yvde")
 theme_override_font_sizes/normal_font_size = 16
 theme_override_styles/focus = SubResource("StyleBoxEmpty_00dp2")
-text = "aaaaa"
+text = "O contrato realizará as atividades inerentes ao cargo e outras solicitadas."
 fit_content = true
 
 [node name="Tips3" type="RichTextLabel" parent="World"]
-offset_left = -228.0
-offset_top = -119.0
-offset_right = 187.0
-offset_bottom = 36.0
+offset_left = -285.0
+offset_top = -145.0
+offset_right = 109.0
+offset_bottom = -87.0
 mouse_filter = 2
 theme_override_colors/default_color = Color(0.11372549, 0.101960786, 0.19215687, 1)
 theme_override_constants/line_separation = 2
 theme_override_fonts/normal_font = ExtResource("5_3yvde")
 theme_override_font_sizes/normal_font_size = 16
 theme_override_styles/focus = SubResource("StyleBoxEmpty_00dp2")
-text = "aaaaa"
+text = "Um contrato é um acordo entre duas ou mais partes que cria ou retira direitos de ambas as partes. É importante interpretar com cuidado as letras do documento e perceber se não há desvantagem excessiva entre as partes."
 fit_content = true
 
 [node name="OverWorld" type="Node2D" parent="."]
