@@ -2,6 +2,7 @@ using Godot;
 using System;
 public partial class LevelStart : Control
 {
+	#pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
 	[Export] public AudioStreamOggVorbis levelMusic;
 	public static LevelStart instance;
 	public double resetTimer;
@@ -40,6 +41,10 @@ public partial class LevelStart : Control
 		{
 			ProgressManager.Progress.levels[((int)LevelGoal.instance.nextLevel/2) - 1] = 1;
 			ProgressManager.Progress.SaveData(ProgressManager.Progress.path);
+		}
+		else
+		{
+			StaticAudioPlayer.instance.CreatePlaySFX("res://Models/Audios/fx/Papeis/Folhando3.ogg",false);
 		}
 	}
 
