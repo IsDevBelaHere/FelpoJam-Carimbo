@@ -1,12 +1,15 @@
-[gd_scene load_steps=15 format=3 uid="uid://bummpi5iuiv4e"]
+[gd_scene load_steps=20 format=3 uid="uid://bummpi5iuiv4e"]
 
 [ext_resource type="Texture2D" uid="uid://dhoixuvj47c8c" path="res://Levels/Table_OnLevel.png" id="1_16byx"]
 [ext_resource type="Texture2D" uid="uid://tmnv5ol7xqqv" path="res://Levels/LevelBackground.png" id="2_50b4a"]
 [ext_resource type="FontFile" uid="uid://cxkgi55cpw22q" path="res://Models/Fonts/DummyText.ttf" id="3_ekyqy"]
 [ext_resource type="PackedScene" uid="uid://bted0exekw6dl" path="res://Levels/levelGoal.tscn" id="4_rbris"]
 [ext_resource type="FontFile" uid="uid://22nm7d6brli" path="res://Models/Fonts/Bitrimus.ttf" id="5_rhnyp"]
+[ext_resource type="PackedScene" uid="uid://dvx3wclkbuddl" path="res://Entities/Karimbos/Scenes/carimbo.tscn" id="6_bxtam"]
 [ext_resource type="PackedScene" uid="uid://bjgx0mn6fma2v" path="res://Entities/Player/Scenes/player.tscn" id="6_fhw53"]
+[ext_resource type="Resource" uid="uid://dj5h721i45t5p" path="res://Entities/Karimbos/Resources/CarimboPlatform.tres" id="7_nehrt"]
 [ext_resource type="PackedScene" uid="uid://dokvesmocnlac" path="res://Levels/boundaries.tscn" id="7_o6sfk"]
+[ext_resource type="Resource" uid="uid://ddps8kvbkf12t" path="res://Entities/Karimbos/Resources/CarimboSwap.tres" id="8_nehrt"]
 [ext_resource type="PackedScene" uid="uid://cjo5jkj23qw0o" path="res://Entities/Player/Scenes/carimbo_manager.tscn" id="8_w3l0e"]
 [ext_resource type="Script" uid="uid://biydjcqqhonff" path="res://Levels/LevelInfo.cs" id="9_5rhh0"]
 [ext_resource type="PackedScene" uid="uid://df55ympqe45d8" path="res://Levels/level_start.tscn" id="10_717e4"]
@@ -16,15 +19,21 @@ font = ExtResource("3_ekyqy")
 font_size = 8
 font_color = Color(0, 0, 0, 1)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4i1tu"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c2f8a"]
 size = Vector2(117, 18.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8pdc5"]
+size = Vector2(116, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yx30r"]
+size = Vector2(46, 18.5)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_00dp2"]
 
 [sub_resource type="Resource" id="Resource_od5ij"]
 resource_local_to_scene = true
 script = ExtResource("9_5rhh0")
-carimboAmounts = PackedInt32Array(0, 0, 0, 0, 0, 1, 0)
+carimboAmounts = PackedInt32Array(0, 1, 0, 1, 1, 1, 1)
 
 [node name="Level_5" type="Node2D"]
 
@@ -48,12 +57,12 @@ texture = ExtResource("2_50b4a")
 visible = false
 polygon = PackedVector2Array(-256, -160, 180, -160, 256, -95, 256, 160, -256, 160, -256, -158, -268, -158, -268, 180, 372, 180, 372, -180, -268, -180, -268, -159)
 
-[node name="Plataform" type="StaticBody2D" parent="World"]
-position = Vector2(-171, -74)
+[node name="Plataform3" type="StaticBody2D" parent="World"]
+position = Vector2(-62, -37)
 collision_layer = 528
 collision_mask = 0
 
-[node name="Label" type="Label" parent="World/Plataform"]
+[node name="Label" type="Label" parent="World/Plataform3"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -70,12 +79,64 @@ text = "asddd vugnaes sra dsaa asdsda
 sss da aaaaaaaaa  asd asdasda"
 label_settings = SubResource("LabelSettings_wy8uh")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Plataform"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Plataform3"]
 position = Vector2(0.5, 0.25)
-shape = SubResource("RectangleShape2D_4i1tu")
+shape = SubResource("RectangleShape2D_c2f8a")
+
+[node name="Plataform4" type="StaticBody2D" parent="World"]
+position = Vector2(-62, 103)
+collision_layer = 528
+collision_mask = 0
+
+[node name="Label" type="Label" parent="World/Plataform4"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.0
+offset_top = -11.5
+offset_right = 58.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "asddd vugnaes sra dsaa asdsda
+sss da aaaaaaaaa  asd asdasda"
+label_settings = SubResource("LabelSettings_wy8uh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Plataform4"]
+position = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_8pdc5")
+
+[node name="Plataform5" type="StaticBody2D" parent="World"]
+position = Vector2(-171, -37)
+collision_layer = 528
+collision_mask = 0
+
+[node name="Label" type="Label" parent="World/Plataform5"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.0
+offset_top = -11.5
+offset_right = 58.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "asddd vugn
+sss da aaaa"
+label_settings = SubResource("LabelSettings_wy8uh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Plataform5"]
+position = Vector2(-35, 0.25)
+shape = SubResource("RectangleShape2D_yx30r")
 
 [node name="LevelGoal" parent="World" instance=ExtResource("4_rbris")]
-position = Vector2(-15, 85)
+position = Vector2(-265, -51)
 
 [node name="Tips2" type="RichTextLabel" parent="World"]
 offset_left = -262.0
@@ -106,12 +167,20 @@ text = "Dar uma meia volta é sempre uma opção, porém, você abandonou essa o
     Carimbe com \"Virar\" para inverter a direção da gota de tinta."
 fit_content = true
 
+[node name="Carimbo" parent="World" instance=ExtResource("6_bxtam")]
+position = Vector2(-151, -30)
+carimboRes = ExtResource("7_nehrt")
+
+[node name="Carimbo2" parent="World" instance=ExtResource("6_bxtam")]
+position = Vector2(146, 7)
+carimboRes = ExtResource("8_nehrt")
+
 [node name="OverWorld" type="Node2D" parent="."]
 position = Vector2(51, -15)
 
 [node name="Player" parent="OverWorld" instance=ExtResource("6_fhw53")]
-position = Vector2(98, 112)
-sceneSpeedMultiplier = 2.0
+position = Vector2(63, 149)
+sceneSpeedMultiplier = 0.8
 
 [node name="Boundaries" parent="." instance=ExtResource("7_o6sfk")]
 position = Vector2(-36, -7)

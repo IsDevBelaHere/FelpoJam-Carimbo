@@ -111,7 +111,7 @@ public partial class Player : CharacterBody2D
 					{
 						if (collider.GetParent<KarimboTrigger>().carimboRes is CarimboSlime)
 						{
-							velocity = velocity.Bounce(collision.GetNormal());
+							velocity = velocity.Bounce(collision.GetNormal()) * .9f;
 							delay = 2;
 						}
 					}
