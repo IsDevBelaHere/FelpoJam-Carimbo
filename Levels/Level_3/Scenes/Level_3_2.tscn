@@ -72,8 +72,8 @@ size_flags_horizontal = 4
 text = "aksdjask laksjdalks djalks alskjdalskdjakj a sdjaskl djalsdkal
 kasdjak dak ja kk aj ksdjksdjaksd jas kjdak sjk kajsdkajsdka
     iuiiusad isduasi duisada  uds aisduiaudiusad us aiduia u
-ads sda
-   aisdjas aisdjas idsai duasi udai uaiudaiudaisduaisuiasudasidusaidu aidu aisd"
+ads sdafdfdfsdf sssss sss s s ssss ssss ss sssssss sss s
+sssssssss ssss sssa aaaa aaa aaaaa aaa aaaa aaa aaa a"
 label_settings = SubResource("LabelSettings_uehxh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Plataform"]
