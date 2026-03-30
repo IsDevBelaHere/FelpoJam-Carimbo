@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Threading.Tasks;
 public partial class LevelStart : Control
 {
 	#pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
@@ -56,7 +57,7 @@ public partial class LevelStart : Control
 	{
 		endLabel.Visible = true;
 	}
-	public async void GoToNextLevel()
+	public async Task GoToNextLevel()
 	{
 		Tween tween = GetTree().CreateTween();
 		tween.TweenProperty(blackScreen,"modulate", new Color(0,0,0,1),0.1f);

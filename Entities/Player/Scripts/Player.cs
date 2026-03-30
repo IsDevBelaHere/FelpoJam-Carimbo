@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 public partial class Player : CharacterBody2D
@@ -16,7 +17,11 @@ public partial class Player : CharacterBody2D
 	public AnimatedSprite2D animatedSprite2D;
 	public int delay = 0;
 	public bool frozen;
-
+	public List<Action> executeOnNextFrame = new();
+	public void ReloadScene()
+	{
+		GetTree().ReloadCurrentScene();
+	}
     public override void _Ready()
     {
         if (instance != this)
@@ -52,9 +57,22 @@ public partial class Player : CharacterBody2D
 		await ToSignal(GetTree().CreateTimer(.5f), SceneTreeTimer.SignalName.Timeout);
 		if (IsInsideTree())
 		{
-			GetTree().ReloadCurrentScene();
+			executeOnNextFrame.Add(ReloadScene);
 		}
 	}
+    public override void _Process(double delta)
+    {
+        if (executeOnNextFrame.Count == 0)
+		{
+			return;
+		}
+		
+		for (int i = 0; i < executeOnNextFrame.Count -1; i++)
+		{
+			executeOnNextFrame[i].Invoke();
+		}
+    }
+
 
 	public override void _PhysicsProcess(double delta)
     {
