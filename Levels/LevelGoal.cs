@@ -16,6 +16,7 @@ public partial class LevelGoal : Area2D
 		{
 			QueueFree();
 		}
+        
     }
 
     public async Task CallTween()
@@ -38,6 +39,7 @@ public partial class LevelGoal : Area2D
     {
         if (collider is Player && !Player.instance.frozen)
         {
+            LevelStart.instance.playerReachedGoal = true;
             Player.instance.frozen = true;
             CarimboManager.instance.freezeOverlayMovement = true;
             CarimboManager.instance.newCarimboOverlay.Visible = false;
@@ -50,8 +52,11 @@ public partial class LevelGoal : Area2D
 	{
         Player.instance.Visible = false;
 		GetChild<TextureRect>(1).Visible = true;
+        
 		GetChild<AudioStreamPlayer2D>(2).Play();
         GetChild<AnimationPlayer>(7).Stop();
+
+        LevelStart.instance.gameStarted = false;
         if (!LevelStart.IsLevelNewDocument())
         {
             LevelStart.instance.PullFolder();

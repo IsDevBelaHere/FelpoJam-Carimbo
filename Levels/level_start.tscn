@@ -140,26 +140,6 @@ font_color = Color(0.94082916, 0.9390667, 0.97368675, 1)
 shadow_size = 4
 shadow_color = Color(0, 0, 0, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_3u31q"]
-font = ExtResource("4_g5r7q")
-font_size = 48
-font_color = Color(0.11372549, 0.101960786, 0.19215687, 1)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_142l6"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_thla1"]
-font = ExtResource("4_g5r7q")
-font_size = 48
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fs0l4"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7ju84"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_vud2m"]
-font = ExtResource("4_g5r7q")
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7jtsf"]
-
 [sub_resource type="Animation" id="Animation_thla1"]
 length = 0.001
 tracks/0/type = "value"
@@ -222,6 +202,26 @@ _data = {
 }
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yljcp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3u31q"]
+font = ExtResource("4_g5r7q")
+font_size = 48
+font_color = Color(0.11372549, 0.101960786, 0.19215687, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_142l6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_thla1"]
+font = ExtResource("4_g5r7q")
+font_size = 48
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fs0l4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7ju84"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vud2m"]
+font = ExtResource("4_g5r7q")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7jtsf"]
 
 [node name="LevelStart" type="Control"]
 layout_mode = 3
@@ -309,6 +309,24 @@ text = "Espaço para passar de level"
 label_settings = SubResource("LabelSettings_05a1t")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Folder" type="Sprite2D" parent="."]
+position = Vector2(-364, -25)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("11_yljcp")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Folder"]
+libraries = {
+&"": SubResource("AnimationLibrary_fs0l4")
+}
+
+[node name="OpenFolder" type="Button" parent="Folder"]
+offset_left = -78.000015
+offset_top = -112.0
+offset_right = 86.66667
+offset_bottom = 113.33334
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yljcp")
+flat = true
 
 [node name="UI" type="Control" parent="." node_paths=PackedStringArray("configMenu", "videoConfigs", "audioConfigs")]
 visible = false
@@ -613,24 +631,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 0.39215687)
-
-[node name="Folder" type="Sprite2D" parent="."]
-position = Vector2(-364, -25)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("11_yljcp")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Folder"]
-libraries = {
-&"": SubResource("AnimationLibrary_fs0l4")
-}
-
-[node name="OpenFolder" type="Button" parent="Folder"]
-offset_left = -78.000015
-offset_top = -112.0
-offset_right = 86.66667
-offset_bottom = 113.33334
-theme_override_styles/focus = SubResource("StyleBoxEmpty_yljcp")
-flat = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false

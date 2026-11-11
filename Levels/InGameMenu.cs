@@ -61,19 +61,18 @@ public partial class InGameMenu : Control
     public void SwitchState()
 	{
 		GD.Print("foi");
-
+		bool playerReachedGoal = LevelStart.instance.playerReachedGoal;
+		
 		isPaused = !isPaused;
 		configMenu.Visible = false;
 		this.Visible = isPaused;
 
-		if (CarimboManager.instance.newCarimboOverlay != null)
+		if (CarimboManager.instance.newCarimboOverlay != null && !playerReachedGoal)
 		{
-			CarimboManager.instance.freezeOverlayMovement = isPaused;;
-			CarimboManager.instance.newCarimboOverlay.Visible = !isPaused;;
+			CarimboManager.instance.freezeOverlayMovement = isPaused;
+			CarimboManager.instance.newCarimboOverlay.Visible = !isPaused;
+			Player.instance.frozen = isPaused;
 		}
-		
-		Player.instance.frozen = isPaused;
-		
 	}
 	public void ButtonUp_Return()
 	{

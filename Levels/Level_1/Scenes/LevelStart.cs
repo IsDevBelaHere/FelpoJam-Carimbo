@@ -9,6 +9,7 @@ public partial class LevelStart : Control
 	public static LevelStart instance;
 	public double resetTimer;
 	public bool gameStarted = false;
+	public bool playerReachedGoal = false;
 	public Control resetingControl;
 	public AnimatedSprite2D paper;
 	public Sprite2D bluePen;
@@ -27,9 +28,9 @@ public partial class LevelStart : Control
 			bluePen = resetingControl.GetChild<Sprite2D>(1);
 			startLabel = GetChild<Label>(1);
 			endLabel = GetChild<Label>(2);
-			folderAnimation = GetChild<Sprite2D>(4).GetChild<AnimationPlayer>(0);
+			folderAnimation = GetChild<Sprite2D>(3).GetChild<AnimationPlayer>(0);
 			blackScreen = GetChild<ColorRect>(5);
-			InGameMenu = GetChild<InGameMenu>(3);
+			InGameMenu = GetChild<InGameMenu>(4);
 
 			configFile = InGameMenu.configResource;
 
@@ -80,7 +81,7 @@ public partial class LevelStart : Control
 			Player.instance.speedMultiplier = Player.instance.sceneSpeedMultiplier;
 			gameStarted = true;
 
-		}else if (Input.IsActionJustPressed("confirm") && endLabel.Visible)
+		}else if (Input.IsActionJustPressed("confirm") && endLabel.Visible && !InGameMenu.isPaused)
 		{
 			GoToNextLevel();
 		}
@@ -98,6 +99,7 @@ public partial class LevelStart : Control
 			}
 			if (resetTimer > 1.5)
 			{
+				StaticAudioPlayer.instance.SetEffectEnabled("Music", 0, false);
 				GetTree().ReloadCurrentScene();
 			}
 		}

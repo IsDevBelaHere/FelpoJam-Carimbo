@@ -20,17 +20,15 @@ public partial class Player : CharacterBody2D
 	public List<Action> executeOnNextFrame = new();
 	public void ReloadScene()
 	{
-		GetTree().ReloadCurrentScene();
+		GetTree().CallDeferred("reload_current_scene");
 	}
     public override void _Ready()
     {
         if (instance != this)
 		{
 			instance = this;
-		} else
-		{
-			QueueFree();	
 		}
+
 		animatedSprite2D = GetChild<AnimatedSprite2D>(0);
 		animatedSprite2D.Play("Running");
     }
