@@ -40,7 +40,6 @@ public partial class StaticAudioPlayer : Node
 
         if (stream == currentStream)
         {
-            GD.Print('a');
             return;
         }
         if (audioPlayer.Playing)

@@ -59,7 +59,6 @@ public partial class MainMenu : MarginContainer
 						{
 							button.Disabled = false;
 							blocked.Visible = false;
-							GD.Print("0 === "+i+" : "+_i);
 						}
 						break;
 					case 1:
@@ -67,7 +66,6 @@ public partial class MainMenu : MarginContainer
 						{
 							button.Disabled = false;
 							blocked.Visible = false;
-							GD.Print("1 === "+i+" : "+_i);
 						}
 						break;
 				}
