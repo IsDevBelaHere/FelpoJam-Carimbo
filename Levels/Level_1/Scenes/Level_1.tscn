@@ -177,3 +177,4 @@ levelMusic = ExtResource("11_qbbii")
 
 [editable path="Boundaries"]
 [editable path="CarimboManager"]
+[editable path="LevelStart"]

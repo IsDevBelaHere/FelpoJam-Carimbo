@@ -11,6 +11,7 @@ public partial class InGameMenu : Control
 	[Export] Control audioConfigs;
 	[Export] Control keyBindsConfigs;
 	bool loadingMode = true;
+	public bool isPaused = false;
     public override void _Ready()
     {
 		if (FileAccess.FileExists("user://configs.tres"))
@@ -57,19 +58,26 @@ public partial class InGameMenu : Control
 		audioConfigs.GetChild<Control>(2).GetChild<HSlider>(1).Value = configResource.musicAudio;
 		audioConfigs.GetChild<Control>(2).GetChild<HSlider>(1).EmitSignal("value_changed",configResource.musicAudio);
 	}
-    
-	public void ButtonUp_Return()
+    public void SwitchState()
 	{
+		GD.Print("foi");
+
+		isPaused = !isPaused;
 		configMenu.Visible = false;
-		Visible = false;
-		
+		this.Visible = isPaused;
+
 		if (CarimboManager.instance.newCarimboOverlay != null)
 		{
-			CarimboManager.instance.freezeOverlayMovement = false;
-			CarimboManager.instance.newCarimboOverlay.Visible = true;
+			CarimboManager.instance.freezeOverlayMovement = isPaused;;
+			CarimboManager.instance.newCarimboOverlay.Visible = !isPaused;;
 		}
 		
-		Player.instance.frozen = false;
+		Player.instance.frozen = isPaused;
+		
+	}
+	public void ButtonUp_Return()
+	{
+		SwitchState();
 	}
 	public void ButtonUp_GoToMainMenu()
 	{
@@ -79,7 +87,7 @@ public partial class InGameMenu : Control
 
 	public void ButtonUp_Configs()
 	{
-		configMenu.Visible =! configMenu.Visible;	
+		configMenu.Visible =! configMenu.Visible;
 	}
 	public void ButtonUp_VideoMenu()
 	{

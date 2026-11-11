@@ -14,19 +14,18 @@ public partial class MainMenu : MarginContainer
 	[Export] public TextureRect overlay;
 	[Export] public MarginContainer settingMenu;
 	[Export] public AudioStreamPlayer2D monhado;
-	public Node2D instantiated_okCarimbo;
-	Levels levelSelected;
-	TextureRect rectSelected;
-	bool canClick = true;
-	bool confirmating;
-
 	[Export] public Configs configResource;
 
 	[ExportGroup("ConfigMenuTopics")]
 	[Export] Control videoConfigs;
 	[Export] Control audioConfigs;
-	[Export] Control keyBindsConfigs;
 	bool loadingMode = true;
+	bool canClick = true;
+	bool confirmating;
+	Node2D instantiated_okCarimbo;
+	Levels levelSelected;
+	TextureRect rectSelected;
+
     public override void _Ready()
     {
 		if (FileAccess.FileExists("user://configs.tres"))

@@ -5,8 +5,10 @@ public partial class LevelStart : Control
 {
 	#pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
 	[Export] public AudioStreamOggVorbis levelMusic;
+	
 	public static LevelStart instance;
 	public double resetTimer;
+	public bool gameStarted = false;
 	public Control resetingControl;
 	public AnimatedSprite2D paper;
 	public Sprite2D bluePen;
@@ -15,6 +17,7 @@ public partial class LevelStart : Control
 	public Configs configFile;
 	public AnimationPlayer folderAnimation;
 	public ColorRect blackScreen;
+	InGameMenu InGameMenu;
 	public override void _Ready()
 	{
 		if (instance != this)
@@ -26,8 +29,9 @@ public partial class LevelStart : Control
 			endLabel = GetChild<Label>(2);
 			folderAnimation = GetChild<Sprite2D>(4).GetChild<AnimationPlayer>(0);
 			blackScreen = GetChild<ColorRect>(5);
+			InGameMenu = GetChild<InGameMenu>(3);
 
-			configFile = GetChild<InGameMenu>(3).configResource;
+			configFile = InGameMenu.configResource;
 
 			if (levelMusic != null)
 			{
@@ -69,17 +73,19 @@ public partial class LevelStart : Control
 	}
 	public override void _Process(double delta)
 	{
-		if (Input.IsActionJustPressed("confirm") && startLabel.Visible)
+		if (Input.IsActionJustPressed("confirm") && startLabel.Visible && !InGameMenu.isPaused)
 		{
 			GetChild<Label>(1).Visible = false;
 			CarimboManager.instance.Start();
 			Player.instance.speedMultiplier = Player.instance.sceneSpeedMultiplier;
+			gameStarted = true;
+
 		}else if (Input.IsActionJustPressed("confirm") && endLabel.Visible)
 		{
 			GoToNextLevel();
 		}
 
-		if (Input.IsActionPressed("confirm"))
+		if (Input.IsActionPressed("confirm") && gameStarted)
 		{
 			if (!paper.IsPlaying())
 			{
@@ -95,7 +101,7 @@ public partial class LevelStart : Control
 				GetTree().ReloadCurrentScene();
 			}
 		}
-		if (Input.IsActionJustReleased("confirm"))
+		if (Input.IsActionJustReleased("confirm") && gameStarted)
 		{
 			paper.Stop();
 			resetingControl.Visible = false;
@@ -104,17 +110,7 @@ public partial class LevelStart : Control
 
 		if (Input.IsActionJustPressed("pause"))
 		{
-			Control fodase = GetChild<Control>(3);
-			Control configsMenu = fodase.GetChild<Control>(1);
-			configsMenu.Visible = false;
-			fodase.Visible = !fodase.Visible;
-
-			Player.instance.frozen = fodase.Visible;
-			if (CarimboManager.instance.newCarimboOverlay != null)
-			{
-				CarimboManager.instance.freezeOverlayMovement = fodase.Visible;
-				CarimboManager.instance.newCarimboOverlay.Visible = fodase.Visible;	
-			}
+			InGameMenu.SwitchState();
 		}
 
 	}
